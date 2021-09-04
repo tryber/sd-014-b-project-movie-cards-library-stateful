@@ -30,7 +30,6 @@ class MovieLibrary extends React.Component {
 
     this.setState({
       [name]: value,
-      movies: this.filteredMovies(),
     });
   };
 
