@@ -1,5 +1,9 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import ImagePath from './ImagePath';
+import Storyline from './Storyline';
+import Subtitle from './Subtitle';
+import Title from './Title';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
@@ -20,53 +24,30 @@ class AddMovie extends Component {
     // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título
-          <input
-            data-testid="title-input"
-            type="text"
-            name="title"
-            value={ title }
-            onChange={
-              ({ target: { value } }) => { this.setState({ title: value }); }
-            }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            onChange={
-              ({ target: { value } }) => { this.setState({ subtitle: value }); }
-            }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="image-input">
-          Imagem
-          <input
-            data-testid="image-input"
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            onChange={
-              ({ target: { value } }) => { this.setState({ imagePath: value }); }
-            }
-          />
-        </label>
-        <label data-testid="storyline-input-label" htmlFor="storyline-input">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            name="storyline"
-            value={ storyline }
-            onChange={
-              ({ target: { value } }) => { this.setState({ storyline: value }); }
-            }
-          />
-        </label>
+        <Title
+          title={ title }
+          onChange={
+            ({ target: { value } }) => { this.setState({ title: value }); }
+          }
+        />
+        <Subtitle
+          subtitle={ subtitle }
+          onChange={
+            ({ target: { value } }) => { this.setState({ subtitle: value }); }
+          }
+        />
+        <ImagePath
+          imagePath={ imagePath }
+          onChange={
+            ({ target: { value } }) => { this.setState({ imagePath: value }); }
+          }
+        />
+        <Storyline
+          storyline={ storyline }
+          onChange={
+            ({ target: { value } }) => { this.setState({ storyline: value }); }
+          }
+        />
       </form>
     );
   }
