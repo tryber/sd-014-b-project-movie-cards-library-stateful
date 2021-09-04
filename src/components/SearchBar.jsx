@@ -1,7 +1,6 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-  // noooo comitei na master
   render() {
     const {
       searchText,
@@ -14,12 +13,22 @@ class SearchBar extends React.Component {
 
     return (
       <div>
-        <span>{ searchText }</span>
-        <span>{ onSearchTextChange } </span>
+        <form data-testid="search-bar-form">
+          <label data-testid='text-input-label'>
+            Inclui o texto:
+            <input
+              value={ searchText }
+              onChange={ onSearchTextChange }
+              data-testid='text-input'
+            />
+          </label>
+        </form>
+
         <span>{ bookmarkedOnly }</span>
         <span>{ onBookmarkedChange }</span>
         <span>{ selectedGenre }</span>
         <span>{ onSelectedGenreChange }</span>
+
       </div>
     );
   }
