@@ -9,14 +9,14 @@ class AddMovie extends Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
@@ -47,12 +47,23 @@ class AddMovie extends Component {
         <label data-testid="image-input-label" htmlFor="image-input">
           Imagem
           <input
-            ddata-testid="image-input"
+            data-testid="image-input"
             type="text"
             name="imagePath"
             value={ imagePath }
             onChange={
               ({ target: { value } }) => { this.setState({ imagePath: value }); }
+            }
+          />
+        </label>
+        <label data-testid="storyline-input-label" htmlFor="storyline-input">
+          Sinopse
+          <textarea
+            data-testid="storyline-input"
+            name="storyline"
+            value={ storyline }
+            onChange={
+              ({ target: { value } }) => { this.setState({ storyline: value }); }
             }
           />
         </label>
