@@ -1,12 +1,13 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import SendButton from './SendButton';
 import Genre from './Genre';
 import ImagePath from './ImagePath';
 import Rating from './Rating';
 import Storyline from './Storyline';
 import Subtitle from './Subtitle';
 import Title from './Title';
-// import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -21,9 +22,21 @@ class AddMovie extends Component {
     };
   }
 
+  sendAndReset = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Title
@@ -62,13 +75,14 @@ class AddMovie extends Component {
             ({ target: { value } }) => { this.setState({ genre: value }); }
           }
         />
+        <SendButton resetState={ this.sendAndReset } />
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onclick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
