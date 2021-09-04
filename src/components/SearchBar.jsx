@@ -1,14 +1,9 @@
-/* eslint-disable max-lines-per-function */
-// implement SearchBar component here
 import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
+    const { searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange } = this.props;
