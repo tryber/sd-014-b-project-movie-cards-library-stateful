@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import Genre from './Genre';
 import ImagePath from './ImagePath';
 import Rating from './Rating';
 import Storyline from './Storyline';
@@ -16,12 +17,12 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
@@ -53,6 +54,12 @@ class AddMovie extends Component {
           rating={ rating }
           onChange={
             ({ target: { value } }) => { this.setState({ rating: Number(value) }); }
+          }
+        />
+        <Genre
+          genre={ genre }
+          onChange={
+            ({ target: { value } }) => { this.setState({ genre: value }); }
           }
         />
       </form>
