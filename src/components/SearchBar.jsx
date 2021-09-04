@@ -1,6 +1,7 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
+  // noooo comitei na master
   render() {
     const {
       searchText,
