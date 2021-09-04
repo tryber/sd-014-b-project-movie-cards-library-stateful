@@ -14,7 +14,8 @@ class SearchBar extends Component {
     } = this.props;
 
     return (
-      <div
+      <form
+        data-testid="search-bar-form"
         searchText={ searchText }
         onSearchTextChange={ onSearchTextChange }
         bookmarkedOnly={ bookmarkedOnly }
