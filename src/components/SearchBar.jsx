@@ -16,7 +16,9 @@ class SearchBar extends React.Component {
     // } = this.props;
 
     return (
-      <input id="search" />
+      <form data-testid="search-bar-form">
+        <input id="search" />
+      </form>
     );
   }
 }
