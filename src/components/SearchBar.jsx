@@ -16,13 +16,23 @@ class SearchBar extends Component {
     return (
       <form
         data-testid="search-bar-form"
-        searchText={ searchText }
-        onSearchTextChange={ onSearchTextChange }
         bookmarkedOnly={ bookmarkedOnly }
         onBookmarkedChange={ onBookmarkedChange }
         selectedGenre={ selectedGenre }
         onSelectedGenreChange={ onSelectedGenreChange }
-      />
+      >
+        <label data-testid="text-input-label" htmlFor="text-input">
+          Inclui o texto:
+          <input
+            data-testid="text-input"
+            type="text"
+            name="text-input"
+            id="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+      </form>
     );
   }
 }
