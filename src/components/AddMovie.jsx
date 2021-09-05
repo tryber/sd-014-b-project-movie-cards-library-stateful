@@ -73,7 +73,7 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="image" data-testid="image-input-label">
+        <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
             type="text"
@@ -83,9 +83,14 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="storyline">
-          Sinpse
-          <input type="text" id="story" value={ storyline } onClick={ onClick } />
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <input
+            type="textArea"
+            id="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.handleChange }/>
         </label>
         <label htmlFor="rating">
           Avaliação
