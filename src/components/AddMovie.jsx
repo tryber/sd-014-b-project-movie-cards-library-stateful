@@ -26,12 +26,12 @@ class AddMovie extends React.Component {
         [target.id]: target.value,
       });
     }
-    if (target.id === 'image') {
+    if (target.id === 'imagePath') {
       this.setState({
         [target.id]: target.value,
       });
     }
-    if (target.id === 'story') {
+    if (target.id === 'storyline') {
       this.setState({
         [target.id]: target.value,
       });
@@ -73,11 +73,17 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="image">
+        <label htmlFor="image" data-testid="image-input-label">
           Imagem
-          <input type="text" id="image" value={ imagePath } onClick={ onClick } />
+          <input
+            type="text"
+            id="imagePath"
+            value={ imagePath }
+            data-testid="image-input"
+            onChange={ this.handleChange }
+          />
         </label>
-        <label htmlFor="story">
+        <label htmlFor="storyline">
           Sinpse
           <input type="text" id="story" value={ storyline } onClick={ onClick } />
         </label>
@@ -89,9 +95,7 @@ class AddMovie extends React.Component {
           Gênero
           <input type="text" id="genre" value={ genre } onClick={ onClick } />
         </label>
-
       </form>
-
     );
   }
 }
