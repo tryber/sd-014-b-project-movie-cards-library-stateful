@@ -40,6 +40,8 @@ body {
 
 .movie-card-image {
   width: 100%;
+  max-width: 300px;
+  max-height: 166.61px;
 }
 
 .movie-card-body {

@@ -1,13 +1,12 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SendButton from './SendButton';
 import Genre from './Genre';
 import ImagePath from './ImagePath';
-import Rating from './Rating';
 import Storyline from './Storyline';
 import Subtitle from './Subtitle';
 import Title from './Title';
+import RatingInput from './RatingInput';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -37,6 +36,7 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    console.log(this.state);
     return (
       <form data-testid="add-movie-form">
         <Title
@@ -63,7 +63,7 @@ class AddMovie extends Component {
             ({ target: { value } }) => { this.setState({ storyline: value }); }
           }
         />
-        <Rating
+        <RatingInput
           rating={ rating }
           onChange={
             ({ target: { value } }) => { this.setState({ rating: Number(value) }); }
@@ -71,11 +71,15 @@ class AddMovie extends Component {
         />
         <Genre
           genre={ genre }
-          onChange={
-            ({ target: { value } }) => { this.setState({ genre: value }); }
-          }
+          onChange={ ({ target: { value } }) => { this.setState({ genre: value }); } }
         />
-        <SendButton resetState={ this.sendAndReset } />
+        <button
+          data-testid="send-button"
+          type="button"
+          onClick={ this.sendAndReset }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

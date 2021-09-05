@@ -18,6 +18,13 @@ class MovieLibrary extends Component {
     };
   }
 
+  addNewMovie = (newMovie) => {
+    const { movies } = this.props;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
   onSearchTextChange = ({ target: { value } }) => {
     const { searchText, movies } = this.state;
 
@@ -61,7 +68,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }
