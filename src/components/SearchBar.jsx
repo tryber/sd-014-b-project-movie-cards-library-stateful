@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
@@ -6,17 +7,34 @@ class SearchBar extends React.Component {
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="s" data-testid="text-input-label">
+        <label htmlFor="searchBar" data-testid="text-input-label">
           Inclui o texto
-          <input id="s" type="text" data-testid="text-input" value={ searchText } onChange={ onSearchTextChange } />
+          <input
+            id="searchBar"
+            type="text"
+            data-testid="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
         </label>
-        <label htmlFor="c" data-testid="checkbox-input-label">
+        <label htmlFor="checkBox" data-testid="checkbox-input-label">
           Mostrar somente favoritos
-          <input id="c" type="checkbox" data-testid="checkbox-input" onChange={ onBookmarkedChange } checked={ bookmarkedOnly } />
+          <input
+            id="checkBox"
+            type="checkbox"
+            data-testid="checkbox-input"
+            onChange={ onBookmarkedChange }
+            checked={ bookmarkedOnly }
+          />
         </label>
-        <label htmlFor="se" data-testid="select-input-label">
+        <label htmlFor="selectInput" data-testid="select-input-label">
           Filtrar por gênero
-          <select id="se" data-testid="select-input" value={ selectedGenre } onChange={ onSelectedGenreChange }>
+          <select
+            id="selectInput"
+            data-testid="select-input"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+          >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
             <option data-testid="select-option" value="comedy">Comédia</option>
@@ -28,5 +46,14 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
