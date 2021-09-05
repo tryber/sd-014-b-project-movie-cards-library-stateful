@@ -90,11 +90,18 @@ class AddMovie extends React.Component {
             id="storyline"
             value={ storyline }
             data-testid="storyline-input"
-            onChange={ this.handleChange }/>
+            onChange={ this.handleChange }
+          />
         </label>
-        <label htmlFor="rating">
+        <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
-          <input type="number" id="rating" value={ rating } onClick={ onClick } />
+          <input
+            type="number"
+            id="rating"
+            value={ rating }
+            data-testid="rating-input"
+            onChange={ this.handleChange }
+          />
         </label>
         <label htmlFor="genre">
           Gênero
