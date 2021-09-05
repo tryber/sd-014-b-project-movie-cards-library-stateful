@@ -22,7 +22,7 @@ class InputNumber extends React.Component {
 
 InputNumber.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default InputNumber;
