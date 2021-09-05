@@ -48,14 +48,6 @@ class AddMovie extends React.Component {
     }
   }
 
-  //   handleChange({ target }) {
-  //     if (target.id === 'title') {
-  //       this.setState({
-  //         [target.id]: target.value,
-  //       });
-  //     }
-  //   }
-
   render() {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
@@ -71,9 +63,15 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="subtitle">
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
-          <input type="text" id="subtitle" value={ subtitle } onClick={ onClick } />
+          <input
+            type="text"
+            id="subtitle"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+          />
         </label>
         <label htmlFor="image">
           Imagem
