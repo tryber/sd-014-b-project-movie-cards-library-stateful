@@ -1,7 +1,18 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-  // Desfazendo o requisito 1 do Rodrigo mergeado por engano.
+  render() {
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+    onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <form data-testid="search-bar-form">
+        <label htmlFor="search">
+          Inclui o texto
+          <input id="search" type="text" />
+        </label>
+      </form>
+    );
+  }
 }
 
 export default SearchBar;
