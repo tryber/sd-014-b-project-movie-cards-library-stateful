@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name } = target
-    const value = target.value;
+    const value = target.type === 'checkbox' ? target.checkbox : target.value;
     this.setState({ [name]: value });
   }
 
@@ -91,10 +91,21 @@ class AddMovie extends React.Component {
             />
           </label>
 
-          <label>genre
-            <input
+          <label
+            htmlFor="genre"
+            data-testid="genre-input-label">Gênero
+            <select
+              data-testid="genre-input"
+              id="genre"
+              name="genre"
               value={ this.state.genre }
-            />
+              onChange={ this.handleChange }
+            >
+              <option value="action" data-testid="genre-option">Ação</option>
+              <option value="comedy" data-testid="genre-option">Comédia</option>
+              <option value="thriller" data-testid="genre-option">Suspense</option>
+            </select>
+
           </label>
         </form>
 
