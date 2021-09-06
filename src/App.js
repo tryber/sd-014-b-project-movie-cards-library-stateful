@@ -10,25 +10,36 @@ class App extends React.Component {
     super();
 
     this.state = {
-      search: '',
-      bookmark: false,
-      genre: '',
-    }
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    };
   }
 
-  handleTextChange() {
-
+  handleTextChange(event) {
+    this.setState({
+      searchText: event.target.value,
+    });
   }
 
-  handleBookmarked() {
-    
+  handleBookmarked(event) {
+    this.setState({
+      bookmarkedOnly: event.target.value,
+    });
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <SearchBar searchText={this.state.search} onSearchTextChange={this.handleTextChange} bookmarkedOnly={this.state.bookmark} onBookmarkedChange={this.handleBookmarked} selectedGenre={this.state.genre} onSelectedGenreChange={this.handleSelectedGenre} />
+        <SearchBar
+          searchText={ search }
+          onSearchTextChange={ this.handleTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleBookmarked }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleSelectedGenre }
+        />
         <MovieList movies={ movies } />
       </div>
     );
