@@ -4,6 +4,8 @@ class AddMovie extends React.Component {
   constructor() {
     super()
 
+    this.handleChange = this.handleChange.bind(this);
+
     this.state = {
       title: '',
       subtitle: '',
@@ -14,18 +16,25 @@ class AddMovie extends React.Component {
     }
   }
 
+  handleChange({ target }) {
+    const { name } = target
+    const value = target.value;
+    this.setState({ [name]: value });
+  }
+
   render() {
     return (
       <section>
         <form data-testid="add-movie-form">
           <label
             htmlFor="title"
-            data-testid="title-input-label">title
+            data-testid="title-input-label">Título
             <input
               data-testid="title-input"
               id="title"
               name="title"
               value={ this.state.title }
+              onChange={ this.handleChange }
             />
           </label>
 
