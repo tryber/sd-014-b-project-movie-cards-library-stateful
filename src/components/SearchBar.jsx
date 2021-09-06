@@ -11,13 +11,14 @@ export class SearchBar extends Component {
       onSelectedGenreChange } = this.props;
 
     return (
-      <div
+      <form
         searchText={ searchText }
         onSearchTextChange={ onSearchTextChange }
         bookmarkedOnly={ bookmarkedOnly }
         onBookmarkedChange={ onBookmarkedChange }
         selectedGenre={ selectedGenre }
         onSelectedGenreChange={ onSelectedGenreChange }
+        data-testid="search-bar-form"
       />
     );
   }
