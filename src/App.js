@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 import './App.css';
 
 class App extends React.Component {
@@ -37,6 +38,8 @@ class App extends React.Component {
           selectedGenre="anotherString"
           onSelectedGenreChange={ this.therdCallBack }
         />
+        <AddMovie onClick={ this.funcCall } />
+
       </div>
     );
   }
