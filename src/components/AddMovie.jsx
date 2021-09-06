@@ -1,1 +1,71 @@
-// implement AddMovie component here
+import React from 'react';
+
+class AddMovie extends React.Component {
+  constructor() {
+    super()
+
+    this.state = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    }
+  }
+
+  render() {
+    return (
+      <section>
+        <form data-testid="add-movie-form">
+          <label
+            htmlFor="title"
+            data-testid="title-input-label">title
+            <input
+              data-testid="title-input"
+              id="title"
+              name="title"
+              value={ this.state.title }
+            />
+          </label>
+
+          <label>subtitle
+            <input
+              value={ this.state.subtitle }
+            />
+          </label>
+
+          <label>imagePath
+            <input
+              value={ this.state.imagePath }
+            />
+          </label>
+
+          <label>storyline
+            <input
+              value={ this.state.storyline }
+            />
+          </label>
+
+          <label>rating
+            <input
+              value={ this.state.rating }
+            />
+          </label>
+
+          <label>genre
+            <input
+              value={ this.state.genre }
+            />
+          </label>
+        </form>
+
+        <button
+          type="button"
+        > add filme </button>
+      </section>
+    );
+  }
+}
+
+export default AddMovie;
