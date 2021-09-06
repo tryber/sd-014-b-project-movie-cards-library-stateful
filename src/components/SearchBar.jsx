@@ -11,15 +11,25 @@ export class SearchBar extends Component {
       onSelectedGenreChange } = this.props;
 
     return (
-      <form
-        searchText={ searchText }
-        onSearchTextChange={ onSearchTextChange }
-        bookmarkedOnly={ bookmarkedOnly }
-        onBookmarkedChange={ onBookmarkedChange }
-        selectedGenre={ selectedGenre }
-        onSelectedGenreChange={ onSelectedGenreChange }
-        data-testid="search-bar-form"
-      />
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label" htmlFor="text-input">
+          Inclui o texto:
+          <input
+            type="text"
+            data-testid="text-input"
+            name="text-input"
+            id="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+        <span
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
+      </form>
     );
   }
 }
