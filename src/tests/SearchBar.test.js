@@ -52,7 +52,7 @@ describe('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
   });
 });
 
-describe.skip('3 - Renderize um input do tipo texto dentro do formulário em `<SearchBar />`', () => {
+describe('3 - Renderize um input do tipo texto dentro do formulário em `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize 1, e apenas 1, input de texto dentro do forms', () => {
