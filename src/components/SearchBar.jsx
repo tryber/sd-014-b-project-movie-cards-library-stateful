@@ -18,7 +18,6 @@ export class SearchBar extends Component {
             type="text"
             data-testid="text-input"
             name="text-input"
-            id="text-input"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
@@ -32,13 +31,22 @@ export class SearchBar extends Component {
             id="checkbox-input"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
-
           />
         </label>
-        <span
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ onSelectedGenreChange }
-        />
+        <label data-testid="select-input-label" htmlFor="select-option">
+          Filtrar por gênero
+          <select
+            name="select-option"
+            data-testid="select-input"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+          >
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
