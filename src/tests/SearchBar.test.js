@@ -83,7 +83,7 @@ describe('3 - Renderize um input do tipo texto dentro do formulário em `<Search
   });
 });
 
-describe.skip('4 - Renderize um input do tipo checkbox dentro do formulário em `<SearchBar />`', () => {
+describe('4 - Renderize um input do tipo checkbox dentro do formulário em `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize uma checkbox dentro do form', () => {
