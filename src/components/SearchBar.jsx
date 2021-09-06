@@ -1,6 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
