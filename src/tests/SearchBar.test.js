@@ -42,7 +42,7 @@ describe('1 - Crie um componente chamado `<SearchBar />`', () => {
   });
 });
 
-describe.skip('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
+describe('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize 1, e apenas 1, form dentro de `SearchBar`', () => {
