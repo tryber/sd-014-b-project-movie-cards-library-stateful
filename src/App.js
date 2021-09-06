@@ -6,16 +6,6 @@ import SearchBar from './components/SearchBar';
 import './App.css';
 
 class App extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-    };
-  }
-
   handleTextChange(event) {
     this.setState({
       searchText: event.target.value,
@@ -29,17 +19,10 @@ class App extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props;
     return (
       <div className="App">
         <Header />
-        <SearchBar
-          searchText={ search }
-          onSearchTextChange={ this.handleTextChange }
-          bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleBookmarked }
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleSelectedGenre }
-        />
         <MovieList movies={ movies } />
       </div>
     );
