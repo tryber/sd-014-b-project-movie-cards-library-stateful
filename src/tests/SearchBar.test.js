@@ -114,7 +114,7 @@ describe('4 - Renderize um input do tipo checkbox dentro do formulário em `<Sea
   });
 });
 
-describe.skip('5 - Renderize um select dentro do formulário em `<SearchBar />`', () => {
+describe('5 - Renderize um select dentro do formulário em `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize um select dentro do form', () => {
