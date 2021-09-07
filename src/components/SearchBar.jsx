@@ -30,7 +30,7 @@ class SearchBar extends React.Component {
           />
         </label>
         <label htmlFor="select-input">
-          Filtrar por gêrero:
+          Filtrar por gêrero
           <select
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
