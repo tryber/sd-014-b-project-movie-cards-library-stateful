@@ -52,7 +52,7 @@ describe('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
   });
 });
 
-describe.only('3 - Renderize um input do tipo texto dentro do formulário em `<SearchBar />`', () => {
+describe('3 - Renderize um input do tipo texto dentro do formulário em `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize 1, e apenas 1, input de texto dentro do forms', () => {
@@ -83,7 +83,7 @@ describe.only('3 - Renderize um input do tipo texto dentro do formulário em `<S
   });
 });
 
-describe('4 - Renderize um input do tipo checkbox dentro do formulário em `<SearchBar />`', () => {
+describe.only('4 - Renderize um input do tipo checkbox dentro do formulário em `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize uma checkbox dentro do form', () => {

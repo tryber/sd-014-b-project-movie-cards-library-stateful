@@ -12,9 +12,12 @@ class SearchBar extends Component {
       onSelectedGenre } = this.props;
     return (
       <div>
-        <SearchForms searchText={ searchText } onTextChange={ onSearchTextChange } />
-        { bookmarkedOnly }
-        { onBookmarkedChange }
+        <SearchForms
+          searchText={ searchText }
+          onTextChange={ onSearchTextChange }
+          checked={ bookmarkedOnly }
+          onChecked={ onBookmarkedChange }
+        />
         { selectedGenre }
         { onSelectedGenre }
       </div>
