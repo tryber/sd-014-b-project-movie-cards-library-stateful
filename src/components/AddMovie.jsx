@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import AddMovieForm from './addMovieComponents/AddMovieForm';
 
-// Lint resolvido após leitura de documentação no link a seguir:
+// Atributos "Role" e "tabIndex", após pesquisa em documentação:
 // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#accessibility_concerns
 
 class AddMovie extends Component {
@@ -27,13 +28,14 @@ class AddMovie extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div role="button" tabIndex={ 0 } onClick={ onClick } onKeyUp={ this.handleClick }>
-        <button type="button">Um Botão</button>
-        { subtitle }
-        { title }
-        { imagePath }
-        { storyline }
-        { rating }
-        { genre }
+        <AddMovieForm>
+          { subtitle }
+          { title }
+          { imagePath }
+          { storyline }
+          { rating }
+          { genre }
+        </AddMovieForm>
       </div>
     );
   }
