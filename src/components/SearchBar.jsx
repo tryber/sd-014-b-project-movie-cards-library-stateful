@@ -13,11 +13,11 @@ export default class SearchBar extends Component {
     return (
       <form
         data-testid="search-bar-form"
-        bookMarkedOnly = {bookMarkedOnly}
-        selectedGenre = {selectedGenre}
-        onSelectedGenreChange = {onSelectedGenreChange}
+        bookMarkedOnly={ bookMarkedOnly }
+        selectedGenre={ selectedGenre }
+        onSelectedGenreChange={ onSelectedGenreChange }
       >
-        <label data-testid="text-input-label">
+      <label data-testid="text-input-label">
             Inclui o texto:
           <input
             data-testid="text-input"
