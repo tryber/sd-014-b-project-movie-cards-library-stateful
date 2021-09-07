@@ -34,7 +34,7 @@ const textTestId = 'text-input';
 const checkboxTestId = 'checkbox-input';
 const selectTestId = 'select-input';
 
-describe('1 - Crie um componente chamado `<SearchBar />`', () => {
+describe.only('1 - Crie um componente chamado `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize o componente `<SearchBar />`, recebendo as devidas props', () => {
