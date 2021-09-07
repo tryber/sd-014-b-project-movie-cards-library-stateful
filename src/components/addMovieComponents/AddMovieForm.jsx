@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InputText from './InputText';
 import InputNumber from './InputNumber';
-import TextAreaForm from './textArea';
+import TextAreaForm from './TextArea';
+import Selectgenre from './SelectGenre';
 
 class AddMovieForm extends Component {
   render() {
@@ -42,6 +43,7 @@ class AddMovieForm extends Component {
         />
         <TextAreaForm initValue={ sinopseState } change={ onChange } />
         <InputNumber initValue={ ratingState } change={ onChange } />
+        <Selectgenre initValue={ genreState } change={ onChange } />
       </form>
     );
   }
