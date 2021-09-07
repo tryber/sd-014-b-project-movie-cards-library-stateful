@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 
 class InputText extends Component {
   render() {
-    const { titleName, id, name, initValue, change } = this.props;
+    const { titleName, id, textHold, name, initValue, change } = this.props;
     return (
       <label htmlFor={ `film-${id}-form` } data-testid={ `${id}-input-label` }>
         { `${titleName}` }
         <input
+          type="text"
+          placeholder={ textHold }
           name={ name }
           value={ initValue }
           id={ `film-${id}-form` }
@@ -22,6 +24,7 @@ class InputText extends Component {
 InputText.propTypes = {
   titleName: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  textHold: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   initValue: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,

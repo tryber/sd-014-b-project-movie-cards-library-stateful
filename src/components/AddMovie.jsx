@@ -51,12 +51,11 @@ class AddMovie extends Component {
           titleState={ title }
           subtitleState={ subtitle }
           imgPathState={ imagePath }
+          sinopseState={ storyline }
           ratingState={ +(rating) }
+          genreState={ genre }
           onChange={ this.handleChange }
-        >
-          { storyline }
-          { genre }
-        </AddMovieForm>
+        />
       </div>
     );
   }
