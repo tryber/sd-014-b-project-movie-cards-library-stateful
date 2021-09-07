@@ -2,7 +2,7 @@ import React from 'react';
 
 class AddMovie extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.handleChange = this.handleChange.bind(this);
 
@@ -13,13 +13,45 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
+    this.initialState = this.state;
   }
 
   handleChange({ target }) {
-    const { name } = target
+    const { name } = target;
     const value = target.type === 'checkbox' ? target.checkbox : target.value;
     this.setState({ [name]: value });
+  }
+
+  handleSubmit = (event) => {
+    const { onClick } = this.props;
+    event.preventDefault();
+    onClick(this.state);
+    this.setState(this.initialState);
+    console.log(this.state);
+  }
+
+  AddGenre = () => {
+    const { genre } = this.state;
+    return (
+      <label
+        htmlFor="genre"
+        data-testid="genre-input-label"
+      >
+        Gênero
+        <select
+          data-testid="genre-input"
+          id="genre"
+          name="genre"
+          value={ genre }
+          onChange={ this.handleChange }
+        >
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
+        </select>
+      </label>
+    );
   }
 
   render() {
@@ -91,27 +123,14 @@ class AddMovie extends React.Component {
             />
           </label>
 
-          <label
-            htmlFor="genre"
-            data-testid="genre-input-label">Gênero
-            <select
-              data-testid="genre-input"
-              id="genre"
-              name="genre"
-              value={ this.state.genre }
-              onChange={ this.handleChange }
-            >
-              <option value="action" data-testid="genre-option">Ação</option>
-              <option value="comedy" data-testid="genre-option">Comédia</option>
-              <option value="thriller" data-testid="genre-option">Suspense</option>
-            </select>
+          { this.AddGenre() }
 
-          </label>
+          <button
+            data-testid="send-button"
+            type="submit"
+            onClick={ this.handleSubmit }
+          > Adicionar filme </button>
         </form>
-
-        <button
-          type="button"
-        > add filme </button>
       </section>
     );
   }
