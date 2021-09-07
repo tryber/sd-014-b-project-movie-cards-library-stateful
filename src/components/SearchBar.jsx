@@ -4,9 +4,9 @@ class SearchBar extends React.Component {
   render () {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props
     return (
-      <section>
-        <input></input>
-      </section>
+      <form data-testid="search-bar-form">
+        <input />
+      </form>
     )
   }
 }
