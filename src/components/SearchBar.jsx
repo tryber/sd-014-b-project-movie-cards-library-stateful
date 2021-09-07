@@ -1,14 +1,39 @@
 import React from 'react';
+import { string, func, bool } from 'prop-types';
 
 class SearchBar extends React.Component {
+  addFilterByGenre = () => {
+    const {
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
+    return (
+      <label
+        htmlFor="genreFilter"
+        data-testid="select-input-label"
+      >
+        Filtrar por gênero
+        <select
+          id="genreFilter"
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+          data-testid="select-input"
+        >
+          <option value="" data-testid="select-option">Todos</option>
+          <option value="action" data-testid="select-option">Ação</option>
+          <option value="comedy" data-testid="select-option">Comédia</option>
+          <option value="thriller" data-testid="select-option">Suspense</option>
+        </select>
+      </label>
+    );
+  };
+
   render() {
     const {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
     } = this.props;
 
     return (
@@ -41,34 +66,22 @@ class SearchBar extends React.Component {
               data-testid="checkbox-input"
             />
           </label>
-
-          <label
-            data-testid="select-input-label"
-          >
-            Filtrar por gênero
-            <select
-              value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
-              data-testid="select-input"
-            >
-              <option value="" data-testid="select-option">Todos</option>
-              <option value="action" data-testid="select-option">Ação</option>
-              <option value="comedy" data-testid="select-option">Comédia</option>
-              <option value="thriller" data-testid="select-option">Suspense</option>
-            </select>
-          </label>
+          { this.addFilterByGenre() }
         </form>
-
-
-
         <span>{ bookmarkedOnly }</span>
         <span>{ onBookmarkedChange }</span>
-        <span>{ selectedGenre }</span>
-        <span>{ onSelectedGenreChange }</span>
-
       </div>
     );
   }
 }
 
-export default SearchBar
+SearchBar.propTypes = {
+  selectedGenre: string.isRequired,
+  onSelectedGenreChange: func.isRequired,
+  searchText: string.isRequired,
+  onSearchTextChange: func.isRequired,
+  bookmarkedOnly: bool.isRequired,
+  onBookmarkedChange: func.isRequired,
+};
+
+export default SearchBar;
