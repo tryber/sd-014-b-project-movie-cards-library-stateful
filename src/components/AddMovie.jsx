@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import AddMovieForm from './addMovieComponents/AddMovieForm';
-
-// Atributos "Role" e "tabIndex", após pesquisa em documentação:
-// https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#accessibility_concerns
 
 class AddMovie extends Component {
   constructor() {
@@ -19,6 +16,7 @@ class AddMovie extends Component {
 
     this.handleKeyUp = this.handleKeyUp.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.submitState = this.submitState.bind(this);
   }
 
   handleKeyUp({ target: { name, value }, keyCode }) {
@@ -42,8 +40,21 @@ class AddMovie extends Component {
     });
   }
 
+  submitState(callbk) {
+    callbk(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
@@ -55,12 +66,13 @@ class AddMovie extends Component {
           ratingState={ +(rating) }
           genreState={ genre }
           onChange={ this.handleChange }
+          onClick={ () => this.submitState(onClick) }
         />
       </div>
     );
   }
 }
 
-// AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;

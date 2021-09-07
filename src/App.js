@@ -5,8 +5,8 @@ import AddMovie from './components/AddMovie';
 import './App.css';
 
 function App() {
-  const defaultCallback = ({ target }) => {
-    console.log(target);
+  const defaultCallback = (item) => {
+    console.log(item);
   };
   return (
     <div className="App">

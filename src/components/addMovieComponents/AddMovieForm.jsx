@@ -14,7 +14,8 @@ class AddMovieForm extends Component {
       sinopseState,
       ratingState,
       genreState,
-      onChange } = this.props;
+      onChange,
+      onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <InputText
@@ -44,6 +45,13 @@ class AddMovieForm extends Component {
         <TextAreaForm initValue={ sinopseState } change={ onChange } />
         <InputNumber initValue={ ratingState } change={ onChange } />
         <Selectgenre initValue={ genreState } change={ onChange } />
+        <button
+          type="button"
+          onClick={ onClick }
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
