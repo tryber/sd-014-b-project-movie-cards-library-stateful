@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import AddMovieForm from './addMovieComponents/AddMovieForm';
 
 // Atributos "Role" e "tabIndex", após pesquisa em documentação:
@@ -30,7 +30,13 @@ class AddMovie extends Component {
     }
   }
 
-  handleChange({ target: { name, value } }) {
+  handleChange({ target, target: { type, name, value } }) {
+    if (type === 'number') {
+      const { max, min } = target;
+      if (value > +(max)) value = max;
+      if (value < +(min)) value = min;
+      value = +(value);
+    }
     this.setState({
       [name]: value,
     });
@@ -45,7 +51,7 @@ class AddMovie extends Component {
           titleState={ title }
           subtitleState={ subtitle }
           imgPathState={ imagePath }
-          ratingState={ rating }
+          ratingState={ +(rating) }
           onChange={ this.handleChange }
         >
           { storyline }
@@ -56,6 +62,6 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+// AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;

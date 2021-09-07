@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InputText from './InputText';
+import InputNumber from './InputNumber';
 
 class AddMovieForm extends Component {
   render() {
@@ -8,6 +9,7 @@ class AddMovieForm extends Component {
       titleState,
       subtitleState,
       imgPathState,
+      ratingState,
       onChange } = this.props;
     return (
       <form data-testid="add-movie-form">
@@ -32,6 +34,7 @@ class AddMovieForm extends Component {
           initValue={ imgPathState }
           change={ onChange }
         />
+        <InputNumber initValue={ ratingState } change={ onChange } />
       </form>
     );
   }
@@ -39,6 +42,9 @@ class AddMovieForm extends Component {
 
 AddMovieForm.propTypes = PropTypes.shape({
   titleState: PropTypes.string,
+  subtitleState: PropTypes.string,
+  imgPathState: PropTypes.string,
+  ratingState: PropTypes.number,
   onChange: PropTypes.func,
 }).isRequired;
 
