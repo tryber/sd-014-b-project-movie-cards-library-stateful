@@ -42,7 +42,7 @@ describe('1 - Crie um componente chamado `<SearchBar />`', () => {
   });
 });
 
-describe.only('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
+describe('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize 1, e apenas 1, form dentro de `SearchBar`', () => {
@@ -52,7 +52,7 @@ describe.only('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
   });
 });
 
-describe('3 - Renderize um input do tipo texto dentro do formulário em `<SearchBar />`', () => {
+describe.only('3 - Renderize um input do tipo texto dentro do formulário em `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize 1, e apenas 1, input de texto dentro do forms', () => {
