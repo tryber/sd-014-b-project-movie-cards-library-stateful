@@ -19,6 +19,13 @@ body {
   text-align: center;
 }
 
+.search-forms {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: space-between;
+}
+
 .movie-list {
   display: flex;
   flex-flow: row wrap;
