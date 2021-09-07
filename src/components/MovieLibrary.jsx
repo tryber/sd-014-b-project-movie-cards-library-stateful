@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-// import moviesData from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -21,8 +20,12 @@ class MovieLibrary extends Component {
     };
   }
 
-  onClick() {
-    //
+  onClick(movie) {
+    const { movies } = this.props;
+    const newMovies = [...movies, movie];
+    this.setState({
+      movies: newMovies,
+    });
   }
 
   onSearchTextChange({ target }) {
@@ -32,9 +35,11 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     });
-    const filteredMovies = movies.filter((movie) => (movie.title.includes(value)
-    || movie.subtitle.includes(value)
-    || movie.storyline.includes(value)));
+    const filteredMovies = movies.filter(
+      (movie) => (movie.title.toLowerCase().includes(value)
+    || movie.subtitle.toLowerCase().includes(value)
+    || movie.storyline.toLowerCase().includes(value)),
+    );
     if (value !== '') {
       this.setState({
         movies: filteredMovies,
