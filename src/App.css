@@ -20,10 +20,20 @@ body {
 }
 
 .search-forms {
+  background-color: #495258;
+  border: solid thin #1e2327;
+  border-radius: 5%;
+  color: white;
   display: flex;
   flex-direction: column;
-  padding: 10px;
   justify-content: space-between;
+  margin: 10px;
+  max-width: fit-content;
+  padding: 10px;
+}
+
+label > :first-child {
+  margin: 10px;
 }
 
 .movie-list {

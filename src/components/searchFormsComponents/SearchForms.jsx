@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import InputText from './formsComponents/inputText';
-import Checkbox from './formsComponents/checkbox';
-import Select from './formsComponents/select';
+import InputText from './InputText';
+import Checkbox from './Checkbox';
+import Select from './Select';
 
 class SearchForms extends Component {
   render() {
