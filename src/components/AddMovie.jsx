@@ -16,24 +16,39 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleClick({ target, keyCode }) {
+  handleKeyUp({ target: { name, value }, keyCode }) {
     const keyEnter = 13;
-    if (keyCode === keyEnter) console.log(target);
+    if (keyCode === keyEnter) {
+      this.setState({
+        [name]: value,
+      });
+    }
+  }
+
+  handleChange({ target: { name, value } }) {
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div role="button" tabIndex={ 0 } onClick={ onClick } onKeyUp={ this.handleClick }>
-        <AddMovieForm>
-          { subtitle }
-          { title }
-          { imagePath }
+      <div>
+        <AddMovieForm
+          titleState={ title }
+          subtitleState={ subtitle }
+          imgPathState={ imagePath }
+          ratingState={ rating }
+          onChange={ this.handleChange }
+        >
           { storyline }
-          { rating }
           { genre }
         </AddMovieForm>
       </div>
