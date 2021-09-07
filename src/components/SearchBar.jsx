@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SearchForms from './SearchForms';
 
 class SearchBar extends Component {
   render() {
@@ -11,7 +12,7 @@ class SearchBar extends Component {
       onSelectedGenre } = this.props;
     return (
       <p>
-        Um elemento!
+        <SearchForms />
         { searchText }
         { onSearchTextChange }
         { bookmarkedOnly }

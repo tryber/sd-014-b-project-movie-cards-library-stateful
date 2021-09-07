@@ -34,7 +34,7 @@ const textTestId = 'text-input';
 const checkboxTestId = 'checkbox-input';
 const selectTestId = 'select-input';
 
-describe.only('1 - Crie um componente chamado `<SearchBar />`', () => {
+describe('1 - Crie um componente chamado `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize o componente `<SearchBar />`, recebendo as devidas props', () => {
@@ -42,7 +42,7 @@ describe.only('1 - Crie um componente chamado `<SearchBar />`', () => {
   });
 });
 
-describe('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
+describe.only('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize 1, e apenas 1, form dentro de `SearchBar`', () => {
