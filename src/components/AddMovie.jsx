@@ -1,6 +1,12 @@
 // implement AddMovie component here
 import React from 'react';
 import PropType from 'prop-types';
+import Title from './AddMovie Componentes/Title';
+import Subtitle from './AddMovie Componentes/Subtitle';
+import ImagePatch from './AddMovie Componentes/ImagePatch';
+import Storyline from './AddMovie Componentes/Storyline';
+import Rating from './AddMovie Componentes/Rating';
+import Genre from './AddMovie Componentes/Genre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -9,10 +15,10 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
@@ -31,34 +37,17 @@ class AddMovie extends React.Component {
       imagePath,
       storyline,
       rating,
-      genre 
+      genre,
     } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="MovieTitle" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="MovieSubtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="MovieImage" data-testid="image-input-label">
-          Imagem
-          <input name="imagePath" value={ imagePath } onChange={ this.handleChange } data-testid="image-input" />
-        </label>
+        <Title value={ title } handleChange={ this.handleChange } />
+        <Subtitle value={ subtitle } handleChange={ this.handleChange } />
+        <ImagePatch value={ imagePath } handleChange={ this.handleChange } />
+        <Storyline value={ storyline } handleChange={ this.handleChange } />
+        <Rating value={ rating } handleChange={ this.handleChange } />
+        <Genre value={ genre } handleChange={ this.handleChange } />
       </form>
     );
   }
