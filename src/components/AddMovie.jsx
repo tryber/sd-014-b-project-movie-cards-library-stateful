@@ -18,6 +18,7 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -56,6 +57,16 @@ class AddMovie extends React.Component {
             name="storyline"
             data-testid="storyline-input"
             value={ storyline }
+            onChange={ this.handleClick }
+          />
+        </label>
+        <label data-testid="rating-input-label" htmlFor="rating">
+          Avaliação
+          <input
+            type="number"
+            name="rating"
+            data-testid="rating-input"
+            value={ rating }
             onChange={ this.handleClick }
           />
         </label>
