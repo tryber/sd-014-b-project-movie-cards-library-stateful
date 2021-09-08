@@ -28,7 +28,6 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    // const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         hey
