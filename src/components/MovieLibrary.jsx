@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: this.props.movies,
+      // movies: props.movies,
     };
   }
 
@@ -28,7 +28,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick="" />
       </>
     );
   }

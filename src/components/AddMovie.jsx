@@ -1,8 +1,13 @@
 // implement AddMovie component here
+
+// Consultei o repositório do Bruno Trindade para entender como refatorar meu código e usar menas linhas no render
+// Link -> https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/pull/13/files
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputDefault from './InputDefault';
+import InputText from './InputText';
 import SelectGenre from './SelectGenre';
+import InputTextArea from './InputTextArea';
+import InputNumber from './InputNumber';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -25,58 +30,24 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { addMovie } = this.props;
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputDefault
-          describe="Título"
-          id="title"
-          name="title"
-          value={ title }
-          testid="title-input"
-          testidLabel="title-input-label"
+        <InputText
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
           handleChange={ this.handleInputChange }
         />
-        <InputDefault
-          describe="Subtítulo"
-          id="subtitle"
-          name="subtitle"
-          value={ subtitle }
-          testid="subtitle-input"
-          testidLabel="subtitle-input-label"
+        <InputTextArea
+          storyline={ storyline }
           handleChange={ this.handleInputChange }
         />
-        <InputDefault
-          describe="Imagem"
-          id="image"
-          name="imagePath"
-          value={ imagePath }
-          testid="image-input"
-          testidLabel="image-input-label"
+        <InputNumber
+          rating={ rating }
           handleChange={ this.handleInputChange }
         />
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            id="storyline"
-            name="storyline"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            id="rating"
-            name="rating"
-            value={ rating }
-            type="number"
-            data-testid="rating-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
         <SelectGenre
           describe="Gênero"
           id="genre"
@@ -86,14 +57,16 @@ class AddMovie extends React.Component {
           testidLabel="genre-input-label"
           handleChange={ this.handleInputChange }
         />
-        <button type="submit" data-testid="send-button" onClick={ addMovie }>Adicionar filme</button>
+        <button type="submit" data-testid="send-button" onClick={ onClick }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  addMovie: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
