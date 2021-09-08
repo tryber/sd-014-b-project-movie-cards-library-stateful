@@ -5,8 +5,9 @@ import React from 'react';
 
 export default class SearchBar extends React.Component {
   render() {
-      return(
-          // Inserir o elemento a ser retornado
-      )
+    return (
+    // 2 - Renderize um formulário dentro de <SearchBar />
+      <form data-testid="search-bar-form">  </form>
+    );
   }
 }
