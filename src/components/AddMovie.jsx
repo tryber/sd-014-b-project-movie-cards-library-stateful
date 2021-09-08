@@ -16,8 +16,10 @@ class AddMovie extends React.Component {
   }
 
   movieInformation = (event) => {
+    const { name } = event.target;
+    const value = event.target.value;
     this.setState({
-      [event.target.id]: event.target.value,
+      [name]: value,
     });
   }
 
@@ -27,7 +29,7 @@ class AddMovie extends React.Component {
     return (
       <form>
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          subtítulo
+          Subtítulo
           <input
             type="text"
             name="subtitle"
@@ -38,7 +40,7 @@ class AddMovie extends React.Component {
           />
         </label>
         <label htmlFor="title" data-testid="title-input-label">
-          título
+          Título
           <input
             type="text"
             name="title"
