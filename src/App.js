@@ -5,6 +5,15 @@ import AddMovie from './components/AddMovie';
 import './App.css';
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.newMovie = this.newMovie.bind(this);
+  }
+
+  newMovie(state) {
+    console.log(state);
+  }
+
   render() {
     return (
       <>
@@ -19,7 +28,7 @@ class App extends React.Component {
             selectedGenre
             onSelectedGenreChange
           />
-          <AddMovie onclick />
+          <AddMovie onClick={ this.newMovie } />
         </main>
       </>
     );
