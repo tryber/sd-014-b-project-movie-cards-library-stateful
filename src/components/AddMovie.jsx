@@ -1,5 +1,7 @@
 // 6 - Crie um componente chamado <AddMovie />
 // Atenção: criei novos componentes para evitar erro no Lint (tamanho do código)
+// Ajuda do Guilherme Andrade (programador) no reset do estado e no ternário
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Genre from './Genre';
@@ -30,7 +32,6 @@ export default class AddMovie extends React.Component {
     });
   }
 
-  // Ajuda recebida do programador Guilherme Andrade
   resetButton() {
     const { onClick } = this.props;
     onClick(this.state);

@@ -1,4 +1,5 @@
 // 1) Criando o SearchBar
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -8,6 +9,7 @@ export default class SearchBar extends React.Component {
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
       selectedGenre, onSelectedGenreChange } = this.props;
+
     return (
     // 2 - Renderize um formulário dentro de <SearchBar />
       <form data-testid="search-bar-form">
@@ -50,8 +52,6 @@ export default class SearchBar extends React.Component {
     );
   }
 }
-
-// Requisitos finais de teste
 
 SearchBar.propTypes = {
   searchText: PropTypes.string,

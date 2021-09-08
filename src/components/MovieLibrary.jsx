@@ -2,8 +2,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
 export default class MovieLibrary extends React.Component {
@@ -72,7 +72,6 @@ export default class MovieLibrary extends React.Component {
                 || (movie.storyline.includes(searchText))))) }
         />
         {/* Requisito 19 */}
-        <AddMovie onClick={ (newMovie) => this.handleAddMovies(newMovie) } />
       </div>
     );
   }
