@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './searchFormsComponents/SearchBar';
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor() {
@@ -17,10 +19,25 @@ class MovieLibrary extends Component {
   }
 
   handleChange({ target: { name, value, checked } }) {
-    // if (name === 'bookmarkedOnly') console.log('Check');
     this.setState({
       [name]: (name === 'bookmarkedOnly' ? checked : value),
     });
+  }
+
+  getMoviesArray(searchText, genre, bookmarked, array) {
+    let newArray = array;
+    if (searchText !== '') {
+      newArray = newArray
+        .filter(({ title, subtitle, storyline }) => [title, subtitle, storyline]
+          .find((value) => value.toLowerCase().includes(searchText.toLowerCase())));
+    }
+    if (genre !== '') {
+      newArray = newArray.filter((item) => item.genre === genre);
+    }
+    if (bookmarked) {
+      newArray = newArray.filter((item) => item.bookmarked);
+    }
+    return newArray;
   }
 
   fillMovies(prop) {
@@ -28,21 +45,32 @@ class MovieLibrary extends Component {
     prop.forEach((item) => movies.push(item));
   }
 
+  defaultCallback(item) {
+    console.log(item);
+  }
+
   render() {
     const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre, movies: moviesArray } = this.state;
     if (moviesArray.length < movies.length) this.fillMovies(movies);
-    console.log(this.state);
+    // console.log(moviesArray);
+    const toRender = this
+      .getMoviesArray(searchText, selectedGenre, bookmarkedOnly, moviesArray);
+    // console.log(toRender);
 
     return (
-      <SearchBar
-        searchText={ searchText }
-        onSearchTextChange={ this.handleChange }
-        bookmarkedOnly={ bookmarkedOnly }
-        onBookmarkedChange={ this.handleChange }
-        selectedGenre={ selectedGenre }
-        onSelectedGenreChange={ this.handleChange }
-      />
+      <main>
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleChange }
+        />
+        <MovieList movies={ toRender } />
+        <AddMovie onClick={ this.defaultCallback } />
+      </main>
     );
   }
 }
