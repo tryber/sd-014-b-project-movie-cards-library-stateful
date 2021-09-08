@@ -14,7 +14,9 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <section>
-        olá
+        <form>
+
+        </form>
       </section>
     );
   }
