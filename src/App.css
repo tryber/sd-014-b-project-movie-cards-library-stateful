@@ -83,8 +83,8 @@ body {
 
 .form-container {
   display: flex;
-  flex-flow: column wrap;
   align-items: flex-start;
+  flex-flow: column wrap;
   justify-content: flex-start;
   padding: 48px 30px;
 }
@@ -100,10 +100,10 @@ body {
 }
 
 .form-button {
-  color: aliceblue;
   background-color: #007bff;
-  font-weight: bold;
+  color: aliceblue;
   border: hidden;
+  font-weight: 900;
   border-radius: 10px;
   padding: 5px 20px;
 }
@@ -114,8 +114,8 @@ body {
 
 .header-container {
   display: flex;
-  flex-flow: column wrap;
   align-items: flex-start;
+  flex-flow: column wrap;
   justify-content: flex-start;
   padding: 48px 30px;
   width: 400px;
@@ -126,12 +126,12 @@ body {
 }
 
 .header-input {
-  width: 400px;
   margin-bottom: 15px;
   margin-top: 5px;
+  width: 400px;
 }
 
 .input-checkbox {
-  padding: 10px;
   margin-right: 10px;
+  padding: 10px;
 }
