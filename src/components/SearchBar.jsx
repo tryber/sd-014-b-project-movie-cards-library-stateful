@@ -5,9 +5,9 @@ class SearchBar extends React.Component {
   render() {
     const { filme } = this.props;
     return (
-      <section>
+      <form>
         { filme }
-      </section>
+      </form>
     );
   }
 }
@@ -22,3 +22,5 @@ SearchBar.propTypes = {
     onSelectedGenreChange: PropTypes.func,
   }).isRequired,
 };
+
+export default SearchBar;
