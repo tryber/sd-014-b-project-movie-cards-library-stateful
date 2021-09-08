@@ -5,18 +5,11 @@ import movies from '../data';
 
 export default class MovieLibrary extends React.Component {
   render() {
-    const { movies: {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      selectedGenre,
-      onSelectedGenreChange,
-    }} = this.props;
     return (
       <>
-        <SearchBar movies={ this.movies }/>
-        <MovieList movies={ movies }/>
+        <SearchBar movies={ movies } />
+        <MovieList movies={ movies } />
       </>
-    )
+    );
   }
 }
