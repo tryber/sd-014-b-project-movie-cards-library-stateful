@@ -11,15 +11,18 @@ class SelectAddGenre extends React.Component {
         htmlFor={ `add-${name}` }
       >
         {description}
-        <input
+        <select
           data-testid={ `${name}-input` }
           className="form-input"
           id={ `add-${name}` }
-          type="text"
           name={ name }
           value={ value }
           onChange={ handleChange }
-        />
+        >
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
       </label>
     );
   }
