@@ -17,8 +17,9 @@ export default class SearchBar extends Component {
         selectedGenre={ selectedGenre }
         onSelectedGenreChange={ onSelectedGenreChange }
       >
-        <label data-testid="text-input-label">
-            Inclui o texto:
+        <label htmlFor="text-input-label" data-testid="text-input-label">
+          { /* Problema do label control resolvido aqui: https://stackoverflow.com/questions/54446655/eslint-rule-for-label */ }
+          Inclui o texto:
           <input
             data-testid="text-input"
             type="text"
