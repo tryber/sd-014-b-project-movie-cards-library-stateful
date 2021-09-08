@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { InputWithLabel } from './InputWithLabel';
+import InputWithLabel from './InputWithLabel';
 
-export class MovieInfo extends Component {
+class MovieInfo extends Component {
   render() {
-    const { title, subtitle, imagePath, storyline, onChange } = this.props;
+    const { title, subtitle, imagePath, onChange } = this.props;
 
     return (
       <>
@@ -32,14 +32,6 @@ export class MovieInfo extends Component {
           onChange={ onChange }
           dataTestid="image-input"
         />
-        <InputWithLabel
-          label="Sinopse"
-          type="textarea"
-          name="storyline"
-          value={ storyline }
-          onChange={ onChange }
-          dataTestid="storyline-input"
-        />
       </>
     );
   }
@@ -49,7 +41,6 @@ MovieInfo.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

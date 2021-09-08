@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class InputWithLabel extends Component {
+class InputWithLabel extends Component {
   render() {
     const { label, type, name, value, onChange, dataTestid } = this.props;
 
