@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class InputSelect extends React.Component {
   render() {
     const { genre, handleChange } = this.props;
-
     return (
       <label data-testid="genre-input-label" htmlFor="genre-input">
         Gênero
