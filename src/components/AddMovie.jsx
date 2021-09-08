@@ -1,4 +1,5 @@
 import React from "react";
+import SelectForm from "./SelectForm";
 
 class AddMovies extends React.Component {
   constructor() {
@@ -7,26 +8,51 @@ class AddMovies extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
+      // storyline: '',
+      // rating: 0,
+      // genre: 'action',
     };
+    // this.handleChange = this.handleChange.bind(this);
+
+    // this.handleChange(event) {
+    //   this.setState([event.taget]: event.target.value});
+    // };
   }
 
   render() {
+    const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title">
+        <label htmlFor="title" data-testid="title-input-label">
           Título:
-          <input type="text" name="title" id="title" value="" />
+          <input
+            data-testid="title-input"
+            type="text"
+            name="title"
+            id="title"
+            value={ title }
+            onChange={ this.handleChange }
+          />
         </label>
-        <label htmlFor="subtitle">
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo:
-          <input type="text" name="subtitle" id="subtitle" value="" />
+          <input
+            data-testid="subtitle-input"
+            type="text"
+            name="subtitle"
+            id="subtitle"
+            value={ subtitle }
+          />
         </label>
-        <label htmlFor="imagePath">
-          Capa:
-          <input type="text" name="imagePath" id="imagePath" value="" />
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem:
+          <input
+            data-testid="image-input"
+            type="text"
+            name="imagePath"
+            id="imagePath"
+            value={ imagePath }
+          />
         </label>
         <label htmlFor="rating">
           Nota:
@@ -36,19 +62,7 @@ class AddMovies extends React.Component {
           Sinopse:
           <textarea name="storyline" id="storyline" value="" />
         </label>
-        <label htmlFor="genre">
-          Gênero:
-          <select
-            value=""
-            name="genre"
-            id="genre"
-          >
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
-        </label>
+        <SelectForm />
       </form>
     );
   }
