@@ -1,6 +1,6 @@
 import React from 'react';
-import GenreMovie from './GenreMovie';
 import ImageMovie from './ImageMovie';
+import RatingMovie from './RatingMovie';
 import SinopseMovie from './SinopseMovie';
 
 class AddMovie extends React.Component {
@@ -54,7 +54,7 @@ class AddMovie extends React.Component {
         </label>
         <ImageMovie handleChange={ this.handleChange } value={ imagePath } />
         <SinopseMovie handleChange={ this.handleChange } value={ storyline } />
-        <GenreMovie handleChange={ this.handleChange } value={ rating } />
+        <RatingMovie handleChange={ this.handleChange } value={ rating } />
       </form>
     );
   }
