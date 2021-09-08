@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectForm from './SelectForm';
+// import SelectForm from './SelectForm';
 
 class AddMovies extends React.Component {
   constructor() {
@@ -62,7 +62,7 @@ class AddMovies extends React.Component {
           Sinopse:
           <textarea name="storyline" id="storyline" value="" />
         </label>
-        <SelectForm />
+        {/* <SelectForm /> */}
       </form>
     );
   }
