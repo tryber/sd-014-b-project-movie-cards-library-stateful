@@ -13,6 +13,7 @@ class AddMovie extends React.Component {
       // rating: 0,
       // genre: 'action',
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleInputChange({ target }) {
@@ -24,7 +25,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    // const { addMovie } = this.props;
+    const { addMovie } = this.props;
     const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -39,6 +40,7 @@ class AddMovie extends React.Component {
             onChange={ this.handleInputChange }
           />
         </label>
+        <button type="submit" onClick={ addMovie }>Adicionar</button>
       </form>
     );
   }
@@ -59,4 +61,6 @@ Requisito 7: só adicionar o atributo
 Requisito 8: para que haja iteração entre o texto digitado e o estado fazemos o handleInputChange
 que faz a verificaçao do checkbox primeiro
 depois cuida dinamicamente do nome e valor dos nossos atributos
+fazer o bind this do handleInputChange
+criar botão de adicionar tipo submmit passando a props add movie no onclick
 */
