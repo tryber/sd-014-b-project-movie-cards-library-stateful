@@ -1,9 +1,10 @@
 import React from 'react';
 import Header from './components/Header';
+import SearchBar from './components/SearchBar';
 import './App.css';
 
 class App extends React.Component {
-  constructor() {
+/*   constructor() {
     super();
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -12,12 +13,13 @@ class App extends React.Component {
   }
 
   onSearchTextChange() {
-  }
+  } */
 
   render() {
     return (
       <div className="App">
         <Header />
+        <SearchBar />
       </div>
     );
   }

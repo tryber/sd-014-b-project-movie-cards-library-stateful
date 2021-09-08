@@ -10,9 +10,9 @@ class SearchBar extends React.Component {
       selectedGenre,
       onSelectedGenreChange } = this.props;
     return (
-      <form data-testied="search-bar-form">
+      <form data-testid="search-bar-form">
         <label htmlFor="text-input" data-testid="text-input-label">
-          Inclui o texto:
+          <h5>Inclui o texto:</h5>
           <input
             type="text"
             onChange={ onSearchTextChange }
@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
           />
         </label>
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
-          Mostrar somente favoritos
+          <h5>Mostrar somente favoritos</h5>
           <input
             type="checkbox"
             checked={ bookmarkedOnly }
