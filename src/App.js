@@ -1,4 +1,5 @@
 import React from 'react';
+import MovieLibrary from './components/MovieLibrary';
 import Header from './components/Header';
 import MovieList from './components/MovieList';
 import movies from './data';
@@ -16,6 +17,7 @@ class App extends React.Component {
         <SearchBar />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.callBack } />
+        <MovieLibrary movies={ [] } />
       </div>
     );
   }
