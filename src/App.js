@@ -34,7 +34,7 @@ class App extends React.Component {
 
         <MovieList movies={ movies } />
 
-        <AddMovie />
+        <AddMovie onClick={ addNewMovie } />
       </div>
     );
   }

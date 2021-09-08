@@ -1,10 +1,23 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
+  constructor() {
+    super();
+
+    this.setState = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
   render() {
     return (
       <div>
-        <form className="form-container">
+        <form data-testid="add-movie-form" className="form-container">
           <label className="form-label" htmlFor="add-title">
             Título
             <input className="form-input" id="add-title" type="text" />
