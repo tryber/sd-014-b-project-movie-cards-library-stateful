@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -24,6 +25,16 @@ class AddMovie extends React.Component {
             data-testid="title-input"
             id="text-input"
             type="text"
+            value={ this.state.title }
+          />
+        </label>
+        <label htmlFor="title-input" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            data-testid="title-input"
+            id="text-input"
+            type="text"
+            value={ this.state.subtitle }
           />
         </label>
       </form>
