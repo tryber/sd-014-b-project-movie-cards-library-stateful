@@ -14,18 +14,8 @@ class AddMovie extends Component {
       genre: 'action',
     };
 
-    this.handleKeyUp = this.handleKeyUp.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.submitState = this.submitState.bind(this);
-  }
-
-  handleKeyUp({ target: { name, value }, keyCode }) {
-    const keyEnter = 13;
-    if (keyCode === keyEnter) {
-      this.setState({
-        [name]: value,
-      });
-    }
   }
 
   handleChange({ target, target: { type, name, value } }) {

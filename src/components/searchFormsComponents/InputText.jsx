@@ -8,11 +8,12 @@ class InputText extends Component {
       <label htmlFor="input-text" data-testid="text-input-label">
         Inclui o texto:
         <input
+          type="text"
           id="input-text"
           data-testid="text-input"
           value={ value }
+          name="searchText"
           onChange={ onChange }
-          type="text"
         />
       </label>
     );
