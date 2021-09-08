@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import InputTitle from './InputTitle';
+import InputSubtitle from './InputSubtitle';
 
 class AddMovie extends Component {
   constructor() {
@@ -13,10 +15,10 @@ class AddMovie extends Component {
       genre: 'action',
     };
 
-    this.handleStartValue = this.handleStartValue.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleStartValue({ target }) {
+  handleChange({ target }) {
     const { name, value } = target;
 
     this.setState({
@@ -26,9 +28,11 @@ class AddMovie extends Component {
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+
     return (
       <form data-testid="add-movie-form">
-        <InputTitle value={ title } onChange={ this.handleStartValue } />
+        <InputTitle value={ title } onChange={ this.handleChange } />
+        <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
 
       </form>
     );
