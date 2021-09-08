@@ -15,12 +15,14 @@ class SearchBar extends Component {
   // }
 
   render() {
-    const { searchText,
+    const {
+      searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange } = this.props;
+      onSelectedGenreChange,
+    } = this.props;
 
     return (
       <section>
