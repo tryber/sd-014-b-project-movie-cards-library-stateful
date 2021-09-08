@@ -13,10 +13,19 @@ class MovieLibrary extends Component {
 
   render() {
     const { movies } = this.props;
+    const propsSearch = {
+      searchText: '',
+      onSearchTextChange: () => {},
+      bookmarkedOnly: false,
+      onBookmarkedChange: () => {},
+      selectedGenre: '',
+      onSelectedGenreChange: () => {},
+    };
+
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar prop={ propsSearch } />
         <MovieList movies={ movies } />
         <AddMovie />
       </div>
