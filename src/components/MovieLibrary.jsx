@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { SearchBar } from './SearchBar';
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     const { movies } = this.props;
 
@@ -16,6 +17,8 @@ class MovieLibrary extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleFilters = this.handleFilters.bind(this);
+    this.filterByTextInput = this.filterByTextInput.bind(this);
   }
 
   handleChange({ target }) {
@@ -26,17 +29,55 @@ class MovieLibrary extends Component {
     });
   }
 
+  handleFilters(movies) {
+    const { bookmarkedOnly, selectedGenre } = this.state;
+
+    if (bookmarkedOnly && selectedGenre) {
+      const moviesFiltered = movies
+        .filter((movie) => movie.bookmarked)
+        .filter((movie) => movie.genre === selectedGenre);
+      return this.filterByTextInput(moviesFiltered);
+    }
+
+    if (bookmarkedOnly) {
+      const moviesFiltered = movies
+        .filter((movie) => movie.bookmarked);
+      return this.filterByTextInput(moviesFiltered);
+    }
+
+    if (selectedGenre) {
+      const moviesFiltered = movies
+        .filter((movie) => movie.genre === selectedGenre);
+      return this.filterByTextInput(moviesFiltered);
+    }
+
+    return this.filterByTextInput(movies);
+  }
+
+  filterByTextInput(movies) {
+    const { searchText } = this.state;
+
+    return movies.filter((movie) => (
+      movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText)
+    ));
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
-      <SearchBar
-        searchText={ searchText }
-        onSearchTextChange={ this.handleChange }
-        bookmarkedOnly={ bookmarkedOnly }
-        onBookmarkedChange={ this.handleChange }
-        selectedGenre={ selectedGenre }
-        onSelectedGenreChange={ this.handleChange }
-      />
+      <div>
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleChange }
+        />
+        <MovieList movies={ this.handleFilters(movies) } />
+      </div>
     );
   }
 }
