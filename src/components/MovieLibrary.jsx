@@ -17,6 +17,43 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  filterText = ({ title, subtitle, storyline }) => {
+    const { searchText } = this.state;
+
+    const verTitle = title.toLowerCase().includes(searchText);
+    const verSubTitle = subtitle.toLowerCase().includes(searchText);
+    const verStoryLine = storyline.toLowerCase().includes(searchText);
+
+    return verTitle || verSubTitle || verStoryLine;
+  }
+
+  filterBookmarked = ({ bookmarked }) => {
+    const { bookmarkedOnly } = this.state;
+
+    if (!bookmarkedOnly) return true;
+    return bookmarked === bookmarkedOnly;
+  }
+
+  filterGenre = ({ genre }) => {
+    const { selectedGenre } = this.state;
+
+    if (selectedGenre === '') return true;
+    return genre === selectedGenre;
+  }
+
+  filteredMovie = () => {
+    const { movies } = this.props;
+
+    const filter = movies
+      .filter((movie) => this.filterText(movie))
+      .filter((movie) => this.filterBookmarked(movie))
+      .filter((movie) => this.filterGenre(movie));
+
+    this.setState({
+      movies: filter,
+    });
+  }
+
   createNewMovie = (newMovie) => {
     const { movies } = this.props;
     this.setState({
@@ -24,53 +61,13 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  onSearchTextChange = ({ target }) => {
-    const { name, value } = target;
-    const { searchText } = this.state;
-    const { movies } = this.props;
-
-    const filter = movies.filter(({ title, subtitle, storyline }) => {
-      const verTitle = title.toLowerCase().includes(searchText);
-      const verSubTitle = subtitle.toLowerCase().includes(searchText);
-      const verStoryLine = storyline.toLowerCase().includes(searchText);
-
-      return verTitle || verSubTitle || verStoryLine;
-    });
+  handleChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
       [name]: value,
-      movies: filter,
-    });
-  }
-
-  onBookmarkedChange = ({ target }) => {
-    const { name, checked } = target;
-    const { movies } = this.props;
-
-    const filter = movies.filter(({ bookmarked }) => {
-      if (!checked) return true;
-      return bookmarked === checked;
-    });
-
-    this.setState({
-      [name]: checked,
-      movies: filter,
-    });
-  }
-
-  onSelectedGenreChange = ({ target }) => {
-    const { name, value } = target;
-    const { movies } = this.props;
-
-    const filter = movies.filter((movie) => {
-      if (value === '') return true;
-      return movie.genre === value;
-    });
-
-    this.setState({
-      [name]: value,
-      movies: filter,
-    });
+    }, this.filteredMovie);
   }
 
   render() {
@@ -79,11 +76,11 @@ class MovieLibrary extends React.Component {
       <main>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.onBookmarkedChange }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList
           movies={ movies }
