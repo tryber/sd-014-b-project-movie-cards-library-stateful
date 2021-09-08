@@ -1,7 +1,4 @@
 // 6 - Crie um componente chamado <AddMovie />
-// Atenção: criei novos componentes para evitar erro no Lint (tamanho do código)
-// Ajuda do Guilherme Andrade (programador) no reset do estado e no ternário
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import Genre from './Genre';
@@ -9,7 +6,7 @@ import StoryLine from './StoryLine';
 import Image from './Image';
 import Subtitles from './Subtitles';
 
-export default class AddMovie extends React.Component {
+class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -87,6 +84,8 @@ export default class AddMovie extends React.Component {
     );
   }
 }
+
+export default AddMovie;
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,

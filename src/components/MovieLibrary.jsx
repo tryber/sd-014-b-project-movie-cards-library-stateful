@@ -48,6 +48,14 @@ export default class MovieLibrary extends React.Component {
     }));
   }
 
+  handleChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -72,6 +80,7 @@ export default class MovieLibrary extends React.Component {
                 || (movie.storyline.includes(searchText))))) }
         />
         {/* Requisito 19 */}
+        <AddMovie onClick={ (newMovie) => this.handleAddMovies(newMovie) } />
       </div>
     );
   }
