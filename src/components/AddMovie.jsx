@@ -1,4 +1,7 @@
 import React from 'react';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -25,36 +28,9 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
-            onChange={ this.atualiza }
-            data-testid="title-input"
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.atualiza }
-          />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.atualiza }
-          />
-        </label>
+        <Title titulo={ title } funcao={ this.atualiza } />
+        <Subtitle subtitulo={ subtitle } funcao={ this.atualiza } />
+        <ImagePath imagem={ imagePath } funcao={ this.atualiza } />
         <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <input
