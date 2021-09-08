@@ -5,9 +5,21 @@ import React from 'react';
 
 export default class SearchBar extends React.Component {
   render() {
+    const { searchText, onSearchTextChange } = this.props;
     return (
     // 2 - Renderize um formulário dentro de <SearchBar />
-      <form data-testid="search-bar-form">  </form>
+      <form data-testid="search-bar-form">
+        {/* 3 - Renderize um input do tipo texto dentro do form */}
+        <label htmlFor="text-input" data-testid="text-input-label">
+          Inclui o texto
+          <input
+            data-testid="text-input"
+            type="text"
+            onChange={ onSearchTextChange }
+            value={ searchText }
+          />
+        </label>
+      </form>
     );
   }
 }
