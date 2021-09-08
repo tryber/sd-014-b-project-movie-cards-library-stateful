@@ -17,7 +17,7 @@ export default class SearchBar extends Component {
         selectedGenre={ selectedGenre }
         onSelectedGenreChange={ onSelectedGenreChange }
       >
-      <label data-testid="text-input-label">
+        <label data-testid="text-input-label">
             Inclui o texto:
           <input
             data-testid="text-input"
