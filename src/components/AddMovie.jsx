@@ -17,14 +17,6 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange({ target }) {
-    const { name, value } = target;
-
-    this.setState({
-      [name]: value,
-    });
-  }
-
   render() {
     const { title, subtitle, imagePath, storyline } = this.state;
     return (
@@ -36,7 +28,6 @@ class AddMovie extends React.Component {
             id="text-title"
             type="text"
             value={ title }
-            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="title-subtitle" data-testid="subtitle-input-label">
