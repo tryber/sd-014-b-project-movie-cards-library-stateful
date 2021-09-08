@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { value, func } = this.props;
-    const { id, dataTestId, type, text } = this.props.options;
+    const { value, func, options } = this.props;
+    const { id, dataTestId, type, text } = options;
     return (
       <label htmlFor={ id } data-testid={ `${dataTestId}-label` }>
         { text }
