@@ -24,6 +24,7 @@ class AddMovie extends React.Component {
       imagePath: event.target.value,
       storyline: event.target.value,
       rating: event.target.value,
+      genre: event.target.value,
     })
   }
 
@@ -83,6 +84,19 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
             type="number"
           />
+        </label>
+        <label data-testid="genre-input-label">
+          <h5>Gênero</h5>
+          <select
+            data-testid="genre-input"
+            value={ this.state.genre }
+            onChange={ this.handleChange }
+            type="text"
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     )
