@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   render() {
     const {
       searchText,
@@ -13,7 +13,43 @@ export default class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <div>a</div>
+      <form action="" data-testid="search-bar-form">
+        <label htmlFor="text-input" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            name="text-input"
+            data-testid="text-input"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            name="checked"
+            id="checkbox-input"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+            data-testid="checkbox-input"
+          />
+        </label>
+        <label htmlFor="select" data-testid="select-input-label">
+          Filtrar por gênero
+          <select
+            name="select"
+            data-testid="select-input"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+          >
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
+          </select>
+        </label>
+      </form>
     );
   }
 }
@@ -26,3 +62,5 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
+
+export default SearchBar;
