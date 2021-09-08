@@ -16,6 +16,10 @@ class App extends React.Component {
     };
   }
 
+  addNewMovie() {
+
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
@@ -34,7 +38,7 @@ class App extends React.Component {
 
         <MovieList movies={ movies } />
 
-        <AddMovie onClick={ addNewMovie } />
+        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }
