@@ -1,5 +1,6 @@
 // implement SearchBar component here
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
@@ -51,6 +52,24 @@ class SearchBar extends React.Component {
   }
 }
 
+SearchBar.propTypes={
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: 'undefined',
+  bookmarkedOnly: false,
+  onBookmarkedChange: 'undefined',
+  selectedGenre: '',
+  onSelectedGenreChange: 'undefined',
+};
+
 export default SearchBar;
 
 /*
@@ -61,5 +80,12 @@ cria-se o rótulo(label) com as atributos necessários
 rótulo do label 'inclui o texto' obrigatório
 cria-se o input com os requisitos necessários
 Requisito 4: quase igual o anterior só que com checkbox
-Requisito5: 
+Requisito5: criar outra label
+'filtrar por genero' obrigatório
+criar o botão de seleção com os atributos necessários
+criar os options com os atributos necessários
+Proptype: pro lint não acusar erro nas props, é necessário fazer o proptype
+conforme foi descrito lá no requisito 1.
+Searchbar recebe um objeto que é seu conteúdo e o tipo do conteúdo, string, func, bool...etc
+caso não tenha nada, o conteúdo padrão a ser exibido é linha 64 a 71.
 */
