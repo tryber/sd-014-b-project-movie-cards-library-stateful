@@ -18,7 +18,6 @@ class MovieLibrary extends React.Component {
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleBookmarked = this.handleBookmarked.bind(this);
     this.handleSelectedGenre = this.handleSelectedGenre.bind(this);
-    this.handleLoad = this.handleLoad.bind(this);
   }
 
   handleTextChange(event) {
@@ -26,7 +25,7 @@ class MovieLibrary extends React.Component {
     const movieList = movies;
     this.setState({
       searchText: event.target.value,
-      genre: '',
+      selectedGenre: '',
     }, () => this.setState((prevState) => ({
       movies: movieList.filter((movie) => (
         movie.title.includes(prevState.searchText)
@@ -36,6 +35,8 @@ class MovieLibrary extends React.Component {
   }
 
   handleBookmarked(event) {
+    const { movies } = this.props;
+    const movieList = movies;
     this.setState({
       bookmarkedOnly: event.target.checked,
     }, () => {
@@ -45,8 +46,9 @@ class MovieLibrary extends React.Component {
           movies: prevState.movies.filter((movie) => movie.bookmarked === true),
         })));
       }
-      return (this.setState((prevState) => ({
-        movies: prevState.movies,
+      return (this.setState(() => ({
+        movies: movieList,
+        searchText: '',
       })));
     });
   }
@@ -64,18 +66,10 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  handleLoad() {
-    const moviesList = this.props.movies;
-    this.setState({
-      movies: moviesList,
-    });
-  }
-
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
-      <div onLoadStart={ this.handleLoad }>
+      <>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleTextChange }
@@ -85,7 +79,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleSelectedGenre }
         />
         <MovieList movies={ movies } />
-      </div>
+      </>
     );
   }
 }
