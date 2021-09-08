@@ -6,6 +6,7 @@ import ImageForm from './ImageForm';
 import TextAreaForm from './TextAreaForm';
 import RatingNumber from './RatingNumber';
 import GenreForm from './GenreForm';
+import ButtonSearch from './ButtonSearch';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -19,12 +20,24 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.clearState = this.clearState.bind(this);
   }
 
   handleChange({ target }) {
     const { id, value } = target;
     this.setState({
       [id]: value,
+    });
+  }
+
+  clearState() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -37,15 +50,9 @@ class AddMovie extends React.Component {
         <SubTitleForm onChange={ this.handleChange } value={ subtitle } />
         <ImageForm onChange={ this.handleChange } value={ imagePath } />
         <TextAreaForm onChange={ this.handleChange } value={ storyline } />
-        <RatingNumber onChange={ this.handleChange } value={ rating } />
+        <RatingNumber myFunction={ this.handleChange } value={ rating } />
         <GenreForm onChange={ this.handleChange } value={ genre } />
-        <button
-          type="submit"
-          data-testid="send-button"
-          onClick={ onClick }
-        >
-          Adicionar filme
-        </button>
+        <ButtonSearch onClick={ onClick } />
       </form>
     );
   }
