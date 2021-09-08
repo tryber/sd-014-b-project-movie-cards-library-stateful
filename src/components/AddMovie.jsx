@@ -4,6 +4,7 @@ import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
 import InputImage from './InputImage';
 import StoryLine from './StoryLine';
+import InputNumber from './InputNumber';
 
 class AddMovie extends Component {
   constructor() {
@@ -37,8 +38,7 @@ class AddMovie extends Component {
         <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
         <InputImage value={ imagePath } onChange={ this.handleChange } />
         <StoryLine value={ storyline } onChange={ this.handleChange } />
-
-
+        <InputNumber value={ rating } onChange={ this.handleChange } />
       </form>
     );
   }
