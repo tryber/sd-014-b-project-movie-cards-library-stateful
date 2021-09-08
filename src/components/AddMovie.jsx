@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { MovieInfo } from './MovieInfo';
 
-export class AddMovie extends Component {
+class AddMovie extends Component {
   constructor() {
     super();
 
@@ -26,7 +26,8 @@ export class AddMovie extends Component {
     });
   }
 
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault();
     this.setState((state, { onClick }) => {
       onClick(state);
       return {
@@ -44,7 +45,7 @@ export class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
+      <form onSubmit={ this.handleClick } data-testid="add-movie-form">
         <MovieInfo
           title={ title }
           subtitle={ subtitle }
@@ -78,8 +79,8 @@ export class AddMovie extends Component {
           </select>
         </label>
         <button
-          type="button"
-          onClick={ this.handleClick }
+          type="submit"
+          // onClick={ this.handleClick }
           data-testid="send-button"
         >
           Adicionar filme
