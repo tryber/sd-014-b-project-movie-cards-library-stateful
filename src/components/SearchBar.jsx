@@ -68,8 +68,6 @@ class SearchBar extends React.Component {
           </label>
           { this.addFilterByGenre() }
         </form>
-        <span>{ bookmarkedOnly }</span>
-        <span>{ onBookmarkedChange }</span>
       </div>
     );
   }

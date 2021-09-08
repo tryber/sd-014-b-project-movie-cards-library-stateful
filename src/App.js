@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import AddMovie from './components/AddMovie';
 import MovieLibrary from './components/MovieLibrary';
+import movies from './data';
 import './App.css';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <div className="App">
       <Header />
       <AddMovie />
-      <MovieLibrary />
+      <MovieLibrary filmes={ movies } />
+      {/* props filmes from movies goto constructor in MovieLibrary */ }
     </div>
   );
 }
