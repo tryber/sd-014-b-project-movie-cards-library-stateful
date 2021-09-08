@@ -17,7 +17,9 @@ Será validado se o componente <SearchBar />, recebendo as devidas props, render
 */
 
 /*
-Method 'render' has too many lines (51). Maximum allowed is 50.eslintmax-lines-per-function --> selectedGenre não cabe
+selectedGenre não cabe:
+"Method 'render' has too many lines (51). Maximum allowed is 50.eslintmax-lines-per-function"
+=> import SelectedGenre from './SelectedGenre';
 */
 
 import React from 'react';

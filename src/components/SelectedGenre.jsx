@@ -7,6 +7,7 @@ class SelectedGenre extends React.Component {
     return (
       <div>
         <label htmlFor="selectedGenre" data-testid="select-input-label">
+          Filtrar por gênero
           <select
             name="selectedGenre"
             id="selectedGenre"
@@ -14,10 +15,10 @@ class SelectedGenre extends React.Component {
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
           >
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
         </label>
       </div>
