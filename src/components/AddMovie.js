@@ -14,23 +14,10 @@ export default class AddMovie extends Component {
     };
   }
 
-  metodoTeste = () => {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-  }
-
   render() {
-    const { title } = this.state;
+    const { onClick } = this.props;
     return (
-      <div />
+      <form data-testid="add-movie-form" />
     );
   }
 }
