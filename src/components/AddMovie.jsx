@@ -61,6 +61,7 @@ class AddMovie extends React.Component {
           />
         </label>
         <AddMovieFirstPart values={ secondPart } handleChange={ this.handleChange } />
+        <input type="button" data-testid="send-button" value="Adicionar filme" />
       </form>
     );
   }
