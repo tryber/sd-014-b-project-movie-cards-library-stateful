@@ -6,7 +6,7 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // subtitle: '',
+      subtitle: '',
       title: '',
       // imagePath: '',
       // storyline: '',
@@ -26,7 +26,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { addMovie } = this.props;
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="subtitle" data-testid="title-input-label">
@@ -41,6 +41,17 @@ class AddMovie extends React.Component {
           />
         </label>
         <button type="submit" onClick={ addMovie }>Adicionar</button>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            id="subtitle"
+            name="subtitle"
+            value={ subtitle }
+            type="text"
+            data-testid="subtitle-input"
+            onChange={ this.handleInputChange }
+          />
+        </label>
       </form>
     );
   }
@@ -63,4 +74,6 @@ que faz a verificaçao do checkbox primeiro
 depois cuida dinamicamente do nome e valor dos nossos atributos
 fazer o bind this do handleInputChange
 criar botão de adicionar tipo submmit passando a props add movie no onclick
+Requisito 9: para o subtítulo adicionamos a props a const dentro do render() e
+fazemos o mesmo processo do title com as devidas alterações para subtitle
 */
