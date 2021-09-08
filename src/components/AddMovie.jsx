@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputGlobal from './InputGlobal';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -12,7 +13,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -25,71 +26,42 @@ class AddMovie extends React.Component {
       storyline: event.target.value,
       rating: event.target.value,
       genre: event.target.value,
-    })
+    });
   }
 
   render() {
-    /* const {
-      subtitle,
-      title,
-      imagePath,
-      storyline,
-      rating,
-      genre,
-    } = this.props; */
-
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          <h5>Título</h5>
-          <input
-            data-testid="title-input"
-            value={ this.state.title }
-            onChange={ this.handleChange }
-            type="text"
-          />
-        </label >
-        <label data-testid="subtitle-input-label">
-          <h5>Subtítulo</h5>
-          <input
-            data-testid="subtitle-input"
-            value={ this.state.subtitle }
-            onChange={ this.handleChange }
-            type="text"
-          />
-        </label>
-        <label data-testid="image-input-label">
-          <h5>Imagem</h5>
-          <input
-            data-testid="image-input"
-            value={ this.state.imagePath }
-            onChange={ this.handleChange }
-            type="text"
-          />
-        </label>
-        <label data-testid="storyline-input-label">
+        <InputGlobal
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          handleChange={ this.handleChange }
+        />
+        <label data-testid="storyline-input-label" htmlFor="storyline-input">
           <h5>Sinopse</h5>
           <textarea
             data-testid="storyline-input"
-            value={ this.state.storyline }
+            value={ storyline }
             onChange={ this.handleChange }
             type="text"
           />
         </label>
-        <label data-testid="rating-input-label">
+        <label data-testid="rating-input-label" htmlFor="rating-input">
           <h5>Avaliação</h5>
           <input
             data-testid="rating-input"
-            value={ this.state.rating }
+            value={ rating }
             onChange={ this.handleChange }
             type="number"
           />
         </label>
-        <label data-testid="genre-input-label">
+        <label data-testid="genre-input-label" htmlFor="genre-input">
           <h5>Gênero</h5>
           <select
             data-testid="genre-input"
-            value={ this.state.genre }
+            value={ genre }
             onChange={ this.handleChange }
             type="text"
           >
@@ -98,8 +70,9 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+        {/* <button data-testid="send-button" onClick={  }>Adicionar filme</button> */}
       </form>
-    )
+    );
   }
 }
 
@@ -110,6 +83,6 @@ AddMovie.protoTypes = {
   storyline: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
-}
+};
 
 export default AddMovie;
