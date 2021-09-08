@@ -25,6 +25,10 @@ class SearchBar extends React.Component {
               id="text-input"
             />
           </label>
+          <label htmlFor="checkbox-search-input" data-testid="checkbox-input-label">
+            Mostrar somente favoritos
+            <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} data-testid="checkbox-input" id="checkbox-search-input" />
+          </label>
         </form>
       </section>
     );
