@@ -1,6 +1,5 @@
 import React from 'react';
 import InputText from './InputText';
-// import SelectForm from './SelectForm';
 
 class AddMovies extends React.Component {
   constructor() {
@@ -40,11 +39,18 @@ class AddMovies extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        {/* <label htmlFor="rating">
-          Nota:
+        <label htmlFor="rating" data-testid="rating-input-label">
+          Avaliação:
           <input type="number" name="rating" id="rating" value="" />
         </label>
-        <SelectForm /> */}
+        <label htmlFor="genre" data-testid="genre-input-label">
+          Gênero:
+          <select data-testid="genre-input" value="" name="genre" id="genre">
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
