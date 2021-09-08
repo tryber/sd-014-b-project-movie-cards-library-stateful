@@ -3,29 +3,21 @@ import PropTypes from 'prop-types';
 
 export default class GenreTag extends Component {
   render() {
-    const { selectedGenre, onSelectedGenreChange } = this.props;
+    const { genre, onChange } = this.props;
     return (
-      <div>
-        <label htmlFor="select-input-testid" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            id="form-select"
-            data-testid="select-input"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
-      </div>
+      <label data-testid="image-input-label" htmlFor="image-input">
+        Gênero
+        <select data-testid="genre-input" value={ genre } onChange={ onChange }>
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
+      </label>
     );
   }
 }
 
 GenreTag.propTypes = {
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
+  genre: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };

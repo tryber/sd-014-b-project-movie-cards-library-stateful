@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TextTag from './TextTag';
 import FavoriteTag from './FavoriteTag';
-import GenreTag from './GenreTag';
+import GenreSearch from './GenreSearch';
 
 export default class SearchBar extends Component {
   render() {
@@ -18,7 +18,7 @@ export default class SearchBar extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ onBookmarkedChange }
         />
-        <GenreTag
+        <GenreSearch
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
