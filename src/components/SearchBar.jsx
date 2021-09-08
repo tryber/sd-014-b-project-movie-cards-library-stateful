@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
-
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this
+      .props;
     return (
       <form data-testid="search-bar-form" className="header-container">
         <label
@@ -22,16 +22,19 @@ class SearchBar extends React.Component {
             onChange={ onSearchTextChange }
           />
         </label>
-
         <label
+          data-testid="checkbox-input-label"
           className="header-label"
           htmlFor="show-only-favorites"
         >
           <input
+            data-testid="checkbox-input"
             className="input-checkbox"
             type="checkbox"
             name="show-only-favorites"
             id="show-only-favorites"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
           />
           Mostrar somente favoritos
         </label>
@@ -39,14 +42,7 @@ class SearchBar extends React.Component {
           Filtrar por gênero:
           <select className="header-input" id="filter-genre">
             <option value="">Filtrar por gênero</option>
-            {/* {movies
-              .map(({ genre }, index) => (
-                <option
-                  key={ index + 1 }
-                  value={ genre }
-                >
-                  { genre }
-                </option>))} */}
+
           </select>
         </label>
       </form>
@@ -54,10 +50,21 @@ class SearchBar extends React.Component {
   }
 }
 
+/* {movies
+  .map(({ genre }, index) => (
+    <option
+      key={ index + 1 }
+      value={ genre }
+    >
+      { genre }
+    </option>))} */
+
 SearchBar.propTypes = {
   // movies: PropTypes.string.isRequired,
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

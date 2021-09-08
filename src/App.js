@@ -7,12 +7,33 @@ import AddMovie from './components/AddMovie';
 import './App.css';
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    };
+  }
+
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
     return (
       <div className="App">
         <Header />
-        <SearchBar movies={ movies } />
+
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+        />
+
         <MovieList movies={ movies } />
+
         <AddMovie />
       </div>
     );
