@@ -21,6 +21,15 @@ constructor() {
 
     return (
       <form data-testid="add-movie-form">
+        <label htmlFor="title-input" data-testid="title-input-label">
+          Título
+          <input
+            type="text"
+            value={ title }
+            data-testid="title-input"
+            onChange={ onClick }
+          />
+        </label>
                 
       </form>
     )
