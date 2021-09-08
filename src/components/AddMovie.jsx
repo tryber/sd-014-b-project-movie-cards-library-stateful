@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddTitle from './AddMoviesComp/AddTitle';
 import AddSub from './AddMoviesComp/AddSub';
 
 export default class AddMovie extends React.Component {
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.props;
     return (
       <form data-testid="add-movie-form">
         <AddTitle title={ title } />
@@ -50,3 +51,12 @@ export default class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+};

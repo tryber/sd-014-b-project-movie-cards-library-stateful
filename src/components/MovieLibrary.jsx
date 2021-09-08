@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import moviesData from '../data';
+import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends React.Component {
   render() {
@@ -17,6 +18,7 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange={ testeFunction }
         />
         <MovieList movies={ moviesData } />
+        <AddMovie />
       </>
     );
   }
