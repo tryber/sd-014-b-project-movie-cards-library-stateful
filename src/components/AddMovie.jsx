@@ -18,6 +18,19 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  resetState = (state) => {
+    const { onClick } = this.props;
+    onClick(state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  };
+
   // eslint-disable-next-line max-lines-per-function
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
@@ -83,6 +96,7 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+        <button type="reset" data-testid="send-button" onClick={ () => this.resetState(this.state) }>Adicionar filme</button>
       </form>
     );
   }

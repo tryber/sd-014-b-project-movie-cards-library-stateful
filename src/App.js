@@ -6,17 +6,19 @@ import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
 import './App.css';
 
-const callback = () => console.log('CallBack');
+class App extends React.Component {
+  callBack = () => console.log('foi');
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar />
-      <MovieList movies={ movies } />
-      <AddMovie onClick={ callback } />
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <SearchBar />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.callBack } />
+      </div>
+    );
+  }
 }
 
 export default App;
