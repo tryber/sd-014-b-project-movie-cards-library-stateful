@@ -37,7 +37,6 @@ body {
   width: 300px;
 }
 
-
 .movie-card-image {
   width: 100%;
 }
@@ -80,4 +79,58 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 48px 30px;
+}
+
+.form-label {
+  width: 100%;
+}
+.form-input {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.form-button {
+  border-radius: 10px;
+  padding: 5px 20px;
+  color: aliceblue;
+  background-color: #007bff;
+  border: 0px;
+  font-weight: bold;
+}
+
+.form-button:hover {
+  background-color: rgb(0, 89, 255);
+}
+
+.header-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 48px 30px;
+  width: 400px;
+}
+
+.header-label {
+  width: 100%;
+}
+
+.header-input {
+  width: 400px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.input-checkbox {
+  padding: 10px;
+  margin-right: 10px;
 }

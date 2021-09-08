@@ -3,19 +3,29 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     return (
-      <div>
-        <p>Inclui o texto:</p>
-        <input type="text" placeholder="Inclui o texto" />
-        <br />
-        <label htmlFor="show-only-favorites">
-          <input type="checkbox" name="show-only-favorites" id="show-only-favorites" />
+      <div className="header-container">
+        <label className="header-label" htmlFor="find-text">
+          Inclui o texto:
+          <input className="header-input" id="find-text" type="text" />
+        </label>
+
+        <label className="header-label" htmlFor="show-only-favorites">
+          <input
+            className="input-checkbox"
+            type="checkbox"
+            name="show-only-favorites"
+            id="show-only-favorites"
+          />
           Mostrar somente favoritos
         </label>
-        <p>Filtrar por gênero</p>
-        <select>
-          <option value="">Selecione um filtro</option>
-          <option value="action">Ação</option>
-        </select>
+
+        <label className="header-label" htmlFor="filter-genre">
+          Filtrar por gênero:
+          <select className="header-input" id="filter-genre">
+            <option value="">Selecione um filtro</option>
+            <option value="action">Ação</option>
+          </select>
+        </label>
       </div>
     );
   }
