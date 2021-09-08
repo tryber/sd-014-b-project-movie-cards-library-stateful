@@ -3,6 +3,9 @@ import React from 'react';
 import Title from './AddMovie Components/title';
 import Subtitle from './AddMovie Components/subtitle';
 import Image from './AddMovie Components/image';
+import Storyline from './AddMovie Components/storyline';
+import Rating from './AddMovie Components/rating';
+import Genre from './AddMovie Components/genre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -24,7 +27,7 @@ class AddMovie extends React.Component {
     console.log(event.target);
     this.setState({
       [name]: value,
-    });
+    }, () => console.log(this.state));
   }
 
   render() {
@@ -39,6 +42,11 @@ class AddMovie extends React.Component {
           <br />
           <Image value={ imagePath } callback={ this.handleChange } />
           <br />
+          <Storyline value={ storyline } callback={ this.handleChange } />
+          <br />
+          <Rating value={ rating } callback={ this.handleChange } />
+          <br />
+          <Genre value={ genre } callback={ this.handleChange } />
         </form>
       </div>
     );
