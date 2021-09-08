@@ -84,27 +84,28 @@ body {
 .form-container {
   display: flex;
   flex-flow: column wrap;
-  justify-content: flex-start;
   align-items: flex-start;
+  justify-content: flex-start;
   padding: 48px 30px;
 }
 
 .form-label {
   width: 100%;
 }
+
 .form-input {
-  width: 100%;
-  margin-top: 5px;
   margin-bottom: 10px;
+  margin-top: 5px;
+  width: 100%;
 }
 
 .form-button {
-  border-radius: 10px;
-  padding: 5px 20px;
   color: aliceblue;
   background-color: #007bff;
-  border: 0px;
   font-weight: bold;
+  border: hidden;
+  border-radius: 10px;
+  padding: 5px 20px;
 }
 
 .form-button:hover {
@@ -114,8 +115,8 @@ body {
 .header-container {
   display: flex;
   flex-flow: column wrap;
-  justify-content: flex-start;
   align-items: flex-start;
+  justify-content: flex-start;
   padding: 48px 30px;
   width: 400px;
 }
@@ -126,8 +127,8 @@ body {
 
 .header-input {
   width: 400px;
-  margin-top: 5px;
   margin-bottom: 15px;
+  margin-top: 5px;
 }
 
 .input-checkbox {
