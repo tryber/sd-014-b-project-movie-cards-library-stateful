@@ -11,17 +11,17 @@ class SearchBar extends React.Component {
       <form data-testid="search-bar-form">
 
       </form>
-    )
+    );
   }
 }
 
-SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
-};
+// SearchBar.propTypes = {
+//   searchText: PropTypes.string.isRequired,
+//   onSearchTextChange: PropTypes.func.isRequired,
+//   bookmarkedOnly: PropTypes.bool.isRequired,
+//   onBookmarkedChange: PropTypes.func.isRequired,
+//   selectedGenre: PropTypes.string.isRequired,
+//   onSelectedGenreChange: PropTypes.func.isRequired,
+// };
 
 export default SearchBar;
