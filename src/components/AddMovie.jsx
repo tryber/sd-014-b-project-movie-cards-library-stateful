@@ -3,6 +3,8 @@ import InputAddMovie from './InputAddMovie';
 import InputAddRating from './InputAddRating';
 import TextareaAddMovie from './TextareaAddMovie';
 import SelectAddGenre from './SelectAddGenre';
+import BtnSubmit from './BtnSubmit';
+import PropTypes from 'prop-types';
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -11,12 +13,12 @@ const INITIAL_STATE = {
   storyline: '',
   rating: 0,
   genre: 'action',
+  submitted: false,
 };
 
 class AddMovie extends React.Component {
   constructor() {
     super();
-
     this.state = INITIAL_STATE;
   }
 
@@ -27,6 +29,15 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: value,
     });
+  };
+
+  resetForm = () => { this.setState(INITIAL_STATE); };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.resetForm();
   }
 
   render() {
@@ -70,11 +81,15 @@ class AddMovie extends React.Component {
             value={ genre }
             handleChange={ this.handleChange }
           />
-          <button className="form-button" type="submit">Adicionar</button>
+          <BtnSubmit handleSubmit={ this.handleSubmit } />
         </form>
       </div>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
