@@ -102,8 +102,8 @@ body {
 .form-button {
   background-color: #007bff;
   border: hidden;
-  color: aliceblue;
   border-radius: 10px;
+  color: aliceblue;
   font-weight: 900;
   padding: 5px 20px;
 }
