@@ -2,7 +2,7 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, 
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
       selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
           <input
             name="checkBox"
             type="checkbox"
-            checked={ bookmarkedOnly } 
+            checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
@@ -42,6 +42,10 @@ class SearchBar extends React.Component {
       </form>
     );
   }
+}
+
+SearchBar.protoTypes = {
+
 }
 
 export default SearchBar;

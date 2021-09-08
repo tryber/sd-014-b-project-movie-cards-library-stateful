@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -21,7 +22,7 @@ class AddMovie extends React.Component {
   resetState = (state) => {
     const { onClick } = this.props;
     onClick(state);
-    this.setState({
+    this.setStateq({
       subtitle: '',
       title: '',
       imagePath: '',
@@ -96,9 +97,20 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="reset" data-testid="send-button" onClick={ () => this.resetState(this.state) }>Adicionar filme</button>
+        <button
+          type="reset"
+          data-testid="send-button"
+          onClick={ () => this.resetState(this.state) }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
 export default AddMovie;
