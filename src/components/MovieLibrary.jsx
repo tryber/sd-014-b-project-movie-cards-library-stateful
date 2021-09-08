@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import movies from '../data';
@@ -25,8 +25,9 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    return()
+    return (console.log('oi'));
   }
 }
 
 export default MovieLibrary;
+ */
