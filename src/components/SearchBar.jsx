@@ -4,10 +4,21 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   render() {
-    // const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+    // const { searchText, onSearchTextChange } = this.props;
+
+    // bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange
+
     return (
       <form data-testid="search-bar-form">
-        text
+        <label htmlFor="textSearch" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            id="textSearch"
+            data-testid="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
       </form>
     );
   }
