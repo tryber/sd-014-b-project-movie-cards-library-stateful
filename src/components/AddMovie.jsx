@@ -33,7 +33,6 @@ const allInputs = [
 class AddMovie extends React.Component {
   constructor() {
     super();
-    
     this.state = {
       subtitle: '',
       title: '',
