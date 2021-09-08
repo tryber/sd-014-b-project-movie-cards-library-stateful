@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export class AddMoviePartI extends Component {
+class AddMoviePartI extends React.Component {
   render() {
     const { values, updateState } = this.props;
-    console.log(values[1]);
     return (
       <>
         <label htmlFor="storyline" data-testid="storyline-input-label">

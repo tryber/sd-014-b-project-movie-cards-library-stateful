@@ -1,11 +1,10 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import AddMoviePartI from './addMoviePartI';
+import AddMoviePartI from './AddMoviePartI';
 
 export class AddMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.updateState = this.updateState.bind(this);
     this.state = {
       title: '',
@@ -26,8 +25,8 @@ export class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const addMovieP1 = [storyline, rating, genre];
+    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+    const addMovieP1 = [storyLine, rating, genre];
 
     return (
       <form data-testid="add-movie-form">
@@ -35,6 +34,7 @@ export class AddMovie extends Component {
           Título
           <input
             name="title"
+            value={ title }
             type="text"
             data-testid="title-input"
             onChange={ this.updateState }
@@ -44,6 +44,7 @@ export class AddMovie extends Component {
           Subtítulo
           <input
             name="subtitle"
+            value={ subtitle }
             type="text"
             data-testid="title-input"
             onChange={ this.updateState }
