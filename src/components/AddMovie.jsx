@@ -6,8 +6,8 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
-      subtitle: '',
-      // title: '',
+      // subtitle: '',
+      title: '',
       // imagePath: '',
       // storyline: '',
       // rating: 0,
@@ -26,16 +26,17 @@ class AddMovie extends React.Component {
 
   render() {
     const { addMovie } = this.props;
-    const { subtitle } = this.state;
+    const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="subtitle">
-          subtítulo
+        <label htmlFor="subtitle" data-testid="title-input-label">
+          Título
           <input
-            id="subtitle"
-            name="subtitle"
-            value={ subtitle }
+            id="title"
+            name="title"
+            value={ title }
             type="text"
+            data-testid="title-input"
             onChange={ this.handleInputChange }
           />
         </label>
