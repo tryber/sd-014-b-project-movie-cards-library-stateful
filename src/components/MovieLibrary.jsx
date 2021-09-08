@@ -14,8 +14,8 @@ class MovieLibrary extends Component {
     }
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange(this);
+    // this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    // this.onSelectedGenreChange = this.onSelectedGenreChange(this);
   }
 
   onSearchTextChange({ target }) {
@@ -24,17 +24,17 @@ class MovieLibrary extends Component {
     });
   }
 
-  onBookmarkedChange({ target }) {
-    this.setState({
-      bookmarkedOnly: target.checked,
-    });
-  }
+  // onBookmarkedChange({ target }) {
+  //   this.setState({
+  //     bookmarkedOnly: target.checked,
+  //   });
+  // }
 
-  onSelectedGenreChange({ target }) {
-    this.setState({
-      selectedGenre: target.value,
-    })
-  }
+  // onSelectedGenreChange({ target }) {
+  //   this.setState({
+  //     selectedGenre: target.value,
+  //   })
+  // }
 
   render() {
 
@@ -48,8 +48,8 @@ class MovieLibrary extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
           onSearchTextChange={ this.onSearchTextChange }
-          onBookmarkedChange={ this.onBookmarkedChange }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          // onBookmarkedChange={ this.onBookmarkedChange }
+          // onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={this.props.movies} />
         {/* <AddMovie /> */}
