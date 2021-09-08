@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Select from './Select';
 
 class SearchBar extends React.Component {
   // noooo comitei na master
@@ -42,16 +43,7 @@ class SearchBar extends React.Component {
               onChange={ onBookmarkedChange }
             />
           </label>
-
-          <label data-testid="select-input-label" htmlFor="select-input">
-            Filtrar por gênero
-            <select
-              data-testid="select-input"
-              value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
-            />
-          </label>
-
+          <Select value={ selectedGenre } onChange={ onSelectedGenreChange } />
         </form>
       </div>
     );
