@@ -5,7 +5,7 @@ import React from 'react';
 
 export default class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly } = this.props;
     return (
     // 2 - Renderize um formulário dentro de <SearchBar />
       <form data-testid="search-bar-form">
@@ -17,6 +17,17 @@ export default class SearchBar extends React.Component {
             type="text"
             onChange={ onSearchTextChange }
             value={ searchText }
+          />
+        </label>
+        {/* 4 - Renderize um input do tipo checkbox */}
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+            data-testid="checkbox-input"
+            name="bookmarkedOnly"
           />
         </label>
       </form>
