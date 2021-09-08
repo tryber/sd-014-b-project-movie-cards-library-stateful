@@ -1,42 +1,40 @@
 // implement SearchBar component here
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class SearchBar extends Component {
 
-  constructor() {
-    super();
-
-    this.onSearchTextChange = this.onSearchTextChange.bind(this); // Usa-se para uma callback;
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-    };
-  }
-
-  onSearchTextChange({ target }) {
-    const { value } = target;
-    this.setState({ searchText: value });
-  }
-
-  onBookmarkedChange({ target }) {
-    const { checked } = target;
-    this.setState({ bookmarkedOnly: checked });
-  }
-
-  onSelectedGenreChange({ target }) {
-    const { value } = target;
-    this.setState({ selectedGenre: value });
-  }
-
   render() {
+    const { searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange} = this.props;
     return (
-      <form data-testid="search-bar-form" />
+      <form data-testid="search-bar-form">
+        <label htmlFor ="text-input" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            name="searchText"
+            type="text"
+            data-testid="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+      </form>
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
