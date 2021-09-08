@@ -1,5 +1,5 @@
-import React from "react";
-import SelectForm from "./SelectForm";
+import React from 'react';
+import SelectForm from './SelectForm';
 
 class AddMovies extends React.Component {
   constructor() {
