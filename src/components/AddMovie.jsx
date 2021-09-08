@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputSubtitle from './Inputs/InputSubtitle';
 import InputTitle from './Inputs/InputTitle';
 import InputImage from './Inputs/InputImage';
 import InputRating from './Inputs/InputRating';
-import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -37,7 +37,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
+    });
   }
 
   render() {
