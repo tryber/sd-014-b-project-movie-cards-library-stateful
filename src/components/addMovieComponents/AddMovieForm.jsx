@@ -7,33 +7,28 @@ import Selectgenre from './SelectGenre';
 
 class AddMovieForm extends Component {
   render() {
-    const {
-      titleState,
-      subtitleState,
-      imgPathState,
-      sinopseState,
-      ratingState,
-      genreState,
-      onChange,
-      onClick } = this.props;
+    const { titleState, subtitleState, imgPathState, sinopseState,
+      ratingState, genreState, onChange, onClick } = this.props;
     return (
-      <form data-testid="add-movie-form">
-        <InputText
-          titleName="Título"
-          id="title"
-          textHold="Nome do filme"
-          name="title"
-          initValue={ titleState }
-          change={ onChange }
-        />
-        <InputText
-          titleName="Subtítulo"
-          id="subtitle"
-          textHold="Subtitulo do filme"
-          name="subtitle"
-          initValue={ subtitleState }
-          change={ onChange }
-        />
+      <form className="search-forms" data-testid="add-movie-form">
+        <div>
+          <InputText
+            titleName="Título"
+            id="title"
+            textHold="Nome do filme"
+            name="title"
+            initValue={ titleState }
+            change={ onChange }
+          />
+          <InputText
+            titleName="Subtítulo"
+            id="subtitle"
+            textHold="Subtitulo do filme"
+            name="subtitle"
+            initValue={ subtitleState }
+            change={ onChange }
+          />
+        </div>
         <InputText
           titleName="Imagem"
           id="image"
@@ -43,8 +38,10 @@ class AddMovieForm extends Component {
           change={ onChange }
         />
         <TextAreaForm initValue={ sinopseState } change={ onChange } />
-        <InputNumber initValue={ ratingState } change={ onChange } />
-        <Selectgenre initValue={ genreState } change={ onChange } />
+        <div>
+          <InputNumber initValue={ ratingState } change={ onChange } />
+          <Selectgenre initValue={ genreState } change={ onChange } />
+        </div>
         <button
           type="button"
           onClick={ onClick }
