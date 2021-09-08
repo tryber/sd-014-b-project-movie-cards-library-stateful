@@ -3,19 +3,43 @@ import React from 'react';
 
 class SearchBar extends Component {
   render() {
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange } = this.props;
+
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="inputText" data-testid="text-input-label">
           Inclui o texto:
-          <input id="inputText" type="text" data-testid="text-input" onChange={ this.props.onSearchTextChange } value={ this.props.searchText } />
+          <input
+            id="inputText"
+            type="text"
+            data-testid="text-input"
+            onChange={ onSearchTextChange }
+            value={ searchText }
+          />
         </label>
         <label htmlFor="inputCheckbox" data-testid="checkbox-input-label">
           Mostrar somente favoritos
-          <input data-testid="checkbox-input" type="checkbox" id="inputCheckbox" onChange={ this.props.onBookmarkedChange } checked={ this.props.bookmarkedOnly } />
+          <input
+            type="checkbox"
+            id="inputCheckbox"
+            onChange={ onBookmarkedChange }
+            checked={ bookmarkedOnly }
+          />
         </label>
-        <label data-testid="select-input-label">
+        <label htmlFor="inputSelect" data-testid="select-input-label">
           Filtrar por gênero
-          <select data-testid="select-input" onChange={ this.props.onSelectedGenreChange} value={ this.props.selectedGenre }>
+          <select
+            id="inputSelect"
+            data-testid="select-input"
+            onChange={ onSelectedGenreChange }
+            value={ selectedGenre }
+          >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
             <option data-testid="select-option" value="comedy">Comédia</option>
