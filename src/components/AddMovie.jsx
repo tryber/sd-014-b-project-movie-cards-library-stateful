@@ -4,14 +4,22 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
+    this.upDateState = this.upDateState.bind(this);
     this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
-      /* rating: 0,
-      genre: 'action', */
+      rating: 0,
+      genre: 'action',
     };
+  }
+
+  upDateState({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -24,8 +32,7 @@ class AddMovie extends React.Component {
           <input
             type="text"
             data-testid="title-input"
-            onChange={ onClick }
-            value={ title }
+            onChange={ this.upDateState }
           />
         </label>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
@@ -33,8 +40,7 @@ class AddMovie extends React.Component {
           <input
             type="text"
             data-testid="subtitle-input"
-            onChange={ onClick }
-            value={ subtitle }
+            onChange={this.upDateState}
           />
         </label>
         <label htmlFor="image-input" data-testid="image-input-label">
@@ -42,16 +48,14 @@ class AddMovie extends React.Component {
           <input
             type="text"
             data-testid="image-input"
-            onChange={ onClick }
-            value={ imagePath }
+            onChange={this.upDateState}
           />
         </label>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse:
           <textarea
             data-testid="storyline-input"
-            onChange={ onClick }
-            value={ storyline }
+            onChange={this.upDateState}
           />
         </label>
       </form>
