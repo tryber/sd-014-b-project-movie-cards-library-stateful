@@ -73,9 +73,9 @@ class AddMovie extends React.Component {
             value={ genre }
             name="genre"
           >
-            <option value="action" data-testid="select-option"> Ação </option>
-            <option value="comedy" data-testid="select-option"> Comédia </option>
-            <option value="thriller" data-testid="select-option"> Suspense </option>
+            <option value="action" data-testid="genre-option"> Ação </option>
+            <option value="comedy" data-testid="genre-option"> Comédia </option>
+            <option value="thriller" data-testid="genre-option"> Suspense </option>
           </select>
         </label>
         <button
