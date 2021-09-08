@@ -24,10 +24,6 @@ class MovieLibrary extends Component {
     };
   }
 
-  filterIncludes = () =>{
-        
-  }
-
   render() {
     return()
   }
