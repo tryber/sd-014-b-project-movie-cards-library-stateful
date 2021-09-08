@@ -1,4 +1,5 @@
 // 6 - Crie um componente chamado <AddMovie />
+// Ajuda do Guilherme Andrade, Vitu e Lê!
 import React from 'react';
 import PropTypes from 'prop-types';
 import Genre from './Genre';

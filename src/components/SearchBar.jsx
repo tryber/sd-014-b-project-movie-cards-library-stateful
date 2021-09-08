@@ -53,6 +53,8 @@ export default class SearchBar extends React.Component {
   }
 }
 
+// Requisitos finais de teste
+
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,

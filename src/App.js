@@ -4,6 +4,7 @@ import './App.css';
 import MovieLibrary from './components/MovieLibrary';
 import movies from './data';
 
+// passo 3.1 - alterar o App.js
 function App() {
   return (
     <div className="App">

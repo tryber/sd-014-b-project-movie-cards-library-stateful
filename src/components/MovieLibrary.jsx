@@ -1,9 +1,7 @@
-// Requisito 15
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 export default class MovieLibrary extends React.Component {
@@ -22,8 +20,6 @@ export default class MovieLibrary extends React.Component {
     this.handleSelectedGenre = this.handleSelectedGenre.bind(this);
   }
 
-  // Requisito 16
-  // handles feitos com a ajuda de Guilherme Andrade
   handleSearchText({ target }) {
     this.setState({
       searchText: target.value,
@@ -48,19 +44,10 @@ export default class MovieLibrary extends React.Component {
     }));
   }
 
-  handleChange = ({ target }) => {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-    });
-  }
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
-        {/* Requisito 17 */}
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleSearchText }
@@ -69,7 +56,6 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleSelectedGenre }
         />
-        {/* Requisito 18 - feito com ajuda de Guilherme Andrade (ternário) */}
         <MovieList
           movies={ movies.filter((movie) => (
             (bookmarkedOnly === false ? true : movie.bookmarked === true)
@@ -79,7 +65,6 @@ export default class MovieLibrary extends React.Component {
                 || (movie.subtitle.includes(searchText))
                 || (movie.storyline.includes(searchText))))) }
         />
-        {/* Requisito 19 */}
         <AddMovie onClick={ (newMovie) => this.handleAddMovies(newMovie) } />
       </div>
     );
