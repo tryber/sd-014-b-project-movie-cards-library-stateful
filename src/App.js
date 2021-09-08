@@ -16,7 +16,7 @@ function App() {
         selectedGenre
         onSelectedGenreChange
       />
-      <AddMovie onClick />
+      <AddMovie onClick/>
     </div>
   );
 }
