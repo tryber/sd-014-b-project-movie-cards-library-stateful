@@ -5,7 +5,8 @@ import React from 'react';
 
 export default class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
+      selectedGenre, onSelectedGenreChange } = this.props;
     return (
     // 2 - Renderize um formulário dentro de <SearchBar />
       <form data-testid="search-bar-form">
@@ -29,6 +30,20 @@ export default class SearchBar extends React.Component {
             data-testid="checkbox-input"
             name="bookmarkedOnly"
           />
+        </label>
+        {/* 5 - Renderize um select */}
+        <label htmlFor="select-input" data-testid="select-input-label">
+          Filtrar por gênero
+          <select
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
+          >
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
+          </select>
         </label>
       </form>
     );
