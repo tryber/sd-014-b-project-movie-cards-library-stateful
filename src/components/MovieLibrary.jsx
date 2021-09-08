@@ -15,7 +15,8 @@ class MovieLibrary extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.fillMovies = this.fillMovies.bind(this);
+    this.fillMoviesState = this.fillMoviesState.bind(this);
+    this.defaultCallback = this.defaultCallback.bind(this);
   }
 
   handleChange({ target: { name, value, checked } }) {
@@ -40,22 +41,26 @@ class MovieLibrary extends Component {
     return newArray;
   }
 
-  fillMovies(prop) {
+  fillMoviesState(prop) {
     const { movies } = this.state;
-    prop.forEach((item) => movies.push(item));
+    prop.forEach((movie) => {
+      if (!movies.includes(movie)) movies.push(movie);
+    });
   }
 
   defaultCallback(item) {
-    console.log(item);
+    const { movies } = this.props;
+    movies.push(item);
+    this.setState({ movies });
   }
 
   render() {
     const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre, movies: moviesArray } = this.state;
-    if (moviesArray.length < movies.length) this.fillMovies(movies);
-    // console.log(moviesArray);
+    const { searchText, bookmarkedOnly, selectedGenre, movies: moviesState } = this.state;
+    if (moviesState.length < movies.length) this.fillMoviesState(movies);
+    // console.log(moviesState);
     const toRender = this
-      .getMoviesArray(searchText, selectedGenre, bookmarkedOnly, moviesArray);
+      .getMoviesArray(searchText, selectedGenre, bookmarkedOnly, moviesState);
     // console.log(toRender);
 
     return (

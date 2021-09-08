@@ -11,8 +11,8 @@ class TextAreaForm extends Component {
           id="film-textarea-form"
           name="storyline"
           value={ initValue }
-          placeholder="Digite até 100 caracteres."
-          maxLength={ 100 }
+          placeholder="Digite até 150 caracteres."
+          maxLength={ 150 }
           onChange={ change }
           data-testid="storyline-input"
         />
