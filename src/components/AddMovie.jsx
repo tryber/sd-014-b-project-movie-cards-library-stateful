@@ -1,6 +1,11 @@
 // implement AddMovie component here
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import TitleComponent from './AddMovieComponents/TitleComponent';
+import SubTitleComponent from './AddMovieComponents/SubTitleComponent';
+import ImageComponent from './AddMovieComponents/ImageComponent';
+import StoryLineComponent from './AddMovieComponents/StoryLineComponent';
+import RatingComponent from './AddMovieComponents/RatingComponent';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -31,56 +36,11 @@ class AddMovie extends React.Component {
 
     return (
       <form action="" data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            name="title"
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleText }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            name="subtitle"
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleText }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="image-input-label">
-          Imagem
-          <input
-            name="imagePath"
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleText }
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyLine"
-            type="text"
-            value={ storyLine }
-            data-testid="storyline-input"
-            onChange={ this.handleText }
-          />
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            name="rating"
-            type="number"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ this.handleText }
-          />
-        </label>
+        <TitleComponent callback={ this.handleText } value={ title } />
+        <SubTitleComponent callback={ this.handleText } value={ subtitle } />
+        <ImageComponent callback={ this.handleText } value={ imagePath } />
+        <StoryLineComponent callback={ this.handleText } value={ storyLine } />
+        <RatingComponent callback={ this.handleText } value={ rating } />
       </form>
     );
   }
