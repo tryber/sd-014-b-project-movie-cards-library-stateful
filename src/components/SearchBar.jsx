@@ -34,9 +34,7 @@ export class SearchBar extends Component {
 
   render() {
     return (
-      <form>
-
-      </form>
+      <form data-testid="search-bar-form" />
     );
   }
 }
