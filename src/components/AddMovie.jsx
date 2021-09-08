@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputAddMovie from './InputAddMovie';
 import InputAddRating from './InputAddRating';
 import TextareaAddMovie from './TextareaAddMovie';
 import SelectAddGenre from './SelectAddGenre';
 import BtnSubmit from './BtnSubmit';
-import PropTypes from 'prop-types';
 
 const INITIAL_STATE = {
   subtitle: '',
