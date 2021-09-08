@@ -63,11 +63,4 @@ SearchBar.propTypes = {
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
-// searchText, uma string
-// onSearchTextChange, uma callback
-// bookmarkedOnly, um boolean
-// onBookmarkedChange, uma callback
-// selectedGenre, uma string
-// onSelectedGenreChange, uma callback
-
 export default SearchBar;
