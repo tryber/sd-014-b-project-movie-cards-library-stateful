@@ -1,1 +1,1 @@
-// implement SearchBar component here
+// 1) Criando o SearchBar
