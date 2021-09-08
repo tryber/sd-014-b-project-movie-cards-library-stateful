@@ -10,6 +10,7 @@ class SearchBar extends React.Component {
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange } = this.props;
+
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="searchText" data-testid="text-input-label">
