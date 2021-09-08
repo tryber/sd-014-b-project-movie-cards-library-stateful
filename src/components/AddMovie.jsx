@@ -1,6 +1,8 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputDefault from './InputDefault';
+import SelectGenre from './SelectGenre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -15,48 +17,45 @@ class AddMovie extends React.Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
+
   handleInputChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
+
   render() {
     const { addMovie } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            id="title"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="subtitle"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
-        <label htmlFor="image-path" data-testid="image-input-label">
-          Imagem
-          <input
-            id="image-path"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
+        <InputDefault
+          describe="Título"
+          id="title"
+          name="title"
+          value={ title }
+          testid="title-input"
+          testidLabel="title-input-label"
+          handleChange={ this.handleInputChange }
+        />
+        <InputDefault
+          describe="Subtítulo"
+          id="subtitle"
+          name="subtitle"
+          value={ subtitle }
+          testid="subtitle-input"
+          testidLabel="subtitle-input-label"
+          handleChange={ this.handleInputChange }
+        />
+        <InputDefault
+          describe="Imagem"
+          id="image"
+          name="imagePath"
+          value={ imagePath }
+          testid="image-input"
+          testidLabel="image-input-label"
+          handleChange={ this.handleInputChange }
+        />
         <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -78,20 +77,15 @@ class AddMovie extends React.Component {
             onChange={ this.handleInputChange }
           />
         </label>
-        <label htmlFor="select-genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            value={ genre }
-            id="select-genre"
-            data-testid="genre-input"
-            onChange={ this.handleInputChange }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <SelectGenre
+          describe="Gênero"
+          id="genre"
+          name="genre"
+          value={ genre }
+          testid="genre-input"
+          testidLabel="genre-input-label"
+          handleChange={ this.handleInputChange }
+        />
         <button type="submit" data-testid="send-button" onClick={ addMovie }>Adicionar filme</button>
       </form>
     );
