@@ -35,7 +35,6 @@ class AddMovie extends React.Component {
             id="title"
             name="title"
             value={ title }
-            type="text"
             data-testid="title-input"
             onChange={ this.handleInputChange }
           />
@@ -46,7 +45,6 @@ class AddMovie extends React.Component {
             id="subtitle"
             name="subtitle"
             value={ subtitle }
-            type="text"
             data-testid="subtitle-input"
             onChange={ this.handleInputChange }
           />
@@ -57,7 +55,6 @@ class AddMovie extends React.Component {
             id="image-path"
             name="imagePath"
             value={ imagePath }
-            type="text"
             data-testid="image-input"
             onChange={ this.handleInputChange }
           />
@@ -68,7 +65,6 @@ class AddMovie extends React.Component {
             id="storyline"
             name="storyline"
             value={ storyline }
-            type="text"
             data-testid="storyline-input"
             onChange={ this.handleInputChange }
           />
