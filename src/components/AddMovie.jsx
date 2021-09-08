@@ -22,6 +22,7 @@ class AddMovie extends React.Component {
       title: event.target.value,
       subtitle: event.target.value,
       imagePath: event.target.value,
+      storyline: event.target.value,
     })
   }
 
@@ -60,6 +61,15 @@ class AddMovie extends React.Component {
           <input
             data-testid="image-input"
             value={ this.state.imagePath }
+            onChange={ this.handleChange }
+            type="text"
+          />
+        </label>
+        <label data-testid="storyline-input-label">
+          <h5>Sinopse</h5>
+          <textarea
+            data-testid="storyline-input"
+            value={ this.state.storyline }
             onChange={ this.handleChange }
             type="text"
           />
