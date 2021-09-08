@@ -7,12 +7,11 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor() {
     super();
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      moviess: [],
+      filmes: [],
     };
   }
 
@@ -24,9 +23,14 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  onClick = (movie) => {
+    this.setState({
+      filmes: movie,
+    });
+  }
+
   render() {
-    // const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre, moviess } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, filmes } = this.state;
     return (
       <>
         <SearchBar
@@ -37,8 +41,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSearchTextChange }
         />
-        <MovieList movies={ moviess } />
-        <AddMovie onClick={ this.funcCall } />
+        <MovieList movies={ filmes } />
+        <AddMovie onClick={ this.onClick } />
       </>
     );
   }

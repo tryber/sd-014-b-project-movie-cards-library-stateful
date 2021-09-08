@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddMovieFirstPart from './AddMovieFirstPart';
 
 class AddMovie extends React.Component {
@@ -22,6 +23,20 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  addMovie = () => {
+    const movie = this.state;
+    const { onClick } = this.props;
+    this.setState({
+      title: '',
+      subtitle: '',
+      storyline: '',
+      rating: 0,
+      imagePath: '',
+      genre: 'action',
+    });
+    onClick(movie);
   }
 
   render() {
@@ -61,10 +76,21 @@ class AddMovie extends React.Component {
           />
         </label>
         <AddMovieFirstPart values={ secondPart } handleChange={ this.handleChange } />
-        <input type="button" data-testid="send-button" value="Adicionar filme" />
+        <button
+          type="button"
+          onClick={ this.addMovie }
+          data-testid="send-button"
+          value={ this.state }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
