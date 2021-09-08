@@ -1,4 +1,5 @@
 // implement SearchBar component here
+
 /* Requisito 1 - Crie um componente chamado <SearchBar />
 
 Esse componente renderizará uma barra com filtros acima da listagem de cartões.
@@ -26,7 +27,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SelectedGenre from './SelectedGenre';
 
-class SearchBar extends React.Component {
+class SearchBar extends React.Component { // Requisito 1 - Crie um componente chamado <SearchBar
   render() {
     const {
       searchText,
@@ -38,30 +39,34 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <div>
+        {/* 2 - Renderize um formulário dentro de <SearchBar /> */}
         <form className="form" data-testid="search-bar-form">
           <fieldset>
             <p>teste</p>
             <label htmlFor="searchText" data-testid="text-input-label">
               Inclui o texto
               <input
+              // Requisito 3: Será validado que o input de texto contém a label "Inclui o texto"
+              // Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms
                 data-testid="text-input"
                 id="searchText"
                 name="searchText"
-                value={ searchText }
+                value={ searchText } // Será validado se o input de texto tem o valor passado pela props searchText
                 type="text"
-                onChange={ onSearchTextChange }
+                onChange={ onSearchTextChange } // Será validado que a props onSearchTextChange é passada para o atributo onChange do input
               />
             </label>
 
             <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
               Mostrar somente favoritos
               <input
-                data-testid="checkbox-input"
+                data-testid="checkbox-input" // Requisito 4: Esse input deve apresentar o atributo data-testid="checkbox-input"
                 id="bookmarkedOnly"
                 name="bookmarkedOnly"
                 value={ bookmarkedOnly }
                 type="checkbox"
-                onChange={ onBookmarkedChange }
+                checked="bookmarkedOnly" // Requisito 4: A propriedade checked do input deve receber o valor da prop bookmarkedOnly;
+                onChange={ onBookmarkedChange } // Requisito 4: A propriedade onChange do input deve receber o valor da prop onBookmarkedChange.
               />
             </label>
             <SelectedGenre
