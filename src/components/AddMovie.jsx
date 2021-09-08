@@ -9,58 +9,54 @@ export class AddMovie extends Component {
     this.state = {
       title: '',
       subtitle: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       imagePath: '',
       genre: 'action',
     };
   }
 
-  updateState = ({ target }) => {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+  updateState({ target }) {
     this.setState({
-      [name]: value,
+      [target.name]: target.value,
     });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
-    const addMovieP1 = [storyLine, rating, genre];
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
+        <AddMoviePartI
+          func={ this.updateState }
+          subtitle={ subtitle }
+          title={ title }
+          imagePath={ imagePath }
+          storyline={ storyline }
+        />
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          <h5>Avaliação</h5>
           <input
-            name="title"
-            value={ title }
-            type="text"
-            data-testid="title-input"
+            value={ rating }
+            type="number"
+            data-testid="rating-input"
             onChange={ this.updateState }
+            name="rating"
           />
         </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            name="subtitle"
-            value={ subtitle }
-            type="text"
-            data-testid="title-input"
+        <label htmlFor="genre-input" data-testid="genre-input-label">
+          <h5>Gênero</h5>
+          <select
             onChange={ this.updateState }
-          />
+            data-testid="genre-input"
+            value={ genre }
+            name="genre"
+          >
+            <option value="action" data-testid="genre-option"> Ação </option>
+            <option value="comedy" data-testid="genre-option"> Comédia </option>
+            <option value="thriller" data-testid="genre-option"> Suspense </option>
+          </select>
         </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.updateState }
-          />
-        </label>
-        <AddMoviePartI values={ addMovieP1 } updateState={ this.updateState } />
       </form>
     );
   }

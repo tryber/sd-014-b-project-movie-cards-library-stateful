@@ -1,51 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Labels from './Labels';
 
 class AddMoviePartI extends React.Component {
   render() {
-    const { values, updateState } = this.props;
+    const { title, subtitle, imagePath, storyline, func } = this.props;
     return (
-      <>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            value={ values[0] }
-            data-testid="storyline-input"
-            onChange={ updateState }
-          />
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={ values[1] }
-            data-testid="rating-input"
-            onChange={ updateState }
-          />
-        </label>
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            value={ values[2] }
-            data-testid="genre-input"
-            onChange={ updateState }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
-      </>
+      <div>
+        <Labels
+          dataLabel="title-input-label"
+          textLabel="Título"
+          dataInput="title-input"
+          func={ func }
+          value={ title }
+          name="title"
+        />
+        <Labels
+          dataLabel="subtitle-input-label"
+          textLabel="Subtítulo"
+          dataInput="subtitle-input"
+          func={ func }
+          value={ subtitle }
+          name="subtitle"
+        />
+        <Labels
+          dataLabel="image-input-label"
+          textLabel="Imagem"
+          dataInput="image-input"
+          func={ func }
+          value={ imagePath }
+          name="imagePath"
+        />
+        <Labels
+          dataLabel="storyline-input-label"
+          textLabel="Sinopse"
+          dataInput="storyline-input"
+          func={ func }
+          value={ storyline }
+          name="storyline"
+        />
+      </div>
     );
   }
 }
 
-AddMoviePartI.propTypes = {
-  values: PropTypes.arrayOf(PropTypes.object).isRequired,
-  updateState: PropTypes.func.isRequired,
-};
+AddMoviePartI
+  .propTypes = {
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    func: PropTypes.func.isRequired,
+  };
 
 export default AddMoviePartI;
