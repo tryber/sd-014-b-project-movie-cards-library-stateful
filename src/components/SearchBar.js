@@ -4,14 +4,8 @@ import PropTypes from 'prop-types';
 
 export default class SearchBar extends Component {
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      selectedGenre,
-      onSelectedGenreChange,
-      onBookmarkedChange,
-    } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      selectedGenre, onSelectedGenreChange, onBookmarkedChange } = this.props;
     return (
       <form
         data-testid="search-bar-form"
@@ -20,7 +14,6 @@ export default class SearchBar extends Component {
         onSelectedGenreChange={ onSelectedGenreChange }
       >
         <label htmlFor="text-input-label" data-testid="text-input-label">
-          { /* Problema do label control resolvido aqui: https://stackoverflow.com/questions/54446655/eslint-rule-for-label */ }
           Inclui o texto:
           <input
             data-testid="text-input"
@@ -65,3 +58,5 @@ SearchBar.propTypes = PropTypes.shape({
   selectedGenre: PropTypes.string,
   onSelectedGenre: PropTypes.func,
 }).isRequired;
+
+// Problema do label control resolvido aqui: https://stackoverflow.com/questions/54446655/eslint-rule-for-label
