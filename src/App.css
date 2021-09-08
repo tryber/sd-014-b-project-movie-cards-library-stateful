@@ -82,8 +82,8 @@ body {
 }
 
 .form-container {
-  display: flex;
   align-items: flex-start;
+  display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   padding: 48px 30px;
@@ -101,10 +101,10 @@ body {
 
 .form-button {
   background-color: #007bff;
-  color: aliceblue;
   border: hidden;
-  font-weight: 900;
+  color: aliceblue;
   border-radius: 10px;
+  font-weight: 900;
   padding: 5px 20px;
 }
 
@@ -113,8 +113,8 @@ body {
 }
 
 .header-container {
-  display: flex;
   align-items: flex-start;
+  display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   padding: 48px 30px;
