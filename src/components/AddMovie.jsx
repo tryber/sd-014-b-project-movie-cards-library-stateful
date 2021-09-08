@@ -1,4 +1,5 @@
 import React from 'react';
+import AddMovieRating from './AddMovieRating';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -11,28 +12,27 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
   }
 
   handleChange(event) {
+    const { name, value } = event.target;
     this.setState({
-      title: event.target.value,
-      subtitle: event.target.value,
-      imagePath: event.target.value,
-      storyline: event.target.value,
+      [name]: value,
     });
   }
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
+            name="title"
             type="text"
             value={ title }
             data-testid="title-input"
@@ -42,6 +42,7 @@ class AddMovie extends React.Component {
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
+            name="subtitle"
             type="text"
             value={ subtitle }
             data-testid="subtitle-input"
@@ -51,6 +52,7 @@ class AddMovie extends React.Component {
         <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
           <input
+            name="imagePath"
             type="text"
             value={ imagePath }
             data-testid="image-input"
@@ -60,12 +62,14 @@ class AddMovie extends React.Component {
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <input
+            name="storyline"
             type="text"
             value={ storyline }
             data-testid="storyline-input"
             onChange={ this.handleChange }
           />
         </label>
+        <AddMovieRating value={ rating } handleChange={ this.handleChange } />
       </form>
     );
   }
