@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class SearchBar extends React.Component {
   render() {
     const {
-      filte: {
+      movies: {
         searchText,
         onSearchTextChange,
         bookmarkedOnly,
@@ -56,7 +56,7 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-  filte: PropTypes.shape({
+  movies: PropTypes.shape({
     searchText: PropTypes.string,
     onSearchTextChange: PropTypes.func,
     bookmarkedOnly: PropTypes.bool,
