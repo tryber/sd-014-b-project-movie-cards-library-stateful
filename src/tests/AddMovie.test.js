@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import event from '@testing-library/user-event';
-import AddMovie from '../components/AddMovie';
+import AddMovie from '../components/AddMoviesComp/AddMovie';
 
 const initialState = {
   subtitle: '',

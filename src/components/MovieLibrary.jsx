@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import AddMovie from './AddMovie';
+import AddMovie from './AddMoviesComp/AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
