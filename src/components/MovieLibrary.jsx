@@ -2,12 +2,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   render() {
     const { movies } = this.props;
     return (
-      <SearchBar movies={ movies } />
+      <>
+        <SearchBar movies={ movies } />
+        <MovieList movies={ movies }/>
+      </>
     );
   }
 }
