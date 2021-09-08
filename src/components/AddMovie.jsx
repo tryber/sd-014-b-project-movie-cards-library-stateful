@@ -13,8 +13,8 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-  }
-
+  };
+  
   upDateState({ target }) {
     const { name, value } = target;
     this.setState({
