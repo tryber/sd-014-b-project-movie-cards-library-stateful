@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class SearchBar extends React.Component {
   render() {
@@ -45,3 +46,13 @@ export default class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  movies: PropTypes.shape({
+    searchText: PropTypes.string,
+    onSearchTextChange: PropTypes.string,
+    bookmarkedOnly: PropTypes.string,
+    selectedGenre: PropTypes.string,
+    onSelectedGenreChange: PropTypes.string,
+  }).isRequired,
+};
