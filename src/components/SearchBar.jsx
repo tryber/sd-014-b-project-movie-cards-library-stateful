@@ -1,14 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export default class SearchBar extends React.Component {
   render() {
-    const { movies: {
+    const {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
       selectedGenre,
-      onSelectedGenreChange } } = this.props;
+      onSelectedGenreChange } = this.state;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="text-input" data-testid="text-input-label">
@@ -46,9 +45,3 @@ export default class SearchBar extends React.Component {
     );
   }
 }
-
-SearchBar.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
-};
