@@ -41,6 +41,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
@@ -54,9 +55,9 @@ class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Input func={ this.handleChange } input={ allInputs[0] } value={ title } />
-        <Input func={ this.handleChange } input={ allInputs[1] } value={ subtitle } />
-        <Input func={ this.handleChange } input={ allInputs[2] } value={ imagePath } />
+        <Input func={ this.handleChange } options={ allInputs[0] } value={ title } />
+        <Input func={ this.handleChange } options={ allInputs[1] } value={ subtitle } />
+        <Input func={ this.handleChange } options={ allInputs[2] } value={ imagePath } />
         <label htmlFor="storyline" data-testid="title-input-label">
           Sinopse
           <textarea
@@ -66,7 +67,7 @@ class AddMovie extends React.Component {
             data-testid="storyline-input"
           />
         </label>
-        <Input func={ this.handleChange } inputObject={ allInputs[3] } value={ rating } />
+        <Input func={ this.handleChange } options={ allInputs[3] } value={ rating } />
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
           <select
