@@ -1,16 +1,32 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    // const { movies } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
+
     return (
       <form data-testid="search-bar-form" className="header-container">
-        <label className="header-label" htmlFor="find-text">
+        <label
+          data-testid="text-input-label"
+          className="header-label"
+          htmlFor="find-text"
+        >
           Inclui o texto:
-          <input className="header-input" id="find-text" type="text" />
+          <input
+            data-testid="text-input"
+            className="header-input"
+            id="find-text"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
         </label>
-        <label className="header-label" htmlFor="show-only-favorites">
+
+        <label
+          className="header-label"
+          htmlFor="show-only-favorites"
+        >
           <input
             className="input-checkbox"
             type="checkbox"
@@ -38,8 +54,10 @@ class SearchBar extends React.Component {
   }
 }
 
-/* SearchBar.propTypes = {
-  movies: PropTypes.string.isRequired,
-}; */
+SearchBar.propTypes = {
+  // movies: PropTypes.string.isRequired,
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
