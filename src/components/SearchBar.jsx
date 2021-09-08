@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-class SearchBar extends Component {
+class SearchBar extends React.Component {
   render() {
     const {
       searchText,
@@ -26,6 +26,7 @@ class SearchBar extends Component {
         <label htmlFor="inputCheckbox" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
+            data-testid="checkbox-input"
             type="checkbox"
             id="inputCheckbox"
             onChange={ onBookmarkedChange }
@@ -59,3 +60,5 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
 }.isRequired;
+
+export default SearchBar;
