@@ -1,4 +1,4 @@
-// implement MovieLibrary component here
+implement MovieLibrary component here
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
