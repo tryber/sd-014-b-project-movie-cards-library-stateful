@@ -5,9 +5,9 @@ class AddMovies extends React.Component {
   constructor() {
     super();
     this.state = {
-      subtitle: '',
+      // subtitle: '',
       title: '',
-      imagePath: '',
+      // imagePath: '',
       // storyline: '',
       // rating: 0,
       // genre: 'action',
