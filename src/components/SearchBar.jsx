@@ -1,5 +1,6 @@
 // 1) Criando o SearchBar
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // 1 - Crie um componente chamado <SearchBar />
 
@@ -49,3 +50,23 @@ export default class SearchBar extends React.Component {
     );
   }
 }
+
+// Requisitos finais de teste
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: 'undefined',
+  bookmarkedOnly: false,
+  onBookmarkedChange: 'undefined',
+  selectedGenre: '',
+  onSelectedGenreChange: 'undefined',
+};
