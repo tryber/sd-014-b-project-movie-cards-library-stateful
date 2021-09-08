@@ -7,13 +7,17 @@ import AddMovie from './components/AddMovie';
 import './App.css';
 
 class App extends React.Component {
+  teste() {
+    console.log('clicou');
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.teste } />
       </div>
     );
   }

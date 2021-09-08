@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 
 class GenreInput extends React.Component {
   render() {
-    const { handleChange } = this.props;
+    const { value, handleChange } = this.props;
     return (
       <label htmlFor="genre-input-input" data-testid="genre-input-label">
         Gênero
         <select
           id="genre-input-input"
           data-testid="genre-input"
+          name="genre"
+          value={ value }
           onChange={ handleChange }
         >
           <option data-testid="genre-option" value="action">Ação</option>
