@@ -23,6 +23,8 @@ class AddMovie extends React.Component {
       subtitle: event.target.value,
       imagePath: event.target.value,
       storyline: event.target.value,
+      rating: event.target.value,
+      genre: event.target.value,
     });
   }
 
@@ -73,6 +75,14 @@ class AddMovie extends React.Component {
               data-testid="storyline-input"
               id="storyline-input"
             />
+          </label>
+          <label htmlFor="genre-input" data-testid="genre-input-label">
+            Gênero
+            <select name="genre" id="genre-input" value={state.genre} data-testid="genre-input" onChange={this.addMovie}>
+              <option value="action" data-testid="genre-option">Ação</option>
+              <option value="comedy" data-testid="genre-option">Comédia</option>
+              <option value="thriller" data-testid="genre-option">Suspense</option>
+            </select>
           </label>
         </form>
       </section>
