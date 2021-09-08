@@ -3,16 +3,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor() {
     super();
-    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: movies,
     };
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleBookmarked = this.handleBookmarked.bind(this);
@@ -22,12 +22,12 @@ class MovieLibrary extends React.Component {
   handleTextChange(event) {
     this.setState({
       searchText: event.target.value,
-    }, (prevState) => this.setState({
+    }, () => this.setState((prevState) => ({
       movies: prevState.movies.filter((movie) => (
         movie.title.includes(prevState.searchText)
         || movie.subtitle.includes(prevState.searchText)
         || movie.storyline.includes(prevState.searchText))),
-    }));
+    })));
   }
 
   handleBookmarked(event) {
