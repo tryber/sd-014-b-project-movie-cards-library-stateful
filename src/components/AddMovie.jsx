@@ -1,16 +1,16 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
-      // subtitle: '',
+      subtitle: '',
       title: '',
-      // imagePath: '',
-      // storyline: '',
-      // rating: 0,
-      // genre: 'action',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
   }
 
@@ -19,21 +19,27 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     const { title } = this.state;
 
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="addMovie" data-testid="title-input-label">
-          <input name="addMovie" value={ title } onChange={ this.atualizaFilme } />
+          Título
+          <input
+            type="text"
+            name="addMovie"
+            value={ title }
+            onChange={ this.atualizaFilme }
+          />
         </label>
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
