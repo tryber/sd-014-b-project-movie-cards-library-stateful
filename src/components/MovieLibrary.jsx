@@ -7,14 +7,7 @@ export default class MovieLibrary extends React.Component {
   render() {
     return (
       <>
-        <SearchBar
-          movies={ movies }
-          searchText=""
-          onSearchTextChange={ () => {} }
-          bookmarkedOnly=""
-          selectedGenre=""
-          onSelectedGenreChange={ () => {} }
-        />
+        <SearchBar movies={ movies } />
         <MovieList movies={ movies } />
       </>
     );
