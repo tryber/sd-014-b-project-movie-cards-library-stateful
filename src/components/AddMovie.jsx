@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import PropTypes from 'prop-types';
+import StandardTextInput from './StandardTextInput';
+import StandardTextarea from './StandardTextarea';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -18,9 +20,9 @@ class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange({ target: { value, name } }) {
+  handleChange({ target: { value, id } }) {
     this.setState({
-      [name]: value,
+      [id]: value,
     });
   }
 
@@ -30,40 +32,27 @@ class AddMovie extends Component {
 
     return (
       <form data-testid="add-movie-form">
-        { onClick + storyline + rating + genre }
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            id="title-input"
-            name="title"
-            data-testid="title-input"
-            type="text"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="subtitle-input"
-            name="subtitle"
-            data-testid="subtitle-input"
-            type="text"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            id="image-input"
-            name="imagePath"
-            data-testid="image-input"
-            type="text"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
+        { onClick + rating + genre }
+        <StandardTextInput
+          propsInfoArray={
+            ['Título', 'title', 'title-input', title, this.handleChange]
+          }
+        />
+        <StandardTextInput
+          propsInfoArray={
+            ['Subtítulo', 'subtitle', 'subtitle-input', subtitle, this.handleChange]
+          }
+        />
+        <StandardTextInput
+          propsInfoArray={
+            ['Imagem', 'imagePath', 'image-input', imagePath, this.handleChange]
+          }
+        />
+        <StandardTextarea
+          propsInfoArray={
+            ['Sinopse', 'storyline', 'storyline-input', storyline, this.handleChange]
+          }
+        />
       </form>
     );
   }
