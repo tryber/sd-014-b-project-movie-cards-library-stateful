@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class SearchText extends Component {
   render() {
-    const { searchText,
-      onSearchTextChange } = this.props;
+    const { onSearchTextChange } = this.props;
     return (
       <div>
         <label htmlFor="searchText" data-testid="text-input-label">
@@ -14,7 +13,6 @@ class SearchText extends Component {
             name="searchText"
             data-testid="text-input"
             type="text"
-            value={ searchText }
             onChange={ onSearchTextChange }
           />
         </label>
@@ -24,7 +22,6 @@ class SearchText extends Component {
 }
 
 SearchText.propTypes = {
-  searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.isRequired,
 };
 
