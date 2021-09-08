@@ -6,9 +6,15 @@ import AddMovie from './AddMovie';
 import movies from '../data';
 
 class MovieLibrary extends Component {
-/*   constructor(props) {
+   constructor(props) {
     super(props);
-  } */
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: movies,
+    }
+  }
 
   render() {
     return (

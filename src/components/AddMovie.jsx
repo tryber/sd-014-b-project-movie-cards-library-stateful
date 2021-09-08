@@ -17,6 +17,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.information = this.information.bind(this);
+    this.getInformation = this.getInformation.bind(this);
   }
 
   information = ({ target }) => {
@@ -24,6 +25,10 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  getInformation = () => {
+
   }
 
   render() {
@@ -57,6 +62,9 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <button data-testid="send-button" onClick={ this.getInformation }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
