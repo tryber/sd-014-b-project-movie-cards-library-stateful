@@ -10,6 +10,7 @@ class Storyline extends React.Component {
         <textarea
           id="storyline-input"
           data-testid="storyline-input"
+          name="storyline"
           value={ value }
           onChange={ handleChange }
         />

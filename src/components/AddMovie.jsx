@@ -5,7 +5,7 @@ import ImagePath from '../Forms/ImagePath';
 import Storyline from '../Forms/Storyline';
 import Subtitle from '../Forms/Subtitle';
 import Title from '../Forms/Title';
-import Rating from './Rating';
+import Rating from '../Forms/Rating';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -41,12 +41,12 @@ class AddMovie extends React.Component {
     return (
       <>
         <form data-testid="add-movie-form">
-          <Title handleChange={ this.handleChange } />
-          <Subtitle handleChange={ this.handleChange } />
-          <ImagePath handleChange={ this.handleChange } />
-          <Storyline handleChange={ this.handleChange } />
-          <Rating handleChange={ this.handleChange } />
-          <GenreInput handleChange={ this.handleChange } />
+          <Title value={ title } handleChange={ this.handleChange } />
+          <Subtitle value={ subtitle } handleChange={ this.handleChange } />
+          <ImagePath value={ imagePath } handleChange={ this.handleChange } />
+          <Storyline value={ storyline } handleChange={ this.handleChange } />
+          <Rating value={ rating } handleChange={ this.handleChange } />
+          <GenreInput value={ genre } handleChange={ this.handleChange } />
         </form>
         <button
           type="submit"
