@@ -6,6 +6,7 @@ class StandardTextarea extends Component {
   render() {
     const { propsInfoArray } = this.props;
     const array = propsInfoArray;
+
     return (
       <label htmlFor={ array[1] } data-testid={ `${array[2]}-label` }>
         {array[0]}

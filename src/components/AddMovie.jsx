@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import '../App.css';
 import PropTypes from 'prop-types';
-import StandardTextInput from './StandardTextInput';
+import StandardInput from './StandardInput';
 import StandardTextarea from './StandardTextarea';
+import StandardSelect from './StandardSelect';
+
+const arrayOfArrays = [
+  ['Título', 'title', 'title-input', 'text'],
+  ['Subtítulo', 'subtitle', 'subtitle-input', 'text'],
+  ['Imagem', 'imagePath', 'image-input', 'text'],
+  ['Sinopse', 'storyline', 'storyline-input'],
+  ['Avaliação', 'rating', 'rating-input', 'number'],
+  ['Gênero', 'genre', 'genre-input',
+    [{ Ação: 'action' }, { Comédia: 'comedy' }, { Suspense: 'thriller' }],
+  ],
+];
 
 class AddMovie extends Component {
   constructor(props) {
@@ -17,10 +29,10 @@ class AddMovie extends Component {
       genre: 'action',
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.changer = this.changer.bind(this);
   }
 
-  handleChange({ target: { value, id } }) {
+  changer({ target: { value, id } }) {
     this.setState({
       [id]: value,
     });
@@ -29,30 +41,17 @@ class AddMovie extends Component {
   render() {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const array = arrayOfArrays;
 
     return (
       <form data-testid="add-movie-form">
         { onClick + rating + genre }
-        <StandardTextInput
-          propsInfoArray={
-            ['Título', 'title', 'title-input', title, this.handleChange]
-          }
-        />
-        <StandardTextInput
-          propsInfoArray={
-            ['Subtítulo', 'subtitle', 'subtitle-input', subtitle, this.handleChange]
-          }
-        />
-        <StandardTextInput
-          propsInfoArray={
-            ['Imagem', 'imagePath', 'image-input', imagePath, this.handleChange]
-          }
-        />
-        <StandardTextarea
-          propsInfoArray={
-            ['Sinopse', 'storyline', 'storyline-input', storyline, this.handleChange]
-          }
-        />
+        <StandardInput propsInfoArray={ [...array[0], title, this.changer] } />
+        <StandardInput propsInfoArray={ [...array[1], subtitle, this.changer] } />
+        <StandardInput propsInfoArray={ [...array[2], imagePath, this.changer] } />
+        <StandardTextarea propsInfoArray={ [...array[3], storyline, this.changer] } />
+        <StandardInput propsInfoArray={ [...array[4], rating, this.changer] } />
+        <StandardSelect propsInfoArray={ [...array[5], genre, this.changer] } />
       </form>
     );
   }
