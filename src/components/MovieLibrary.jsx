@@ -19,7 +19,7 @@ class MovieLibrary extends Component {
   }
 
   addNewMovie = (newMovie) => {
-    const { movies } = this.props;
+    const { movies } = this.state;
     this.setState({
       movies: [...movies, newMovie],
     });
