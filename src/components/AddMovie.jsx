@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
 import InputImage from './InputImage';
+import StoryLine from './StoryLine';
 
 class AddMovie extends Component {
   constructor() {
@@ -35,6 +36,8 @@ class AddMovie extends Component {
         <InputTitle value={ title } onChange={ this.handleChange } />
         <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
         <InputImage value={ imagePath } onChange={ this.handleChange } />
+        <StoryLine value={ storyline } onChange={ this.handleChange } />
+
 
       </form>
     );
