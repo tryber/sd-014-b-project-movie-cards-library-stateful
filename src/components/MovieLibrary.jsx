@@ -26,7 +26,8 @@ class MovieLibrary extends React.Component {
 
   onSearchTextChange = ({ target }) => {
     const { name, value } = target;
-    const { searchText, movies } = this.state;
+    const { searchText } = this.state;
+    const { movies } = this.props;
 
     const filter = movies.filter(({ title, subtitle, storyline }) => {
       const verTitle = title.toLowerCase().includes(searchText);
@@ -44,9 +45,12 @@ class MovieLibrary extends React.Component {
 
   onBookmarkedChange = ({ target }) => {
     const { name, checked } = target;
-    const { movies } = this.state;
+    const { movies } = this.props;
 
-    const filter = movies.filter(({ bookmarked }) => bookmarked === checked);
+    const filter = movies.filter(({ bookmarked }) => {
+      if (!checked) return true;
+      return bookmarked === checked;
+    });
 
     this.setState({
       [name]: checked,
@@ -56,24 +60,18 @@ class MovieLibrary extends React.Component {
 
   onSelectedGenreChange = ({ target }) => {
     const { name, value } = target;
-    const { movies } = this.state;
+    const { movies } = this.props;
 
-    const filter = movies.filter(({ genre }) => genre === value);
+    const filter = movies.filter((movie) => {
+      if (value === '') return true;
+      return movie.genre === value;
+    });
 
     this.setState({
       [name]: value,
       movies: filter,
     });
   }
-
-  // handleChange = ({ target }) => {
-  //   const { name } = target;
-  //   const value = target.type === 'checkbox' ? target.checked : target.value;
-
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // };
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
