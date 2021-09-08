@@ -12,41 +12,18 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);  
   }
 
   handleChange({ target }) {
-    if (target.id === 'title') {
-      this.setState({
-        [target.id]: target.value,
-      });
-    }
-    if (target.id === 'subtitle') {
-      this.setState({
-        [target.id]: target.value,
-      });
-    }
-    if (target.id === 'imagePath') {
-      this.setState({
-        [target.id]: target.value,
-      });
-    }
-    if (target.id === 'storyline') {
-      this.setState({
-        [target.id]: target.value,
-      });
-    }
-    if (target.id === 'rating') {
-      this.setState({
-        [target.id]: target.value,
-      });
-    }
-    if (target.id === 'genre') {
+    if ((target.id === 'title') || (target.id === 'subtitle') || (target.id === 'imagePath') 
+    || (target.id === 'storyline') || (target.id === 'rating') || (target.id === 'genre') ){
       this.setState({
         [target.id]: target.value,
       });
     }
   }
+
 
   render() {
     const { onClick } = this.props;
@@ -116,6 +93,7 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+        <button data-testid="send-button" onClick={ onClick } >Adicionar filme</button>
       </form>
     );
   }

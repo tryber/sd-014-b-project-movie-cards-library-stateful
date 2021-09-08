@@ -1,7 +1,10 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import MovieCard from './MovieCard';
+import PropTypes from 'prop-types';
+import MovieList from './MovieList';
+
+
 
 class MovieLibrary extends React.Component {
     constructor() {
@@ -12,18 +15,20 @@ class MovieLibrary extends React.Component {
           selectedGenre: '',
         }
     }
+      
   render() {
       const { movies } = this.props;
     return (
         <section>
             <SearchBar />
+            <MovieList movies={ movies } />
             <AddMovie />
-            <div>
-                {movies.map((movie) => <MovieCard movie={ movie }/>)}
-            </div>
         </section>
     )
   }
 }
 
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+}
 export default MovieLibrary;
