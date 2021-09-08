@@ -50,14 +50,15 @@ class MovieLibrary extends Component {
 
   defaultCallback(item) {
     const { movies } = this.props;
-    movies.push(item);
-    this.setState({ movies });
+    const array = [...movies];
+    array.push(item);
+    this.setState({ movies: array });
   }
 
   render() {
     const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre, movies: moviesState } = this.state;
-    if (moviesState.length < movies.length) this.fillMoviesState(movies);
+    this.fillMoviesState(movies);
     // console.log(moviesState);
     const toRender = this
       .getMoviesArray(searchText, selectedGenre, bookmarkedOnly, moviesState);
