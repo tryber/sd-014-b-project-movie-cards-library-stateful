@@ -59,7 +59,7 @@ describe('6 - Crie um componente chamado `<AddMovie />`', () => {
   });
 });
 
-describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
+describe.only('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
   it('Renderize 1, e apenas 1, form', () => {
     expect(form).toHaveLength(1);
   });
@@ -84,7 +84,7 @@ describe.only('8 - Renderize um input do tipo texto dentro do formulário em `<A
     expect(titleInput).toHaveValue('my awesome movie title');
   });
 });
-describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o subtítulo do novo filme', () => {
+describe.only('9 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o subtítulo do novo filme', () => {
   it('Renderize um input de texto para quem usa escrever o subtítulo do filme', () => {
     expect(subtitleInput).toBeInTheDocument();
   });
@@ -100,7 +100,7 @@ describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMov
     expect(subtitleInput).toHaveValue('my awesome movie subtitle');
   });
 });
-describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
+describe.only('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
   it('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
@@ -116,7 +116,7 @@ describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMo
     expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
   });
 });
-describe('11 - Renderize uma `textarea` dentro do formulário em `<AddMovie />` para obter a sinopse do novo filme', () => {
+describe.only('11 - Renderize uma `textarea` dentro do formulário em `<AddMovie />` para obter a sinopse do novo filme', () => {
   it('Renderize um input de texto para quem usa escrever a sinopse do filme', () => {
     expect(storylineInput).toBeInTheDocument();
   });
@@ -133,7 +133,7 @@ describe('11 - Renderize uma `textarea` dentro do formulário em `<AddMovie />` 
     expect(storylineInput).toHaveValue(message);
   });
 });
-describe('12 - Renderize um `input` do tipo `number` dentro do formulário em `<AddMovie />` para obter a avaliação do novo filme', () => {
+describe.only('12 - Renderize um `input` do tipo `number` dentro do formulário em `<AddMovie />` para obter a avaliação do novo filme', () => {
   it('Renderize um input de texto para quem usa escrever a avaliação do filme', () => {
     expect(ratingInput).toBeInTheDocument();
   });
@@ -150,7 +150,7 @@ describe('12 - Renderize um `input` do tipo `number` dentro do formulário em `<
     expect(ratingInput).toHaveValue(expectedValue);
   });
 });
-describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selecionar o gênero do novo filme', () => {
+describe.only('13 - Renderize um `select` do formulário em `<AddMovie />` para selecionar o gênero do novo filme', () => {
   const options = [
     { value: 'action', text: 'Ação' },
     { value: 'comedy', text: 'Comédia' },
