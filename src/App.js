@@ -11,7 +11,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <MovieLibrary movies={ movies } />
-        <AddMovie onClick={(state) => console.log(state)} />
+        <AddMovie onClick={ (state) => console.log(state) } />
       </div>
     );
   }

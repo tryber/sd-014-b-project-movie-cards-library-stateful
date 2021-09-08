@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { options, value, func } = this.props;
-    const input = options;
+    const { value, func } = this.props;
+    const { id, dataTestId, type, text } = this.props.options;
     return (
-      <label htmlFor={ input.id } data-testid={ `${input.dataTestId}-label` }>
-        { input.text }
+      <label htmlFor={ id } data-testid={ `${dataTestId}-label` }>
+        { text }
         <input
           onChange={ func }
-          type={ input.type }
-          id={ input.id }
+          type={ type }
+          id={ id }
           value={ value }
-          data-testid={ input.dataTestId }
+          data-testid={ dataTestId }
         />
       </label>
     );
@@ -21,7 +21,7 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
-  input: PropTypes.shape({
+  options: PropTypes.shape({
     type: PropTypes.string,
     id: PropTypes.string,
     text: PropTypes.string,
