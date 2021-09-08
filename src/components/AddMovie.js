@@ -28,12 +28,9 @@ export default class AddMovie extends Component {
   }
 
   render() {
+    const { title } = this.state;
     return (
-      <div>
-        <form data-testid="add-movie-form">
-          <h1>Teste</h1>
-        </form>
-      </div>
+      <div />
     );
   }
 }
