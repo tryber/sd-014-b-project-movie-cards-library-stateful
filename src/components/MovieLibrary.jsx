@@ -16,31 +16,40 @@ class MovieLibrary extends Component {
     };
   }
 
-  changeState({ target }) {
-    if (target.type === 'checkbox') {
-      this.setState({
-        [target.name]: target.checked,
-      });
-    }
+  addNewMovie = (newMovie) => {
+    const { movies } = this.props;
     this.setState({
-      [target.name]: target.value,
+      movies: [...movies, newMovie],
     });
   }
 
-  filterMovies() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+  onSearchTextChange = ({ target: { value } }) => {
+    const { searchText, movies } = this.state;
 
-    movies.filter((movie) => (
-      (bookmarkedOnly === false ? true : movie.bookmarked === true)
-        && (movie.genre.includes(selectedGenre))
-        && (
-          (movie.title.includes(searchText))
-          || (movie.subtitle.includes(searchText))
-          || (movie.storyline.includes(searchText)))));
+    this.setState({
+      searchText: value,
+      movies: movies.filter((movie) => movie.title.toLowerCase().includes(searchText)
+        || movie.subtitle.toLowerCase().includes(searchText)
+        || movie.storyline.toLowerCase().includes(searchText)),
+    });
+  }
 
-    movies.filter((movie) => {
-      if()
-    })
+  onBookmarkedChange = ({ target: { checked } }) => {
+    const { movies } = this.state;
+
+    this.setState({
+      bookmarkedOnly: checked,
+      movies: movies.filter(({ bookmarked }) => bookmarked === checked),
+    });
+  }
+
+  onSelectedGenreChange = ({ target: { value } }) => {
+    const { movies } = this.state;
+
+    this.setState({
+      selectedGenre: value,
+      movies: movies.filter(({ genre }) => genre === value),
+    });
   }
 
   render() {
@@ -49,14 +58,14 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.changeState }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.changeState }
+          onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.changeState }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }
