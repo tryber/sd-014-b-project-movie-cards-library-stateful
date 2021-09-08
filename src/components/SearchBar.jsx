@@ -20,8 +20,8 @@ class SearchBar extends React.Component {
           <input
             type="text"
             data-testid="text-input"
-            onChange={onSearchTextChange}
-            value={searchText}
+            onChange={ onSearchTextChange }
+            value={ searchText }
           />
         </label>
         <label htmlFor="chekbox-input" data-testid="checkbox-input-label">
@@ -29,8 +29,8 @@ class SearchBar extends React.Component {
           <input
             type="checkbox"
             name="bookmarkedOnly"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
         </label>
@@ -52,7 +52,7 @@ class SearchBar extends React.Component {
   }
 }
 
-SearchBar.propTypes={
+SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
   bookmarkedOnly: PropTypes.bool,
