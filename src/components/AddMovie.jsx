@@ -13,11 +13,11 @@ class AddMovies extends React.Component {
       // genre: 'action',
     };
     // this.handleChange = this.handleChange.bind(this);
-
-    // this.handleChange(event) {
-    //   this.setState([event.taget]: event.target.value});
-    // };
   }
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   render() {
     const { title, subtitle, imagePath } = this.state;
@@ -34,7 +34,7 @@ class AddMovies extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+        {/* <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo:
           <input
             data-testid="subtitle-input"
@@ -62,7 +62,7 @@ class AddMovies extends React.Component {
           Sinopse:
           <textarea name="storyline" id="storyline" value="" />
         </label>
-        {/* <SelectForm /> */}
+        <SelectForm /> */}
       </form>
     );
   }
