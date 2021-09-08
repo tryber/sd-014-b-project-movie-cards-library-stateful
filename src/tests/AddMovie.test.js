@@ -53,7 +53,7 @@ beforeEach(() => {
   sendButton = queryByTestId('send-button');
 });
 
-describe('6 - Crie um componente chamado `<AddMovie />`', () => {
+describe.only('6 - Crie um componente chamado `<AddMovie />`', () => {
   it('Renderize o componente', () => {
     render(<AddMovie onClick={ () => jest.fn() } />);
   });
