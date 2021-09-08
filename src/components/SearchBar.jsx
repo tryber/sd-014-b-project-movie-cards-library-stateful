@@ -9,7 +9,15 @@ export class SearchBar extends React.Component {
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange } = this.props;
-    return <section />;
+    return ( 
+      <section>
+        <form data-testid="search-bar-form">
+          <label htmlFor="searchBar" data-testid="text-input-label">
+
+          </label>
+        </form>
+      </section>
+    );
   }
 }
 
