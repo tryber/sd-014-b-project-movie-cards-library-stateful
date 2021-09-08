@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchText from './searchText';
 import MarkedChange from './onBookmarkedChange';
 import SelectedGenreBar from './selectedGenre';
@@ -14,7 +15,7 @@ class SearchBar extends React.Component {
 
     return (
       <div>
-        <form>
+        <form data-testid="search-bar-form">
           <SearchText
             searchText={ searchText }
             onSearchTextChange={ onSearchTextChange }
@@ -29,7 +30,6 @@ class SearchBar extends React.Component {
           />
         </form>
       </div>
-
     );
   }
 }

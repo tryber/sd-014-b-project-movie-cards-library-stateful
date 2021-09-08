@@ -17,7 +17,7 @@ class InputAddMovie extends Component {
           />
         </label>
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Título
+          Subtitulo
           <input
             name="subtitle"
             data-testid="subtitle-input"

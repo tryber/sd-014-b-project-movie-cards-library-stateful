@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import InputAddMovie from './inputAddMovie';
-import inputGenreRating from './inputGenreRating';
+import InputGenreRating from './inputGenreRating';
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.onChange = this.onChange.bind(this);
-    this.resetForm = this.resetForm.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -17,14 +19,26 @@ class AddMovie extends Component {
     };
   }
 
+  handleClick = (event) => {
+    const { onClick } = this.props;
+    event.preventDefault();
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   onChange= ({ target }) => {
     const { name, value } = target;
     this.setState = {
       [name]: value,
     };
   }
-
-  resetForm= () => window.location.reload()
 
   render() {
     const { title, subtitle, storyline, rating, genre, imagePath } = this.state;
@@ -38,12 +52,12 @@ class AddMovie extends Component {
             imagePath={ imagePath }
             onChange={ this.onChange }
           />
-          <inputGenreRating
+          <InputGenreRating
             rating={ rating }
             genre={ genre }
             onChange={ this.onChange }
           />
-          <button type="submit" data-testid="send-button" onClick={ this.resetForm }>
+          <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
             Adicionar filme
           </button>
         </form>
@@ -51,5 +65,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
