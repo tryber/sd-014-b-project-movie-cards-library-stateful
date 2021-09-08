@@ -1,4 +1,5 @@
 import React from 'react';
+import InputText from './InputText';
 // import SelectForm from './SelectForm';
 
 class AddMovies extends React.Component {
@@ -7,8 +8,8 @@ class AddMovies extends React.Component {
     this.state = {
       subtitle: '',
       title: '',
-      // imagePath: '',
-      // storyline: '',
+      imagePath: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -20,49 +21,28 @@ class AddMovies extends React.Component {
   };
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título:
-          <input
-            data-testid="title-input"
-            type="text"
-            name="title"
-            id="title"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo:
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            name="subtitle"
-            id="subtitle"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem:
-          <input
-            data-testid="image-input"
-            type="text"
-            name="imagePath"
-            id="imagePath"
-            value={ imagePath }
+        <InputText
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          handleChange={ this.handleChange }
+        />
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse:
+          <textarea
+            name="storyline"
+            id="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
             onChange={ this.handleChange }
           />
         </label>
         {/* <label htmlFor="rating">
           Nota:
           <input type="number" name="rating" id="rating" value="" />
-        </label>
-        <label htmlFor="storyline">
-          Sinopse:
-          <textarea name="storyline" id="storyline" value="" />
         </label>
         <SelectForm /> */}
       </form>
