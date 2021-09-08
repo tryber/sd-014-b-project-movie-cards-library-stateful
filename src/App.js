@@ -9,7 +9,8 @@ class App extends React.Component {
     super();
 
     this.state = {
-      bookmarkedOnly: true,
+      bookmarkedOnly: false,
+      searchText: '',
     };
   }
 
@@ -26,12 +27,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { bookmarkedOnly } = this.state;
+    const { bookmarkedOnly, searchText } = this.state;
     return (
       <div className="App">
         <Header />
         <SearchBar
-          searchText="string"
+          searchText={ searchText }
           onSearchTextChange={ this.callBack }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.secondCallback }

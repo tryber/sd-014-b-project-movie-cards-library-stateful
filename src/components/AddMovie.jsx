@@ -1,15 +1,17 @@
 import React from 'react';
+import AddMovieFirstPart from './AddMovieFirstPart';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      subtitle: '',
       title: '',
-      imagePath: '',
+      subtitle: '',
       storyline: '',
       rating: 0,
+      imagePath: '',
+      // bookMarked: null,
       genre: 'action',
     };
   }
@@ -23,7 +25,8 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const secondPart = [storyline, rating, genre];
 
     return (
       <form data-testid="add-movie-form">
@@ -57,38 +60,7 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            value={ genre }
-            data-testid="genre-input"
-            onChange={ this.handleChange }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <AddMovieFirstPart values={ secondPart } handleChange={ this.handleChange } />
       </form>
     );
   }
