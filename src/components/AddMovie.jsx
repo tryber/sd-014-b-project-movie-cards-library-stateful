@@ -7,19 +7,18 @@ class AddMovie extends React.Component {
     this.state = {
       subtitle: '',
       title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
+      // imagePath: '',
+      // storyline: '',
+      // rating: 0,
+      // genre: 'action',
     };
   }
 
-  // handleChange(event) {
-  //   this.setState({ title: event.target.value });
-  // }
-
   handleChange = ({ target }) => {
-    this.setState({ [name]: target.value });
+    const { name: targetName } = target;
+    const targetValue = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({ [targetName]: targetValue });
   };
 
   render() {
@@ -27,10 +26,11 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor={ title } data-testid="title-input-label">
+        <label htmlFor="title" data-testid="title-input-label">
           Título
           <input
-            id={ title }
+            name="title"
+            id="title"
             value={ title }
             type="text"
             data-testid="title-input"
@@ -38,10 +38,11 @@ class AddMovie extends React.Component {
           />
         </label>
 
-        <label htmlFor={ subtitle } data-testid="subtitle-input-label">
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
-            id={ subtitle }
+            name="subtitle"
+            id="subtitle"
             value={ subtitle }
             type="text"
             data-testid="subtitle-input"
