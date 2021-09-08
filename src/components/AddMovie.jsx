@@ -16,8 +16,7 @@ class AddMovie extends Component {
   }
 
   handleStartValue({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name, value } = target;
 
     this.setState({
       [name]: value,
