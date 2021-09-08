@@ -5,11 +5,11 @@ class Title extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <label htmlFor="title-title" data-testid="title-input-label">
+      <label htmlFor="title-input" data-testid="title-input-label">
         Título
         <input
           data-testid="title-input"
-          id="text-title"
+          id="title-input"
           type="text"
           value={ value }
           onChange={ handleChange }
