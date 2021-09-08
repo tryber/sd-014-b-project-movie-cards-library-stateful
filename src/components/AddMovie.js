@@ -39,28 +39,47 @@ export default class AddMovie extends Component {
       <form data-testid="add-movie-form">
         <Title
           title={ title }
-          onChange={ onChange }
+          onChange={
+            ({ target: { value } }) => { this.setState({ title: value }); }
+          }
         />
         <Subtitle
           title={ subtitle }
-          onChange={ onChange }
+          onChange={
+            ({ target: { value } }) => { this.setState({ title: value }); }
+          }
         />
         <ImagePath
-          onChange={ onChange }
           imagePath={ imagePath }
+          onChange={
+            ({ target: { value } }) => { this.setState({ title: value }); }
+          }
         />
         <Storyline
-          onChange={ onChange }
           storyline={ storyline }
+          onChange={
+            ({ target: { value } }) => { this.setState({ title: value }); }
+          }
         />
         <RatingTag
-          onChange={ onChange }
           rating={ rating }
+          onChange={
+            ({ target: { value } }) => { this.setState({ title: value }); }
+          }
         />
         <GenreTag
-          onChange={ onChange }
           genre={ genre }
+          onChange={
+            ({ target: { value } }) => { this.setState({ title: value }); }
+          }
         />
+        <button
+          data-testid="send-button"
+          type="button"
+          onClick={ this.setStateMethod }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
