@@ -8,60 +8,61 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
+    this.atualiza = this.atualiza.bind(this);
   }
 
-  atuaFil(event) {
-    this.setState({ title: event.target.value });
-  }
-
-  atuaSub(event) {
-    this.setState({ subtitle: event.target.value });
-  }
-
-  atuaImage(event) {
-    this.setState({ imagePath: event.target.value });
+  atualiza({ target: { name, value } }) {
+    this.setState({ [name]: value });
   }
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="addMovie" data-testid="title-input-label">
+        <label htmlFor="title" data-testid="title-input-label">
           Título
           <input
             type="text"
-            name="addMovie"
+            name="title"
             value={ title }
-            onChange={ this.atuaFilm }
+            onChange={ this.atualiza }
             data-testid="title-input"
           />
         </label>
-
-        <label htmlFor="sub" data-testid="subtitle-input-label">
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
             type="text"
-            name="sub"
+            name="subtitle"
             value={ subtitle }
             data-testid="subtitle-input"
-            onChange={ this.atuaSub }
+            onChange={ this.atualiza }
           />
         </label>
-
-        <label htmlFor="image" data-testid="image-input-label">
+        <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
             type="text"
-            name="image"
+            name="imagePath"
             value={ imagePath }
             data-testid="image-input"
-            onChange={ this.atuaImage }
+            onChange={ this.atualiza }
+          />
+        </label>
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <input
+            type="textarea"
+            name="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.atualiza }
           />
         </label>
       </form>
