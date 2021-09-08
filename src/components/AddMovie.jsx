@@ -1,4 +1,5 @@
 import React from 'react';
+import GenreMovie from './GenreMovie';
 import ImageMovie from './ImageMovie';
 import SinopseMovie from './SinopseMovie';
 
@@ -28,7 +29,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
@@ -53,6 +54,7 @@ class AddMovie extends React.Component {
         </label>
         <ImageMovie handleChange={ this.handleChange } value={ imagePath } />
         <SinopseMovie handleChange={ this.handleChange } value={ storyline } />
+        <GenreMovie handleChange={ this.handleChange } value={ rating } />
       </form>
     );
   }
