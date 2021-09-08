@@ -1,1 +1,60 @@
-// implement AddMovie component here
+import React from 'react';
+import PropTypes from 'prop-types';
+import AllInputText from './AllInputText';
+
+class AddMovie extends React.Component {
+  constructor() {
+    super();
+    this.upDateState = this.upDateState.bind(this);
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  };
+
+  upDateState({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  render() {
+    const { onClick } = this.props;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    return (
+      <form data-testid="add-movie-form">
+        <AllInputText func={this.upDateState} />
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          <h5>Avaliação</h5>
+          <input
+            type="number"
+            data-testid="rating-input"
+            onChange={this.upDateState}
+          />
+        </label>
+        <label htmlFor="genre-input" data-testid="genre-input-label">
+          <h5>Gênero</h5>
+          <select
+            onChange={ this.upDateState }
+            data-testid="genre-input"
+          >
+            <option value="action" data-testid="select-option"> Ação </option>
+            <option value="comedy" data-testid="select-option"> Comédia </option>
+            <option value="thriller" data-testid="select-option"> Suspense </option>
+          </select>
+        </label>
+      </form>
+    );
+  }
+}
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+export default AddMovie;
