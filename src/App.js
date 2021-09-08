@@ -3,7 +3,10 @@ import Header from './components/Header';
 import MovieList from './components/MovieList';
 import movies from './data';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 import './App.css';
+
+const callback = () => console.log('CallBack');
 
 function App() {
   return (
@@ -11,6 +14,7 @@ function App() {
       <Header />
       <SearchBar />
       <MovieList movies={ movies } />
+      <AddMovie onClick={ callback } />
     </div>
   );
 }
