@@ -20,7 +20,7 @@ class AddMovies extends React.Component {
   };
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title /* subtitle, imagePath */ } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
