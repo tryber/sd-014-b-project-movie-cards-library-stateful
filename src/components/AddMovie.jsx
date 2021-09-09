@@ -1,5 +1,7 @@
 import React from 'react';
+import InputGenre from '../AddMoviesInputs/InputGenre';
 import InputImage from '../AddMoviesInputs/InputImage';
+import InputRating from '../AddMoviesInputs/InputRating';
 import InputSinopse from '../AddMoviesInputs/InputSinopse';
 import InputSubtitle from '../AddMoviesInputs/InputSubtitle';
 import InputTitle from '../AddMoviesInputs/InputTitle';
@@ -27,34 +29,8 @@ class AddMovie extends React.Component {
         <InputSubtitle value={ subtitle } />
         <InputImage value={ imagePath } />
         <InputSinopse value={ storyline } />
-        <label
-          htmlFor="rating-label"
-          data-testid="rating-input-label"
-        >
-          Avaliação
-          <input
-            id="rating-label"
-            data-testid="rating-input"
-            type="number"
-            value={ rating }
-            onChange={ rating }
-          />
-        </label>
-        <label
-          htmlFor="genre-label"
-          data-testid="genre-input-label"
-        >
-          <select
-            id="genre-label"
-            data-testid="genre-input"
-            value={ genre }
-            onChange={ genre }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <InputRating value={ rating } />
+        <InputGenre value={ genre } />
         <button data-testid="send-button" type="submit">Adicionar filme</button>
       </form>
     );
