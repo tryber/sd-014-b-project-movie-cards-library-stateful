@@ -4,7 +4,7 @@ import Title from './AddMovieForm/Title';
 import Subtitle from './AddMovieForm/Subtitle';
 import ImagePath from './AddMovieForm/ImagePath';
 import Storyline from './AddMovieForm/Storyline';
-import Rating from './AddMovieForm/Rating';
+import RatingNewMovie from './AddMovieForm/RatingNewMovie';
 import Select from './AddMovieForm/Select';
 import Button from './AddMovieForm/Button';
 
@@ -55,7 +55,7 @@ class AddMovie extends React.Component {
         <Subtitle value={ subtitle } handleChange={ this.handleChange } />
         <ImagePath value={ imagePath } handleChange={ this.handleChange } />
         <Storyline value={ storyline } handleChange={ this.handleChange } />
-        <Rating value={ rating } handleChange={ this.handleChange } />
+        <RatingNewMovie value={ rating } handleChange={ this.handleChange } />
         <Select value={ genre } handleChange={ this.handleChange } />
         <Button resetState={ this.resetState } />
       </form>
