@@ -7,23 +7,18 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
-    const initialState = {
+    this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
-    this.state = initialState;
   }
-
-  resetMovies = () => { this.setState(); };
 
   onSearchTextChange = ({ target }) => {
     const { name } = target;
     const { movies } = this.state;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    console.log(value);
     this.setState({
       [name]: value,
       movies: movies.filter(
@@ -39,15 +34,14 @@ onBookmarkedChange = ({ target }) => {
   const { movies } = this.state;
   const value = target.type === 'checkbox' ? target.checked : target.value;
 
-  this.setState({
-    [name]: value,
-  });
   if (value === true) {
     this.setState({
+      [name]: value,
       movies: movies.filter((movie) => movie.bookmarked === true),
     });
   } else {
     this.setState({
+      [name]: value,
       movies: movies.filter((movie) => movie),
     });
   }
@@ -72,8 +66,9 @@ onBookmarkedChange = ({ target }) => {
     }
   };
 
-  addNewMovie() {
-
+  addNewMovie = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {

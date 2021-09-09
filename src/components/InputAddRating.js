@@ -17,6 +17,8 @@ class InputAddRating extends React.Component {
           id={ `add-${name}` }
           type="number"
           name={ name }
+          max="10"
+          step="0.1"
           value={ value }
           onChange={ handleChange }
         />
@@ -28,7 +30,7 @@ class InputAddRating extends React.Component {
 InputAddRating.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

@@ -7,13 +7,12 @@ import SelectAddGenre from './SelectAddGenre';
 import BtnSubmit from './BtnSubmit';
 
 const INITIAL_STATE = {
-  subtitle: '',
   title: '',
-  imagePath: '',
+  subtitle: '',
   storyline: '',
-  rating: 0,
+  rating: '0',
+  imagePath: '',
   genre: 'action',
-  submitted: false,
 };
 
 class AddMovie extends React.Component {
