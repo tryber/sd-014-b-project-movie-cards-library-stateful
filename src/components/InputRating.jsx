@@ -7,7 +7,7 @@ class InputRating extends React.Component {
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
-        <textarea
+        <input
           id="rating-input"
           name="rating"
           type="number"

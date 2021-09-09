@@ -20,6 +20,9 @@ class InputImage extends React.Component {
   }
 }
 
-        
+InputImage.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default InputImage;
