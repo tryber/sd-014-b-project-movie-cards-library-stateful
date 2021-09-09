@@ -209,7 +209,7 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
 
-  it('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
+  it.only('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
     event.type(titleInput, movieHarryPotter);
     event.type(subtitleInput, subtitleMagical);
     fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
