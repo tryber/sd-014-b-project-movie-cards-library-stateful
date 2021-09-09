@@ -5,6 +5,7 @@ import AddSubTitle from './AddMovieComponents/AddSubtitle';
 import AddImage from './AddMovieComponents/AddImage';
 import AddStoryLine from './AddMovieComponents/AddStoryLine';
 import AddRating from './AddMovieComponents/AddRating';
+import AddGenre from './AddMovieComponents/AddGenre';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class AddMovie extends Component {
           <AddImage handleChange={ this.handleChange } value={ imagePath } />
           <AddStoryLine handleChange={ this.handleChange } value={ storyline } />
           <AddRating handleChange={ this.handleChange } value={ rating } />
+          <AddGenre handleChange={ this.handleChange } value={ genre } />
 
         </form>
       );
