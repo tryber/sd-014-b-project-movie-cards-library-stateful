@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { state } = this;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <section>
         <form data-testid="add-movie-form">
@@ -34,7 +34,7 @@ class AddMovie extends React.Component {
             <input
               type="text"
               name="title"
-              value={ state.title }
+              value={ title }
               onChange={ this.addMovie }
               data-testid="title-input"
               id="title-input"
@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
             <input
               type="text"
               name="subtitle"
-              value={ state.subtitle }
+              value={ subtitle }
               onChange={ this.addMovie }
               data-testid="subtitle-input"
               id="subtitle-input"
@@ -56,7 +56,7 @@ class AddMovie extends React.Component {
             <input
               type="text"
               name="imagePath"
-              value={ state.imagePath }
+              value={ imagePath }
               onChange={ this.addMovie }
               data-testid="image-input"
               id="image-input"
@@ -66,7 +66,7 @@ class AddMovie extends React.Component {
             Sinopse
             <textarea
               name="storyline" 
-              value={ state.storyline } 
+              value={ storyline } 
               onChange={ this.addMovie }
               data-testid="storyline-input"
               id="storyline-input"
@@ -77,7 +77,7 @@ class AddMovie extends React.Component {
             <input
               type="number"
               name="rating" 
-              value={ state.rating } 
+              value={ rating } 
               onChange={ this.addMovie }
               data-testid="rating-input"
               id="rating-input"
@@ -85,7 +85,7 @@ class AddMovie extends React.Component {
           </label>
           <label htmlFor="genre-input" data-testid="genre-input-label">
             Gênero
-            <select name="genre" id="genre-input" value={state.genre} data-testid="genre-input" onChange={this.addMovie}>
+            <select name="genre" id="genre-input" value={ genre } data-testid="genre-input" onChange={this.addMovie}>
               <option value="action" data-testid="genre-option">Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>
               <option value="thriller" data-testid="genre-option">Suspense</option>
