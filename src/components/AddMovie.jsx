@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,7 +26,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { addMovie } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -70,6 +70,17 @@ class AddMovie extends React.Component {
             onChange={ this.handleInputChange }
           />
         </label>
+        <label htmlFor="rating" data-testid="rating-input-label">
+         Avaliação
+          <input
+            type="number"
+            id="rating"
+            name="rating"
+            value={ rating }
+            data-testid="rating-input"
+            onChange={ this.handleInputChange }
+          />
+        </label>
       </form>
     );
   }
@@ -97,4 +108,5 @@ fazemos o mesmo processo do title com as devidas alterações para subtitle
 Requisito 10: mesmo procedimento anterior,
 Requisito 11: mesmo anterior => 1º adicionar ao this.state,
 2º adicionar na this.props, adicionar no value.
+Requisito 12: mesma coisa dos anteriores.
 */
