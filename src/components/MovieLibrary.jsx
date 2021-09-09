@@ -17,7 +17,7 @@ class MovieLibrary extends React.Component {
 
   onSearchTextChange = ({ target }) => {
     const { name } = target;
-    const { movies } = this.state;
+    const { movies } = this.props;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
@@ -31,7 +31,7 @@ class MovieLibrary extends React.Component {
 
 onBookmarkedChange = ({ target }) => {
   const { name } = target;
-  const { movies } = this.state;
+  const { movies } = this.props;
   const value = target.type === 'checkbox' ? target.checked : target.value;
 
   if (value === true) {
@@ -49,7 +49,7 @@ onBookmarkedChange = ({ target }) => {
 
   onSelectedGenreChange = ({ target }) => {
     const { name } = target;
-    const { movies } = this.state;
+    const { movies } = this.props;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
