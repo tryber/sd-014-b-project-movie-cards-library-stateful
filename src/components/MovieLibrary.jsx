@@ -15,14 +15,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick = (state) => {
-    state.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+    console.log(state);
   }
 
   render() {

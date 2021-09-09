@@ -7,7 +7,7 @@ class Button extends React.Component {
     // const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <button
-        type="submit"
+        type="button"
         data-testid="send-button"
         onClick={ onClick }
       >

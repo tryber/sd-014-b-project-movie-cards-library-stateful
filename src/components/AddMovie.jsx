@@ -4,7 +4,7 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Image';
 import Storyline from './Storyline';
-import Button from './Button';
+/* import Button from './Button'; */
 
 class AddMovie extends React.Component {
   constructor() {
@@ -27,10 +27,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  teste = (event) => {
+  teste() {
     const { onClick } = this.props;
-    event.preventDefault();
-    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -39,6 +37,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+    onClick(this.state);
   }
 
   render() {
@@ -72,7 +71,13 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <Button onClick={ this.teste } />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.teste }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
