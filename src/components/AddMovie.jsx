@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -26,7 +26,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { addMovie } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -70,7 +70,7 @@ class AddMovie extends React.Component {
             onChange={ this.handleInputChange }
           />
         </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
+         <label htmlFor="rating" data-testid="rating-input-label">
          Avaliação
           <input
             type="number"
@@ -80,6 +80,21 @@ class AddMovie extends React.Component {
             data-testid="rating-input"
             onChange={ this.handleInputChange }
           />
+        </label>
+        <label htmlFor="select-genre" data-testid="genre-input-label">
+         Gênero
+          <select
+            type="genre"
+            id="select-genre"
+            name="genre"
+            value={ genre }
+            data-testid="genre-input"
+            onChange={ this.handleInputChange }
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+            </select>
         </label>
       </form>
     );
@@ -109,4 +124,8 @@ Requisito 10: mesmo procedimento anterior,
 Requisito 11: mesmo anterior => 1º adicionar ao this.state,
 2º adicionar na this.props, adicionar no value.
 Requisito 12: mesma coisa dos anteriores.
+<<< ATENÇÃO >>>
+a partir de 50 linhas o lint já reclama do tamanho da função
+então temos que fazer um input padrão, farei isso mais tarde
+<<<<<>>>>>
 */
