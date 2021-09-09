@@ -209,7 +209,7 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
 
-  it.only('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
+  it('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
     event.type(titleInput, movieHarryPotter);
     event.type(subtitleInput, subtitleMagical);
     fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
@@ -221,7 +221,7 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
     expect(onClick).toHaveBeenCalled();
   });
 
-  it('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
+  it.only('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
     const expectedRating = 3.5;
     event.type(titleInput, movieHarryPotter);
     event.type(subtitleInput, subtitleMagical);

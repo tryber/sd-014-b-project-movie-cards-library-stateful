@@ -30,8 +30,10 @@ class AddMovie extends Component {
     });
   }
 
-  addAndReset(callback) {
-    callback();
+  addAndReset = () => {
+    const { onClick } = this.props;
+
+    onClick(this.state);
 
     this.setState({
       subtitle: '',
@@ -44,7 +46,6 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -57,7 +58,7 @@ class AddMovie extends Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ onClick }
+          onClick={ this.addAndReset }
         >
           Adicionar filme
         </button>
