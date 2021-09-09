@@ -1,6 +1,11 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import TitleInput from './TitleInput';
+import SubTitle from './SubtitleInput';
+import ImageInput from './ImageInput';
+import TextArea from './TextArea';
+import RaingInput from './RatingInput';
+import SelectInput from './SelectInput';
 
 class addMovie extends React.Component {
   constructor() {
@@ -25,44 +30,20 @@ class addMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         {/* Label do título */}
-        <label htmlFor="testInput" data-testid="title-input-label">
-          Título
-          <input
-            id="testInput"
-            type="text"
-            value={ title }
-            name="title"
-            data-testid="title-input"
-            onChange={ this.atualiza }
-          />
-        </label>
+        <TitleInput title={ title } atualiza={ this.atualiza } />
         {/* Label do Subtitulo */}
-        <label htmlFor="testSubtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="testSubtitle"
-            data-testid="subtitle-input"
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            onChange={ this.atualiza }
-          />
-        </label>
-        {/* Desmanchar essa div para fazer o requisito 10 */}
-        <div>
-          {imagePath}
-          {storyline}
-          {rating}
-          {genre}
-        </div>
+        <SubTitle subtitle={ subtitle } atualiza={ this.atualiza } />
+        {/* Label do image */}
+        <ImageInput imagePath={ imagePath } atualiza={ this.atualiza } />
+        {/* Label do textarea */}
+        <TextArea storyline={ storyline } atualiza={ this.atualiza } />
+        {/* Label da nota */}
+        <RaingInput rating={ rating } atualiza={ this.atualiza } />
+        {/* Label do gênero */}
+        <SelectInput genre={ genre } atualiza={ this.atualiza } />
       </form>
     );
   }
 }
-
-// addMovie.propTypes = {
-//   subtitle: PropTypes.string,
-
-// };
 
 export default addMovie;
