@@ -13,6 +13,7 @@ class AddMovie extends React.Component {
     super(props);
 
     this.handleText = this.handleText.bind(this);
+    this.submit = this.submit.bind(this);
 
     this.state = {
       subtitle: '',
@@ -33,6 +34,18 @@ class AddMovie extends React.Component {
     }));
   }
 
+  submit(callback) {
+    callback(this.state);
+    this.setState(() => ({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    }));
+  }
+
   render() {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
@@ -45,6 +58,13 @@ class AddMovie extends React.Component {
         <StoryLineComponent callback={ this.handleText } value={ storyLine } />
         <RatingComponent callback={ this.handleText } value={ rating } />
         <GenreComponent callback={ this.handleText } value={ genre } />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ () => this.submit(onClick) }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
