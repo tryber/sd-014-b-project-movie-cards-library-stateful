@@ -12,14 +12,22 @@ class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <div>
-        { searchText }
-        { onSearchTextChange }
-        { bookmarkedOnly }
-        { onBookmarkedChange }
-        { selectedGenre }
-        { onSelectedGenreChange }
-      </div>
+      <form data-testid="search-bar-form">
+        {/* htmlFor utilizado com base em https://stackoverflow.com/questions/54446655/eslint-rule-for-label */}
+        <label htmlFor="text-input" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            data-testid="text-input"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+        {bookmarkedOnly}
+        {onBookmarkedChange}
+        {selectedGenre}
+        {onSelectedGenreChange}
+      </form>
     );
   }
 }
