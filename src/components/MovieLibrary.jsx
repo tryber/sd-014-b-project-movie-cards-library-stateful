@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
     };
     this.changer = this.changer.bind(this);
     this.tripleFilter = this.tripleFilter.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   tripleFilter() {
@@ -41,6 +42,12 @@ class MovieLibrary extends Component {
     }));
   }
 
+  addMovie(newMovie) {
+    this.setState((prevState) => ({
+      standardMovieList: [...prevState.standardMovieList, newMovie] }), () => this
+      .setState({ movies: this.tripleFilter() }));
+  }
+
   render() {
     const {
       searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -51,15 +58,12 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           selectedGenre={ selectedGenre }
           bookmarkedOnly={ bookmarkedOnly }
-          onSearchTextChange={ (event) => this
-            .changer('searchText', event) }
-          onSelectedGenreChange={ (event) => this
-            .changer('selectedGenre', event) }
-          onBookmarkedChange={ (event) => this
-            .changer('bookmarkedOnly', event) }
+          onSearchTextChange={ (event) => this.changer('searchText', event) }
+          onSelectedGenreChange={ (event) => this.changer('selectedGenre', event) }
+          onBookmarkedChange={ (event) => this.changer('bookmarkedOnly', event) }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
