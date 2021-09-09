@@ -68,7 +68,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ () => this.handleSubmit(this.state) }
+          onClick={ this.handleSubmit }
         >
           Adicionar filme
         </button>
