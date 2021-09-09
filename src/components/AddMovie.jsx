@@ -39,7 +39,7 @@ class AddMovie extends React.Component {
             onChange={ this.handleInputChange }
           />
         </label>
-        <button type="submit" onClick={addMovie}>
+        <button type="submit" onClick={ addMovie }>
           Adicionar
         </button>
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
