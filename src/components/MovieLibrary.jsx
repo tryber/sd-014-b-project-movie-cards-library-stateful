@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import movieList from '../data'
+import movieList from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
