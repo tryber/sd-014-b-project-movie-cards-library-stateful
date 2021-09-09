@@ -68,6 +68,14 @@ class MovieLibrary extends Component {
     });
   }
 
+  addMovieButton = (movieAdded) => {
+    const { movies } = this.props;
+
+    this.setState({
+      movies: [...movies, movieAdded],
+    });
+  }
+
   render() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -82,7 +90,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.changeState }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.onClick } />
+        <AddMovie onClick={ this.addMovieButton } />
       </div>
     );
   }
