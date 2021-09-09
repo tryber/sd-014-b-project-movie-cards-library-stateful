@@ -31,7 +31,7 @@ class AddMovie extends Component {
   }
 
   addAndReset(callback) {
-    callback(this.state);
+    callback();
 
     this.setState({
       subtitle: '',
@@ -57,7 +57,7 @@ class AddMovie extends Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.addAndReset(onClick) }
+          onClick={ onClick }
         >
           Adicionar filme
         </button>
