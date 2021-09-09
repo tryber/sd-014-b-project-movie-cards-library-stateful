@@ -22,13 +22,6 @@ class App extends React.Component {
           <Header />
         </header>
         <main>
-          <SearchBar
-            searchtext=""
-            onSearchTextChange={ this.onSearchTextChange }
-            bookmarkedOnly=""
-            selectedGenre
-            onSelectedGenreChange
-          />
           <MovieLibrary />
           <AddMovie onClick={ this.newMovie } />
         </main>
