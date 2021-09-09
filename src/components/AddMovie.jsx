@@ -1,10 +1,18 @@
 // implement AddMovie component here
 import React from 'react';
+import TextArea from './TextArea';
+import RatingInput from './RatingInput';
+import TitleInput from './TitleInput';
+import SubtitleInput from './SubtitleInput';
+import ImageInput from './ImageInput';
+import GenreInput from './GenreInput';
+import AddButton from './AddButton';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -22,8 +30,18 @@ class AddMovie extends React.Component {
     });
   }
 
+  onClick() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { onClick } = this.props;
     const {
       subtitle,
       title,
@@ -34,26 +52,13 @@ class AddMovie extends React.Component {
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <TitleInput value={ title } onChange={ this.handleChange } />
+        <SubtitleInput value={ subtitle } onChange={ this.handleChange } />
+        <ImageInput value={ imagePath } onChange={ this.handleChange } />
+        <TextArea value={ storyline } onChange={ this.handleChange } />
+        <RatingInput value={ rating } onChange={ this.handleChange } />
+        <GenreInput value={ genre } onChange={ this.handleChange } />
+        <AddButton onClick={ this.onClick } />
       </form>
     );
   }

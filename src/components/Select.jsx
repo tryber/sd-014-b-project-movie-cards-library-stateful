@@ -9,6 +9,7 @@ class Select extends React.Component {
         Filtrar por gênero
         <select
           data-testid="select-input"
+          name="genre"
           value={ value }
           onChange={ onChange }
         >
@@ -23,8 +24,8 @@ class Select extends React.Component {
 }
 
 Select.propTypes = {
-  selectedGenre: PropTypes.func,
-  onSelectedGenreChange: PropTypes.func,
+  value: PropTypes.func,
+  onChange: PropTypes.func,
 }.isRequired;
 
 export default Select;
