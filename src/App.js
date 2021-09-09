@@ -3,6 +3,7 @@ import Header from './components/Header';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
+import AddImage from './components/AddMovieComponents/AddImage';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <SearchBar />
       <AddMovie />
+      <AddImage />
     </div>
   );
 }
