@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import '../App.css';
 import PropTypes from 'prop-types';
+import StandardInput from './StandardInput';
+import StandardSelect from './StandardSelect';
+import StandardCheckbox from './StandardCheckbox';
+
+const arrayOfArrays = [
+  ['Inclui o texto:', 'search-text', 'text-input', 'text'],
+  ['Mostrar somente favoritos', 'show-favorite', 'checkbox-input', 'checkbox'],
+  ['Filtrar por gênero', 'select', 'select-input',
+    [{ Todos: '' }, { Ação: 'action' }, { Comédia: 'comedy' }, { Suspense: 'thriller' }]],
+];
 
 class SearchBar extends Component {
   render() {
@@ -8,40 +18,15 @@ class SearchBar extends Component {
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="search-text" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            id="search-text"
-            data-testid="text-input"
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
-        <label htmlFor="show-favorite" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            id="show-favorite"
-            data-testid="checkbox-input"
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
-        <label htmlFor="movie-genre" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            id="movie-genre"
-            data-testid="select-input"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-          >
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
-        </label>
+        <StandardInput
+          propsInfoArray={ [...arrayOfArrays[0], searchText, onSearchTextChange] }
+        />
+        <StandardCheckbox
+          propsInfoArray={ [...arrayOfArrays[1], bookmarkedOnly, onBookmarkedChange] }
+        />
+        <StandardSelect
+          propsInfoArray={ [...arrayOfArrays[2], selectedGenre, onSelectedGenreChange] }
+        />
       </form>
     );
   }
