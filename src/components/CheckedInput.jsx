@@ -6,7 +6,7 @@ export default class CheckedInput extends Component {
     const { onChange, checked } = this.props;
     return (
       <div>
-        <label data-testid="checkbox-input-label" htmlFor="text-input">
+        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos:
           <input
             type="checkbox"

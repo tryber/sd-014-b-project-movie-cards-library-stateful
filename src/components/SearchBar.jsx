@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TextInput from './TextInput';
 import CheckedInput from './CheckedInput';
+import SelectInput from './SelectInput';
 
 export default class SearchBar extends Component {
   render() {
@@ -9,6 +10,8 @@ export default class SearchBar extends Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
     } = this.props;
     /*
     const { searchText,
@@ -24,6 +27,7 @@ export default class SearchBar extends Component {
         <form data-testid="search-bar-form">
           <TextInput value={ searchText } onChange={ onSearchTextChange } />
           <CheckedInput checked={ bookmarkedOnly } onChange={ onBookmarkedChange } />
+          <SelectInput value={ selectedGenre } onChange={ onSelectedGenreChange } />
         </form>
       </div>
     );
@@ -35,6 +39,8 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 /*
 SearchBar.propTypes = {
