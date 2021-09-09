@@ -18,13 +18,12 @@ class MovieLibrary extends Component {
 
   onSearchTextChange = (event) => {
     const { value, name } = event.target;
-    const { searchText, movies } = this.state;
+    const { searchText } = this.state;
 
-    const filtering = data.filter((element) => {
-      return element.title.toLowerCase().includes(searchText)
-      || element.subtitle.toLowerCase().includes(searchText)
-      || element.storyline.toLowerCase().includes(searchText);
-    });
+    const filtering = data.filter((element) => element.title.toLowerCase()
+      .includes(searchText)
+    || element.subtitle.toLowerCase().includes(searchText)
+    || element.storyline.toLowerCase().includes(searchText));
 
     this.setState({
       [name]: value,
@@ -33,11 +32,26 @@ class MovieLibrary extends Component {
   }
 
   onBookmarkedChange = (event) => {
-    
+    const { name, checked } = event.target;
+    const { movies } = this.state;
+    const filtering = movies.filter((element) => element === checked);
+
+    this.setState({
+      [name]: checked,
+      movies: filtering,
+    });
   }
 
-  handleGenreChage = (event) => {
-    this.setState({ selectGenre: event.target.value });
+  onSelectedGenreChange = (event) => {
+    const { name, value } = event.target;
+
+    const filtering = data.filter((element) => (value === ''
+      ? element : element.genre === value));
+
+    this.setState({
+      [name]: value,
+      movies: filtering,
+    });
   }
 
   render() {
@@ -51,7 +65,7 @@ class MovieLibrary extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
           selectGenre={ selectGenre }
-          onSelectedGenreChange={ this.handleGenreChage }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
         <AddMovie />
