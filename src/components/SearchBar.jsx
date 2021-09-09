@@ -23,7 +23,6 @@ class SearchBar extends React.Component {
         <span>{ selectedGenre }</span>
         <span>{ onSelectedGenreChange }</span>
         <form data-testid="search-bar-form">
-
           <label data-testid="text-input-label" htmlFor="text-input">
             Inclui o texto
             <input
