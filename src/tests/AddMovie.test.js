@@ -170,7 +170,7 @@ describe.only('12 - Renderize um `input` do tipo `number` dentro do formulário 
   });
 });
 
-describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selecionar o gênero do novo filme', () => {
+describe.only('13 - Renderize um `select` do formulário em `<AddMovie />` para selecionar o gênero do novo filme', () => {
   const options = [
     { value: 'action', text: 'Ação' },
     { value: 'comedy', text: 'Comédia' },
