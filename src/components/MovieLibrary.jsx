@@ -9,6 +9,8 @@ class MovieLibrary extends Component {
     super(props);
     const { movies } = this.props;
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -21,6 +23,20 @@ class MovieLibrary extends Component {
     const { value } = target;
     this.setState({
       searchText: value,
+    });
+  }
+
+  onBookmarkedChange({ target }) {
+    const value = target.checked;
+    this.setState({
+      bookmarkedOnly: value,
+    });
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState({
+      selectedGenre: value,
     });
   }
 
@@ -38,9 +54,9 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          /* onBookmarkedChange={ onBookmarkedChange } */
+          onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          /* onSelectedGenreChange={ onSelectedGenreChange } */
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
         <AddMovie />
