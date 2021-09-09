@@ -4,6 +4,7 @@ import AddTitle from './AddMovieComponents/AddTitle';
 import AddSubTitle from './AddMovieComponents/AddSubtitle';
 import AddImage from './AddMovieComponents/AddImage';
 import AddStoryLine from './AddMovieComponents/AddStoryLine';
+import AddRating from './AddMovieComponents/AddRating';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class AddMovie extends Component {
           <AddSubTitle handleChange={ this.handleChange } value={ subtitle } />
           <AddImage handleChange={ this.handleChange } value={ imagePath } />
           <AddStoryLine handleChange={ this.handleChange } value={ storyline } />
+          <AddRating handleChange={ this.handleChange } value={ rating } />
 
         </form>
       );
