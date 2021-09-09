@@ -6,8 +6,8 @@ import InputImage from './Inputs/InputImage';
 import InputRating from './Inputs/InputRating';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -20,13 +20,6 @@ class AddMovie extends React.Component {
     this.getInformation = this.getInformation.bind(this);
   }
 
-  information = ({ target }) => {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
-  }
-
   getInformation = () => {
     const { onClick } = this.props;
     onClick(this.state);
@@ -37,6 +30,13 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
+    });
+  }
+
+  information = ({ target }) => {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
     });
   }
 
@@ -79,6 +79,8 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
