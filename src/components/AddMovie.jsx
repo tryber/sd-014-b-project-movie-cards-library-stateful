@@ -18,13 +18,9 @@ class AddMovie extends React.Component {
   }
 
   addMovie(event) {
+    const { value, name } = event.target;
     this.setState({
-      title: event.target.value,
-      subtitle: event.target.value,
-      imagePath: event.target.value,
-      storyline: event.target.value,
-      rating: event.target.value,
-      genre: event.target.value,
+      [name]: value,
     });
   }
 
@@ -59,7 +55,7 @@ class AddMovie extends React.Component {
             Imagem
             <input
               type="text"
-              name="image"
+              name="imagePath"
               value={ state.imagePath }
               onChange={ this.addMovie }
               data-testid="image-input"
