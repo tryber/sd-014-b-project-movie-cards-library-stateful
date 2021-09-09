@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class SendButton extends React.Component {
   render() {
-    const { onClick, handleChange } = this.props;
+    const { handleChange } = this.props;
     return (
       <button
         name="sendButton"
@@ -18,7 +18,6 @@ class SendButton extends React.Component {
 }
 
 SendButton.propTypes = {
-  onClick: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
