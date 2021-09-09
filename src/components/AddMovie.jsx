@@ -26,10 +26,22 @@ class AddMovie extends React.Component {
         <p>teste</p>
         <form data-testid="add-movie-form">
           <p>teste</p>
+
           <label htmlFor="title-input" data-testid="title-input-label">
             Título
             <input type="text" data-testid="title-input" />
           </label>
+
+          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+            Subtítulo
+            <input type="text" data-testid="subtitle-input" />
+          </label>
+
+          <label htmlFor="imagePath" data-testid="image-input">
+            Imagem
+            <input type="text" data-testid="image-input" />
+          </label>
+
         </form>
       </div>
     );
