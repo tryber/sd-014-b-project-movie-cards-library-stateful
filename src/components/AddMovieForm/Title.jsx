@@ -20,7 +20,7 @@ class Title extends React.Component {
 }
 
 Title.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

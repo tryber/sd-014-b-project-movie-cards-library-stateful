@@ -20,7 +20,7 @@ class Subtitle extends React.Component {
 }
 
 Subtitle.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

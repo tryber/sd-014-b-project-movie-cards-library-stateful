@@ -20,7 +20,7 @@ class Storyline extends React.Component {
 }
 
 Storyline.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

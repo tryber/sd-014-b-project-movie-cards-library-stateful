@@ -19,9 +19,9 @@ class RatingNewMovie extends React.Component {
   }
 }
 
-RatingNewMovie.propTypes = {
-  value: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired,
-};
+RatingNewMovie.propTypes = PropTypes.shape({
+  value: PropTypes.number,
+  handleChange: PropTypes.func,
+}).isRequired;
 
 export default RatingNewMovie;
