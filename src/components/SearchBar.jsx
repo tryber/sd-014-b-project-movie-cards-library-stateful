@@ -14,19 +14,18 @@ export default class SearchBar extends Component {
     } = this.props;
 
     return (
-      // Retorna o Forms Com input Text, Checkbox e Selected para os gêneros
       <form action="" data-testid="search-bar-form">
-        { /* Cria um searchbar para buscar filmes por titulo e descrição; */ }
         <label htmlFor="searchText" data-testid="text-input-label">
+          Inclui o texto:
           <input
             data-testid="text-input"
             value={ searchText }
             id="searchText"
             onChange={ onSearchTextChange }
           />
-          Inclui o texto:
         </label>
         <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
           <input
             type="checkbox"
             data-testid="checkbox-input"
@@ -34,12 +33,12 @@ export default class SearchBar extends Component {
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
-          Mostrar somente favoritos
         </label>
-        <label htmlFor="selected" data-testid="select-input-label">
+        <label htmlFor="selectedGenre" data-testid="select-input-label">
+          Filtrar por gênero
           <select
             value={ selectedGenre }
-            id="selected"
+            id="selectedGenre"
             data-testid="select-input"
             onChange={ onSelectedGenreChange }
           >
@@ -48,7 +47,6 @@ export default class SearchBar extends Component {
             <option value="comedy" data-testid="select-option">Comédia</option>
             <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
-          Filtrar por gênero
         </label>
       </form>
     );
