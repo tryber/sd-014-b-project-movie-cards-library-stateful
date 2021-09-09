@@ -33,7 +33,7 @@ class AddMovie extends React.Component {
 
   handleSubmitState(event, callback) {
     event.preventDefault();
-    callback();
+    callback(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -50,7 +50,7 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <h1>um form maravilhoso</h1>
+          <h1>Um form maravilhoso</h1>
           <Title value={ title } callback={ this.handleChange } />
           <br />
           <Subtitle value={ subtitle } callback={ this.handleChange } />
