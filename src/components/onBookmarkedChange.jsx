@@ -25,7 +25,7 @@ class MarkedChange extends Component {
 
 MarkedChange.propTypes = {
   bookmarkedOnly: PropTypes.string.isRequired,
-  onBookmarkedChange: PropTypes.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
 };
 
 export default MarkedChange;

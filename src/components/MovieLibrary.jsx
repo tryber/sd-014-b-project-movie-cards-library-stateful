@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import movies from '../data';
 import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
@@ -19,68 +19,64 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange = ({ target }) => {
-    const listMov = movies;
-    if (target.name === 'searchText') {
-      this.filterByText(target.value.toLowerCase());
-    } else {
-      this.setState({
-        movies: listMov,
-      });
-    }
+  onClick= (newMovie) => {
+    this.setState((prevstate) => ({
+      movies: [...prevstate.movies, newMovie],
+    }));
   }
 
-  filterByText= (text) => {
-    const listMovies = movies;
-    const filter = listMovies.filter((element) => element.title
-      .toLowerCase().includes(text)
-    || element.subtitle.toLowerCase().includes(text)
-    || element.storyline.toLowerCase().includes(text));
+  onSearchTextChange({ target }) {
     this.setState({
-      movies: filter,
+      searchText: target.value,
+    });
+    this.filterMoviesByText(target.value.toLowerCase());
+  }
+
+  onBookmarkedChange({ target }) {
+    this.setState({
+      bookmarkedOnly: target.checked,
+    });
+    this.filterMoviesByFavorite(target.checked);
+  }
+
+  onSelectedGenreChange({ target }) {
+    this.setState({
+      selectedGenre: target.value,
+    });
+    this.filterMoviesByGenre(target.value);
+  }
+
+  filterMoviesByGenre(genre) {
+    const { movies } = this.props;
+    const allMovies = [...movies];
+
+    this.setState({
+      movies: allMovies.filter((movie) => (genre
+        ? movie.genre === genre : movies)),
     });
   }
 
-  onSelectedGenreChange= ({ target }) => {
-    const listMov = movies;
-    if (target.name === 'selectedGenre') {
-      this.filterByGenre(target.value);
-    } else {
-      this.setState({
-        movies: listMov,
-      });
-    }
-  }
+  filterMoviesByFavorite(check) {
+    const { movies } = this.props;
+    const allMovies = [...movies];
 
-  filterByGenre = (select) => {
-    const listMovies = movies;
-    const filterGenre = listMovies
-      .filter((element) => (select ? element.genre === select : listMovies));
     this.setState({
-      movies: filterGenre,
+      movies: allMovies.filter((movie) => (check
+        ? movie.bookmarked === check : movies)),
     });
   }
 
-  onBookmarkedChange = ({ target }) => {
-    const listMov = movies;
-    if (target.name === 'bookmarkedOnly') {
-      this.filterByFavorite(target.value);
-    } else {
-      this.setState({
-        movies: listMov,
-      });
-    }
-  }
+  filterMoviesByText(search) {
+    const { movies } = this.props;
+    const allMovies = [...movies];
 
-  filterByFavorite = (check) => {
-    const listMovies = movies;
-    const filterCheck = listMovies
-      .filter((element) => (check ? element.bookmarked === true
-        : element));
     this.setState({
-      movies: filterCheck,
+      movies: allMovies.filter((movie) => (search
+        ? movie.title.toLowerCase().includes(search)
+        || movie.subtitle.toLowerCase().includes(search)
+        || movie.storyline.toLowerCase().includes(search) : movies)),
     });
-  };
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -95,10 +91,14 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.handleClick } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(Object).isRequired,
+};
 
 export default MovieLibrary;

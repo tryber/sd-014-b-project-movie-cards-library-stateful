@@ -13,6 +13,7 @@ class SelectedGenreBar extends Component {
             id="selectedGenre"
             name="selectedGenre"
             data-testid="select-input"
+            value={ selectedGenre }
             onChange={ onSelectedGenreChange }
           >
             <option data-testid="select-option" value="">Todos</option>
