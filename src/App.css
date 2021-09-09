@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: whitesmoke;
   box-sizing: border-box;
@@ -80,4 +85,27 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.formSearchBar {
+  font-size: 20px;
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.formSearchBar label {
+  width: 50%;
+}
+
+#inputSearch {
+  width: 100%;
+}
+
+#inputCheck {
+  margin-left: 10px;
+}
+
+#inputSelect {
+  margin-left: 10px;
+  width: 130px;
 }
