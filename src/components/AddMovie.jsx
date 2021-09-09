@@ -18,6 +18,11 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  handleClick(event, ) {
+    event.preventDefault(); // Evita que ao cliclar no botão o submit ocorra.
+    alert('Você clicou aqui!');
+  }
+
   handleChange(event) {
     this.setState({
       title: event.target.value,
@@ -70,7 +75,10 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        {/* <button data-testid="send-button" onClick={  }>Adicionar filme</button> */}
+        <button
+          data-testid="send-button"
+          onClick={ this.handleClick }
+          type="submit">Adicionar filme</button>
       </form>
     );
   }
@@ -83,6 +91,7 @@ AddMovie.protoTypes = {
   storyline: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
