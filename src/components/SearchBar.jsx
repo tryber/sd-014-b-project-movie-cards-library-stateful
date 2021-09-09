@@ -13,7 +13,7 @@ class SearchBar extends Component { // req1. passar as propriedades para o compo
     } = this.props;
 
     return (
-      <p>Search Bar</p>
+      <form data-testid="search-bar-form"> a </form> // req2. form com atributo data-testid="search-bar-form"
     );
   }
 }
