@@ -21,7 +21,7 @@ class AddMovies extends React.Component {
   };
 
   addMovie = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log('oi!!!');
   };
 
