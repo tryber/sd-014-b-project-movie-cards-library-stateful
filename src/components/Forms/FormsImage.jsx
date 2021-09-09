@@ -7,8 +7,8 @@ class FormsImage extends Component {
 
     return (
       <label htmlFor="image-input" data-testid="image-input-label">
-        Sinopse
-        <textarea
+        Imagem
+        <input
           name="imagePath"
           type="text"
           value={ imagePath }
@@ -24,4 +24,5 @@ FormsImage.propTypes = {
   imagePath: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
+
 export default FormsImage;
