@@ -18,7 +18,7 @@ export default class AddMovie extends Component {
       storyline, rating, genre } = this.state;
     return (
       <div>
-        teste
+        <form data-testid="add-movie-form" />
       </div>
     );
   }
