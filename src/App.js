@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
+import movies from './data';
 import AddMovie from './components/AddMovie';
 import Header from './components/Header';
+import MovieLibrary from './components/MovieLibrary';
 import SearchBar from './components/SearchBar';
 
 function App() {
@@ -16,7 +18,7 @@ function App() {
         selectedGenre
         onSelectedGenreChange
       />
-      <AddMovie onClick />
+      <MovieLibrary movies={ movies } />
     </div>
   );
 }
