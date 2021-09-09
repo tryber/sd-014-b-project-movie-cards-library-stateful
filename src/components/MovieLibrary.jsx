@@ -51,13 +51,12 @@ export default class MovieLibrary extends React.Component {
   }
 
   onClick(event) {
+    event.preventDefault();
     console.log(event);
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-
-    console.log(movies);
     return (
       <>
         <SearchBar
