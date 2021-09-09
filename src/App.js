@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './components/Header';
-import MovieList from './components/MovieList';
 import movies from './data';
 import AddMovie from './components/AddMovie';
 import './App.css';
@@ -15,8 +14,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <MovieLibrary />
-        <MovieList movies={ movies } />
+        <MovieLibrary movies={ movies } />
         <AddMovie onClick={ this.teste } />
       </div>
     );
