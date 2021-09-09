@@ -9,11 +9,22 @@ class MovieLibrary extends React.Component {
     super();
 
     this.state = {
-      // searchText: '',
+      searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
     };
+  }
+
+  onSearchTextChange = ({ target: { value } }) => {
+    const { movies } = this.props;
+
+    this.setState({
+      movies: movies.filter((movie) => movie.title.toLowerCase().includes(value)
+        || movie.subtitle.toLowerCase().includes(value)
+        || movie.storyline.toLowerCase().includes(value)),
+      searchText: value,
+    });
   }
 
   onSelectedGenreChange = ({ target: { value } }) => {
@@ -49,7 +60,7 @@ class MovieLibrary extends React.Component {
 
   render() {
     const {
-      // searchText,
+      searchText,
       bookmarkedOnly,
       selectedGenre,
       movies,
@@ -58,6 +69,8 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
