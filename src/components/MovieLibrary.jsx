@@ -12,6 +12,7 @@ export default class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
 
+    // Pesquisado no PR do Ivanielson para entender onde se encaixava o Filter e entendi que o correto é tratar o movies como state e não como propss
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -22,11 +23,8 @@ export default class MovieLibrary extends React.Component {
 
   onSearchTextChange(event) {
     const { movies, searchText } = this.state;
-    const { name } = event.target;
-    const value = name.type === 'checkbox' ? name.checked : name.value;
     this.setState({
       searchText: event.target.value,
-      [name]: value,
       movies: movies.filter(({ title, subtitle, storyline }) => (
         title.includes(searchText)
   || subtitle.includes(searchText)
@@ -35,31 +33,26 @@ export default class MovieLibrary extends React.Component {
     });
   }
 
-  onBookmarkedChange({ target }) {
+  onBookmarkedChange(event) {
     const { movies } = this.state;
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [name]: value,
+      bookmarkedOnly: event.target.checked,
       movies: movies.filter((element) => element.bookmarked === true),
     });
   }
 
   onSelectedGenreChange(event) {
-    const { movies, selectedGenre } = this.state;
-    const { name } = event.target;
-    const value = event.target.type === 'checkbox'
-      ? event.target.checked : event.target.value;
+    const { movies } = this.state;
     this.setState({
-      [name]: value,
-      movies: movies.filter((element) => element.genre === selectedGenre),
+      selectedGenre: event.target.value,
+      movies: movies.filter(({ genre }) => genre === event.target.value),
     });
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
-    console.log(searchText);
+    console.log(movies);
     return (
       <>
         <SearchBar
@@ -70,9 +63,7 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList
-          movies={ movies }
-        />
+        <MovieList movies={ movies } />
         <AddMovie />
       </>
     );
