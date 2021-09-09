@@ -26,6 +26,46 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     });
+
+    this.conditional(target);
+  }
+
+  conditional = (target) => {
+    if (target.name === 'bookmarkedOnly') this.filterMovies(target.checked);
+    if (target.name === 'selectedGenre') this.filterGenre(target.value);
+    if (target.name === 'searchText') this.filterTitle(target.value);
+  }
+
+  filterMovies = (value) => {
+    const { movies } = this.props;
+    const checkboxFunc = movies.filter(({ bookmarked }) => bookmarked === true);
+    const confirmValueOfCheck = value === true ? checkboxFunc : movies;
+
+    this.setState({
+      movies: confirmValueOfCheck,
+    });
+  }
+
+  filterGenre = (value) => {
+    const { movies } = this.props;
+    const getGenre = movies.filter(({ genre }) => genre === value);
+    const confirmGenre = value === '' ? movies : getGenre;
+
+    this.setState({
+      movies: confirmGenre,
+    });
+  }
+
+  filterTitle = (value) => {
+    const { movies } = this.props;
+    const getTitle = movies.filter(({ title, subtitle, storyline }) => (
+      title.includes(value) || subtitle.includes(value) || storyline.includes(value)
+    ));
+    const confirmTitle = value === '' ? movies : getTitle;
+
+    this.setState({
+      movies: confirmTitle,
+    });
   }
 
   render() {
