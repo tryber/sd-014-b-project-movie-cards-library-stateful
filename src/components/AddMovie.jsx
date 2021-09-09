@@ -1,4 +1,10 @@
 import React from 'react';
+import TituloNovo from './TituloNovo';
+import SubtituloNovo from './SubtituliNovo';
+import ImagemNovo from './ImagemNovo';
+import SinopseNovo from './SinopseNovo';
+import AvaliaNovo from './AvaliaNovo';
+import GeneroNovo from './GeneroNovo';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -24,44 +30,13 @@ class AddMovie extends React.Component {
   render() {
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="tituloNovo" data-testid="title-input-label">
-          Título
-          <input
-            id="tituloNovo"
-            type="text"
-            data-testid="subtitle-input"
-            // value={ this.state.title }
-            onChange={ this.onClick }
-          />
-        </label>
-        <label htmlFor="subtituloNovo" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="subtituloNovo"
-            type="text"
-            data-testid="title-input"
-            // value={ this.state.subtitle }
-            onChange={ this.onClick }
-          />
-        </label>
-        <label htmlFor="imagemNovo" data-testid="image-input-label">
-          Imagem
-          <input
-            id="imagemNovo"
-            data-testid="image-input"
-            // value={ this.state.imagePath }
-            onChange={ this.onClick }
-          />
-        </label>
-        <label htmlFor="sinopseNovo" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            id="sinopseNovo"
-            // value={ this.state.storyline }
-            data-testid="storyline-input"
-            onChange={ this.onClick }
-          />
-        </label>
+        <TituloNovo />
+        <SubtituloNovo />
+        <ImagemNovo />
+        <SinopseNovo />
+        <AvaliaNovo />
+        <GeneroNovo />
+        {/* <button data-testid="send-button" onClick="">Adicionar filme</button> */}
       </form>
     );
   }
