@@ -13,12 +13,13 @@ class AddMovie extends React.Component {
       genre: 'action',
     }
 
+    this.handleState = this.handleState.bind(this);
+
   }
 
   handleState({ target }) {
-
     this.setState({
-      title: target.value,
+      [target.id]: target.value,
     });
   }
 
@@ -39,10 +40,21 @@ class AddMovie extends React.Component {
           Título
           <input 
             type="text"
-            id="input-text"
+            id="title"
             onChange={ this.handleState }
             value={ title }
             data-testid="title-input"
+          />
+        </label>
+
+        <label htmlFor="input-text" data-testid="subtitle-input-label">
+          Título
+          <input 
+            type="text"
+            id="subtitle"
+            onChange={ this.handleState }
+            value={ subtitle }
+            data-testid="subtitle-input"
           />
         </label>
 
