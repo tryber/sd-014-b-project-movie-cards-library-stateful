@@ -23,7 +23,7 @@ class AddMovie extends Component {
   render() {
     const { addMovies } = this.props;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <input
           value={ addMovies }
         />
