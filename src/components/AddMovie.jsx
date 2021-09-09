@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import Title from './AddMovieComponents/Title';
 import Subtitle from './AddMovieComponents/Subtitle';
 import Imagem from './AddMovieComponents/Imagem';
+import Sinopse from './AddMovieComponents/Sinopse';
+import Avaliacao from './AddMovieComponents/Avaliação';
+import Genero from './AddMovieComponents/Genero';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -42,38 +45,9 @@ class AddMovie extends React.Component {
         <Title value={ title } onChange={ this.handleClick } />
         <Subtitle value={ subtitle } onChange={ this.handleClick } />
         <Imagem value={ imagePath } onChange={ this.handleClick } />
-        <label data-testid="storyline-input-label" htmlFor="storyline">
-          Sinopse
-          <textarea
-            name="storyline"
-            data-testid="storyline-input"
-            value={ storyline }
-            onChange={ this.handleClick }
-          />
-        </label>
-        <label data-testid="rating-input-label" htmlFor="rating">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            data-testid="rating-input"
-            value={ rating }
-            onChange={ this.handleClick }
-          />
-        </label>
-        <label data-testid="genre-input-label" htmlFor="genre">
-          Gênero
-          <select
-            name="genre"
-            data-testid="genre-input"
-            value={ genre }
-            onChange={ this.handleClick }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <Sinopse value={ storyline } onChange={ this.handleClick } />
+        <Avaliacao value={ rating } onChange={ this.handleClick } />
+        <Genero value={ genre } onChange={ this.handleClick } />
         <button
           type="reset"
           data-testid="send-button"
