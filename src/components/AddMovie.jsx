@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Title from './Title';
+import Subtitle from './Subtitle';
+import Image from './Image';
 
 export default class AddMovie extends Component {
   constructor(props) {
@@ -29,25 +31,8 @@ export default class AddMovie extends Component {
       <div>
         <form data-testid="add-movie-form">
           <Title title={ title } onChange={ this.handleChange } />
-          <label htmlFor data-testid="subtitle-input-label">
-            Subtítulo
-            <input
-              type="text"
-              data-testid="title-input"
-              value={ subtitle }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor data-testid="image-input-label">
-            Imagem
-            <input
-              type="image"
-              alt="movie-poster"
-              data-testid="image-input"
-              value={ imagePath }
-              onChange={ this.handleChange }
-            />
-          </label>
+          <Subtitle subtitle={ subtitle } onChange={ this.handleChange } />
+          <Image imagePath={ imagePath } onChange={ this.handleChange } />
           <label htmlFor data-testid="storyline-input-label">
             Sinopse
             <textarea
@@ -64,6 +49,18 @@ export default class AddMovie extends Component {
               value={ rating }
               onChange={ this.handleChange }
             />
+          </label>
+          <label htmlFor data-testid="genre-input-label">
+            Gênero
+            <select
+              value={ genre }
+              onChange={ this.handleChange }
+              data-testid="genre-input"
+            >
+              <option data-testid="genre-option" value="action">Ação</option>
+              <option data-testid="genre-option" value="comedy">Comédia</option>
+              <option data-testid="genre-option" value="thriller">Suspense</option>
+            </select>
           </label>
         </form>
       </div>
