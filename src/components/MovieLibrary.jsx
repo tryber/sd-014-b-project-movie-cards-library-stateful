@@ -5,35 +5,68 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: props.movies,
     };
   }
 
-  handleChange = (event) => {
+  //  lógica de todas as consts filter retirada do repositório do Fernando Serpa ref:https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/commit/4bfd75551ba7215aeafcd1367366d1d1e830ccec
+
+  onSearchTextChange = (event) => {
     const { name, value } = event.target;
+    const { searchText, movies } = this.state;
+    const filter = movies.filter((movie) => {
+      const { title, subtitle, storyline } = movie;
+      const searchTitle = title.toLowerCase().includes(searchText.toLowerCase());
+      const searchSubtitle = subtitle.toLowerCase().includes(searchText.toLowerCase());
+      const searchStoryline = storyline.toLowerCase().includes(searchText.toLowerCase());
+      return searchTitle || searchSubtitle || searchStoryline;
+    });
 
     this.setState({
       [name]: value,
+      movies: filter,
+    });
+  }
+
+  onBookmarkedChange = (event) => {
+    const { name, checked } = event.target;
+    const { movies } = this.state;
+    const filter = movies.filter((movie) => movie.bookmarked === checked);
+
+    this.setState({
+      [name]: checked,
+      movies: filter,
+    });
+  }
+
+  onSelectedGenreChange = (event) => {
+    const { name, value } = event.target;
+    const { movies } = this.state;
+    const filter = movies.filter((movie) => movie.genre === value);
+
+    this.setState({
+      [name]: value,
+      movies: filter,
     });
   }
 
   render() {
-    const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChange }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
       </div>);
