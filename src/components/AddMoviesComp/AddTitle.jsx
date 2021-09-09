@@ -5,7 +5,7 @@ export default class AddTitle extends React.Component {
   render() {
     const { onChange, title } = this.props;
     return (
-      <label htmlFor="title-input" ata-testid="title-input-label">
+      <label htmlFor="title-input" data-testid="title-input-label">
         Título
         <input
           data-testid="title-input"

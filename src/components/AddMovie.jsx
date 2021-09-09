@@ -4,6 +4,15 @@ import AddTitle from './AddMoviesComp/AddTitle';
 import AddSub from './AddMoviesComp/AddSub';
 import AddImage from './AddMoviesComp/AddImage';
 
+const INITIAL_STATE = {
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -14,19 +23,13 @@ export default class AddMovie extends React.Component {
     this.addGenre = this.addGenre.bind(this);
     this.addRating = this.addRating.bind(this);
 
-    this.state = {
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = INITIAL_STATE;
   }
 
   handleSubmit(event, callback) {
     event.preventDefault();
     callback(this.state);
+    this.setState(INITIAL_STATE);
   }
 
   addTitle(event) {
@@ -113,9 +116,3 @@ export default class AddMovie extends React.Component {
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
-//   subtitle: PropTypes.string.isRequired,
-//   imagePath: PropTypes.string.isRequired,
-//   rating: PropTypes.string.isRequired,
-//   storyline: PropTypes.string.isRequired,
-//   genre: PropTypes.string.isRequired,
-// };

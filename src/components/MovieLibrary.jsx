@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-// import movies from '../data';
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {

@@ -5,7 +5,7 @@ export default class AddImage extends React.Component {
   render() {
     const { onChange, imagePath } = this.props;
     return (
-      <label data-testid="subtitle-input-label" htmlFor="image-input-label">
+      <label data-testid="image-input-label" htmlFor="image-input-label">
         Imagem
         <input
           type="text"
