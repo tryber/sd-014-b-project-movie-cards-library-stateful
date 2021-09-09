@@ -38,19 +38,22 @@ class MovieLibrary extends Component {
     const { movies } = this.state;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-      movies: movies.filter((element) => element.bookmarked === true),
-    });
+    const favorite = movies.filter((element) => element.bookmarked === true);
+    if (target.checked) {
+      this.setState({
+        [name]: value,
+        movies: favorite,
+      });
+    }
   }
 
   onSelectedGenreChange({ target }) {
-    const { movies, selectedGenre } = this.state;
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { movies } = this.state;
+    const { name, value } = target;
+    const genre = movies.filter((element) => element.genre === value);
     this.setState({
       [name]: value,
-      movies: movies.filter((element) => element.genre === selectedGenre),
+      movies: genre,
     });
   }
 
