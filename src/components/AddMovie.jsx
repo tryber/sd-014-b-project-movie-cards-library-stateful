@@ -1,4 +1,5 @@
 import React from 'react';
+import FormItem from './FormItem';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -28,56 +29,21 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
+        <FormItem name="title" value={ title } onChange={ this.handleChange }>
           Título
-          <input
-            name="title"
-            type="text"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="title-input" data-testid="subtitle-input-label">
+        </FormItem>
+        <FormItem name="subtitle" value={ subtitle } onChange={ this.handleChange }>
           Subtítulo
-          <input
-            name="subtitle"
-            type="text"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
+        </FormItem>
+        <FormItem name="imagePath" value={ imagePath } onChange={ this.handleChange }>
           Imagem
-          <input
-            name="imagePath"
-            type="text"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+        </FormItem>
+        <FormItem name="storyline" value={ storyline } onChange={ this.handleChange }>
           Sinopse
-          <textarea
-            name="storyline"
-            type="text"
-            data-testid="storyline-input"
-            value={ storyline }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="rating-input-label">
+        </FormItem>
+        <FormItem name="rating" value={ rating } onChange={ this.handleChange }>
           Avaliação
-          <input
-            name="rating"
-            type="number"
-            data-testid="rating-input"
-            value={ rating }
-            onChange={ this.handleChange }
-          />
-        </label>
+        </FormItem>
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
           <select
@@ -91,7 +57,9 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="submit" data-testid="send-button" onClick={ onClick(this.state) }>Adicionar filme</button>
+        <button type="submit" data-testid="send-button" onClick={ onClick(this.state) }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
