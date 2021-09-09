@@ -13,17 +13,21 @@ class MovieLibrary extends Component {
     };
   }
 
-  render() {
-    const { movies } = this.props;
-    return (
-      <div>
-        <h2> My awesome movie library </h2>
-        <SearchBar />
-        <MovieList movies={ movies } />
-        <AddMovie />
-      </div>
-    );
-  }
+troquei = () => {
+  // Adicionar state da AddMovie dentro do array de filmes....
+}
+
+render() {
+  const { movies } = this.props;
+  return (
+    <div>
+      <h2> My awesome movie library </h2>
+      <SearchBar />
+      <MovieList movies={ movies } />
+      <AddMovie onClick={ this.troquei } />
+    </div>
+  );
+}
 }
 
 MovieLibrary.propTypes = {
