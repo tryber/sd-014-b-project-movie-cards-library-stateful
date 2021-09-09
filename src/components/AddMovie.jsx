@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
@@ -94,5 +95,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
