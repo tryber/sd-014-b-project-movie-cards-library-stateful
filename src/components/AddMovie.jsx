@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import TitleInput from './TitleInput';
 import SubtitleInput from './SubtitleInput';
 import ImageInput from './ImageInput';
 import StorylineInput from './StorylineInput';
 import RatingInput from './RatingInput';
 import GenreInput from './GenreInput';
+import Button from './Button';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -37,8 +38,20 @@ export default class AddMovie extends Component {
     });
   }
 
+  reset = (callback) => {
+    callback(this.state);
+    this.setState(() => ({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    }));
+  }
+
   render() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     // const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -50,12 +63,13 @@ export default class AddMovie extends Component {
           <StorylineInput value={ storyline } onChange={ this.handleChange } />
           <RatingInput value={ rating } onChange={ this.handleChange } />
           <GenreInput value={ genre } onChange={ this.handleChange } />
+          <Button onClick={ () => this.reset(onClick) } />
         </form>
       </div>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
