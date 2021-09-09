@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -10,9 +11,25 @@ class MovieLibrary extends React.Component {
     this.state = {
       // searchText: '',
       bookmarkedOnly: false,
-      // selectedGenre: '',
+      selectedGenre: '',
       movies: props.filmes,
     };
+  }
+
+  onSelectedGenreChange = ({ target: { value } }) => {
+    const { filmes } = this.props;
+    console.log(value);
+    if (value === '') {
+      this.setState({
+        selectedGenre: '',
+        movies: filmes,
+      });
+    } else {
+      this.setState({
+        selectedGenre: value,
+        movies: filmes.filter((filme) => filme.genre === value),
+      });
+    }
   }
 
   onBookmarkedChange = ({ target: { checked } }) => {
@@ -20,7 +37,7 @@ class MovieLibrary extends React.Component {
     if (checked) {
       this.setState({
         bookmarkedOnly: true,
-        movies: filmes.filter((movie) => movie.bookmarked === true),
+        movies: filmes.filter((filme) => filme.bookmarked === true),
       });
     } else {
       this.setState({
@@ -34,7 +51,7 @@ class MovieLibrary extends React.Component {
     const {
       // searchText,
       bookmarkedOnly,
-      // selectedGenre,
+      selectedGenre,
       movies,
     } = this.state;
 
@@ -43,8 +60,11 @@ class MovieLibrary extends React.Component {
         <SearchBar
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
+        <AddMovie />
 
       </div>
     );
