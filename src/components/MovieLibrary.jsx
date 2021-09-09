@@ -4,15 +4,46 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
+const INITIAL_STATE_MOVIE_LIBRARY = {
+  searchText: '',
+  bookmarkedOnly: false,
+  selectedGenre: '',
+};
+
 class MovieLibrary extends React.Component {
   constructor() {
     super();
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-    };
+    this.state = INITIAL_STATE_MOVIE_LIBRARY;
   }
+
+  onSearchTextChange = ({ target }) => {
+    console.log(target.value);
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  };
+
+onBookmarkedChange = ({ target }) => {
+  const { name } = target;
+  const value = target.type === 'checkbox' ? target.checked : target.value;
+
+  this.setState({
+    [name]: value,
+  });
+};
+
+  onSelectedGenreChange
+  = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  };
 
   addNewMovie() {
 

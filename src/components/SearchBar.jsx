@@ -20,6 +20,7 @@ class SearchBar extends React.Component {
             data-testid="text-input"
             className="header-input"
             id="find-text"
+            name="searchText"
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }
@@ -30,7 +31,7 @@ class SearchBar extends React.Component {
             data-testid="checkbox-input"
             className="input-checkbox"
             type="checkbox"
-            name="showFavorites"
+            name="bookmarkedOnly"
             id="showFavorites"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
@@ -40,8 +41,8 @@ class SearchBar extends React.Component {
         <label data-testid="select-input-label" className="h-l" htmlFor="filter-genre">
           Filtrar por gênero:
           <select
-            className="header-input"
             id="filter-genre"
+            name="selectedGenre"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
@@ -53,6 +54,8 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+// className="header-input" - Classe retirada do 'select' para não acusar número máx de linhas
 
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
