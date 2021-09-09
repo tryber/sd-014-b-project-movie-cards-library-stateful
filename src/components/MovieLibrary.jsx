@@ -22,14 +22,29 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     });
+    const thisProps = this.props;
+    const filter = thisProps.movies.filter((movie) => (
+      movie.title.includes(target.value)
+      || movie.subtitle.includes(target.value)
+      || movie.storyline.includes(target.value)));
+    this.setState({
+      movies: filter,
+    });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { bookmarkedOnly, searchText, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          onSearchTextChange={ this.information }
+          searchText={ searchText }
+          onBookmarkedChange={ this.information }
+          bookmarkedOnly={ bookmarkedOnly }
+          onSelectedGenreChange={ this.information }
+          selectedGenre={ selectedGenre }
+        />
         <MovieList movies={ movies } />
         <AddMovie />
       </div>
@@ -37,6 +52,7 @@ class MovieLibrary extends Component {
   }
 }
 
+// An array of a object
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
