@@ -6,6 +6,7 @@ import InputImage from './InputImage';
 import StoryLine from './StoryLine';
 import InputNumber from './InputNumber';
 import InputGenre from './InputGenre';
+import ButtonAddMovie from './ButtonAddMovie';
 
 class AddMovie extends Component {
   constructor() {
@@ -30,20 +31,45 @@ class AddMovie extends Component {
     });
   }
 
+  handleClick = () => {
+    const { onClick } = this.props;
+
+    onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+
+    });
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <InputTitle value={ title } onChange={ this.handleChange } />
-        <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
-        <InputImage value={ imagePath } onChange={ this.handleChange } />
-        <StoryLine value={ storyline } onChange={ this.handleChange } />
-        <InputNumber value={ rating } onChange={ this.handleChange } />
-        <InputGenre value={ genre } onChange={ this.handleChange } />
+        <section>
+          <InputTitle value={ title } onChange={ this.handleChange } />
+          <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
+          <InputImage value={ imagePath } onChange={ this.handleChange } />
+          <StoryLine value={ storyline } onChange={ this.handleChange } />
+          <InputNumber value={ rating } onChange={ this.handleChange } />
+          <InputGenre value={ genre } onChange={ this.handleChange } />
+        </section>
+        <section>
+          <ButtonAddMovie onChange={ this.handleClick } />
+        </section>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
