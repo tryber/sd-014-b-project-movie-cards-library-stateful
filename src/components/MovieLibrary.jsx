@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -33,7 +33,7 @@ class MovieLibrary extends Component {
   onSelectedGenreChange({ target }) {
     this.setState({
       selectedGenre: target.value,
-    })
+    });
   }
 
   render() {
