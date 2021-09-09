@@ -9,7 +9,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -26,7 +26,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { addMovie } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -35,7 +35,6 @@ class AddMovie extends React.Component {
             id="title"
             name="title"
             value={ title }
-            type="text"
             data-testid="title-input"
             onChange={ this.handleInputChange }
           />
@@ -47,7 +46,6 @@ class AddMovie extends React.Component {
             id="subtitle"
             name="subtitle"
             value={ subtitle }
-            type="text"
             data-testid="subtitle-input"
             onChange={ this.handleInputChange }
           />
@@ -58,8 +56,17 @@ class AddMovie extends React.Component {
             id="image-path"
             name="imagePath"
             value={ imagePath }
-            type="text"
             data-testid="image-input"
+            onChange={ this.handleInputChange }
+          />
+        </label>
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            id="storyline"
+            name="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
             onChange={ this.handleInputChange }
           />
         </label>
@@ -88,4 +95,6 @@ criar botão de adicionar tipo submmit passando a props add movie no onclick
 Requisito 9: para o subtítulo adicionamos a props a const dentro do render() e
 fazemos o mesmo processo do title com as devidas alterações para subtitle
 Requisito 10: mesmo procedimento anterior,
+Requisito 11: mesmo anterior => 1º adicionar ao this.state,
+2º adicionar na this.props, adicionar no value.
 */
