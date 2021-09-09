@@ -58,6 +58,19 @@ class MovieLibrary extends React.Component {
     }
   }
 
+  AddMovie = (target) => {
+    const { movies } = this.props;
+    this.setState({
+      // movies: movies.push(target), // mutative
+      // movies: movies.splice(movies.length, 0, target), // mutative
+      // movies: movies[movies.length] = target, // mutative
+      movies: movies.concat(target), // non mutative
+      // movies: [...movies, target], // non mutative
+
+    });
+    console.log('aqui estaaaa');
+  }
+
   render() {
     const {
       searchText,
@@ -77,7 +90,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.AddMovie } />
       </div>
     );
   }
