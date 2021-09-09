@@ -25,8 +25,9 @@ class MovieLibrary extends React.Component {
     const filter = movies.filter(
       (movie) => movie.title.includes(target.value)
       || movie.subtitle.includes(target.value)
-       || movie.storyline.includes(target.value)
-       || movie.genre.includes(target.value),
+      || movie.storyline.includes(target.value)
+      || movie.genre.includes(target.value)
+      || movie.bookmarked === (target.value),
     );
     this.setState({
       movies: filter,
