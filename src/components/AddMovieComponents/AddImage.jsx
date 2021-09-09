@@ -5,7 +5,7 @@ class AddImage extends React.Component {
     const { handleChange, value } = this.props;
     return (
       <label htmlFor="image" data-testid="image-input-label">
-        Imagem:
+        Imagem
         <input
           name="imagePath"
           type="text"

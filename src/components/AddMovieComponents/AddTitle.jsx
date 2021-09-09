@@ -5,7 +5,7 @@ class AddTitle extends React.Component {
     const { handleChange, value } = this.props;
     return (
       <label htmlFor="add-title" data-testid="title-input-label">
-        Título:
+        Título
         <input
           name="add-title"
           type="text"
