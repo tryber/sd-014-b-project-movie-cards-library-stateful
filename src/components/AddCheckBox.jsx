@@ -7,6 +7,7 @@ export default class AddCheckBox extends Component {
     return (
       <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
         <input
+          type="checkbox"
           data-testid="checkbox-input"
           id="bookmarkedOnly"
           onChange={ onChange }
