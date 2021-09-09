@@ -5,7 +5,6 @@ import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
 
 class App extends React.Component {
-
   render() {
     return (
       <div className="App">
