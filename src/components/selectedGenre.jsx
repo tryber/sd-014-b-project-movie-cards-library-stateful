@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 class SelectedGenreBar extends Component {
   render() {
-    const { onSelectedGenreChange,
-      selectedGenre } = this.props;
+    const { onSelectedGenreChange, selectedGenre } = this.props;
+    console.log(selectedGenre);
     return (
       <div>
         <label htmlFor="selectedGenre" data-testid="select-input-label">
@@ -13,7 +13,6 @@ class SelectedGenreBar extends Component {
             id="selectedGenre"
             name="selectedGenre"
             data-testid="select-input"
-            value={ selectedGenre }
             onChange={ onSelectedGenreChange }
           >
             <option data-testid="select-option" value="">Todos</option>
