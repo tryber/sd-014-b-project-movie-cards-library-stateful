@@ -11,6 +11,7 @@ export default class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     // Pesquisado no PR do Ivanielson para entender onde se encaixava o Filter e entendi que o correto é tratar o movies como state e não como propss
     this.state = {
@@ -49,6 +50,10 @@ export default class MovieLibrary extends React.Component {
     });
   }
 
+  onClick(event) {
+    console.log(event);
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
@@ -64,7 +69,7 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </>
     );
   }
