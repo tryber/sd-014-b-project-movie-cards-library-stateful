@@ -19,20 +19,13 @@ class MovieLibrary extends Component {
     };
   }
 
-  onClick = () => {
-    console.log('Alguma coisa');
-  }
+  changeState = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
-  changeText = () => {
-
-  }
-
-  bookMarked = () => {
-
-  }
-
-  selectedGenre = () => {
-
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -42,11 +35,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.changeText }
+          onSearchTextChange={ this.changeState }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.bookMarked }
+          onBookmarkedChange={ this.changeState }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.selectedGenre }
+          onSelectedGenreChange={ this.changeState }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
@@ -54,6 +47,7 @@ class MovieLibrary extends Component {
     );
   }
 }
+
 MovieLibrary.propTypes = {
   movies: PropTypes.func.isRequired,
 };
