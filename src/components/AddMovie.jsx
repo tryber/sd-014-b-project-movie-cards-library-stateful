@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-  constructor() {
+  /* constructor() {
     super();
     this.state = {
       /* subtitle: '',
@@ -11,10 +11,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action', */
-    };
 
-    this.handleChange = this.handleChange.bind(this);
-  }
   /*      handleChange(event) {
         this.setState({
             subtitle: '',
