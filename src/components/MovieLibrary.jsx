@@ -50,9 +50,12 @@ export default class MovieLibrary extends React.Component {
     });
   }
 
-  onClick(event) {
-    event.preventDefault();
-    console.log(event);
+  onClick(object) {
+    const { movies } = this.state;
+    const newMovies = [...movies, object];
+    this.setState({
+      movies: newMovies,
+    });
   }
 
   render() {

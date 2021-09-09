@@ -1,7 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import AddTitle from './AddMoviesComp/AddTitle';
 import AddSub from './AddMoviesComp/AddSub';
+import AddImage from './AddMoviesComp/AddImage';
 
 export default class AddMovie extends React.Component {
   constructor(props) {
@@ -21,6 +22,11 @@ export default class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+  }
+
+  handleSubmit(event, callback) {
+    event.preventDefault();
+    callback(this.state);
   }
 
   addTitle(event) {
@@ -61,19 +67,12 @@ export default class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <AddTitle title={ title } onChange={ this.addTitle } />
         <AddSub subtitle={ subtitle } onChange={ this.addSubtitle } />
-        <label data-testid="subtitle-input-label" htmlFor="image-input-label">
-          Imagem
-          <input
-            type="text"
-            data-testid="image-input-label"
-            value={ imagePath }
-            onChange={ this.addImagePath }
-          />
-        </label>
+        <AddImage imagePath={ imagePath } onChange={ this.addImagePath } />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -99,7 +98,11 @@ export default class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="submit" data-testid="send-button" onClick={ this.onClick }>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ (event) => this.handleSubmit(event, onClick) }
+        >
           Adicionar filme
         </button>
       </form>
@@ -107,8 +110,9 @@ export default class AddMovie extends React.Component {
   }
 }
 
-// AddMovie.propTypes = {
-//   title: PropTypes.string.isRequired,
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 //   subtitle: PropTypes.string.isRequired,
 //   imagePath: PropTypes.string.isRequired,
 //   rating: PropTypes.string.isRequired,
