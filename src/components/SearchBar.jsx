@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 class SearchBar extends Component {
   render() {
     const { searchText, onSearchTextChange } = this.props;
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
 
-    // bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange
+    // selectedGenre, onSelectedGenreChange
 
     return (
       <form data-testid="search-bar-form">
@@ -19,6 +20,15 @@ class SearchBar extends Component {
             onChange={ onSearchTextChange }
           />
         </label>
+        <label htmlFor="favoriteSearch" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            id="favoriteSearch"
+            data-testid="checkbox-input"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+        </label>
       </form>
     );
   }
@@ -27,6 +37,8 @@ class SearchBar extends Component {
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
