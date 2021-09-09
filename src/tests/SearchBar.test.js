@@ -45,7 +45,7 @@ describe('1 - Crie um componente chamado `<SearchBar />`', () => {
 describe('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('Renderize 1, e apenas 1, form dentro de `SearchBar`', () => {
+  it('Renderize 1, e apenas 1, form dentro de `SearchBar`', () => {
     const { getAllByTestId } = searchBar();
     const form = getAllByTestId('search-bar-form');
     expect(form).toHaveLength(1);
