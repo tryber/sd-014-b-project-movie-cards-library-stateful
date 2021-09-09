@@ -43,7 +43,7 @@ class SearchBar extends React.Component {
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
           >
-            <option valeu="" data-testid="select-option">Todos</option>
+            <option value="" data-testid="select-option">Todos</option>
             <option value="action" data-testid="select-option">Ação</option>
             <option value="comedy" data-testid="select-option">Comédia</option>
             <option value="thriller" data-testid="select-option">Suspense</option>
@@ -63,4 +63,4 @@ SearchBar.propTypes = {
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
-export default SerachBar;
+export default SearchBar;
