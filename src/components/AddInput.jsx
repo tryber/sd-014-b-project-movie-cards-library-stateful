@@ -3,22 +3,28 @@ import PropTypes from 'prop-types';
 
 export default class AddInput extends Component {
   render() {
-    const { dfValue, onChange } = this.props;
+    const { dfID, dfValue, onChange, dfText, dfName = dfID, type = 'text' } = this.props;
     return (
-      <label htmlFor="searchText" data-testid="text-input-label">
+      <label htmlFor={ dfID } data-testid={ `${dfID}-input-label` }>
+        { dfText }
         <input
-          data-testid="text-input"
+          data-testid={ `${dfID}-input` }
+          type={ type }
+          name={ dfName }
           value={ dfValue }
-          id="searchText"
+          id={ dfID }
           onChange={ onChange }
         />
-        Inclui o texto:
       </label>
     );
   }
 }
 
 AddInput.propTypes = {
+  dfID: PropTypes.string.isRequired,
   dfValue: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  dfText: PropTypes.string.isRequired,
+  dfName: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };

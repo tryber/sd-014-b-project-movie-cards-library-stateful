@@ -1,9 +1,6 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AddInput from './AddInput';
-import AddCheckBox from './AddCheckBox';
-import AddSelect from './AddSelect';
 
 export default class SearchBar extends Component {
   render() {
@@ -17,10 +14,42 @@ export default class SearchBar extends Component {
     } = this.props;
 
     return (
+      // Retorna o Forms Com input Text, Checkbox e Selected para os gêneros
       <form action="" data-testid="search-bar-form">
-        <AddInput dfValue={ searchText } onChange={ onSearchTextChange } />
-        <AddCheckBox dfValue={ bookmarkedOnly } onChange={ onBookmarkedChange } />
-        <AddSelect dfValue={ selectedGenre } onChange={ onSelectedGenreChange } />
+        { /* Cria um searchbar para buscar filmes por titulo e descrição; */ }
+        <label htmlFor="searchText" data-testid="text-input-label">
+          <input
+            data-testid="text-input"
+            value={ searchText }
+            id="searchText"
+            onChange={ onSearchTextChange }
+          />
+          Inclui o texto:
+        </label>
+        <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
+          <input
+            type="checkbox"
+            data-testid="checkbox-input"
+            id="bookmarkedOnly"
+            onChange={ bookmarkedOnly }
+            checked={ onBookmarkedChange }
+          />
+          Mostrar somente favoritos
+        </label>
+        <label htmlFor="selected" data-testid="select-input-label">
+          <select
+            value={ selectedGenre }
+            id="selected"
+            data-testid="select-input"
+            onChange={ onSelectedGenreChange }
+          >
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
+          </select>
+          Filtrar por gênero
+        </label>
       </form>
     );
   }
