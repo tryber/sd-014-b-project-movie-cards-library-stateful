@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -13,6 +14,11 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies,
     };
+  }
+
+  addMovie = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   handleCheckbox = (name, checked) => {
@@ -64,6 +70,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleClick }
         />
         <MovieList movies={ filteredMovies } />
+        <AddMovie onClick={ this.addMovie } />
       </main>
     );
   }

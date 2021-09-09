@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from './AddMovieComponents/Title';
+import Subtitle from './AddMovieComponents/Subtitle';
+import Imagem from './AddMovieComponents/Imagem';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -23,48 +26,22 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     onClick(state);
     this.setState({
-      subtitle: '',
       title: '',
-      imagePath: '',
+      subtitle: '',
       storyline: '',
       rating: 0,
+      imagePath: '',
       genre: 'action',
     });
   };
 
-  // eslint-disable-next-line max-lines-per-function
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleClick }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
-          Subtítulo
-          <input
-            name="subtitle"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ this.handleClick }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="imagePath">
-          Imagem
-          <input
-            name="imagePath"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ this.handleClick }
-          />
-        </label>
+        <Title value={ title } onChange={ this.handleClick } />
+        <Subtitle value={ subtitle } onChange={ this.handleClick } />
+        <Imagem value={ imagePath } onChange={ this.handleClick } />
         <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
           <textarea
