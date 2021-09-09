@@ -9,11 +9,12 @@ class InputText extends Component {
         Inclui o texto:
         <input
           type="text"
+          className="input-text-forms"
           id="input-text"
-          data-testid="text-input"
-          value={ value }
           name="searchText"
+          value={ value }
           onChange={ onChange }
+          data-testid="text-input"
         />
       </label>
     );

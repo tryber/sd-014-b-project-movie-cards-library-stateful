@@ -11,24 +11,22 @@ class AddMovieForm extends Component {
       ratingState, genreState, onChange, onClick } = this.props;
     return (
       <form className="search-forms" data-testid="add-movie-form">
-        <div>
-          <InputText
-            titleName="Título"
-            id="title"
-            textHold="Nome do filme"
-            name="title"
-            initValue={ titleState }
-            change={ onChange }
-          />
-          <InputText
-            titleName="Subtítulo"
-            id="subtitle"
-            textHold="Subtitulo do filme"
-            name="subtitle"
-            initValue={ subtitleState }
-            change={ onChange }
-          />
-        </div>
+        <InputText
+          titleName="Título"
+          id="title"
+          textHold="Nome do filme"
+          name="title"
+          initValue={ titleState }
+          change={ onChange }
+        />
+        <InputText
+          titleName="Subtítulo"
+          id="subtitle"
+          textHold="Subtitulo do filme"
+          name="subtitle"
+          initValue={ subtitleState }
+          change={ onChange }
+        />
         <InputText
           titleName="Imagem"
           id="image"
@@ -38,10 +36,8 @@ class AddMovieForm extends Component {
           change={ onChange }
         />
         <TextAreaForm initValue={ sinopseState } change={ onChange } />
-        <div>
-          <InputNumber initValue={ ratingState } change={ onChange } />
-          <Selectgenre initValue={ genreState } change={ onChange } />
-        </div>
+        <InputNumber initValue={ ratingState } change={ onChange } />
+        <Selectgenre initValue={ genreState } change={ onChange } />
         <button
           type="button"
           onClick={ onClick }

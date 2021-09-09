@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.fillMoviesState = this.fillMoviesState.bind(this);
-    this.defaultCallback = this.defaultCallback.bind(this);
+    this.addMovieCallback = this.addMovieCallback.bind(this);
   }
 
   handleChange({ target: { name, value, checked } }) {
@@ -48,11 +48,10 @@ class MovieLibrary extends Component {
     });
   }
 
-  defaultCallback(item) {
-    const { movies } = this.props;
-    const array = [...movies];
-    array.push(item);
-    this.setState({ movies: array });
+  addMovieCallback(newMovie) {
+    const { movies } = this.state;
+    // const array = [...movies, newMovie];
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
@@ -75,7 +74,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ toRender } />
-        <AddMovie onClick={ this.defaultCallback } />
+        <AddMovie onClick={ this.addMovieCallback } />
       </main>
     );
   }

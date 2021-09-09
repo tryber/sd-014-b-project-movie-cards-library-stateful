@@ -9,6 +9,7 @@ class InputText extends Component {
         { `${titleName}` }
         <input
           type="text"
+          className="input-text-forms"
           placeholder={ textHold }
           name={ name }
           value={ initValue }

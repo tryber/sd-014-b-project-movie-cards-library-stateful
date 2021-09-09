@@ -5,7 +5,11 @@ class TextAreaForm extends Component {
   render() {
     const { initValue, change } = this.props;
     return (
-      <label htmlFor="film-textarea-form" data-testid="storyline-input-label">
+      <label
+        className="text-area-label"
+        htmlFor="film-textarea-form"
+        data-testid="storyline-input-label"
+      >
         Sinopse
         <textarea
           id="film-textarea-form"

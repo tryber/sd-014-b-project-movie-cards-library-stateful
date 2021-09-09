@@ -1,7 +1,33 @@
+:focus {
+  outline: none;
+}
+
 body {
-  background-color: whitesmoke;
+  background-color: rgb(24, 23, 23);
   box-sizing: border-box;
   font-size: 16px;
+}
+
+button {
+  margin: auto;
+  width: 40%;
+}
+
+button:focus {
+  outline: none;
+}
+
+label {
+  margin: auto 2rem;
+  width: 90%;
+}
+
+form .text-area-label textarea {
+  height: 6rem;
+  margin: 5px 0 20px;
+  padding: 5px;
+  resize: none;
+  width: 80%;
 }
 
 .movie-card-header {
@@ -20,20 +46,32 @@ body {
 }
 
 .search-forms {
+  align-items: flex-start;
   background-color: #495258;
-  border: solid thin #1e2327;
-  border-radius: 5%;
+  border: groove #b5b5b6;
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin: 10px;
-  max-width: fit-content;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 70%;
   padding: 10px;
 }
 
 label > :first-child {
-  margin: 10px;
+  margin: 20px 5px;
+}
+
+label .input-text-forms {
+  display: block;
+  margin: 5px 0 20px 5px;
+  width: 90%;
+}
+
+.text-area-label {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 
 .movie-list {
@@ -43,17 +81,24 @@ label > :first-child {
 }
 
 .movie-card {
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 3px;
+  background-color: #495258;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.7);
+  color: white;
   display: flex;
   flex-direction: column;
   height: 450px;
-  margin: 5px;
+  margin: 15px;
   overflow: hidden;
+  text-shadow: 1px 1px 0.5px black;
   width: 300px;
 }
 
+.movie-card:hover {
+  text-shadow: 1.5px 1.5px 3px black;
+  transform: scale(1.05);
+}
 
 .movie-card-image {
   max-height: 35%;
@@ -66,20 +111,21 @@ label > :first-child {
 }
 
 .movie-card-title {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 500;
   margin: 0 0 12px;
 }
 
 .movie-card-subtitle {
-  color: #6c757d;
-  font-size: 16px;
+  color: black;
+  font-size: 17px;
   font-weight: 500;
   margin: 0 0 8px;
+  text-shadow: 0.5px 0.3px 0.1px white;
 }
 
 .movie-card-storyline {
-  font-size: 14px;
+  font-size: 15px;
   text-align: justify;
 }
 
