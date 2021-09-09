@@ -2,9 +2,9 @@ import React from 'react';
 import Header from './components/Header';
 import MovieList from './components/MovieList';
 import movies from './data';
-import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
 import './App.css';
+import MovieLibrary from './components/MovieLibrary';
 
 class App extends React.Component {
   teste() {
@@ -15,7 +15,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <SearchBar />
+        <MovieLibrary />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.teste } />
       </div>
