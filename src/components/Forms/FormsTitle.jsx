@@ -6,7 +6,7 @@ class FormsTitle extends Component {
     const { title, onChange } = this.props;
 
     return (
-      <label htmlFor="title-input" data-testid="title-input-label" >
+      <label htmlFor="title-input" data-testid="title-input-label">
         Título
         <input
           name="title"
