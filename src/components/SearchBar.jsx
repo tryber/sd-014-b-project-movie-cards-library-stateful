@@ -14,6 +14,8 @@ class SearchBar extends Component {
         <label htmlFor="textSearch" data-testid="text-input-label">
           Inclui o texto:
           <input
+            type="text"
+            name="inclueTexto"
             id="textSearch"
             data-testid="text-input"
             value={ searchText }
@@ -23,6 +25,8 @@ class SearchBar extends Component {
         <label htmlFor="favoriteSearch" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
+            type="checkbox"
+            name="favoritos"
             id="favoriteSearch"
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }
