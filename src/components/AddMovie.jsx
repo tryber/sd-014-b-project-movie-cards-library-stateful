@@ -7,14 +7,14 @@ class AddMovie extends React.Component {
 
     this.onClick = this.onClick.bind(this);
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: ''
-    };
+    // this.state = {
+    //   subtitle: '',
+    //   title: '',
+    //   imagePath: '',
+    //   storyline: '',
+    //   rating: 0,
+    //   genre: '',
+    // };
   }
 
   onClick(event) {
@@ -31,7 +31,7 @@ class AddMovie extends React.Component {
             id="tituloNovo"
             type="text"
             data-testid="subtitle-input"
-            value={ this.state.title }
+            // value={ this.state.title }
             onChange={ this.onClick }
           />
         </label>
@@ -41,7 +41,7 @@ class AddMovie extends React.Component {
             id="subtituloNovo"
             type="text"
             data-testid="title-input"
-            value={ this.state.subtitle }
+            // value={ this.state.subtitle }
             onChange={ this.onClick }
           />
         </label>
@@ -50,7 +50,7 @@ class AddMovie extends React.Component {
           <input
             id="imagemNovo"
             data-testid="image-input"
-            value={ this.state.imagePath }
+            // value={ this.state.imagePath }
             onChange={ this.onClick }
           />
         </label>
@@ -58,7 +58,7 @@ class AddMovie extends React.Component {
           Sinopse
           <textarea
             id="sinopseNovo"
-            value={ this.state.storyline }
+            // value={ this.state.storyline }
             data-testid="storyline-input"
             onChange={ this.onClick }
           />
@@ -68,7 +68,7 @@ class AddMovie extends React.Component {
           <input
             id="avaliaNovo"
             type="number"
-            value={ this.state.rating }
+            // value={ this.state.rating }
             data-testid="rating-input"
             onChange={ this.onClick }
           />
@@ -77,7 +77,7 @@ class AddMovie extends React.Component {
           Gênero
           <select
             id="generoNovo"
-            value={ this.state.genre }
+            // value={ this.state.genre }
             data-testid="genre-input"
             onChange={ this.onClick }
           >
@@ -86,7 +86,7 @@ class AddMovie extends React.Component {
             <option value="Suspense" data-testid="genre-option">thriller</option>
           </select>
         </label>
-        <button data-testid="send-button" onClick="">Adicionar filme</button>
+        {/* <button data-testid="send-button" onClick="">Adicionar filme</button> */}
       </form>
     );
   }
