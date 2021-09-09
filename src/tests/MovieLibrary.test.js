@@ -47,7 +47,7 @@ describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
   });
 });
 
-describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
+describe.only('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
   it('Defina o estado inicial de `searchText` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
