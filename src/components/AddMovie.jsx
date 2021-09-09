@@ -6,6 +6,7 @@ import SubTitleComponent from './AddMovieComponents/SubTitleComponent';
 import ImageComponent from './AddMovieComponents/ImageComponent';
 import StoryLineComponent from './AddMovieComponents/StoryLineComponent';
 import RatingComponent from './AddMovieComponents/RatingComponent';
+import GenreComponent from './AddMovieComponents/GenreComponent';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -24,7 +25,9 @@ class AddMovie extends React.Component {
   }
 
   handleText(event) {
-    const { value, name } = event.target;
+    const { target } = event;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = target;
     this.setState(() => ({
       [name]: value,
     }));
@@ -41,6 +44,7 @@ class AddMovie extends React.Component {
         <ImageComponent callback={ this.handleText } value={ imagePath } />
         <StoryLineComponent callback={ this.handleText } value={ storyLine } />
         <RatingComponent callback={ this.handleText } value={ rating } />
+        <GenreComponent callback={ this.handleText } value={ genre } />
       </form>
     );
   }
