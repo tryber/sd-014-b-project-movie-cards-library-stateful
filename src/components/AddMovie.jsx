@@ -36,7 +36,13 @@ class AddMovie extends React.Component {
         <SinopseNovo />
         <AvaliaNovo />
         <GeneroNovo />
-        {/* <button data-testid="send-button" onClick="">Adicionar filme</button> */}
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick=""
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
