@@ -45,22 +45,22 @@ class AddMovie extends React.Component {
           />
         </label>
         <label htmlForm="imagemNovo" data-testid="image-input-label">
-        Imagem
-        <input 
-          id="imagemNovo"
-          data-testid="image-input"
-          value={ this.state.imagePath }
-          onChange= { this.onClick }
-        />
+          Imagem
+          <input
+            id="imagemNovo"
+            data-testid="image-input"
+            value={ this.state.imagePath }
+            onChange={ this.onClick }
+          />
         </label>
         <label htmlForm="sinopseNovo" data-testid="storyline-input-label">
-        Sinopse
-        <textarea
-          id="sinopseNovo"
-          value={ storyline }
-          data-testid="storyline-input"
-          onChange={ this.onClick }
-        />
+          Sinopse
+          <textarea
+            id="sinopseNovo"
+            value={ this.state.storyline }
+            data-testid="storyline-input"
+            onChange={ this.onClick }
+          />
         </label>
 
       </form>
@@ -68,8 +68,8 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+// AddMovie.propTypes = {
+//   onClick: PropTypes.func.isRequired,
+// };
 
 export default AddMovie;
