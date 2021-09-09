@@ -16,8 +16,6 @@ class MovieLibrary extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.MovieList = this.MovieList.bind(this);
-    // this.SearchBar = this.SearchBar.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,6 +23,13 @@ class MovieLibrary extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [id]: value,
+    });
+  }
+
+  onClick = (state) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
     });
   }
 
@@ -43,7 +48,7 @@ class MovieLibrary extends React.Component {
         <MovieList
           movies={ movies }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
