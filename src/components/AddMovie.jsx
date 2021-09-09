@@ -1,4 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import InputImage from './InputImage';
+import InputTitle from './InputTitle';
+import InputSubTitle from './InputSubTitle';
+import InputStoryline from './InputStoryline';
+import InputRating from './InputRating';
+import InputGenre from './InputGenre';
+import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -25,42 +33,21 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
+    const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título:
-          <input name="title" data-testid="title-input" onChange={ this.handleChange } type="text" value={ this.state.title } />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo:
-          <input name="subtitle" data-testid="subtitle-input" onChange={ this.handleChange } type="text" value={ this.state.subtitle } />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label" >
-          Imagem
-          <input name="imagePath" data-testid="image-input" onChange={ this.handleChange } value={ this.state.imagePath }></input>
-        </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea name="storyline" data-testid="storyline-input" onChange={ this.handleChange } value={ this.state.storyline }>
-          </textarea>
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input name="rating" data-testid="rating-input" type="number" onChange={ this.handleChange } value={ this.state.rating }></input>
-        </label>
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select name="genre" data-testid="genre-input" onChange={ this.handleChange } value={ this.state.genre }>
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
-
-        <button data-testid="send-button" onClick={onClick}>Adicionar filme</button>
+        <InputTitle value={ title } handleChange={ this.handleChange } />
+        <InputSubTitle value={ subtitle } handleChange={ this.handleChange } />
+        <InputImage value={ imagePath } handleChange={ this.handleChange } />
+        <InputStoryline value={ storyLine } handleChange={ this.handleChange } />
+        <InputRating value={ rating } handleChange={ this.handleChange } />
+        <InputGenre value={ genre } handleChange={ this.handleChange } />
+        <Button onClick={ onClick } />
       </form>
-    )
+    );
   }
 }
-
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default AddMovie;
