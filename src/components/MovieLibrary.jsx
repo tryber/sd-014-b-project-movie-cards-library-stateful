@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+// import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 // import MovieList from './MovieList';
 // import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
 
-class MovieLibrary extends Component {
+class MovieLibrary extends React.Component {
   render() {
-    const { movies } = this.props;
+    // const { title, subtitle, storyline, rating, imagePath, genre } = this.props;
     return (
-      <section>
-        { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-      </section>
+      <MovieCard />
     );
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.number,
-    imagePath: PropTypes.string,
-  })).isRequired,
-};
+// MovieLibrary.propTypes = {
+//   movies: ({
+//     title: PropTypes.string,
+//     subtitle: PropTypes.string,
+//     storyline: PropTypes.string,
+//     rating: PropTypes.number,
+//     imagePath: PropTypes.string,
+//   }).isRequired,
+// };
 
 export default MovieLibrary;
