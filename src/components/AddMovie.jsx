@@ -54,7 +54,7 @@ class AddMovie extends Component {
           <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
           <InputImage value={ imagePath } onChange={ this.handleChange } />
           <StoryLine value={ storyline } onChange={ this.handleChange } />
-          <InputNumber value={ rating } onChange={ this.handleChange } />
+          <InputNumber value={ Number(rating) } onChange={ this.handleChange } />
           <InputGenre value={ genre } onChange={ this.handleChange } />
         </section>
         <section>
