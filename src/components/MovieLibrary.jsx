@@ -19,7 +19,7 @@ class MovieLibrary extends React.Component {
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleBookmarked = this.handleBookmarked.bind(this);
     this.handleSelectedGenre = this.handleSelectedGenre.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleTextChange(event) {
@@ -68,9 +68,12 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    
+  onClick(object) {
+    const { movies } = this.state;
+    const newMovies = [...movies, object];
+    this.setState({
+      movies: newMovies,
+    });
   }
 
   render() {
@@ -86,7 +89,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleSelectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.handleSubmit } />
+        <AddMovie onClick={ this.onClick } />
       </>
     );
   }

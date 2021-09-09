@@ -57,23 +57,9 @@ class AddMovie extends React.Component {
     });
   }
 
-  createMovie() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const newMovie = {
-        title: title,
-        subtitle: subtitle,
-        storyline:  storyline,
-        rating: rating,
-        imagePath: imagePath,
-        bookmarked: false,
-        genre: genre,
-    }
-    return newMovie;
-  }
-
   handleSubmit(event, callback) {
     event.preventDefault();
-    callback(this.createMovie);
+    callback(this.state);
     this.setState({
       subtitle: '',
       title: '',
