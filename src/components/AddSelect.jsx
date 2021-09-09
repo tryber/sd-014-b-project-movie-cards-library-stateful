@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddSelect extends Component {
   render() {
@@ -21,3 +22,8 @@ export default class AddSelect extends Component {
     );
   }
 }
+
+AddSelect.propTypes = {
+  dfValue: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

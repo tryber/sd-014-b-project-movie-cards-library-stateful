@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddInput extends Component {
   render() {
@@ -16,3 +17,8 @@ export default class AddInput extends Component {
     );
   }
 }
+
+AddInput.propTypes = {
+  dfValue: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

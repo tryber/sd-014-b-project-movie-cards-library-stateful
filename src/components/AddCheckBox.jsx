@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddCheckBox extends Component {
   render() {
@@ -16,3 +17,8 @@ export default class AddCheckBox extends Component {
     );
   }
 }
+
+AddCheckBox.propTypes = {
+  dfValue: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
