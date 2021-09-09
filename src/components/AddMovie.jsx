@@ -44,7 +44,7 @@ class AddMovie extends React.Component {
             onChange={ this.onClick }
           />
         </label>
-        <label htmlForm="imagemNovo" data-testid="image-input-label">
+        <label htmlFor="imagemNovo" data-testid="image-input-label">
           Imagem
           <input
             id="imagemNovo"
@@ -53,7 +53,7 @@ class AddMovie extends React.Component {
             onChange={ this.onClick }
           />
         </label>
-        <label htmlForm="sinopseNovo" data-testid="storyline-input-label">
+        <label htmlFor="sinopseNovo" data-testid="storyline-input-label">
           Sinopse
           <textarea
             id="sinopseNovo"
