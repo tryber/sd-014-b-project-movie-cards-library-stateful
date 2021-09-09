@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
 
 export class AddMovie extends Component {
   constructor() {
@@ -35,6 +36,7 @@ export class AddMovie extends Component {
       <form data-testid="add-movie-form">
         <Title value={ title } onChange={ this.handleChange } />
         <Subtitle value={ subtitle } onChange={ this.handleChange } />
+        <ImagePath value={ imagePath } onChange={ this.handleChange } />
       </form>
     );
   }
