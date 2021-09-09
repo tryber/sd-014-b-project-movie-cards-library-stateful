@@ -1,5 +1,6 @@
 import React from 'react';
 import InputText from './InputText';
+import SelectForm from './SelectForm';
 
 class AddMovies extends React.Component {
   constructor() {
@@ -10,7 +11,7 @@ class AddMovies extends React.Component {
       imagePath: '',
       storyline: '',
       rating: '0',
-      // genre: '',
+      genre: '',
     };
     // this.handleChange = this.handleChange.bind(this);
   }
@@ -20,7 +21,7 @@ class AddMovies extends React.Component {
   };
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputText
@@ -50,6 +51,10 @@ class AddMovies extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+        <SelectForm
+          genre={ genre }
+          handleChange={ this.handleChange }
+        />
       </form>
     );
   }
