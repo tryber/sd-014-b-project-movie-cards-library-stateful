@@ -25,7 +25,7 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar prop={ propsSearch } />
+        <SearchBar { ...propsSearch } />
         <MovieList movies={ movies } />
         <AddMovie />
       </div>
