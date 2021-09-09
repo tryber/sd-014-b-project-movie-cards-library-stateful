@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import AddTitle from './AddMovieComponents/AddTitle';
+import AddSubTitle from './AddMovieComponents/AddSubtitle';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class AddMovie extends Component {
       return (
         <form data-testid="add-movie-form">
           <AddTitle handleChange={ this.handleChange } value={ title } />
+          <AddSubTitle handleChange={ this.handleChange } value={ subtitle } />
         </form>
       );
     }
