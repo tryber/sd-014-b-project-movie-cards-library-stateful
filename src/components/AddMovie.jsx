@@ -20,6 +20,11 @@ class AddMovies extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  addMovie = (e) => {
+    e.preventDefault();
+    console.log('oi!!!');
+  };
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -55,6 +60,13 @@ class AddMovies extends React.Component {
           genre={ genre }
           handleChange={ this.handleChange }
         />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.addMovie }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
