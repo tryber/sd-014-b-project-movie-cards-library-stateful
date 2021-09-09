@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar 
+      <SearchBar
         searchText="opa"
         onSearchTextChange
         bookmarkedOnly
@@ -16,7 +16,7 @@ function App() {
         selectedGenre
         onSelectedGenreChange
       />
-      <AddMovie onClick/>
+      <AddMovie onClick />
     </div>
   );
 }
