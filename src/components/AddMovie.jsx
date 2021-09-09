@@ -21,12 +21,26 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.restore = this.restore.bind(this);
   }
 
   handleInputChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
+  }
+
+  restore(event) {
+    const { onClick } = this.props;
+    onClick(event, this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -57,7 +71,11 @@ class AddMovie extends React.Component {
           testidLabel="genre-input-label"
           handleChange={ this.handleInputChange }
         />
-        <button type="submit" data-testid="send-button" onClick={ onClick }>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.restore }
+        >
           Adicionar filme
         </button>
       </form>
