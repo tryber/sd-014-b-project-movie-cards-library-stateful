@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SelectedGenre from './SelectedGenre';
+
 class SearchBar extends React.Component {
   render() {
     const {
@@ -39,6 +41,11 @@ class SearchBar extends React.Component {
           />
           Mostrar somente favoritos
         </label>
+        <br />
+        <SelectedGenre
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
