@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 class FormItem extends React.Component {
   render() {
-    const { children, name, onChange, value } = this.props;
+    const { Tag, type, children, name, onChange, value } = this.props;
     return (
       <label htmlFor={ `${name}-input` } data-testid={ `${name}-input-label` }>
         { children }
-        <input
+        <Tag
           name={ name }
-          type="text"
+          type={ type }
           data-testid={ `${name}-input` }
           value={ value }
           onChange={ onChange }
@@ -20,10 +20,18 @@ class FormItem extends React.Component {
 }
 
 FormItem.propTypes = {
+  type: PropTypes.string,
   children: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  Tag: PropTypes.string,
+};
+
+FormItem.defaultProps = {
+  type: 'text',
+  value: '',
+  Tag: 'input',
 };
 
 export default FormItem;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -14,6 +14,14 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    this.addMovie = this.addMovie.bind(this);
+  }
+
+  addMovie(movie) {
+    const { movies } = this.state;
+    const movieList = movies;
+    movieList.push(movie);
+    this.setState({ movies: movieList });
   }
 
   render() {
@@ -36,10 +44,13 @@ class MovieLibrary extends Component {
           } }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
 }
 
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 export default MovieLibrary;
