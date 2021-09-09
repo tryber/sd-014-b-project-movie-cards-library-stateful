@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputTitle from './inputs-components/InputTitle';
 import InputSubtitle from './inputs-components/InputSubtitle';
 import InputImage from './inputs-components/InputImage';
@@ -20,7 +21,23 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.addMovie = this.addMovie.bind(this);
+  }
+
+  handleSubmit() {
+    const { onClick } = this.props;
+
+    onClick();
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   addMovie(event) {
@@ -41,10 +58,21 @@ class AddMovie extends React.Component {
           <InputTextArea value={ storyline } onChange={ this.addMovie } />
           <InputNumber value={ rating } onChange={ this.addMovie } />
           <InputSelect value={ genre } onChange={ this.addMovie } />
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={ this.handleSubmit }
+          >
+            Adicionar filme
+          </button>
         </form>
       </section>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
