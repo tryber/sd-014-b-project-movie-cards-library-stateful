@@ -221,7 +221,7 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
     expect(onClick).toHaveBeenCalled();
   });
 
-  it.only('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
+  it('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
     const expectedRating = 3.5;
     event.type(titleInput, movieHarryPotter);
     event.type(subtitleInput, subtitleMagical);
