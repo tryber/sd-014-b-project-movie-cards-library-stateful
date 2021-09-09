@@ -5,8 +5,7 @@ import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-
- constructor() {
+  constructor() {
     super();
 
     this.state = {
@@ -17,11 +16,11 @@ class MovieLibrary extends React.Component {
     };
   }
 
-    render() {
-        return (
+  render() {
+    return (
 
-        )
-    }
+    );
+  }
 }
 
 // MovieLibrary.propTypes = {
