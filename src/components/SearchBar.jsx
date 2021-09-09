@@ -31,8 +31,8 @@ export default class SearchBar extends Component {
             type="checkbox"
             data-testid="checkbox-input"
             id="bookmarkedOnly"
-            onChange={ bookmarkedOnly }
-            checked={ onBookmarkedChange }
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
           />
           Mostrar somente favoritos
         </label>
