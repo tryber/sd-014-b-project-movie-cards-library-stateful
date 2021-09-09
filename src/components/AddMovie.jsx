@@ -50,9 +50,9 @@ export default class AddMovie extends Component {
         <Subtitle value={ subtitle } onChange={ this.handleChange } />
         <Image value={ imagePath } onChange={ this.handleChange } />
         <Storyline value={ storyline } onChange={ this.handleChange } />
-        <AddRating value={ rating } onChange={ this.handleChange } />
+        <AddRating value={ Number(rating) } onChange={ this.handleChange } />
         <Genre value={ genre } onChange={ this.handleChange } />
-        <Button onClick={ this.handleClick } />
+        <Button onClick={ () => this.handleClick() } />
       </form>
     );
   }
