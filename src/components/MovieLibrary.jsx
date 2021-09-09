@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+// esse componente será responśavel por atualizar os filmes exibidos de acordo com o eventos
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -33,15 +33,14 @@ class MovieLibrary extends Component {
 
   handleBookmarkedChange(event) { // função que irá trabalhar com apenas os favoritos
     const { checked } = event.target;
-    const filteredMovieList = movies.filter((movie) => movie.bookmarked === checked);
-    if (checked === true) {
+    const filteredMovieList = movies.filter((movie) => movie.bookmarked === checked); // a prop. 'bookmarked' está em data.js
+    if (checked === true) { // a array que irá ser gerada é dos filmes com bookemared: true
       this.setState({
         bookmarkedOnly: checked,
         movies: filteredMovieList,
       });
     } if (checked === false) {
       this.setState({
-        bookmarkedOnly: checked,
         movies: movies,
       });
     }
@@ -60,6 +59,7 @@ class MovieLibrary extends Component {
             searchText={ searchText } // searchText oriundo do estado de <MovieLibrary /> deve ser passado para a prop searchText de <SearchBar />
             onSearchTextChange={ this.handleSearchTextChange } // propriedade oriunda de searchBar recebe a funç
             bookmarkedOnly={ bookmarkedOnly } // apenas 
+            onBookmarkedChange={ this.handleBookmarkedChange }
         />
     )
 }

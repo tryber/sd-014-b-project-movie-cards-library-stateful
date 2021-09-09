@@ -6,7 +6,7 @@ class SearchBar extends Component { // req1. passar as propriedades para o compo
     const {
       searchText,
       onSearchTextChange, // essa propriedade é respósavel pela mudança de estado pós busca
-      bookmarkedOnly, // filmes favoristos
+      bookmarkedOnly, // filmes favoritos
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange,
