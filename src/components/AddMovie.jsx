@@ -36,7 +36,7 @@ class AddMovie extends React.Component {
             name="title"
             value={ title }
             data-testid="title-input"
-            onChange={this.handleInputChange}
+            onChange={ this.handleInputChange }
           />
         </label>
         <button type="submit" onClick={addMovie}>
@@ -49,7 +49,7 @@ class AddMovie extends React.Component {
             name="subtitle"
             value={ subtitle }
             data-testid="subtitle-input"
-            onChange={this.handleInputChange}
+            onChange={ this.handleInputChange }
           />
         </label>
         <label htmlFor="image-path" data-testid="image-input-label">
@@ -59,7 +59,7 @@ class AddMovie extends React.Component {
             name="imagePath"
             value={ imagePath }
             data-testid="image-input"
-            onChange={this.handleInputChange}
+            onChange={ this.handleInputChange }
           />
         </label>
         <label htmlFor="storyline" data-testid="storyline-input-label">
@@ -69,7 +69,7 @@ class AddMovie extends React.Component {
             name="storyline"
             value={ storyline }
             data-testid="storyline-input"
-            onChange={this.handleInputChange}
+            onChange={ this.handleInputChange }
           />
         </label>
         <label htmlFor="rating" data-testid="rating-input-label">
@@ -80,7 +80,7 @@ class AddMovie extends React.Component {
             name="rating"
             value={ rating }
             data-testid="rating-input"
-            onChange={this.handleInputChange}
+            onChange={ this.handleInputChange }
           />
         </label>
         <label htmlFor="select-genre" data-testid="genre-input-label">
@@ -91,7 +91,7 @@ class AddMovie extends React.Component {
             name="genre"
             value={ genre }
             data-testid="genre-input"
-            onChange={this.handleInputChange}
+            onChange={ this.handleInputChange }
           >
             <option value="action" data-testid="genre-option">
               Ação
