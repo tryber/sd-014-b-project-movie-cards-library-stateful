@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import movieList from '../data'
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -21,22 +22,36 @@ class MovieLibrary extends Component {
 
   onSearchTextChange({ target }) {
     const { value } = target;
+    const { movies } = this.state;
     this.setState({
       searchText: value,
+      movies: movies.filter((movie) => (
+        movie.title.includes(value)
+        || movie.subtitle.includes(value)
+        || movie.storyline.includes(value))),
     });
+    if (value === '') {
+      this.setState({
+        movies: movieList,
+      });
+    }
   }
 
   onBookmarkedChange({ target }) {
     const value = target.checked;
+    const { movies } = this.state;
     this.setState({
       bookmarkedOnly: value,
+      movies: movies.filter((movie) => movie.bookmarked === true),
     });
   }
 
   onSelectedGenreChange({ target }) {
     const { value } = target;
+    const { movies } = this.state;
     this.setState({
       selectedGenre: value,
+      movies: movies.filter((movie) => movie.genre === value),
     });
   }
 
