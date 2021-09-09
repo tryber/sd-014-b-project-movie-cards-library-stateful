@@ -20,6 +20,7 @@ class FormItem extends React.Component {
 }
 
 FormItem.propTypes = {
+  children: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
