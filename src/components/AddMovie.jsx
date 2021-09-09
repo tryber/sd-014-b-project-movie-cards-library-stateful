@@ -5,8 +5,8 @@ class AddMovie extends Component {
   constructor() {
     super();
     this.state = {
-      // subtitle: '',
-      // title: '',
+      subtitle: '',
+      title: '',
       // imagePath: '',
       // storyline: '',
       // rating: 0,
@@ -22,7 +22,7 @@ class AddMovie extends Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -32,6 +32,15 @@ class AddMovie extends Component {
             value={ title }
             onChange={ this.handleChange }
             data-testid="title-input"
+          />
+        </label>
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            value={ subtitle }
+            onChange={ this.handleChange }
+            data-testid="subtitle-input"
           />
         </label>
       </form>
