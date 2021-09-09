@@ -34,20 +34,22 @@ class AddMovie extends React.Component {
           <input
             id="title"
             name="title"
-            value={ title }
+            value={title}
             data-testid="title-input"
-            onChange={ this.handleInputChange }
+            onChange={this.handleInputChange}
           />
         </label>
-        <button type="submit" onClick={ addMovie }>Adicionar</button>
+        <button type="submit" onClick={addMovie}>
+          Adicionar
+        </button>
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
             id="subtitle"
             name="subtitle"
-            value={ subtitle }
+            value={subtitle}
             data-testid="subtitle-input"
-            onChange={ this.handleInputChange }
+            onChange={this.handleInputChange}
           />
         </label>
         <label htmlFor="image-path" data-testid="image-input-label">
@@ -55,9 +57,9 @@ class AddMovie extends React.Component {
           <input
             id="image-path"
             name="imagePath"
-            value={ imagePath }
+            value={imagePath}
             data-testid="image-input"
-            onChange={ this.handleInputChange }
+            onChange={this.handleInputChange}
           />
         </label>
         <label htmlFor="storyline" data-testid="storyline-input-label">
@@ -65,35 +67,41 @@ class AddMovie extends React.Component {
           <textarea
             id="storyline"
             name="storyline"
-            value={ storyline }
+            value={storyline}
             data-testid="storyline-input"
-            onChange={ this.handleInputChange }
+            onChange={this.handleInputChange}
           />
         </label>
         <label htmlFor="rating" data-testid="rating-input-label">
-         Avaliação
+          Avaliação
           <input
             type="number"
             id="rating"
             name="rating"
-            value={ rating }
+            value={rating}
             data-testid="rating-input"
-            onChange={ this.handleInputChange }
+            onChange={this.handleInputChange}
           />
         </label>
         <label htmlFor="select-genre" data-testid="genre-input-label">
-         Gênero
-            <select
+          Gênero
+          <select
             type="genre"
             id="select-genre"
             name="genre"
-            value={ genre }
+            value={genre}
             data-testid="genre-input"
-            onChange={ this.handleInputChange }
+            onChange={this.handleInputChange}
           >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
+            <option value="action" data-testid="genre-option">
+              Ação
+            </option>
+            <option value="comedy" data-testid="genre-option">
+              Comédia
+            </option>{" "}
+            <option value="thriller" data-testid="genre-option">
+              Suspense
+            </option>
           </select>
         </label>
       </form>
