@@ -1,9 +1,12 @@
-/* import React, { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Title from './Title';
 
 export class AddMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       subtitle: '',
@@ -15,19 +18,28 @@ export class AddMovie extends Component {
     };
   }
 
+  handleChange({ target }) {
+    const { value, name } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     const { onClick } = this.props;
+    const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
 
     return (
-      <div>
-        <form data-testid="search-bar-form" />
-      </div>
+
+      <form data-testid="add-movie-form">
+        <Title value={ title } onChange={ this.handleChange } />
+      </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onclick: PropTypes.func.isRequired,
 };
 
-export default AddMovie; */
+export default AddMovie;
