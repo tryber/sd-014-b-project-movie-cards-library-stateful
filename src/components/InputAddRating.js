@@ -28,7 +28,7 @@ class InputAddRating extends React.Component {
 InputAddRating.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
