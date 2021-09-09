@@ -22,12 +22,12 @@ class AddMovies extends React.Component {
   };
 
   mySubmitHandler = () => {
-    console.log('formulário enviado');
+    // event.preventDeafault();
+    alert('depois o formulário é enviado aqui');
   }
 
   myFunction = () => {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    console.log(title, subtitle, imagePath, storyline, rating, genre);
+    alert('primeiro aconteceu aqui ');
   };
 
   render() {
