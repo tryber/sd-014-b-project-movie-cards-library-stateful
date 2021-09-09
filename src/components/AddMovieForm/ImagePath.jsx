@@ -6,7 +6,7 @@ class ImagePath extends React.Component {
     const { value, handleChange } = this.props;
     return (
       <label htmlFor="image-input" data-testid="image-input-label">
-        Imagem
+        <p>Imagem</p>
         <input
           name="imagePath"
           type="text"

@@ -5,7 +5,7 @@ import Subtitle from './AddMovieForm/Subtitle';
 import ImagePath from './AddMovieForm/ImagePath';
 import Storyline from './AddMovieForm/Storyline';
 import RatingNewMovie from './AddMovieForm/RatingNewMovie';
-import Select from './AddMovieForm/Select';
+import Select from './AddMovieForm/Genre';
 import Button from './AddMovieForm/Button';
 
 class AddMovie extends React.Component {
