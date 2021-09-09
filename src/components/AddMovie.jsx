@@ -1,9 +1,9 @@
 // implement AddMovie component here
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AddMoviePartI from './AddMoviePartI';
 
-export class AddMovie extends Component {
+class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.updateState = this.updateState.bind(this);
