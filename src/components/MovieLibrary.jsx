@@ -19,11 +19,20 @@ class MovieLibrary extends React.Component {
   }
 
   handleChange({ target }) {
+    const { movies } = this.props;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    let movieFilter = movies;
+
+    movieFilter = movieFilter.filter((
+      { title, subtitle, storyline, genre },
+    ) => title.includes(target.value) || subtitle.includes(target.value)
+        || storyline.includes(target.value) || genre.includes(target.value));
 
     this.setState({
       [name]: value,
+      // movies: filterMovie,
+      movies: movieFilter,
     });
   }
 
