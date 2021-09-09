@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Input from './Input';
+import TextArea from './TextArea';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -12,6 +13,7 @@ class AddMovie extends React.Component {
       title: '',
       subtitle: '',
       imagePath: '',
+      storyline: '',
     };
   }
 
@@ -26,7 +28,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Input
@@ -51,6 +53,14 @@ class AddMovie extends React.Component {
           dataTestIdInput="image-input"
           name="imagePath"
           value={ imagePath }
+          handleChange={ this.handleChange }
+        />
+        <TextArea
+          titleLabel="Sinopse"
+          dataTestIdLabel="storyline-input-label"
+          dataTestIdTextarea="storyline-input"
+          name="storyline"
+          value={ storyline }
           handleChange={ this.handleChange }
         />
       </form>
