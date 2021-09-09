@@ -70,14 +70,7 @@ class MovieLibrary extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    estado = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    
   }
 
   render() {
