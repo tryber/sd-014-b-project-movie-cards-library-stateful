@@ -26,7 +26,8 @@ class AddMovies extends React.Component {
   }
 
   myFunction = () => {
-    console.log(this.state);
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    console.log(title, subtitle, imagePath, storyline, rating, genre);
   };
 
   render() {

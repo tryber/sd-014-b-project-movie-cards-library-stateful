@@ -5,7 +5,7 @@ class InputText extends React.Component {
   render() {
     const { title, subtitle, imagePath, handleChange } = this.props;
     return (
-      <div>
+      <>
         <label htmlFor="title" data-testid="title-input-label">
           Título:
           <input
@@ -39,7 +39,7 @@ class InputText extends React.Component {
             onChange={ handleChange }
           />
         </label>
-      </div>
+      </>
     );
   }
 }
