@@ -10,25 +10,29 @@ class AddMovies extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: '0',
+      rating: 0,
       genre: '',
     };
     // this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
-  addMovie = (e) => {
-    // e.preventDefault();
-    console.log('oi!!!');
+  mySubmitHandler = () => {
+    console.log('formulário enviado');
+  }
+
+  myFunction = () => {
+    console.log(this.state);
   };
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form onSubmit={ this.mySubmitHandler } data-testid="add-movie-form">
         <InputText
           title={ title }
           subtitle={ subtitle }
@@ -63,7 +67,7 @@ class AddMovies extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ this.addMovie }
+          onClick={ this.myFunction }
         >
           Adicionar filme
         </button>
