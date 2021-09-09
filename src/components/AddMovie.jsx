@@ -12,17 +12,17 @@ class AddMovie extends Component {
             rating: 0,
             genre: '',
         };
-
     }
 
 
     render(){
-
+     <form data-testid="add-movie-form">
+         a
+     </form>
     }
 
-    return(
 
-    )
+   return()
 }
 }
 
