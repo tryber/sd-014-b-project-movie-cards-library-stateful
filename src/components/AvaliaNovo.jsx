@@ -8,7 +8,7 @@ class AvaliaNovo extends React.Component {
         <input
           id="avaliaNovo"
           type="number"
-          // value={ this.state.rating }
+          value="0"
           data-testid="rating-input"
           onChange={ this.onClick }
         />
