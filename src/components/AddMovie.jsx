@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Title from './Title';
 
 export default class AddMovie extends Component {
   constructor(props) {
@@ -27,15 +28,7 @@ export default class AddMovie extends Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label htmlFor data-testid="title-input-label">
-            Título
-            <input
-              data-testid="title-input"
-              type="text"
-              value={ title }
-              onChange={ this.handleChange }
-            />
-          </label>
+          <Title title={ title } onChange={ this.handleChange } />
           <label htmlFor data-testid="subtitle-input-label">
             Subtítulo
             <input
@@ -60,6 +53,15 @@ export default class AddMovie extends Component {
             <textarea
               data-testid="storyline-input"
               value={ storyline }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor data-testid="rating-input-label">
+            Avaliação
+            <input
+              type="number"
+              data-testid="rating-input"
+              value={ rating }
               onChange={ this.handleChange }
             />
           </label>
