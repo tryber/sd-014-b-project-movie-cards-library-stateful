@@ -52,7 +52,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={this.props.movies} />
-        {/* <AddMovie /> */}
+        <AddMovie />
       </div>
     );
   }
