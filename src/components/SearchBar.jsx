@@ -1,44 +1,44 @@
-import React from 'react';
+// fonte para chamar booleanos no proptype https://pt-br.reactjs.org/docs/typechecking-with-proptypes.html
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class SearchBar extends React.Component {
+class SearchBar extends Component {
   render() {
-    const {
-      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange,
-    } = this.props;
+    const { searchText, onSearchTextChange,
+      bookmarkedOnly, onBookmarkedChange,
+      selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="searchInput" data-testid="text-input-label">
+        <label htmlFor="search-text" data-testid="text-input-label">
           Inclui o texto:
           <input
             type="text"
-            name="searchInput"
+            name="searchText"
+            id="search-text"
             data-testid="text-input"
-            searchText=""
             value={ searchText }
             onChange={ onSearchTextChange }
           />
         </label>
-
-        <label htmlFor="checkboxInput" data-testid="checkbox-input-label">
+        <label htmlFor="favorite" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
             type="checkbox"
-            name="checkboxInput"
+            id="favorite"
+            name="bookMarkedOnly"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
         </label>
-
-        <label htmlFor="selectInput" data-testid="select-input-label">
+        <label htmlFor="selectedGenre" data-testid="select-input-label">
           Filtrar por gênero
           <select
-            name="selectInput"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
+            name="selectedGenre"
+            id="selectedGenre"
           >
             <option value="" data-testid="select-option">Todos</option>
             <option value="action" data-testid="select-option">Ação</option>
