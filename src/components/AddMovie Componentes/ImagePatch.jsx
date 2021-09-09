@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 
 class ImagePatch extends React.Component {
   render() {
@@ -18,9 +18,9 @@ class ImagePatch extends React.Component {
   }
 }
 
-ImagePatch.propType = {
-  value: PropType.string.isRequired,
-  handleChange: PropType.func.isRequired,
+ImagePatch.propTypes = {
+  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default ImagePatch;

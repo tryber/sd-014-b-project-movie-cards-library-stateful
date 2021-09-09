@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SendButton extends React.Component {
   render() {
@@ -16,5 +16,10 @@ class SendButton extends React.Component {
     );
   }
 }
+
+SendButton.propTypes = {
+  onClick: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default SendButton;

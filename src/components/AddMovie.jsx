@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import Title from './AddMovie Componentes/Title';
 import Subtitle from './AddMovie Componentes/Subtitle';
 import ImagePatch from './AddMovie Componentes/ImagePatch';
@@ -26,7 +26,6 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    const { onClick } = this.props;
     const { value, name } = target;
     if (name !== 'sendButton') {
       this.setState({ [name]: value });
@@ -67,8 +66,8 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.PropType = {
-  onClick: PropType.func.isRequired,
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
