@@ -56,10 +56,10 @@ class MovieLibrary extends Component {
 
   onClick(props) {
     const { movies } = this.state;
+    const addMovie = [...movies, props];
     this.setState({
-      movies: movies.push(props),
+      movies: addMovie,
     });
-    return movies;
   }
 
   render() {
