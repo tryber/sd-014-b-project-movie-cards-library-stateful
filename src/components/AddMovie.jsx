@@ -1,5 +1,6 @@
 import React from 'react';
 import FormItem from './FormItem';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -22,6 +23,10 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleClick(callback) {
+    callback(this.state);
   }
 
   render() {
@@ -57,12 +62,20 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="submit" data-testid="send-button" onClick={ onClick(this.state) }>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.handleClick(onClick) }
+        >
           Adicionar filme
         </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
