@@ -45,6 +45,24 @@ export default class AddMovie extends Component {
               onChange={ this.handleChange }
             />
           </label>
+          <label htmlFor data-testid="image-input-label">
+            Imagem
+            <input
+              type="image"
+              alt="movie-poster"
+              data-testid="image-input"
+              value={ imagePath }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              data-testid="storyline-input"
+              value={ storyline }
+              onChange={ this.handleChange }
+            />
+          </label>
         </form>
       </div>
     );
@@ -55,3 +73,4 @@ export default class AddMovie extends Component {
 // 1 - Recebe o event e desestrutura para pegar só event.target, que agora é target.
 // 2 - Do target pega target.name e target.value, desestruturando para name e value
 // 3 - Em setState, desestrutura o item que tiver chave name, mudando o valor pra value
+// É geral o suficiente para ser usado em diferentes lugares
