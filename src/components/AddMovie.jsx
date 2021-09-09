@@ -7,6 +7,7 @@ import ImagePatch from './AddMovie Componentes/ImagePatch';
 import Storyline from './AddMovie Componentes/Storyline';
 import Rating from './AddMovie Componentes/Rating';
 import Genre from './AddMovie Componentes/Genre';
+import SendButton from './AddMovie Componentes/SendButton';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -25,8 +26,20 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
+    const { onClick } = this.props;
     const { value, name } = target;
-    this.setState({ [name]: value });
+    if (name !== 'sendButton') {
+      this.setState({ [name]: value });
+    } else {
+      this.setState({
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      });
+    }
   }
 
   render() {
@@ -48,6 +61,7 @@ class AddMovie extends React.Component {
         <Storyline value={ storyline } handleChange={ this.handleChange } />
         <Rating value={ rating } handleChange={ this.handleChange } />
         <Genre value={ genre } handleChange={ this.handleChange } />
+        <SendButton onClick={ onClick } handleChange={ this.handleChange } />
       </form>
     );
   }
