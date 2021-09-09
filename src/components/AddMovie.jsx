@@ -69,19 +69,19 @@ class AddMovie extends React.Component {
             data-testid="storyline-input"
             onChange={ this.handleInputChange }
           />
-        </label>
-         <label htmlFor="rating" data-testid="rating-input-label">
+        </label>     
+          <label htmlFor="rating" data-testid="rating-input-label">
          Avaliação
-          <input
+        <input>
             type="number"
             id="rating"
             name="rating"
             value={ rating }
             data-testid="rating-input"
             onChange={ this.handleInputChange }
-          />
+        </input>
         </label>
-        <label htmlFor="select-genre" data-testid="genre-input-label">
+          <label htmlFor="select-genre" data-testid="genre-input-label">
          Gênero
           <select
             type="genre"
@@ -91,9 +91,9 @@ class AddMovie extends React.Component {
             data-testid="genre-input"
             onChange={ this.handleInputChange }
           >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
             </select>
         </label>
       </form>
@@ -128,4 +128,5 @@ Requisito 12: mesma coisa dos anteriores.
 a partir de 50 linhas o lint já reclama do tamanho da função
 então temos que fazer um input padrão, farei isso mais tarde
 <<<<<>>>>>
+Requitiso 13: mesma coisa dos outros usando select e options
 */
