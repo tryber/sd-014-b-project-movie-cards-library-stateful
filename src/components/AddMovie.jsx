@@ -1,10 +1,11 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AddMoviePartI from './AddMoviePartI';
 
 export class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.updateState = this.updateState.bind(this);
     this.state = {
       title: '',
@@ -14,6 +15,19 @@ export class AddMovie extends Component {
       imagePath: '',
       genre: 'action',
     };
+  }
+
+  send = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      storyline: '',
+      rating: 0,
+      imagePath: '',
+      genre: 'action',
+    });
   }
 
   updateState({ target }) {
@@ -35,7 +49,7 @@ export class AddMovie extends Component {
           storyline={ storyline }
         />
         <label htmlFor="rating-input" data-testid="rating-input-label">
-          <h5>Avaliação</h5>
+          <h6>Avaliação</h6>
           <input
             value={ rating }
             type="number"
@@ -45,7 +59,7 @@ export class AddMovie extends Component {
           />
         </label>
         <label htmlFor="genre-input" data-testid="genre-input-label">
-          <h5>Gênero</h5>
+          <h6>Gênero</h6>
           <select
             onChange={ this.updateState }
             data-testid="genre-input"
@@ -57,9 +71,20 @@ export class AddMovie extends Component {
             <option value="thriller" data-testid="genre-option"> Suspense </option>
           </select>
         </label>
+        <button
+          data-testid="send-button"
+          type="button"
+          onClick={ this.send }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

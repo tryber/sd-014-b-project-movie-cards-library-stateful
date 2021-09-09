@@ -6,7 +6,7 @@ class Labels extends React.Component {
     const { dataLabel, textLabel, dataInput, value, name, func } = this.props;
     return (
       <label data-testid={ dataLabel } htmlFor={ dataInput }>
-        <h1>{ textLabel }</h1>
+        <h6>{ textLabel }</h6>
         <input
           data-testid={ dataInput }
           value={ value }

@@ -5,7 +5,7 @@
 // import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
 
-// class MovieLibrary extends Component {
+// export class MovieLibrary extends Component {
 //   constructor(props) {
 //     super(props);
 //   }
