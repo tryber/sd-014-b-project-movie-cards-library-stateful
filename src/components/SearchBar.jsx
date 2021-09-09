@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
 class SearchBar extends React.Component {
@@ -11,10 +10,10 @@ class SearchBar extends React.Component {
       <div>
         <form data-testid="search-bar-form">
 
-          <label htmlFor="text-input" data-testid="text-input-label">
+          <label htmlFor="searchText" data-testid="text-input-label">
             Inclui o texto:
             <input
-              id="text-input"
+              id="searchText"
               type="text"
               value={ searchText }
               onChange={ onSearchTextChange }
@@ -22,10 +21,10 @@ class SearchBar extends React.Component {
             />
           </label>
 
-          <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+          <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
             Mostrar somente favoritos
             <input
-              id="checkbox-input"
+              id="bookmarkedOnly"
               type="checkbox"
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
@@ -33,10 +32,10 @@ class SearchBar extends React.Component {
             />
           </label>
 
-          <label htmlFor="select-input" data-testid="select-input-label">
+          <label htmlFor="selectedGenre" data-testid="select-input-label">
             Filtrar por gênero
             <select
-              id="select-input"
+              id="selectedGenre"
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
               data-testid="select-input"
