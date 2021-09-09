@@ -8,7 +8,6 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-
     this.state = {
       searchText: '',
       /* bookmarkedOnly: false,
@@ -29,7 +28,7 @@ class MovieLibrary extends React.Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar searchBar={ searchText } />
-        <AddMovie movies={ movies } />
+        <AddMovie value={ movies } />
         <MovieList movies={ movies } />
       </div>
     );

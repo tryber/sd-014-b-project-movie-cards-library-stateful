@@ -10,6 +10,8 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
+    this.onRatingChange = this.onRatingChange.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -18,6 +20,13 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+  }
+
+  onRatingChange(event) {
+    const changed = event.target.value;
+    this.setState({
+      rating: changed,
+    });
   }
 
   render() {
@@ -29,8 +38,8 @@ class AddMovie extends React.Component {
         <InputSubtitle value={ subtitle } />
         <InputImage value={ imagePath } />
         <InputSinopse value={ storyline } />
-        <InputRating value={ rating } />
-        <InputGenre value={ genre } />
+        <InputRating rating={ rating } onRatingChange={ this.onRatingChange } />
+        <InputGenre value={ genre } onChange={ this.onRatingChange } />
         <button data-testid="send-button" type="submit">Adicionar filme</button>
       </form>
     );
