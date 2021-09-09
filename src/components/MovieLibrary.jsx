@@ -14,13 +14,24 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  onClick = (state) => {
+    state.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { movies } = this.props;
     return (
       <section>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </section>
     );
   }
