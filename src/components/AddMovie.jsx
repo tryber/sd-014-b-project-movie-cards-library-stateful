@@ -5,6 +5,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
+    // no arrow func needs .bind(this)
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
@@ -173,7 +174,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;

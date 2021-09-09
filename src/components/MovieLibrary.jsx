@@ -12,37 +12,37 @@ class MovieLibrary extends React.Component {
       // searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.filmes,
+      movies: props.movies,
     };
   }
 
   onSelectedGenreChange = ({ target: { value } }) => {
-    const { filmes } = this.props;
+    const { movies } = this.props;
     console.log(value);
     if (value === '') {
       this.setState({
         selectedGenre: '',
-        movies: filmes,
+        movies,
       });
     } else {
       this.setState({
         selectedGenre: value,
-        movies: filmes.filter((filme) => filme.genre === value),
+        movies: movies.filter((filme) => filme.genre === value),
       });
     }
   }
 
   onBookmarkedChange = ({ target: { checked } }) => {
-    const { filmes } = this.props;
+    const { movies } = this.props;
     if (checked) {
       this.setState({
         bookmarkedOnly: true,
-        movies: filmes.filter((filme) => filme.bookmarked === true),
+        movies: movies.filter((movie) => movie.bookmarked === true),
       });
     } else {
       this.setState({
         bookmarkedOnly: false,
-        movies: filmes,
+        movies,
       });
     }
   }
@@ -65,14 +65,13 @@ class MovieLibrary extends React.Component {
         />
         <MovieList movies={ movies } />
         <AddMovie />
-
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  filmes: PropTypes.arrayOf(
+  movies: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
       subtitle: PropTypes.string,
