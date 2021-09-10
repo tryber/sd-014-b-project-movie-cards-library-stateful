@@ -6,10 +6,15 @@ class AddMovie extends React.Component {
 
     this.state = {
       title: '',
+      subtitle: '',
+      imagePath: '',
+      // storyline: '',
+      // rating: 0,
+      // genre: 'action',
     };
   }
 
-  handleChage = ({ target }) => {
+  handleChange = ({ target }) => {
     const { name } = target;
     this.setState({
       [name]: target.value,
@@ -17,7 +22,7 @@ class AddMovie extends React.Component {
   };
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="titulo">
@@ -27,7 +32,7 @@ class AddMovie extends React.Component {
             id="titulo"
             name="title"
             value={ title }
-            onChange={ this.handleChage }
+            onChange={ this.handleChange }
             data-testid="title-input"
           />
         </label>
@@ -35,10 +40,22 @@ class AddMovie extends React.Component {
           Subtítulo
           <input
             type="text"
+            name="subtitle"
             id="subtitle"
             value={ subtitle }
             data-testid="subtitle-input"
-            onChange={ this.handleChage }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label data-testid="image-input-label" htmlFor="imagem">
+          Imagem
+          <input
+            type="text"
+            name="imagePath"
+            value={ imagePath }
+            id="imagem"
+            onChange={ this.handleChange }
+            data-testid="image-input"
           />
         </label>
       </form>
