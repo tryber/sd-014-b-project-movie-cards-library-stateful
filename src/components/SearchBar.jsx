@@ -26,7 +26,7 @@ export default class SearchBar extends Component {
             value={ searchText }
           />
         </label>
-        <InputCheckbox value={ bookmarkedOnly } onChange={ onBookmarkedChange } />
+        <InputCheckbox checked={ bookmarkedOnly } onChange={ onBookmarkedChange } />
         <label data-testid="select-input-label" htmlFor="select-input">
           <p>Filtrar por gênero</p>
           <select
@@ -47,10 +47,10 @@ export default class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.func.isRequired,
+  searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };

@@ -21,6 +21,6 @@ export default class InputImagePath extends Component {
 }
 
 InputImagePath.propTypes = {
-  checked: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
 };

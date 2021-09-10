@@ -15,6 +15,7 @@ export default class MovieLibrary extends Component {
       movies,
     };
     this.changeInput = this.changeInput.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
   }
 
   changeInput({ target }) {
@@ -42,6 +43,13 @@ export default class MovieLibrary extends Component {
     return movies;
   }
 
+  addNewMovie(state) {
+    const { movies } = this.props;
+    this.setState({
+      movies: [...movies, state],
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -55,7 +63,7 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={ this.changeInput }
           movies={ movies }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.addNewMovie } />
         <MovieList movies={ this.filterCard() } />
       </>
     );
