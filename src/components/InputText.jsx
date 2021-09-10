@@ -6,7 +6,7 @@ class InputText extends React.Component {
     const { title, subtitle, imagePath, handleChange } = this.props;
     return (
       <div>
-        <label htmlFor="title" testid="title-input-label">
+        <label htmlFor="title" data-testid="title-input-label">
           Título
           <input
             id="title"
