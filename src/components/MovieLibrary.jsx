@@ -2,29 +2,58 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies,
+      movies,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.adddingMovie = this.adddingMovie.bind(this);
   }
 
   handleChange({ target }) {
     const { name } = target;
-    const value = target.type === 'chekbox' ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
   }
 
+  adddingMovie(movie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, movie],
+    });
+  }
+
+  filter() {
+    const { searchText, selectedGenre, bookmarkedOnly, movies } = this.state;
+    let filtedmovies = movies;
+    if (searchText !== '') {
+      filtedmovies = filtedmovies.filter((movie) => movie.title.toLowerCase()
+        .includes(searchText)
+      || movie.subtitle.toLowerCase().includes(searchText)
+      || movie.storyline.toLowerCase().includes(searchText));
+    }
+    if (bookmarkedOnly === true) {
+      filtedmovies = filtedmovies.filter((movie) => movie.bookmarked === true);
+    }
+    if (selectedGenre !== '') {
+      filtedmovies = filtedmovies.filter((movie) => movie.genre === selectedGenre);
+    }
+    return filtedmovies;
+  }
+
   render() {
-    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -36,15 +65,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList
-          movies={ movies.filter((movie) => (
-            (bookmarkedOnly === false ? true : movie.bookmarked === true)
-              && (movie.genre.includes(selectedGenre))
-              && (
-                (movie.title.includes(searchText))
-                || (movie.subtitle.includes(searchText))
-                || (movie.storyline.includes(searchText))))) }
-        />
+        <MovieList movies={ this.filter() } />
+        <AddMovie onClick={ (movie) => this.adddingMovie(movie) } />
       </div>
     );
   }

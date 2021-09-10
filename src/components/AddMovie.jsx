@@ -6,8 +6,8 @@ import RatingMovie from './RatingMovie';
 import SinopseMovie from './SinopseMovie';
 
 const initialState = {
-  subtitle: '',
   title: '',
+  subtitle: '',
   imagePath: '',
   storyline: '',
   rating: 0,
@@ -30,7 +30,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleClick(callback) {
+  handleClick(callback, event) {
+    event.preventDefault();
     callback(this.state);
     this.setState(initialState);
   }
@@ -67,7 +68,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ () => this.handleClick(onClick) }
+          onClick={ (event) => this.handleClick(onClick, event) }
         >
           Adicionar filme
         </button>
