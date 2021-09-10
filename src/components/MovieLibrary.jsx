@@ -12,6 +12,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectGenre: 'Todos',
+      title: '',
       movies: data,
     };
   }
@@ -55,7 +56,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectGenre, movies, title } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -68,7 +69,9 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie
+          title={ title }
+        />
       </div>
     );
   }
