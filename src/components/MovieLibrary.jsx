@@ -49,10 +49,19 @@ class MovieLibrary extends Component {
     });
   }
 
-  onSelectedGenreChange({ target }) {
-    this.setState({
-      selectedGenre: target.value,
-    });
+  onSelectedGenreChange({ target: { value } }) {
+    const { movies } = this.props;
+    if (value === '') {
+      this.setState({
+        selectedGenre: '',
+        movies,
+      });
+    } else {
+      this.setState({
+        selectedGenre: value,
+        movies: movies.filter((movie) => movie.genre.toLowerCase().includes(value)),
+      });
+    }
   }
 
   /*
