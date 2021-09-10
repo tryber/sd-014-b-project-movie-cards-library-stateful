@@ -81,3 +81,23 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+fieldset {
+  padding-left: 25px;
+  padding-top: 20px;
+}
+
+label {
+  margin-left: 20px;
+}
+
+input {
+  border: solid 1px rgb(216, 215, 215);
+  border-radius: 3px;
+  margin-left: 15px;
+}
+
+.addMovieForm {
+  display: flex;
+  flex-flow: wrap column;
+}
