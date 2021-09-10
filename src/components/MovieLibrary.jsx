@@ -16,24 +16,17 @@ class MovieLibrary extends Component {
     };
   }
 
-  onClick = (event) => {
-    event.preventDefault();
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-  }
-
   render() {
     const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          selectedGenre={ selectedGenre }
+          bookmarkedOnly={ bookmarkedOnly }
+        />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
       </div>

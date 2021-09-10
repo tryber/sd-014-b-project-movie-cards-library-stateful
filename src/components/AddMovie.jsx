@@ -1,6 +1,8 @@
+/* eslint-disable max-lines-per-function */
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import InputDefault from './InputDefault';
 
 class AddMovie extends Component {
   constructor() {
@@ -22,23 +24,29 @@ class AddMovie extends Component {
     });
   }
 
+  resetState = (callback) => {
+    callback(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { onClick } = this.props;
     const { title, imagePath, storyline, rating, genre, subtitle } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
-        
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            id="title-input"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
+
+        <InputDefault
+          title={ title }
+          description="Título"
+          handleChange={ this.handleChange }
+        />
 
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
@@ -74,7 +82,7 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        
+
         <label htmlFor="rating-input" data-testid="rating-input-label">
           Avaliação
           <input
@@ -86,7 +94,7 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-      
+
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
           <select
@@ -102,7 +110,13 @@ class AddMovie extends Component {
           </select>
         </label>
 
-        <button type="submit" data-testid="send-button" onClick={ onClick }>Adicionar filme</button>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ () => this.resetState(onClick) }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
