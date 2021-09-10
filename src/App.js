@@ -17,8 +17,6 @@ class App extends React.Component {
 
   newMovie(state) {
     movies.push(state);
-    console.log(this.state);
-    console.log(movies);
   }
 
   render() {

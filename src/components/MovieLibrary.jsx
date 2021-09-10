@@ -14,6 +14,7 @@ class MovieLibrary extends React.Component {
       movies: props.movies,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.filterText = this.filterText.bind(this);
   }
 
   // Código dá linha abaixo tirada de um exemplo dado em aula pelo professor Luanderson
@@ -21,22 +22,39 @@ class MovieLibrary extends React.Component {
   handleChange({ target }) {
     const { name } = target;
     const value = (target.type === 'checkbox') ? target.checked : target.value;
+    const { movies } = this.props;
+    const temp = movies;
     this.setState({
       [name]: value,
-    });
-    const { movies } = this.props;
-    const filter = movies.filter((
+    }, () => this.filterText(target, temp));
+  }
+
+  filterText(target, array) {
+    const { bookmarkedOnly, selectedGenre, searchText } = this.state;
+    const filterText = array.filter((
       { title,
         subtitle,
         storyline,
       },
     ) => (
-      title.includes(target.value)
-      || subtitle.includes(target.value)
-      || storyline.includes(target.value)
+      title.includes(searchText)
+      || subtitle.includes(searchText)
+      || storyline.includes(searchText)
     ));
+    const filterFavorite = filterText.filter((movie) => {
+      if (bookmarkedOnly === true) {
+        return movie.bookmarked === true;
+      }
+      return movie;
+    });
+    const filterGenre = filterFavorite.filter((movie) => {
+      if (selectedGenre !== '') {
+        return movie.genre === selectedGenre;
+      }
+      return movie;
+    });
     this.setState({
-      movies: filter,
+      movies: filterGenre,
     });
   }
 
@@ -54,7 +72,6 @@ class MovieLibrary extends React.Component {
         />
         <MovieList
           movies={ movies }
-          filter={ this.state }
         />
       </div>
     );
