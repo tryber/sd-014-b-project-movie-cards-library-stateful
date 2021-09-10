@@ -39,9 +39,13 @@ class MovieLibrary extends Component {
     }
   }
 
-  onBookmarkedChange({ target }) {
+  onBookmarkedChange({ target: { checked } }) {
+    const { movies } = this.props;
     this.setState({
-      bookmarkedOnly: target.checked,
+      bookmarkedOnly: checked,
+      movies: checked
+        ? movies.filter((movie) => movie.bookmarked === checked)
+        : movies,
     });
   }
 
