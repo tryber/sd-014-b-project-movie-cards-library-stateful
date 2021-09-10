@@ -7,22 +7,35 @@ import InputTextArea from './InputTextArea';
 import InputNumber from './InputNumber';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { subtitle: '',
+  constructor() {
+    super();
+    this.state = {
+      subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action' };
+      genre: 'action',
+    };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.restore = this.restore.bind(this);
   }
 
-  handleInputChange({ target }) {
-    const { name } = target;
+  handleInputChange({ target }) {const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
+  }
+
+  restore(event) {
+    const { onClick } = this.props;
+    onClick(event, this.state);
     this.setState({
-      [name]: value,
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -54,18 +67,20 @@ class AddMovie extends React.Component {
           testidLabel="genre-input-label"
           handleChange={ this.handleInputChange }
         />
-        <button type="submit" data-testid="send-button" onClick={ onClick }>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.restore }
+        >
           Adicionar filme
         </button>
       </form>
     );
   }
 }
-
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
-
 export default AddMovie;
 /**
 Requisito 6: devemos setar o estado inicial, com isso abrimos o constructor recebendo props
@@ -89,6 +104,12 @@ a partir de 50 linhas o lint já reclama do tamanho da função
 então temos que fazer um input padrão, farei isso mais tarde
 <<<<<>>>>>
 Requitiso 13: mesma coisa dos outros usando select e options
+Requisito 14: para resetar o estado do add movie fazemos a função restore que vai receber um evento
+fazemos o bind dela la em cima pra funcionar o this
+a função restore vai funcionar com o evento onclick setando o estado para o valor padrão
+conforme o setestate em seguida
+depois lá embaixo no botão propriamente dito a função que vai no onclick dele será o this.restore pra fazer voltar ao estado padrão
+depois alteramos lá o movielibrary
 
 Refatorando: importamos o componente input padrão
 basicamente só mantemos as propriedades e adicionamos um describe que vai ser o

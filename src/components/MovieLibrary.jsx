@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -40,19 +41,25 @@ class MovieLibrary extends Component {
   }
 
   onSelectedGenreChange({ target }) {
-    const { movies, selectedGenre } = this.state;
+    const { movies, searchText } = this.state;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
-      movies: movies.filter((element) => element.genre === selectedGenre),
+      movies: movies.filter((element) => (
+        element.title.includes(searchText)
+        || element.subtitle.includes(searchText)
+        || element.storyline.includes(searchText)
+      )),
     });
   }
 
-  onClick(state) {
+  onClick(props) {
+    const { movies } = this.state;
     this.setState({
-      movies: state,
+      movies: movies.push(props),
     });
+    return movies;
   }
 
   render() {
@@ -104,4 +111,12 @@ Adivionamos duas funções
 onBookmarkedChange uma vai lidar com o checkbox para filtrar o favorito
 onselectedGenreChange vai exibir o gênero selecionado
 adicionamos as duas dentro do searchbar
+
+Continuação Requisito 14:
+fazemos o bind do onlick aqui também
+dentro do onsearchTextChange fazemos um filtro para movies, para que retorne algo
+caso ele encontre algo no titulo, subtitulo ou sinopse
+com isso atalizamos a função onclick que recebe uma props como parametro
+esse valor vai ser o que será setado como o state atual em movies
+e será retornado
 */
