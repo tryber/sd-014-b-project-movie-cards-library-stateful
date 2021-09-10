@@ -26,7 +26,11 @@ class MovieLibrary extends Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
-      movies: movies.filter((element) => element.title.includes(searchText)),
+      movies: movies.filter((element) => (
+        element.title.includes(searchText)
+        || element.subtitle.includes(searchText)
+        || element.storyline.includes(searchText)
+      )),
     });
   }
 
@@ -41,25 +45,21 @@ class MovieLibrary extends Component {
   }
 
   onSelectedGenreChange({ target }) {
-    const { movies, searchText } = this.state;
+    const { movies, selectedGenre } = this.state;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
-      movies: movies.filter((element) => (
-        element.title.includes(searchText)
-        || element.subtitle.includes(searchText)
-        || element.storyline.includes(searchText)
-      )),
+      movies: movies.filter((element) => element.genre === selectedGenre),
     });
   }
 
   onClick(props) {
     const { movies } = this.state;
+    const addMovie = [...movies, props];
     this.setState({
-      movies: movies.push(props),
+      movies: addMovie,
     });
-    return movies;
   }
 
   render() {
@@ -75,18 +75,16 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.onclick } />
+        <AddMovie onClick={ this.onClick } />
       </>
     );
   }
 }
-
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
 };
-
 export default MovieLibrary;
 
 /*

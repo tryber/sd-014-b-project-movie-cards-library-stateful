@@ -28,8 +28,9 @@ class AddMovie extends React.Component {
   }
 
   restore(event) {
+    event.preventDefault();
     const { onClick } = this.props;
-    onClick(event, this.state);
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -41,7 +42,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
