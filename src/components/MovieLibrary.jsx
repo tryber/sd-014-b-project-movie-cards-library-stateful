@@ -7,10 +7,13 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
+    const { movies } = props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
     }
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -36,9 +39,20 @@ class MovieLibrary extends Component {
     });
   }
 
+  /* 
+  * Consultei o repositório de Thyara Nonato para resolver a função addMovie
+  * https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/blob/thyara-movie-cards-library-stateful/src/components/MovieLibrary.jsx
+  */
+  addMovie = (movie) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, movie],
+    });
+  }
+
   render() {
 
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
     return (
       <div>
@@ -51,8 +65,8 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
