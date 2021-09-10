@@ -3,19 +3,36 @@ import React from 'react';
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.setState = {
-      subtitle: '',
+
+    this.state = {
       title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
     };
   }
 
+  handleChage = ({ target }) => {
+    const { name } = target;
+    this.setState({
+      [name]: target.value,
+    });
+  };
+
   render() {
+    const { title } = this.state;
     return (
-      <form />
+      <form data-testid="add-movie-form">
+        <label data-testid="title-input-label" htmlFor="titulo">
+          Título
+          <input
+            type="text"
+            id="titulo"
+            name="title"
+            value={ title }
+            onChange={ this.handleChage }
+            data-testid="title-input"
+          />
+
+        </label>
+      </form>
     );
   }
 }
