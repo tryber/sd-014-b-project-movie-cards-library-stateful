@@ -1,18 +1,20 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputText from './InputText';
+import SelectGenre from './SelectGenre';
+import InputTextArea from './InputTextArea';
+import InputNumber from './InputNumber';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
+    this.state = { subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
-    };
+      genre: 'action' };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -25,86 +27,34 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { addMovie } = this.props;
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            id="title"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
-        <button type="submit" onClick={ addMovie }>
-          Adicionar
-        </button>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="subtitle"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
-        <label htmlFor="image-path" data-testid="image-input-label">
-          Imagem
-          <input
-            id="image-path"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            id="storyline"
-            name="storyline"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            id="rating"
-            name="rating"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
-        <label htmlFor="select-genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            type="genre"
-            id="select-genre"
-            name="genre"
-            value={ genre }
-            data-testid="genre-input"
-            onChange={ this.handleInputChange }
-          >
-            <option value="action" data-testid="genre-option">
-              Ação
-            </option>
-            <option value="comedy" data-testid="genre-option">
-              Comédia
-            </option>
-            <option value="thriller" data-testid="genre-option">
-              Suspense
-            </option>
-          </select>
-        </label>
-        <button type="submit" data-testid="send-button" onClick={ addMovie }>
+        <InputText
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          handleChange={ this.handleInputChange }
+        />
+        <InputTextArea
+          storyline={ storyline }
+          handleChange={ this.handleInputChange }
+        />
+        <InputNumber
+          rating={ rating }
+          handleChange={ this.handleInputChange }
+        />
+        <SelectGenre
+          describe="Gênero"
+          id="genre"
+          name="genre"
+          value={ genre }
+          testid="genre-input"
+          testidLabel="genre-input-label"
+          handleChange={ this.handleInputChange }
+        />
+        <button type="submit" data-testid="send-button" onClick={ onClick }>
           Adicionar filme
         </button>
       </form>
@@ -113,11 +63,10 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  addMovie: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
-
 /**
 Requisito 6: devemos setar o estado inicial, com isso abrimos o constructor recebendo props
 super para alterar o padrão recebendo as props
@@ -140,4 +89,10 @@ a partir de 50 linhas o lint já reclama do tamanho da função
 então temos que fazer um input padrão, farei isso mais tarde
 <<<<<>>>>>
 Requitiso 13: mesma coisa dos outros usando select e options
+
+Refatorando: importamos o componente input padrão
+basicamente só mantemos as propriedades e adicionamos um describe que vai ser o
+que vai aparecer no "label", esse valor é chumbado o resto é dinâmico.
+
+Refatorando2: como cada componente foi isolado
 */

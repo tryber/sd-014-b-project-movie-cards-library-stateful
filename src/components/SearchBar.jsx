@@ -15,15 +15,15 @@ class SearchBar extends React.Component {
       },
     } = this.props;
     return (
-      <form data-testid="search-bar-form">
-        <label htmlFor="input-search" data-testid="text-input-label">
+      <form className="container" data-testid="search-bar-form">
+        <label htmlFor="search" data-testid="text-input-label">
           Inclui o texto:
           <input
+            id="search"
+            name="search"
             value={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
-            id="input-search"
-            type="text"
           />
         </label>
         <label htmlFor="checkbox-search" data-testid="checkbox-input-label">
@@ -54,7 +54,6 @@ class SearchBar extends React.Component {
     );
   }
 }
-
 SearchBar.propTypes = {
   movies: PropTypes.shape({
     searchText: PropTypes.string,
