@@ -9,8 +9,8 @@ import SelectGenre from './Inputs/SelectGenre';
 import ButtonMovie from './Inputs/ButtonMovie';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       subtitle: '',
       title: '',
@@ -20,30 +20,28 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.information = this.information.bind(this);
-    this.getInformation = this.getInformation.bind(this);
-  }
-
-  getInformation = () => {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
   }
 
   information = ({ target }) => {
     const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+    if (name !== 'ButtonMovie') {
+      this.setState({
+        [name]: value,
+      });
+    } else {
+      this.setState({
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      });
+    }
   }
 
   render() {
+    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -53,7 +51,19 @@ class AddMovie extends React.Component {
         <TextAreaStoryline value={ storyline } onChange={ this.information } />
         <InputRating value={ rating } onChange={ this.information } />
         <SelectGenre value={ genre } onChange={ this.information } />
-        <ButtonMovie onClick={ this.getInformation } />
+        <ButtonMovie
+          onClick={ () => {
+            onClick(this.state);
+            this.setState({
+              subtitle: '',
+              title: '',
+              imagePath: '',
+              storyline: '',
+              rating: 0,
+              genre: 'action',
+            });
+          } }
+        />
       </form>
     );
   }
