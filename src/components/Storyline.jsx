@@ -9,6 +9,7 @@ export default class Storyline extends Component {
         Sinopse
         <textarea
           data-testid="storyline-input"
+          name="storyline"
           value={ storyline }
           onChange={ onChange }
         />

@@ -9,6 +9,7 @@ export default class Image extends Component {
         Imagem
         <input
           type="text"
+          name="imagePath"
           alt="movie-poster"
           data-testid="image-input"
           value={ imagePath }

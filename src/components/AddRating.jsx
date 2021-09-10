@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 
 export default class AddRating extends Component {
   render() {
-    const { initialState, onChange } = this.props;
+    const { rating, onChange } = this.props;
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
         <input
           data-testid="rating-input"
+          name="rating"
           type="number"
-          value={ initialState }
-          onChange={ (event) => { onChange(event); } }
+          value={ rating }
+          onChange={ onChange }
         />
       </label>
     );
@@ -19,6 +20,6 @@ export default class AddRating extends Component {
 }
 
 AddRating.propTypes = {
-  initialState: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
 };

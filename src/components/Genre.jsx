@@ -10,6 +10,7 @@ export default class Genre extends Component {
         Gênero
         <select
           data-testid="genre-input"
+          name="genre"
           value={ genre }
           onChange={ onChange }
         >
