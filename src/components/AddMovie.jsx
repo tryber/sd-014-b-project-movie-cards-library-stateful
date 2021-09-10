@@ -6,9 +6,6 @@ import InputGenreRating from './inputGenreRating';
 class AddMovie extends Component {
   constructor() {
     super();
-    this.onChange = this.onChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-
     this.state = {
       subtitle: '',
       title: '',
@@ -19,7 +16,7 @@ class AddMovie extends Component {
     };
   }
 
-  handleClick = (event) => {
+  onClick = (event) => {
     const { onClick } = this.props;
     event.preventDefault();
     onClick(this.state);
@@ -33,11 +30,25 @@ class AddMovie extends Component {
     });
   }
 
-  onChange= ({ target }) => {
+  handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState = {
+    this.setState({
       [name]: value,
-    };
+    });
+  }
+
+  handleClick = (event) => {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -50,12 +61,12 @@ class AddMovie extends Component {
             subtitle={ subtitle }
             storyline={ storyline }
             imagePath={ imagePath }
-            onChange={ this.onChange }
+            onChange={ this.handleChange }
           />
           <InputGenreRating
             rating={ rating }
             genre={ genre }
-            onChange={ this.onChange }
+            onChange={ this.handleChange }
           />
           <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
             Adicionar filme

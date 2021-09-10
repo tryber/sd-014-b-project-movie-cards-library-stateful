@@ -19,12 +19,6 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onClick= (newMovie) => {
-    this.setState((prevstate) => ({
-      movies: [...prevstate.movies, newMovie],
-    }));
-  }
-
   onSearchTextChange({ target }) {
     this.setState({
       searchText: target.value,
@@ -44,6 +38,12 @@ class MovieLibrary extends Component {
       selectedGenre: target.value,
     });
     this.filterMoviesByGenre(target.value);
+  }
+
+  addMovie =(element) => {
+    this.setState((previousState) => ({
+      movies: [...previousState.movies, element],
+    }));
   }
 
   filterMoviesByGenre(genre) {
@@ -91,7 +91,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.onClick } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
