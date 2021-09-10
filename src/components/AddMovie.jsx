@@ -10,8 +10,8 @@ import FormsGenre from './Forms/FormsGenre';
 import SubmitButton from './Forms/SubmitButton';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       title: '',
       subtitle: '',
@@ -32,7 +32,6 @@ class AddMovie extends Component {
   handleClick = () => {
     // event.preventDefault();
     const { onClick } = this.props;
-
     onClick(this.state);
 
     this.setState({

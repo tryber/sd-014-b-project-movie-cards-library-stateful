@@ -23,8 +23,9 @@ class FormsGenre extends Component {
   }
 }
 
-FormsGenre.propTypes = {
-  genre: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+FormsGenre.propTypes = ({
+  genre: PropTypes.number,
+  onChange: PropTypes.func,
+}).isRequired;
+
 export default FormsGenre;

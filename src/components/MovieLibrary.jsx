@@ -19,15 +19,21 @@ class MovieLibrary extends Component {
   }
 
   // ajustar função
-  // handleChange = ({ target }) => {
-  //   const { name } = target;
+  handleChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  }
 
   insertNewMovie = ({ title, subtitle, storyline, rating, genre, imagePath }) => {
     const newMovies = {
       title,
       subtitle,
       storyline,
-      rating,
+      rating: parseFloat(rating),
       genre,
       imagePath,
     };
