@@ -14,6 +14,12 @@ export default class AddMovie extends Component {
     }
   }
 
+  hundleChange(event) {
+    this.setState({
+      
+    })
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
@@ -39,6 +45,15 @@ export default class AddMovie extends Component {
           Avaliação
           <input value={ rating } type="number" name="" id="" />
         </label>
+        <label htmlFor="" data-testid="genre-input-label">
+          Gênero
+          <select value={ genre } name="" id="" data-testid="genre-input">
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
+        <button data-testid="send-button" onClick={}>Adicionar filme</button>
       </form>
     )
   }
