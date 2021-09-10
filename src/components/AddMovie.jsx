@@ -3,12 +3,14 @@ import React from 'react';
 import Input from './Input';
 import TextArea from './TextArea';
 import SelectGenreMovie from './SelectGenreMovie';
+import ButtonSend from './ButtonSendMovie';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       title: '',
@@ -27,6 +29,17 @@ class AddMovie extends React.Component {
 
     this.setState({
       [name]: value,
+    });
+  }
+
+  handleClick() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -76,7 +89,7 @@ class AddMovie extends React.Component {
           handleChange={ this.handleChange }
         />
         <SelectGenreMovie genre={ genre } handleChange={ this.handleChange } />
-
+        <ButtonSend genre={ genre } handleClick={ this.handleClick } />
       </form>
     );
   }
