@@ -6,11 +6,10 @@ import Image from './Image';
 import Storyline from './Storyline';
 import AddRating from './AddRating';
 import Genre from './Genre';
-import Button from './Button';
 
 export default class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -50,9 +49,18 @@ export default class AddMovie extends Component {
         <Subtitle value={ subtitle } onChange={ this.handleChange } />
         <Image value={ imagePath } onChange={ this.handleChange } />
         <Storyline value={ storyline } onChange={ this.handleChange } />
-        <AddRating value={ Number(rating) } onChange={ this.handleChange } />
+        <AddRating
+          initialState={ rating }
+          onChange={ (event) => this.setState({ rating: event.target.value }) }
+        />
         <Genre value={ genre } onChange={ this.handleChange } />
-        <Button onClick={ () => this.handleClick() } />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ () => this.handleClick() }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
@@ -67,3 +75,8 @@ AddMovie.propTypes = {
 // 2 - Do target pega target.name e target.value, desestruturando para name e value
 // 3 - Em setState, desestrutura o item que tiver chave name, mudando o valor pra value
 // É geral o suficiente para ser usado em diferentes lugares
+
+// Fiquei um dia todo procurando o que tinha de errado no rating.
+// Porque todos os requisitos passavam, menos o do 12, de colocar rating inicial como zero.
+// No código de um colega (https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/blob/welton-movie-cards-library-stateful/src/components/AddMovie.jsx),
+// reparei que ele fazia diferente. Inspirado na forma como ele fez, mudei meu código e deu certo.
