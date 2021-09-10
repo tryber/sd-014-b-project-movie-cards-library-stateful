@@ -36,7 +36,6 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    console.log(this.state);
     return (
       <form data-testid="add-movie-form">
         <Title
