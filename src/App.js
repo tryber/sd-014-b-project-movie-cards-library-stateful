@@ -11,7 +11,6 @@ class App extends React.Component {
     this.newMovie = this.newMovie.bind(this);
 
     this.state = {
-      movies,
     };
   }
 
