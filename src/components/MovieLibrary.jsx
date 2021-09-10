@@ -19,7 +19,7 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange({ target }) {
+  onSearchTextChange({ target }) { // muda o estad com o valor e depois atualiza com o filtro
     this.setState({
       searchText: target.value,
     });
@@ -50,7 +50,7 @@ class MovieLibrary extends Component {
     const { movies } = this.props;
     const allMovies = [...movies];
 
-    this.setState({
+    this.setState({ // filtro para a função acima mudar o estado, se value for true filtra de acordo com o genre senão filtra movies
       movies: allMovies.filter((movie) => (genre
         ? movie.genre === genre : movies)),
     });
