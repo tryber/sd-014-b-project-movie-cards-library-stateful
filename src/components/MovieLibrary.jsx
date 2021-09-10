@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // esse componente será responśavel por atualizar os filmes exibidos de acordo com o eventos
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -104,5 +105,9 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
