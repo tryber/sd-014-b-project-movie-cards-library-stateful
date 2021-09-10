@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TextInputDefault from './TextInputDefault';
 
 class AddMovie extends Component {
@@ -61,5 +62,14 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  imagePath: PropTypes.string,
+  storyline: PropTypes.string,
+  rating: PropTypes.number,
+  genre: PropTypes.string,
+}.isRequired;
 
 export default AddMovie;
