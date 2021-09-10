@@ -48,25 +48,25 @@ describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
 });
 
 describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
-  it.skip('Defina o estado inicial de `searchText` como uma string vazia', () => {
+  it('Defina o estado inicial de `searchText` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
     expect(searchText).toHaveValue('');
   });
 
-  it.skip('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
+  it('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
     expect(bookmarkedOnly).not.toBeChecked();
   });
 
-  it.skip('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
+  it('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const selectInput = getByTestId(selectTestId);
     expect(selectInput).toHaveValue('');
   });
 
-  it.skip('Renderize todos os filmes passados pela prop `movies`', () => {
+  it('Renderize todos os filmes passados pela prop `movies`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieCards = getAllByTestId(movieCardTestId);
     expect(movieCards).toHaveLength(movies.length);
@@ -188,14 +188,14 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
   });
 });
 
-describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
-  it.skip('Renderize o componente `<AddMovie />`', () => {
+describe.skip('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
+  it('Renderize o componente `<AddMovie />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const addMovieForm = getAllByTestId('add-movie-form');
     expect(addMovieForm).toHaveLength(1);
   });
 
-  it.skip('Adicione, após preenchimento do formulário e clique no botão de enviar, o novo filme à lista de filmes', () => {
+  it('Adicione, após preenchimento do formulário e clique no botão de enviar, o novo filme à lista de filmes', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
 
     const newMovie = {

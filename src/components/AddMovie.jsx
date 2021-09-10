@@ -23,7 +23,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onCLick } = this.props;
+    const { onClick } = this.props;
     const { title, imagePath, storyline, rating, genre, subtitle } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
@@ -66,8 +66,7 @@ class AddMovie extends Component {
 
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
-          <input
-            type="text"
+          <textarea
             name="storyline"
             id="storyline-input"
             data-testid="storyline-input"
@@ -103,14 +102,14 @@ class AddMovie extends Component {
           </select>
         </label>
 
-        <button data-testid="send-button" onClick={ onCLick }>Adicionar filme</button>
+        <button type="submit" data-testid="send-button" onClick={ onClick }>Adicionar filme</button>
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  onCLick: PropTypes.function,
+  onCLick: PropTypes.func,
 }.isRequired;
 
 export default AddMovie;
