@@ -8,6 +8,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.addMovieCard = this.addMovieCard.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -34,6 +35,13 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  addMovieCard(state) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
+    });
+  }
+
   render() {
     const {
       searchText,
@@ -52,7 +60,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovieCard } />
       </div>
     );
   }

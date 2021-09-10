@@ -12,7 +12,6 @@ import SendButton from './AddMovie Componentes/SendButton';
 class AddMovie extends React.Component {
   constructor() {
     super();
-
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
@@ -60,7 +59,19 @@ class AddMovie extends React.Component {
         <Storyline value={ storyline } handleChange={ this.handleChange } />
         <Rating value={ rating } handleChange={ this.handleChange } />
         <Genre value={ genre } handleChange={ this.handleChange } />
-        <SendButton onClick={ onClick } handleChange={ this.handleChange } />
+        <SendButton
+          onClick={ () => {
+            onClick(this.state);
+            this.setState({
+              subtitle: '',
+              title: '',
+              imagePath: '',
+              storyline: '',
+              rating: 0,
+              genre: 'action',
+            });
+          } }
+        />
       </form>
     );
   }

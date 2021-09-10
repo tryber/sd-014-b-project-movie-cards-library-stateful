@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 
 class SendButton extends React.Component {
   render() {
-    const { handleChange } = this.props;
+    const { onClick } = this.props;
     return (
       <button
-        name="sendButton"
-        type="submit"
+        type="button"
         data-testid="send-button"
-        onClick={ handleChange }
+        onClick={ onClick }
       >
         Adicionar filme
       </button>
@@ -18,7 +17,7 @@ class SendButton extends React.Component {
 }
 
 SendButton.propTypes = {
-  handleChange: PropTypes.func.isRequired,
+  onClick: PropTypes.string.isRequired,
 };
 
 export default SendButton;
