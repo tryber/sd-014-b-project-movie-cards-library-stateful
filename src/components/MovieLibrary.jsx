@@ -13,6 +13,8 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectGenre: 'Todos',
       title: '',
+      subtitle: '',
+      imagePath: '',
       movies: data,
     };
   }
@@ -56,7 +58,15 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectGenre, movies, title } = this.state;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectGenre,
+      movies,
+      title,
+      subtitle,
+      imagePath,
+    } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -71,6 +81,8 @@ class MovieLibrary extends Component {
         <MovieList movies={ movies } />
         <AddMovie
           title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
         />
       </div>
     );
