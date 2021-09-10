@@ -41,7 +41,7 @@ const selectTestId = 'select-input';
 const movieCardTestId = 'movie-card';
 const movieCardTitleId = 'movie-card-title';
 
-describe.only('15 - Crie um componente chamado `<MovieLibrary />`', () => {
+describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
   it('Renderize o componente', () => {
     render(<MovieLibrary movies={ movies } />);
   });
@@ -73,7 +73,7 @@ describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () 
   });
 });
 
-describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
+describe.only('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
   it('Renderize o componente `<SearchBar />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchBar = getAllByTestId('search-bar-form');
