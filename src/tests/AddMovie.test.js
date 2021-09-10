@@ -54,7 +54,7 @@ beforeEach(() => {
 });
 
 describe('6 - Crie um componente chamado `<AddMovie />`', () => {
-  it('Renderize o componente', () => {
+  it.only('Renderize o componente', () => {
     render(<AddMovie onClick={ () => jest.fn() } />);
   });
 });

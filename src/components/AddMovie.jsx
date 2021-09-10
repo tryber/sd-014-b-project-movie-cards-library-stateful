@@ -4,7 +4,7 @@ import InputTitle from './InputTitle';
 import InputSubTitle from './InputSubTitle';
 import ImagePath from './ImagePath';
 import InputStoryline from './InputStoryline';
-import InputRating from './ImputRating';
+import InputRating from './InputRating';
 import InputGenre from './InputGenre';
 
 class AddMovie extends React.Component {
