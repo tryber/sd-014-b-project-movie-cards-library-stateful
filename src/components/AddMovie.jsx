@@ -1,5 +1,5 @@
-/* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input';
 import TextArea from './TextArea';
 
@@ -93,8 +93,8 @@ class AddMovie extends Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ () => {
-            onClick(this.state);
+          onClick={ (event) => {
+            onClick(event, this.state);
             this.setState({
               subtitle: '',
               title: '',
@@ -111,5 +111,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
