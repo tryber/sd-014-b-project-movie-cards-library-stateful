@@ -1,5 +1,5 @@
 import React from 'react';
-import InputDefault from './InputDefault';
+import InputsAll from './InputsAll';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -26,31 +26,8 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputDefault
-          text="Título"
-          testIdLabel="title-input-label"
-          testIdInput="title-input"
-          id="search"
-          name="title"
-          value={ title }
-          handleChange={ this.handleChange }
-        />
-        <InputDefault
-          text="Subtítulo"
-          testIdLabel="subtitle-input-label"
-          testIdInput="subtitle-input"
-          id="subtitle"
-          name="subtitle"
-          value={ subtitle }
-          handleChange={ this.handleChange }
-        />
-        <InputDefault
-          text="Imagem"
-          testIdLabel="image-input-label"
-          testIdInput="image-input"
-          id="imagem"
-          name="imagePath"
-          value={ imagePath }
+        <InputsAll
+          state={ { title, subtitle, imagePath } }
           handleChange={ this.handleChange }
         />
         <label data-testid="storyline-input-label" htmlFor="storyline">
