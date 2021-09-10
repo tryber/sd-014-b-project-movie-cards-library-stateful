@@ -24,9 +24,15 @@ class AddMovie extends React.Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+    if (name === 'rating') {
+      this.setState({
+        rating: Number(value),
+      });
+    } else {
+      this.setState({
+        [name]: value,
+      });
+    }
   }
 
   render() {
@@ -40,7 +46,7 @@ class AddMovie extends React.Component {
         <AddMovieStoryline handleChange={ this.handleChange } value={ storyline } />
         <AddMovieRating handleChange={ this.handleChange } value={ rating } />
         <AddMovieGenre handleChange={ this.handleChange } value={ genre } />
-        <AddMovieButton onClick={ onClick } />
+        <AddMovieButton onClick={ (event) => onClick(event, this.state) } />
       </form>
     );
   }

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
+    const { movies } = this.props;
 
     this.state = {
       searchText: '',
@@ -19,11 +21,13 @@ class MovieLibrary extends Component {
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
     this.handleSelectedGenreChange = this.handleSelectedGenreChange.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
   }
 
   handleSearchTextChange(event) {
     const { value } = event.target;
-    const filteredMovieList = movies.filter((movie) => movie.title.includes(value)
+    const { moviesSt } = this.state;
+    const filteredMovieList = moviesSt.filter((movie) => movie.title.includes(value)
         || movie.subtitle.includes(value)
         || movie.storyline.includes(value));
     this.setState({
@@ -34,7 +38,9 @@ class MovieLibrary extends Component {
 
   handleBookmarkedChange(event) {
     const { checked } = event.target;
-    const filteredMovieList = movies.filter((movie) => movie.bookmarked === checked);
+    const { movies } = this.props;
+    const { moviesSt } = this.state;
+    const filteredMovieList = moviesSt.filter((movie) => movie.bookmarked === checked);
     if (checked === true) {
       this.setState({
         bookmarkedOnly: checked,
@@ -50,10 +56,21 @@ class MovieLibrary extends Component {
 
   handleSelectedGenreChange(event) {
     const { value } = event.target;
-    const filteredMovieList = movies.filter((movie) => movie.genre.includes(value));
+    const { moviesSt } = this.state;
+    const filteredMovieList = moviesSt.filter((movie) => movie.genre.includes(value));
     this.setState({
       selectedGenre: value,
       moviesSt: filteredMovieList,
+    });
+  }
+
+  handleAddMovie(event, state) {
+    const { moviesSt } = this.state;
+    const auxiliar = moviesSt;
+    event.preventDefault();
+    auxiliar.push(state);
+    this.setState({
+      moviesSt: auxiliar,
     });
   }
 
@@ -76,10 +93,14 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleSelectedGenreChange }
         />
         <MovieList movies={ moviesSt } />
-        <AddMovie onClick />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
