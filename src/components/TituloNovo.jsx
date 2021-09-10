@@ -9,7 +9,6 @@ class TituloNovo extends React.Component {
           id="tituloNovo"
           type="text"
           data-testid="subtitle-input"
-          // value={ this.state.title }
           onChange={ this.onClick }
         />
       </label>

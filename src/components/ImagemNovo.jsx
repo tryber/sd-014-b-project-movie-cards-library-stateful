@@ -8,7 +8,6 @@ class ImagemNovo extends React.Component {
         <input
           id="imagemNovo"
           data-testid="image-input"
-          // value={ this.state.imagePath }
           onChange={ this.onClick }
         />
       </label>

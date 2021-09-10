@@ -13,14 +13,14 @@ class AddMovie extends React.Component {
 
     this.onClick = this.onClick.bind(this);
 
-    // this.state = {
-    //   subtitle: '',
-    //   title: '',
-    //   imagePath: '',
-    //   storyline: '',
-    //   rating: 0,
-    //   genre: '',
-    // };
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: '',
+    };
   }
 
   onClick(event) {
@@ -28,14 +28,15 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <TituloNovo />
-        <SubtituloNovo />
-        <ImagemNovo />
-        <SinopseNovo />
-        <AvaliaNovo />
-        <GeneroNovo />
+        <TituloNovo value={ subtitle } />
+        <SubtituloNovo value={ title } />
+        <ImagemNovo value={ imagePath } />
+        <SinopseNovo value={ storyline } />
+        <AvaliaNovo value={ rating } />
+        <GeneroNovo value={ genre } />
         <button
           type="button"
           data-testid="send-button"

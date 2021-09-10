@@ -7,7 +7,6 @@ class GeneroNovo extends React.Component {
         Gênero
         <select
           id="generoNovo"
-          // value={ this.state.genre }
           data-testid="genre-input"
           onChange={ this.onClick }
         >
