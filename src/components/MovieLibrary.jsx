@@ -15,6 +15,8 @@ class MovieLibrary extends Component {
       movies: props.movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -24,6 +26,26 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
       movies: movies.filter((element) => element.title.includes(searchText)),
+    });
+  }
+
+  onBookmarkedChange({ target }) {
+    const { movies } = this.state;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+      movies: movies.filter((element) => element.bookmarked === true),
+    });
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { movies, selectedGenre } = this.state;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+      movies: movies.filter((element) => element.genre === selectedGenre),
     });
   }
 
@@ -42,6 +64,8 @@ class MovieLibrary extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
           onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.onclick } />
@@ -76,4 +100,8 @@ o onclick dela atualiza o estado
 dentro do render searchbar utilizamos o onsearchtextchange como props passando a função
 addmovie no onlick atualiza o estado
 validamos
+Adivionamos duas funções
+onBookmarkedChange uma vai lidar com o checkbox para filtrar o favorito
+onselectedGenreChange vai exibir o gênero selecionado
+adicionamos as duas dentro do searchbar
 */
