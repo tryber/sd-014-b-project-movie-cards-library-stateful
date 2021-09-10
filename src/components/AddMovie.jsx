@@ -1,4 +1,3 @@
-// implement AddMovie component here
 import React from 'react';
 import InputTitle from './elements/InputTitle';
 import InputSubtitle from './elements/InputSubtitle';
@@ -23,21 +22,9 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // Recebi ajuda da colega de turma Bel Albuquerque, para desenvolver o setState da função handleChange.
   handleChange({ target }) {
     this.setState({
       [target.name]: target.value,
-    });
-  }
-
-  confirmButton() {
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
     });
   }
 
@@ -45,12 +32,12 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputTitle value={ title } onChange={ this.handleChange } />
-        <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
-        <InputImagePath value={ imagePath } onChange={ this.handleChange } />
-        <TextareaStoryline value={ storyline } onChange={ this.handleChange } />
-        <InputRating value={ rating } onChange={ this.handleChange } />
-        <SelectGenre value={ genre } onChange={ this.handleChange } />
+        <InputTitle state={ title } handleChange={ this.handleChange } />
+        <InputSubtitle state={ subtitle } handleChange={ this.handleChange } />
+        <InputImagePath state={ imagePath } handleChange={ this.handleChange } />
+        <TextareaStoryline state={ storyline } handleChange={ this.handleChange } />
+        <InputRating state={ rating } handleChange={ this.handleChange } />
+        <SelectGenre state={ genre } handleChange={ this.handleChange } />
         <button type="button" data-testid="send-button">Adicionar filme</button>
       </form>
     );
