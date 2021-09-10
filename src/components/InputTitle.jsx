@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class InputDefault extends Component {
+class InputTitle extends Component {
   render() {
     const { description, title, handleChange } = this.props;
     return (
@@ -20,10 +20,10 @@ class InputDefault extends Component {
   }
 }
 
-InputDefault.propTypes = {
+InputTitle.propTypes = {
   description: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
-export default InputDefault;
+export default InputTitle;
