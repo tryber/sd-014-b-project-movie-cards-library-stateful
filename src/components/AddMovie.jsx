@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import TitleInput from './TitleInput';
 import SubTitle from './SubtitleInput';
 import ImageInput from './ImageInput';
@@ -8,8 +9,8 @@ import RaingInput from './RatingInput';
 import SelectInput from './SelectInput';
 
 class addMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -20,12 +21,24 @@ class addMovie extends React.Component {
     };
   }
 
+  initialState = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   atualiza = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   }
 
   render() {
-    // const { onclick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -41,9 +54,21 @@ class addMovie extends React.Component {
         <RaingInput rating={ rating } atualiza={ this.atualiza } />
         {/* Label do gênero */}
         <SelectInput genre={ genre } atualiza={ this.atualiza } />
+        {/* Butão que adiciona filmes */}
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.initialState }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+addMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default addMovie;

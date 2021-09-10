@@ -21,7 +21,7 @@ class RaingInput extends React.Component {
 }
 
 RaingInput.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.string.isRequired,
   atualiza: PropTypes.func.isRequired,
 };
 
