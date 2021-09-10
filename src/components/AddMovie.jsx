@@ -21,14 +21,16 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
+  handleChange = ({ target }) => {
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
   }
 
-  handleClick = () => {
+  handleClick = (onClick) => {
+    onClick(this.state);
+
     this.setState({
       subtitle: '',
       title: '',
@@ -53,8 +55,8 @@ class AddMovie extends React.Component {
 
         <button
           data-testid="send-button"
-          type="button"
-          onClick={ onClick }
+          type="submit"
+          onClick={ () => this.handleClick(onClick) }
         >
           Adicionar filme
         </button>
