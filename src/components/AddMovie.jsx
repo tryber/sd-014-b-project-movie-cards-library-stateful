@@ -21,7 +21,7 @@ class AddMovie extends Component {
     };
   }
 
-    handleChange = (event) => { // seleciona os eventos de input
+    handleAllChanges = (event) => { // seleciona os eventos de input
       const { name, value } = event.target;
       this.setState({ // update the state key corresponding to the given input name:
         [name]: value, // setState() automatically merges a partial state into the current state
@@ -30,14 +30,14 @@ class AddMovie extends Component {
 
     render() {
       const { title, subtitle, imagePath, storyline, rating, genre } = this.state; // renderiza os estados inicias
-      return (
+      return ( // todos componentes tem a prop handleChange que receberá a func handleAllChanges
         <form data-testid="add-movie-form">
-          <AddTitle handleChange={ this.handleChange } value={ title } />
-          <AddSubTitle handleChange={ this.handleChange } value={ subtitle } />
-          <AddImage handleChange={ this.handleChange } value={ imagePath } />
-          <AddStoryLine handleChange={ this.handleChange } value={ storyline } />
-          <AddRating handleChange={ this.handleChange } value={ rating } />
-          <AddGenre handleChange={ this.handleChange } value={ genre } />
+          <AddTitle handleChange={ this.handleAllChanges } value={ title } />
+          <AddSubTitle handleChange={ this.handleAllChanges } value={ subtitle } />
+          <AddImage handleChange={ this.handleAllChanges } value={ imagePath } />
+          <AddStoryLine handleChange={ this.handleAllChanges } value={ storyline } />
+          <AddRating handleChange={ this.handleAllChanges } value={ rating } />
+          <AddGenre handleChange={ this.handleAllChanges } value={ genre } />
           <SaveMovieButton onClick={ onClick } />
 
         </form>

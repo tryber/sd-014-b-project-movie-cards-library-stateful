@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddImage extends React.Component {
   render() {
@@ -18,5 +19,10 @@ class AddImage extends React.Component {
     );
   }
 }
+
+AddImage.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};
 
 export default AddImage;

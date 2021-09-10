@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SaveMovieButton extends React.Component {
   render() {
@@ -14,5 +15,9 @@ class SaveMovieButton extends React.Component {
     );
   }
 }
+
+SaveMovieButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default SaveMovieButton;

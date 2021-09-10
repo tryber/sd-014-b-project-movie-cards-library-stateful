@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddSubTitle extends React.Component {
   render() {
@@ -18,5 +19,10 @@ class AddSubTitle extends React.Component {
     );
   }
 }
+
+AddSubTitle.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};
 
 export default AddSubTitle;
