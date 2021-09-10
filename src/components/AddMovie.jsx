@@ -21,22 +21,24 @@ class AddMovie extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
     return (
-      <div>
-        subtitle=
-        { subtitle }
-        title=
-        { title }
-        imagePath=
-        { imagePath }
-        storyline=
-        { storyline }
-        rating=
-        { rating }
-        genre=
-        { genre }
-        onClick=
-        { onClick }
-      </div>
+      <form data-testid="add-movie-form">
+        <div>
+          subtitle=
+          { subtitle }
+          title=
+          { title }
+          imagePath=
+          { imagePath }
+          storyline=
+          { storyline }
+          rating=
+          { rating }
+          genre=
+          { genre }
+          onClick=
+          { onClick }
+        </div>
+      </form>
     );
   }
 }
