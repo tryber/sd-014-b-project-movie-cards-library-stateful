@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmitState = this.handleSubmitState.bind(this);
@@ -40,8 +40,8 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
-    }, () => console.log('Filme adicionado'));
+      genre: 'action',
+    });
   }
 
   render() {
