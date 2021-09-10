@@ -1,34 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends Component {
+class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    this.information = this.information.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
     };
-    this.information = this.information.bind(this);
   }
 
   information = ({ target }) => {
+    const { movies } = this.props;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
-    const thisProps = this.props;
-    const filter = thisProps.movies.filter((movie) => (
-      movie.title.includes(target.value)
+
+    const filterMovies = movies.filter(
+      (movie) => movie.title.includes(target.value)
       || movie.subtitle.includes(target.value)
-      || movie.storyline.includes(target.value)));
+      || movie.storyline.includes(target.value)
+      || movie.genre.includes(target.value)
+      || movie.bookmarked === (target.value),
+    );
     this.setState({
-      movies: filter,
+      movies: filterMovies,
     });
   }
 
@@ -54,9 +58,7 @@ class MovieLibrary extends Component {
 
 // An array of a object
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;

@@ -13,8 +13,4 @@ function App() {
   );
 }
 
-/*       <SearchBar />
-      <MovieList movies={ movies } />
-      <AddMovie /> */
-
 export default App;

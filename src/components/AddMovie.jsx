@@ -4,6 +4,9 @@ import InputSubtitle from './Inputs/InputSubtitle';
 import InputTitle from './Inputs/InputTitle';
 import InputImage from './Inputs/InputImage';
 import InputRating from './Inputs/InputRating';
+import TextAreaStoryline from './Inputs/TextAreaStoryline';
+import SelectGenre from './Inputs/SelectGenre';
+import ButtonMovie from './Inputs/ButtonMovie';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -47,33 +50,10 @@ class AddMovie extends React.Component {
         <InputSubtitle value={ subtitle } onChange={ this.information } />
         <InputTitle value={ title } onChange={ this.information } />
         <InputImage value={ imagePath } onChange={ this.information } />
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            name="storyline"
-            type="text"
-            onChange={ this.information }
-            value={ storyline }
-          />
-        </label>
+        <TextAreaStoryline value={ storyline } onChange={ this.information } />
         <InputRating value={ rating } onChange={ this.information } />
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            data-testid="genre-input"
-            onChange={ this.information }
-            value={ genre }
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
-        <button data-testid="send-button" type="button" onClick={ this.getInformation }>
-          Adicionar filme
-        </button>
+        <SelectGenre value={ genre } onChange={ this.information } />
+        <ButtonMovie onClick={ this.getInformation } />
       </form>
     );
   }
