@@ -9,18 +9,22 @@ class MovieLibrary extends React.Component {
     super();
 
     this.state = {
-      // searchText: '',
-      // bookmarkedOnly: false,
-      // selectedGenre: '',
-      // movies: { movies } = this.props,
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
     };
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+        />
         <MovieList movies={ movies } />
         <AddMovie />
       </div>
