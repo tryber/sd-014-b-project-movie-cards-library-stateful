@@ -21,10 +21,22 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange({ target }) {
-    this.setState({
-      searchText: target.value,
-    });
+  onSearchTextChange({ target: { value } }) {
+    const { movies } = this.props;
+    if (value === '') {
+      this.setState({
+        searchText: '',
+        movies,
+      });
+    } else {
+      this.setState({
+        searchText: value,
+        movies: movies.filter((movie) => movie.title.toLowerCase().includes(value)
+          || movie.subtitle.toLowerCase().includes(value)
+          || movie.storyline.toLowerCase().includes(value)
+        ),
+      });
+    }
   }
 
   onBookmarkedChange({ target }) {
