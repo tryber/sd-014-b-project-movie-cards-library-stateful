@@ -14,12 +14,29 @@ class AddMovie extends React.Component {
     }
 
     this.handleState = this.handleState.bind(this);
-
+    this.handleAddMovieButton = this.handleAddMovieButton.bind(this);
   }
 
   handleState({ target }) {
     this.setState({
       [target.id]: target.value,
+    });
+  }
+
+  /* 
+  * Consultei o repositório de Thyara Nonato para resolver a função handleAddMovieButton
+  * https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/blob/thyara-movie-cards-library-stateful/src/components/AddMovie.jsx
+  */
+  handleAddMovieButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -105,6 +122,14 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+
+        <button 
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.handleAddMovieButton }
+        >
+          Adicionar filme
+        </button>
 
       </form>
     );
