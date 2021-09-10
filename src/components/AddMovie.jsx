@@ -29,21 +29,6 @@ class AddMovie extends Component {
     this.setState({
       [name]: value,
     });
-    console.log(this.state);
-    /* valorInput = (name) => {
-      const { title, subtitle, imagePath, storyline, rating, genre } = name;
-      const card = {
-        title,
-        subtitle,
-        imagePath,
-        storyline,
-        rating,
-        genre,
-      };
-      this.setState({
-
-      });
-    }; */
   }
 
   gambiarra = () => {
@@ -65,9 +50,7 @@ class AddMovie extends Component {
   }
 
   addAndReset(callback) {
-    const functionGambiarra = this.gambiarra();
-    console.log(functionGambiarra);
-    callback(functionGambiarra);
+    callback(this.state);
 
     this.setState({
       subtitle: '',

@@ -56,15 +56,13 @@ class MovieLibrary extends Component {
 
   onClick(state) {
     const { movies } = this.props;
-    console.log(state);
+
     const arrayMovies = [...movies, state];
-    console.log(arrayMovies);
 
     this.setState({
       movies: arrayMovies,
       moviesBackup: arrayMovies,
     });
-    console.log(this.state.movies);
   }
 
   filterFavorited() {
