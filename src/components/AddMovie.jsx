@@ -21,34 +21,34 @@ export default class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange({ target }) {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
-  } // Explicação no fim da página (1)
-
-  handleClick = () => {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-  }
+  // handleChange({ target }) {
+  //   const { name, value } = target;
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // } // Explicação no fim da página (1)
 
   render() {
+    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Title value={ title } onChange={ this.handleChange } />
-        <Subtitle value={ subtitle } onChange={ this.handleChange } />
-        <Image value={ imagePath } onChange={ this.handleChange } />
-        <Storyline value={ storyline } onChange={ this.handleChange } />
+        <Title
+          value={ title }
+          onChange={ (event) => this.setState({ title: event.target.value }) }
+        />
+        <Subtitle
+          value={ subtitle }
+          onChange={ (event) => this.setState({ title: event.target.value }) }
+        />
+        <Image
+          value={ imagePath }
+          onChange={ (event) => this.setState({ title: event.target.value }) }
+        />
+        <Storyline
+          value={ storyline }
+          onChange={ (event) => this.setState({ title: event.target.value }) }
+        />
         <AddRating
           initialState={ rating }
           onChange={ (event) => this.setState({ rating: event.target.value }) }
@@ -57,7 +57,17 @@ export default class AddMovie extends Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ () => this.handleClick() }
+          onClick={ (event) => {
+            onClick(event, this.state);
+            this.setState({
+              subtitle: '',
+              title: '',
+              imagePath: '',
+              storyline: '',
+              rating: 0,
+              genre: 'action',
+            });
+          } }
         >
           Adicionar filme
         </button>
