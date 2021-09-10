@@ -21,7 +21,7 @@ class NumberInput extends Component {
 }
 
 NumberInput.propTypes = {
-  initialState: PropTypes.string.isRequired,
+  initialState: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
