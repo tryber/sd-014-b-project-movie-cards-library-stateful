@@ -38,19 +38,22 @@ class MovieLibrary extends Component {
     const { movies } = this.state;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-      movies: movies.filter((element) => element.bookmarked === true),
-    });
+    const favorite = movies.filter((element) => element.bookmarked === true);
+    if (target.checked) {
+      this.setState({
+        [name]: value,
+        movies: favorite,
+      });
+    }
   }
 
   onSelectedGenreChange({ target }) {
-    const { movies, selectedGenre } = this.state;
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { movies } = this.state;
+    const { name, value } = target;
+    const genre = movies.filter((element) => element.genre === value);
     this.setState({
       [name]: value,
-      movies: movies.filter((element) => element.genre === selectedGenre),
+      movies: genre,
     });
   }
 
@@ -117,4 +120,9 @@ caso ele encontre algo no titulo, subtitulo ou sinopse
 com isso atalizamos a função onclick que recebe uma props como parametro
 esse valor vai ser o que será setado como o state atual em movies
 e será retornado
+
+Requisito 18: fazemos mais um filtro para bookmarked, caso volte true
+fazermos uma condição para definir o estado do movies para favorite
+depois em onselectedgere change desestruturamos o estado do movies
+e fazemos outro filtro pelo genero antes de setar o estado
 */
