@@ -6,20 +6,39 @@ import SearchBar from './SearchBar';
 export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies,
     };
+    this.changeInput = this.changeInput.bind(this);
+  }
+
+  changeInput({ target }) {
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
-    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.changeInput }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.changeInput }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.changeInput }
+          movies={ movies }
+        />
         <AddMovie />
+        { console.log(this.state) }
       </>
     );
   }

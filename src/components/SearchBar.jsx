@@ -19,6 +19,7 @@ export default class SearchBar extends Component {
           <p>Inclui o texto:</p>
           <input
             data-testid="text-input"
+            name="searchText"
             id="search-text"
             type="text"
             onChange={ onSearchTextChange }
