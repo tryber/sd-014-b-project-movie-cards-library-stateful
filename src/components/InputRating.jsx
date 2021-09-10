@@ -5,7 +5,7 @@ export default class InputRating extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="select-input" data-testid="rating-input-label">
+      <label htmlFor="rating-input" data-testid="rating-input-label">
         <p>Avaliação</p>
         <input
           id="rating-input"

@@ -5,10 +5,9 @@ export default class InputImagePath extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="select-input" data-testid="image-input-label">
-        <p>Gênero</p>
+      <label htmlFor="image-input" data-testid="image-input-label">
+        <p>Imagem</p>
         <input
-          text="Imagem"
           id="image-input"
           name="imagePath"
           value={ value }
