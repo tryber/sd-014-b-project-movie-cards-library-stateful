@@ -9,7 +9,7 @@ import AddGenre from './AddMovieComponents/AddGenre';
 import SaveMovieButton from './AddMovieComponents/SaveMovieButton';
 
 class AddMovie extends Component {
-  constructor(props) {
+  constructor(props) { // constructor serve para inicializar estados
     super(props);
     this.state = { // define o estado inicial das propriedades
       title: '',
