@@ -8,6 +8,7 @@ import InputText from './InputText';
 import SelectGenre from './SelectGenre';
 import InputTextArea from './InputTextArea';
 import InputNumber from './InputNumber';
+import SendButton from './SendButton';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -71,13 +72,7 @@ class AddMovie extends React.Component {
           testidLabel="genre-input-label"
           handleChange={ this.handleInputChange }
         />
-        <button
-          type="button"
-          data-testid="send-button"
-          onClick={ this.restore }
-        >
-          Adicionar filme
-        </button>
+        <SendButton action={ this.restore } />
       </form>
     );
   }
