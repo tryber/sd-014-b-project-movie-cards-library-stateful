@@ -16,13 +16,18 @@ export default class MovieLibrary extends Component {
     };
   }
 
+  newMovie = (newMovie) => {
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
   render() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar />
-        <AddMovie />
-        <h1>teste</h1>
+        <AddMovie onClick={ this.newMovie } />
         <MovieList movies={ movies } />
         {searchText}
         {bookmarkedOnly}
