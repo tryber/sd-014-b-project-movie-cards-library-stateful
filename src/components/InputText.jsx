@@ -56,4 +56,5 @@ export default InputText;
 /*
 Aqui como temos 3 inputs com o tipo texto da pra fazer um componente só do mesmo tipo
 daí quando passamos pra lá > add movie podemos passar o valor chumbado
+Agradecimentos ao Ivanielson que me ajudou dos meus 55% adiante
 */

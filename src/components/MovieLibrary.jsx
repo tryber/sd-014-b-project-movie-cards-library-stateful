@@ -125,4 +125,6 @@ Requisito 18: fazemos mais um filtro para bookmarked, caso volte true
 fazermos uma condição para definir o estado do movies para favorite
 depois em onselectedgere change desestruturamos o estado do movies
 e fazemos outro filtro pelo genero antes de setar o estado
+
+Agradecimentos ao Ivanielson que me ajudou dos meus 55% adiante
 */

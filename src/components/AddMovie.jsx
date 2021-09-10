@@ -116,5 +116,7 @@ Refatorando: importamos o componente input padrão
 basicamente só mantemos as propriedades e adicionamos um describe que vai ser o
 que vai aparecer no "label", esse valor é chumbado o resto é dinâmico.
 
-Refatorando2: como cada componente foi isolado
+Refatorando2: como cada componente foi isolado chamamos o componente direto e só passamos os estados desestruturados
+
+Agradecimentos ao Ivanielson que me ajudou dos meus 55% adiante
 */
