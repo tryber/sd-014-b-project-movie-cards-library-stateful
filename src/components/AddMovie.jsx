@@ -21,7 +21,8 @@ class AddMovie extends React.Component {
     this.restore = this.restore.bind(this);
   }
 
-  handleInputChange({ target }) {const { name } = target;
+  handleInputChange({ target }) {
+    const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
   }
@@ -40,7 +41,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
