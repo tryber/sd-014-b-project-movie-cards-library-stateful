@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-    }
+    };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -33,8 +33,7 @@ class MovieLibrary extends Component {
         searchText: value,
         movies: movies.filter((movie) => movie.title.toLowerCase().includes(value)
           || movie.subtitle.toLowerCase().includes(value)
-          || movie.storyline.toLowerCase().includes(value)
-        ),
+          || movie.storyline.toLowerCase().includes(value)),
       });
     }
   }
@@ -55,7 +54,7 @@ class MovieLibrary extends Component {
     });
   }
 
-  /* 
+  /*
   * Consultei o repositório de Thyara Nonato para resolver a função addMovie
   * https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/blob/thyara-movie-cards-library-stateful/src/components/MovieLibrary.jsx
   */
@@ -67,13 +66,12 @@ class MovieLibrary extends Component {
   }
 
   render() {
-
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar 
+        <SearchBar
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
