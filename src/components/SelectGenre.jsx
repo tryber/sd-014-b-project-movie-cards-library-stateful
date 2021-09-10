@@ -8,6 +8,7 @@ class SelectGenre extends React.Component {
       <label htmlFor={ id } data-testid={ testidLabel }>
         { describe }
         <select
+          className="form-select"
           id={ id }
           name={ name }
           value={ value }
@@ -17,6 +18,10 @@ class SelectGenre extends React.Component {
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
+          <option data-testid="select-option" value="fantasy">Fantasia</option>
+          <option data-testid="select-option" value="Science fiction">
+            Ficção Ciêntifica
+          </option>
         </select>
       </label>
     );

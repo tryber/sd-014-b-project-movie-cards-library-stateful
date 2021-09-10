@@ -5,9 +5,14 @@ class InputTextArea extends React.Component {
   render() {
     const { storyline, handleChange } = this.props;
     return (
-      <label htmlFor="storyline" data-testid="storyline-input-label">
+      <label
+        className="form-label"
+        htmlFor="storyline"
+        data-testid="storyline-input-label"
+      >
         Sinopse
         <textarea
+          className="form-control"
           id="storyline"
           name="storyline"
           value={ storyline }

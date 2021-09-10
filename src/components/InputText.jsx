@@ -5,10 +5,11 @@ class InputText extends React.Component {
   render() {
     const { title, subtitle, imagePath, handleChange } = this.props;
     return (
-      <div>
-        <label htmlFor="title" data-testid="title-input-label">
+      <>
+        <label className="form-label" htmlFor="title" data-testid="title-input-label">
           Título
           <input
+            className="form-control"
             id="title"
             name="title"
             value={ title }
@@ -17,9 +18,14 @@ class InputText extends React.Component {
             type="text"
           />
         </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+        <label
+          className="form-label"
+          htmlFor="subtitle"
+          data-testid="subtitle-input-label"
+        >
           Subtítulo
           <input
+            className="form-control"
             id="subtitle"
             name="subtitle"
             value={ subtitle }
@@ -28,9 +34,10 @@ class InputText extends React.Component {
             type="text"
           />
         </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
+        <label className="form-label" htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
+            className="form-control"
             id="imagePath"
             name="imagePath"
             value={ imagePath }
@@ -39,7 +46,7 @@ class InputText extends React.Component {
             type="text"
           />
         </label>
-      </div>
+      </>
     );
   }
 }

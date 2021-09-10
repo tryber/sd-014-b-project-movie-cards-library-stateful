@@ -5,13 +5,16 @@ class SendButton extends React.Component {
   render() {
     const { action } = this.props;
     return (
-      <button
-        type="button"
-        data-testid="send-button"
-        onClick={ action }
-      >
-        Adicionar filme
-      </button>
+      <div className="container">
+        <button
+          className="btn btn-dark m-2"
+          type="button"
+          data-testid="send-button"
+          onClick={ action }
+        >
+          Adicionar filme
+        </button>
+      </div>
     );
   }
 }
