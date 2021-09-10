@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AddTitle from './AddMoviesComp/AddTitle';
-import AddSub from './AddMoviesComp/AddSub';
-import AddImage from './AddMoviesComp/AddImage';
+import AddTitle from './AddTitle';
+import AddSub from './AddSub';
+import AddImage from './AddImage';
 
 const INITIAL_STATE = {
   title: '',
