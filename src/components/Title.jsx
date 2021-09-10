@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class Title extends Component {
   render() {
-    const { title, onChange } = this.props;
+    const { title, handleChange } = this.props;
     return (
       <label htmlFor="title-input-label" data-testid="title-input-label">
         Título
@@ -11,7 +11,7 @@ export default class Title extends Component {
           data-testid="title-input"
           type="text"
           value={ title }
-          onChange={ (event) => onChange(event) }
+          onChange={ handleChange }
         />
       </label>
     );
@@ -20,5 +20,5 @@ export default class Title extends Component {
 
 Title.propTypes = {
   title: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };

@@ -12,7 +12,7 @@ export default class Image extends Component {
           alt="movie-poster"
           data-testid="image-input"
           value={ imagePath }
-          onChange={ (event) => onChange(event) }
+          onChange={ onChange }
         />
       </label>
     );

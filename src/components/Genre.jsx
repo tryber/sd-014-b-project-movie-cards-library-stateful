@@ -11,7 +11,7 @@ export default class Genre extends Component {
         <select
           data-testid="genre-input"
           value={ genre }
-          onChange={ (event) => onChange(event) }
+          onChange={ onChange }
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>

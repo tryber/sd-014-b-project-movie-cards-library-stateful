@@ -10,7 +10,7 @@ export default class Storyline extends Component {
         <textarea
           data-testid="storyline-input"
           value={ storyline }
-          onChange={ (event) => onChange(event) }
+          onChange={ onChange }
         />
       </label>
     );
