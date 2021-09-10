@@ -30,22 +30,21 @@ class AddMovie extends Component {
     });
   }
 
-  // Linhas de validação de conteúdo foram comentadas por conta do avaliador não aceitar
-  submitState(/* { target }, */callbk) {
-    // const { title: tt, subtitle: st, imagePath: ip, storyline: sl } = this.state;
-    // if ((tt && st && ip && sl) !== '') {
-    callbk(this.state);
+  submitState({ target }, callbk) {
+    const { title: tt, subtitle: st, imagePath: ip, storyline: sl } = this.state;
+    if ((tt && st && ip && sl) !== '') {
+      callbk(this.state);
 
-    this.setState(initialState);
-    // } else {
-    //   const time = 3000;
-    //   target.innerText = 'Preencha todos os campos';
-    //   target.style = 'color: red; cursor: not-allowed';
-    //   setTimeout(() => {
-    //     target.innerText = 'Adicionar filme';
-    //     target.style = 'color: black; cursor: pointer';
-    //   }, time);
-    // }
+      this.setState(initialState);
+    } else {
+      const time = 3000;
+      target.innerText = 'Preencha todos os campos';
+      target.style = 'color: red; cursor: not-allowed';
+      setTimeout(() => {
+        target.innerText = 'Adicionar filme';
+        target.style = 'color: black; cursor: pointer';
+      }, time);
+    }
   }
 
   render() {
@@ -60,7 +59,7 @@ class AddMovie extends Component {
         ratingState={ +(rating) }
         genreState={ genre }
         onChange={ this.handleChange }
-        onClick={ (/* ev */) => this.submitState(/* ev, */onClick) }
+        onClick={ (ev) => this.submitState(ev, onClick) }
       />
     );
   }
