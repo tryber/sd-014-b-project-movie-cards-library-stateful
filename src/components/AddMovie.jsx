@@ -1,5 +1,5 @@
 // implement AddMovie component here
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AddTitle from './AddTitle';
 import AddSubtitle from './AddSubtitle';
@@ -9,7 +9,7 @@ import AddRating from './AddRating';
 import AddGenre from './AddGenre';
 import AddButton from './AddButton';
 
-class AddMovie extends Component {
+class AddMovie extends React.Component {
   constructor() {
     super();
 
