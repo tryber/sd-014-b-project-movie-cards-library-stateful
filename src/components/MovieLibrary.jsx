@@ -13,8 +13,41 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
+      originalMovieList: props.movies,
     };
     this.addMovie = this.addMovie.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  }
+
+  onSearchTextChange({ target: { value } }) {
+    const { originalMovieList } = this.state;
+    this.setState({ searchText: value });
+    const lowerCase = value.toLowerCase();
+    const movieList = (value !== '')
+      ? originalMovieList.filter(({ title }) => title.toLowerCase().includes(lowerCase))
+      : originalMovieList;
+    this.setState({ movies: movieList });
+  }
+
+  onBookmarkedChange() {
+    const { originalMovieList, bookmarkedOnly } = this.state;
+    const isSelected = !bookmarkedOnly;
+    this.setState({ bookmarkedOnly: isSelected });
+    const movieList = (isSelected)
+      ? originalMovieList.filter(({ bookmarked }) => bookmarked)
+      : originalMovieList;
+    this.setState({ movies: movieList });
+  }
+
+  onSelectedGenreChange({ target: { value } }) {
+    this.setState({ selectedGenre: value });
+    const { originalMovieList } = this.state;
+    const movieList = (value !== '')
+      ? originalMovieList.filter(({ genre }) => genre === value)
+      : originalMovieList;
+    this.setState({ movies: movieList });
   }
 
   addMovie(movie) {
@@ -31,17 +64,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ ({ target }) => {
-            this.setState({ searchText: target.value });
-          } }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ ({ target }) => {
-            this.setState({ bookmarkedOnly: target.value });
-          } }
+          onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ ({ target }) => {
-            this.setState({ selectedGenre: target.value });
-          } }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.addMovie } />
