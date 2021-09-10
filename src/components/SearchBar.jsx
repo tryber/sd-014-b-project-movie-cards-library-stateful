@@ -7,20 +7,22 @@ class SearchBar extends Component {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
       selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <div>
-        searchText=
-        { searchText }
-        onSearchTextChange=
-        { onSearchTextChange }
-        bookmarkedOnly=
-        { bookmarkedOnly }
-        onBookmarkedChange=
-        { onBookmarkedChange }
-        selectedGenre=
-        { selectedGenre }
-        onSelectedGenreChange=
-        { onSelectedGenreChange }
-      </div>
+      <form data-testid="search-bar-form">
+        <div>
+          searchText=
+          { searchText }
+          onSearchTextChange=
+          { onSearchTextChange }
+          bookmarkedOnly=
+          { bookmarkedOnly }
+          onBookmarkedChange=
+          { onBookmarkedChange }
+          selectedGenre=
+          { selectedGenre }
+          onSelectedGenreChange=
+          { onSelectedGenreChange }
+        </div>
+      </form>
     );
   }
 }
