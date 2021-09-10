@@ -1,4 +1,5 @@
 import React from 'react';
+import InputDefault from './InputDefault';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class AddMovie extends React.Component {
       title: '',
       subtitle: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -25,42 +26,37 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="titulo">
-          Título
-          <input
-            type="text"
-            id="titulo"
-            name="title"
-            value={ title }
-            onChange={ this.handleChange }
-            data-testid="title-input"
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            id="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="imagem">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            id="imagem"
-            onChange={ this.handleChange }
-            data-testid="image-input"
-          />
-        </label>
+        <InputDefault
+          text="Título"
+          testIdLabel="title-input-label"
+          testIdInput="title-input"
+          id="search"
+          name="title"
+          value={ title }
+          handleChange={ this.handleChange }
+        />
+        <InputDefault
+          text="Subtítulo"
+          testIdLabel="subtitle-input-label"
+          testIdInput="subtitle-input"
+          id="subtitle"
+          name="subtitle"
+          value={ subtitle }
+          handleChange={ this.handleChange }
+        />
+        <InputDefault
+          text="Imagem"
+          testIdLabel="image-input-label"
+          testIdInput="image-input"
+          id="imagem"
+          name="imagePath"
+          value={ imagePath }
+          handleChange={ this.handleChange }
+        />
         <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
           <textarea
+            name="storyline"
             value={ storyline }
             data-testid="storyline-input"
             id="storyline"
