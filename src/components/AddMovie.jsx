@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   render() {
-    const { title, subtitle, imagePath } = this.props;
+    const { title, subtitle, imagePath, storyline } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
@@ -35,6 +35,16 @@ class AddMovie extends Component {
             imagePath={ imagePath }
           />
         </label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse:
+          <textarea
+            id="storyline-input"
+            cols="30"
+            rows="10"
+            storyline={ storyline }
+            data-testid="storyline-input"
+          />
+        </label>
       </form>
     );
   }
@@ -44,6 +54,7 @@ AddMovie.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
 };
 
 export default AddMovie;

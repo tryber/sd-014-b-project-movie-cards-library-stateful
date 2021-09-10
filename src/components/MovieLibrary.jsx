@@ -15,6 +15,7 @@ class MovieLibrary extends Component {
       title: '',
       subtitle: '',
       imagePath: '',
+      storyline: '',
       movies: data,
     };
   }
@@ -66,6 +67,7 @@ class MovieLibrary extends Component {
       title,
       subtitle,
       imagePath,
+      storyline,
     } = this.state;
     return (
       <div>
@@ -83,6 +85,7 @@ class MovieLibrary extends Component {
           title={ title }
           subtitle={ subtitle }
           imagePath={ imagePath }
+          storyline={ storyline }
         />
       </div>
     );
