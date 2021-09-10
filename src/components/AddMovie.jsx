@@ -29,16 +29,19 @@ export default class AddMovie extends Component {
     });
   }
 
-  resetState = () => {
+  resetAndAdd = () => {
     const { onClick } = this.props;
+
     onClick(this.state);
+
     this.setState({
-      title: '',
       subtitle: '',
+      title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
+
     });
   }
 
@@ -53,7 +56,7 @@ export default class AddMovie extends Component {
           <StorylineInput value={ storyline } onChange={ this.handleChange } />
           <RatingInput value={ rating } onChange={ this.handleChange } />
           <GenreInput value={ genre } onChange={ this.handleChange } />
-          <Button onClick={ this.resetState } />
+          <Button onClick={ this.resetAndAdd } />
         </form>
       </div>
     );

@@ -15,6 +15,7 @@ export default class TextInput extends Component {
             value={ value }
             onChange={ onChange }
             data-testid="text-input"
+            name="searchText"
           />
         </label>
       </div>

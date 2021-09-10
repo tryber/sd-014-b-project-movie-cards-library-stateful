@@ -13,6 +13,7 @@ export default class CheckedInput extends Component {
             onChange={ onChange }
             data-testid="checkbox-input"
             checked={ checked }
+            name="bookmarkedOnly"
           />
         </label>
       </div>

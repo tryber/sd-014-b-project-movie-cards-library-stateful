@@ -8,7 +8,12 @@ export default class SelectInput extends Component {
       <div>
         <label data-testid="select-input-label" htmlFor="select-input">
           Filtrar por gênero:
-          <select value={ value } onChange={ onChange } data-testid="select-input">
+          <select
+            value={ value }
+            onChange={ onChange }
+            data-testid="select-input"
+            name="selectedGenre"
+          >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
             <option data-testid="select-option" value="comedy">Comédia</option>

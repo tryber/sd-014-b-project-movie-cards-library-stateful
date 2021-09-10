@@ -8,9 +8,8 @@ export default class StorylineInput extends Component {
       <div>
         <label data-testid="storyline-input-label" htmlFor="storyline-input">
           Sinopse
-          <input
+          <textarea // ajuda do Rodolfo Braga, via slack
             name="storyline"
-            type="textarea"
             value={ value }
             onChange={ onChange }
             data-testid="storyline-input"

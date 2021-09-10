@@ -8,7 +8,7 @@ export default class Button extends Component {
       <button
         onClick={ onClick }
         data-testid="send-button"
-        type="submit"
+        type="button"
       >
         Adicionar filme
       </button>

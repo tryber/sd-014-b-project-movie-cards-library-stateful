@@ -25,9 +25,18 @@ export default class SearchBar extends Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <TextInput value={ searchText } onChange={ onSearchTextChange } />
-          <CheckedInput checked={ bookmarkedOnly } onChange={ onBookmarkedChange } />
-          <SelectInput value={ selectedGenre } onChange={ onSelectedGenreChange } />
+          <TextInput
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+          <CheckedInput
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+          <SelectInput
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+          />
         </form>
       </div>
     );
