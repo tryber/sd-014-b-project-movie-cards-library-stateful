@@ -12,13 +12,33 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
     const { onClick } = this.props;
     return (
       <div>
-        Eu sou o addMovie
+        <form data-testid="add-movie-form" />
+        <label htmlFor="inputText2" data-testid="title-input-label">
+          Título
+          <input
+            name="inputText2"
+            data-testid="title-input"
+            type="text"
+            onChange={ this.handleChange }
+          />
+        </label>
       </div>
     );
   }
