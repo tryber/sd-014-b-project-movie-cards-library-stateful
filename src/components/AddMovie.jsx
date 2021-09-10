@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import InputTitle from './inputs/InputTitle';
+import InputSubtitle from './inputs/InputSubtitle';
+import InputImagePath from './inputs/InputImagePath';
+import InputStoryline from './inputs/InputStoryline';
 
 class AddMovie extends Component {
   constructor() {
@@ -20,45 +24,10 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="titleFormAdd" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitleFormAdd" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="imagePathFormAdd" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="storylineFormAdd" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            value={ storyline }
-            name="storyline"
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <InputTitle value={ title } handleChange={ this.handleChange } />
+        <InputSubtitle value={ subtitle } handleChange={ this.handleChange } />
+        <InputImagePath value={ imagePath } handleChange={ this.handleChange } />
+        <InputStoryline value={ storyline } handleChange={ this.handleChange } />
       </form>
     );
   }
