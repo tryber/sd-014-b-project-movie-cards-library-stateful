@@ -30,7 +30,8 @@ class AddMovie extends Component {
       <form>
         <TextInputDefault
           name="title"
-          id="title"
+          inputId="title-input"
+          labelId="title-input-label"
           value={ title }
           handleChange={ this.handleChange }
           description="Título"
@@ -38,18 +39,20 @@ class AddMovie extends Component {
         />
         <TextInputDefault
           name="subtitle"
-          id="subtitle"
+          inputId="subtitle-input"
+          labelId="subtitle-input-label"
           value={ subtitle }
           handleChange={ this.handleChange }
-          description="Sub Título"
+          description="Subtítulo"
           type="text"
         />
         <TextInputDefault
           name="imagePath"
-          id="imagePath"
+          inputId="image-input"
+          labelId="image-input-label"
           value={ imagePath }
           handleChange={ this.handleChange }
-          description="Link da Imagem"
+          description="Imagem"
           type="text"
         />
         <TextInputDefault />
