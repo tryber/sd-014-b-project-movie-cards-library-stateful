@@ -4,18 +4,21 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
+// Após dica do Davi Alves Turma 14-B,
+// Verifiquei na documentação que:
+// É possível que constructor() receba 'props' como parametro
 class MovieLibrary extends Component {
-  constructor() {
+  constructor(props) {
     super();
+    const { movies } = props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
+      movies,
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.fillMoviesState = this.fillMoviesState.bind(this);
     this.addMovieCallback = this.addMovieCallback.bind(this);
   }
 
@@ -25,43 +28,31 @@ class MovieLibrary extends Component {
     });
   }
 
-  getMoviesArray(searchText, genre, bookmarked, array) {
-    let newArray = array;
+  getMoviesArray({ searchText, selectedGenre, bookmarkedOnly, movies }) {
+    let newArray = movies;
     if (searchText !== '') {
       newArray = newArray
         .filter(({ title, subtitle, storyline }) => [title, subtitle, storyline]
-          .find((value) => value.toLowerCase().includes(searchText.toLowerCase())));
+          .some((value) => value.toLowerCase().includes(searchText.toLowerCase())));
     }
-    if (genre !== '') {
-      newArray = newArray.filter((item) => item.genre === genre);
+    if (selectedGenre !== '') {
+      newArray = newArray.filter((item) => item.genre === selectedGenre);
     }
-    if (bookmarked) {
+    if (bookmarkedOnly) {
       newArray = newArray.filter((item) => item.bookmarked);
     }
     return newArray;
   }
 
-  fillMoviesState(prop) {
-    const { movies } = this.state;
-    prop.forEach((movie) => {
-      if (!movies.includes(movie)) movies.push(movie);
-    });
-  }
-
   addMovieCallback(newMovie) {
     const { movies } = this.state;
-    // const array = [...movies, newMovie];
     this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
-    const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre, movies: moviesState } = this.state;
-    this.fillMoviesState(movies);
-    // console.log(moviesState);
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const toRender = this
-      .getMoviesArray(searchText, selectedGenre, bookmarkedOnly, moviesState);
-    // console.log(toRender);
+      .getMoviesArray(this.state);
 
     return (
       <main>
