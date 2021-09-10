@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextForm from './TextForm/TextForm';
+import NumberForm from './NumberForm/NumberForm';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -66,16 +67,9 @@ class AddMovie extends React.Component {
         <TextForm id="storyline" value={ storyline } onChange={ this.handleState }>
           Sinopse
         </TextForm>
-        <label htmlFor="rating" data-testid="rating-input-label">
+        <NumberForm id="rating" value={ rating } onChange={ this.handleState }>
           Avaliação
-          <input
-            type="number"
-            id="rating"
-            onChange={ this.handleState }
-            value={ rating }
-            data-testid="rating-input"
-          />
-        </label>
+        </NumberForm>
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
           <select
@@ -96,7 +90,6 @@ class AddMovie extends React.Component {
         >
           Adicionar filme
         </button>
-
       </form>
     );
   }
