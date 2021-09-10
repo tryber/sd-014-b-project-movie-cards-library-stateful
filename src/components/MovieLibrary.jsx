@@ -24,13 +24,13 @@ class MovieLibrary extends React.Component {
   handleChange({ target }) {
     const { name } = target;
     const value = (target.type === 'checkbox') ? target.checked : target.value;
-    const { movies } = this.props;
+    const { movies } = this.state;
     this.setState({
       [name]: value,
-    }, () => this.filterSelection(target, movies));
+    }, () => this.filterSelection(movies));
   }
 
-  filterSelection(_target, array) {
+  filterSelection(array) {
     const { bookmarkedOnly, selectedGenre, searchText } = this.state;
     const filterSelection = array.filter((
       { title,
@@ -60,14 +60,15 @@ class MovieLibrary extends React.Component {
   }
 
   newMovie(state) {
-    const { movies } = this.props;
-    movies.push(state);
-    console.log(movies);
-    this.filterSelection(undefined, movies);
+    const { movies } = this.state;
+    const moviesUpdates = [...movies, state];
+    this.setState({
+      movies: moviesUpdates,
+    });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies: movieState } = this.state;
     return (
       <div>
         <SearchBar
@@ -79,7 +80,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList
-          movies={ movies }
+          movies={ movieState }
         />
         <AddMovie onClick={ this.newMovie } />
       </div>
