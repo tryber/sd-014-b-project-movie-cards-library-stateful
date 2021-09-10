@@ -4,8 +4,20 @@ import { SearchBar } from './SearchBar';
 import { AddMovie } from './AddMovie';
 
 export class MovieLibrary extends Component {
-  render() {
+  constructor() {
+    super();
+
     const { movies } = this.props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+  }
+
+  render() {
+    const {searchText, bookmarkedOnly, selectedGenre, movies} = this.state;
     return (
       <div>
         <SearchBar />
