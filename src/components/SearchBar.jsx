@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import InputCheckbox from './InputCheckbox';
 
 export default class SearchBar extends Component {
   render() {
@@ -24,16 +25,7 @@ export default class SearchBar extends Component {
             value={ searchText }
           />
         </label>
-        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
-          <p> Mostrar somente favoritos </p>
-          <input
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
-            id="checkbox-input"
-          />
-        </label>
+        <InputCheckbox value={ bookmarkedOnly } onChange={ onBookmarkedChange } />
         <label data-testid="select-input-label" htmlFor="select-input">
           <p>Filtrar por gênero</p>
           <select
