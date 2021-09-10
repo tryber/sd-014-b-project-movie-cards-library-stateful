@@ -30,8 +30,8 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  restore(event) {
-    event.preventDefault();
+  restore() {
+    // event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -72,7 +72,7 @@ class AddMovie extends React.Component {
           handleChange={ this.handleInputChange }
         />
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
           onClick={ this.restore }
         >
