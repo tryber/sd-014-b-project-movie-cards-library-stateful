@@ -1,13 +1,13 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import AddTitle from './Title';
-import AddSubtitle from './Subtitle';
-import AddImage from './Image';
-import AddStoryline from './Storyline';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import Image from './Image';
+import Storyline from './Storyline';
 import AddRating from './AddRating';
-import AddGenre from './Genre';
-import AddButton from './Button';
+import Genre from './Genre';
+import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -37,13 +37,13 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <AddTitle value={ title } onChange={ this.handleChange } />
-        <AddSubtitle value={ subtitle } onChange={ this.handleChange } />
-        <AddImage value={ imagePath } onChange={ this.handleChange } />
-        <AddStoryline value={ storyline } onChange={ this.handleChange } />
+        <Title value={ title } onChange={ this.handleChange } />
+        <Subtitle value={ subtitle } onChange={ this.handleChange } />
+        <Image value={ imagePath } onChange={ this.handleChange } />
+        <Storyline value={ storyline } onChange={ this.handleChange } />
         <AddRating value={ Number(rating) } onChange={ this.handleChange } />
-        <AddGenre value={ genre } onChange={ this.handleChange } />
-        <AddButton onClick={ (event) => onClick(event, this.state) } />
+        <Genre value={ genre } onChange={ this.handleChange } />
+        <Button onClick={ (event) => onClick(event, this.state) } />
       </form>
     );
   }
