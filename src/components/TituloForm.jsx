@@ -9,6 +9,7 @@ class Titulo extends Component {
       <label htmlFor="control1" data-testid="title-input-label">
         Título
         <input
+          id="title"
           name="title"
           type="text"
           data-testid="title-input"

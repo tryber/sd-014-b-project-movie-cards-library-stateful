@@ -8,6 +8,7 @@ class Subtitulo extends Component {
       <label htmlFor="control2" data-testid="subtitle-input-label">
         Subtítulo
         <input
+          id="subtitle"
           name="subtitle"
           type="text"
           data-testid="subtitle-input"

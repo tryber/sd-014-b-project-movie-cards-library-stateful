@@ -7,12 +7,13 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
+    const { movies } = props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
+      moviesBackup: movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -46,38 +47,46 @@ class MovieLibrary extends Component {
     }
   }
 
-  onSelectedGenreChange({ target }) {
+  onSelectedGenreChange({ target: { value } }) {
     this.setState({
-      selectedGenre: target.value,
+      selectedGenre: value,
     });
-    this.filterGenders(target.value);
+    this.filterGenders(value);
   }
 
   onClick(state) {
+    const { movies } = this.props;
     console.log(state);
+    const arrayMovies = [...movies, state];
+    console.log(arrayMovies);
+
+    this.setState({
+      movies: arrayMovies,
+      moviesBackup: arrayMovies,
+    });
+    console.log(this.state.movies);
   }
 
   filterFavorited() {
-    const { movies } = this.props;
-    const { bookmarkedOnly } = this.state;
-    const favoritedMoviesTrue = movies.filter((movie) => movie.bookmarked === true);
+    const { bookmarkedOnly, moviesBackup } = this.state;
+    const favoritedMoviesTrue = moviesBackup.filter((movie) => movie.bookmarked === true);
     if (!bookmarkedOnly) {
       this.setState({
         movies: favoritedMoviesTrue,
       });
     } else {
       this.setState({
-        movies,
+        movies: moviesBackup,
       });
     }
   }
 
   filterGenders(gender) {
-    const { movies } = this.props;
-    const favoritedGender = movies.filter((movie) => gender === movie.genre);
+    const { moviesBackup } = this.state;
+    const favoritedGender = moviesBackup.filter((movie) => gender === movie.genre);
     if (gender === '') {
       this.setState({
-        movies,
+        movies: moviesBackup,
       });
     } else {
       this.setState({
@@ -87,8 +96,8 @@ class MovieLibrary extends Component {
   }
 
   filterSearch(search) {
-    const { movies } = this.props;
-    const searchResult = movies.filter((movie) => movie.title.includes(search)
+    const { moviesBackup } = this.state;
+    const searchResult = moviesBackup.filter((movie) => movie.title.includes(search)
     || movie.subtitle.includes(search) || movie.storyline.includes(search));
 
     this.setState({

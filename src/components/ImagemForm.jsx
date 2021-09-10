@@ -9,6 +9,7 @@ class Imagem extends Component {
       <label htmlFor="control3" data-testid="image-input-label">
         Imagem
         <input
+          id="imagePath"
           name="imagePath"
           type="text"
           data-testid="image-input"

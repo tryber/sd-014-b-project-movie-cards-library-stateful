@@ -9,6 +9,7 @@ class Avaliator extends Component {
       <label htmlFor="control4" data-testid="rating-input-label">
         Avaliação
         <input
+          id="rating"
           name="rating"
           type="number"
           data-testid="rating-input"

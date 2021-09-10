@@ -9,6 +9,7 @@ class Sinopse extends Component {
       <label htmlFor="control4" data-testid="storyline-input-label">
         Sinopse
         <textarea
+          id="storyline"
           name="storyline"
           type="text"
           data-testid="storyline-input"

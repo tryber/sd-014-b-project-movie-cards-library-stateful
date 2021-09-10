@@ -20,6 +20,7 @@ class AddMovie extends Component {
     };
 
     this.handleMovie = this.handleMovie.bind(this);
+    this.addAndReset = this.addAndReset.bind(this);
   }
 
   handleMovie({ target }) {
@@ -28,12 +29,45 @@ class AddMovie extends Component {
     this.setState({
       [name]: value,
     });
+    console.log(this.state);
+    /* valorInput = (name) => {
+      const { title, subtitle, imagePath, storyline, rating, genre } = name;
+      const card = {
+        title,
+        subtitle,
+        imagePath,
+        storyline,
+        rating,
+        genre,
+      };
+      this.setState({
+
+      });
+    }; */
   }
 
-  addAndReset = () => {
-    const { onClick } = this.props;
+  gambiarra = () => {
+    const idTitle = document.querySelector('#title').value;
+    const idSubtitle = document.querySelector('#subtitle').value;
+    const idImagePath = document.querySelector('#imagePath').value;
+    const idStoryline = document.querySelector('#storyline').value;
+    const idGenre = document.querySelector('#genre').value;
+    const idRating = document.querySelector('#rating').value;
+    const card = {
+      title: idTitle,
+      subtitle: idSubtitle,
+      imagePath: idImagePath,
+      storyline: idStoryline,
+      rating: idRating,
+      genre: idGenre,
+    };
+    return card;
+  }
 
-    onClick(this.state);
+  addAndReset(callback) {
+    const functionGambiarra = this.gambiarra();
+    console.log(functionGambiarra);
+    callback(functionGambiarra);
 
     this.setState({
       subtitle: '',
@@ -47,6 +81,7 @@ class AddMovie extends Component {
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Titulo value={ title } handleMovie={ this.handleMovie } />
@@ -58,7 +93,7 @@ class AddMovie extends Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.addAndReset }
+          onClick={ () => this.addAndReset(onClick) }
         >
           Adicionar filme
         </button>
