@@ -41,7 +41,7 @@ const selectTestId = 'select-input';
 const movieCardTestId = 'movie-card';
 const movieCardTitleId = 'movie-card-title';
 
-describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
+describe.only('15 - Crie um componente chamado `<MovieLibrary />`', () => {
   it('Renderize o componente', () => {
     render(<MovieLibrary movies={ movies } />);
   });
