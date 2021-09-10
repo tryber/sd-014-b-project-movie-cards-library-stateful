@@ -12,10 +12,6 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectGenre: 'Todos',
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
       movies: data,
     };
   }
@@ -68,6 +64,7 @@ class MovieLibrary extends Component {
       subtitle,
       imagePath,
       storyline,
+      rating,
     } = this.state;
     return (
       <div>
@@ -86,6 +83,7 @@ class MovieLibrary extends Component {
           subtitle={ subtitle }
           imagePath={ imagePath }
           storyline={ storyline }
+          rating={ rating }
         />
       </div>
     );

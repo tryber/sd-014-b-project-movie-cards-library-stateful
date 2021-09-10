@@ -1,60 +1,38 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import ImagepathInput from './AddMovieInputs/ImagepathInput';
+import RatingInput from './AddMovieInputs/RatingInput';
+import TitleInput from './AddMovieInputs/TitleInput';
+import SubtitleInput from './AddMovieInputs/SubtitleInput';
+import StorylineInput from './AddMovieInputs/StorylineInput';
+import GenreInput from './AddMovieInputs/GenreInput';
 
 class AddMovie extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline } = this.props;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título:
-          <input
-            type="text"
-            id="title-input"
-            title={ title }
-            data-testid="title-input"
-
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo:
-          <input
-            type="text"
-            id="subtitle-input"
-            subtitle={ subtitle }
-            data-testid="subtitle-input"
-
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem:
-          <input
-            type="text"
-            id="image-input"
-            data-testid="image-input"
-            imagePath={ imagePath }
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse:
-          <textarea
-            id="storyline-input"
-            cols="30"
-            rows="10"
-            storyline={ storyline }
-            data-testid="storyline-input"
-          />
-        </label>
+        <TitleInput title={ title } />
+        <SubtitleInput subtitle={ subtitle } />
+        <ImagepathInput imagePath={ imagePath } />
+        <StorylineInput storyline={ storyline } />
+        <RatingInput rating={ rating } />
+        <GenreInput genre={ genre } />
       </form>
     );
   }
 }
-
-AddMovie.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-};
 
 export default AddMovie;
