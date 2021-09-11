@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RatingInput from './RatingInput';
 import TextareaInput from './TextareaInput';
 import TextInput from './TextInput';
 
@@ -38,6 +39,7 @@ class AddMovie extends Component {
         <TextInput handleClick={ this.handleClick } value={ subtitle } type="subtitle" data="subtitle-input" label="Subtítulo"/>
         <TextInput handleClick={ this.handleClick } value={ imagePath } type="image" data="image-input" label="Imagem"/>
         <TextareaInput handleClick={ this.handleClick } value={ storyline } type="storyline" data="storyline-input" label="Sinopse"/>
+        <RatingInput handleClick={ this.handleClick } value={ rating } type="rating" data="rating-input" label="Avaliação"/>
     </form>;
   }
 }
