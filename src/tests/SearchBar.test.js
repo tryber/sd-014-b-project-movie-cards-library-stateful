@@ -106,7 +106,7 @@ describe('4 - Renderize um input do tipo checkbox dentro do formulário em `<Sea
     expect(checkboxInput).toBeChecked();
   });
 
-  it('Passe a prop `onBookmarkedChange` para o atributo `onChange` do input', () => {
+  it.only('Passe a prop `onBookmarkedChange` para o atributo `onChange` do input', () => {
     const { getByTestId } = searchBar();
     const checkboxInput = getByTestId(checkboxTestId);
     event.click(checkboxInput);
