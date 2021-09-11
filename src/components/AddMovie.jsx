@@ -22,8 +22,7 @@ export default class AddMovie extends Component {
     this.resetState = this.resetState.bind(this);
   }
 
-  handleChange({ target }) {
-    const { name, value } = target;
+  handleChange({ target: { name, value } }) {
     this.setState({ [name]: value });
   }
 
@@ -41,11 +40,11 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Title
-          title={ title }
+          titleValue={ title }
           onChange={ this.handleChange }
         />
         <Subtitle
