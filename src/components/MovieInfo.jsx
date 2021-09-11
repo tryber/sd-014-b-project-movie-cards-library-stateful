@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import InputWithLabel from './InputWithLabel';
+import TextInput from './TextInput';
 
 class MovieInfo extends Component {
   render() {
@@ -8,23 +8,25 @@ class MovieInfo extends Component {
 
     return (
       <>
-        <InputWithLabel
-          label="Título"
-          type="text"
-          name="title"
-          value={ title }
-          onChange={ onChange }
-          dataTestid="title-input"
-        />
-        <InputWithLabel
-          label="Subtítulo"
-          type="text"
-          name="subtitle"
-          value={ subtitle }
-          onChange={ onChange }
-          dataTestid="subtitle-input"
-        />
-        <InputWithLabel
+        <section className="field-body">
+          <TextInput
+            label="Título"
+            type="text"
+            name="title"
+            value={ title }
+            onChange={ onChange }
+            dataTestid="title-input"
+          />
+          <TextInput
+            label="Subtítulo"
+            type="text"
+            name="subtitle"
+            value={ subtitle }
+            onChange={ onChange }
+            dataTestid="subtitle-input"
+          />
+        </section>
+        <TextInput
           label="Imagem"
           type="text"
           name="imagePath"

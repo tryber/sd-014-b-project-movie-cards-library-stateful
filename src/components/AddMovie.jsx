@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieInfo from './MovieInfo';
 import GenreInput from './GenreInput';
+import StorylineInput from './StorylineInput';
+import RatingInput from './RatingInput';
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -40,42 +42,40 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form onSubmit={ this.handleClick } data-testid="add-movie-form">
+      <form
+        className="add-movie-form field"
+        onSubmit={ this.handleClick }
+        data-testid="add-movie-form"
+      >
         <MovieInfo
           title={ title }
           subtitle={ subtitle }
           imagePath={ imagePath }
           onChange={ this.handleChange }
         />
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            type="text"
-            name="storyline"
-            id="storyline-input"
-            value={ storyline }
-            onChange={ this.handleChange }
-            data-testid="storyline-input"
-          />
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            id="rating-input"
+        <StorylineInput
+          storyline={ storyline }
+          onChange={ this.handleChange }
+        />
+        <section className="field-body">
+          <RatingInput
             value={ rating }
             onChange={ this.handleChange }
-            data-testid="rating-input"
           />
-        </label>
-        <GenreInput genre={ genre } onChange={ this.handleChange } />
-        <button
-          type="submit"
-          data-testid="send-button"
-        >
-          Adicionar filme
-        </button>
+          <GenreInput
+            genre={ genre }
+            onChange={ this.handleChange }
+          />
+        </section>
+        <section className="field">
+          <button
+            className="button is-link"
+            type="submit"
+            data-testid="send-button"
+          >
+            Adicionar filme
+          </button>
+        </section>
       </form>
     );
   }
