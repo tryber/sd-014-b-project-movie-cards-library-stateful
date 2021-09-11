@@ -13,24 +13,26 @@ class MovieLibrary extends Component {
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
-      selectGenre: 'Todos',
+      selectGenre: '',
       movies,
     };
 
     this.onInputChange = this.onInputChange.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
+    this.filtering = this.filtering.bind(this);
   }
 
-  onInputChange = ({ target }) => {
+  onInputChange({ target }) {
     const { name } = target;
     const value = (target.type !== 'checkbox') ? target.value : target.checked;
     this.setState({
       [name]: value,
     });
+    this.filtering();
   }
 
-  filtering = () => {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+  filtering() {
+    const { searchText, bookmarkedOnly, selectGenre, movies } = this.state;
 
     if (searchText !== '') {
       return movies.filter((element) => element.title.toLowerCase()
@@ -38,9 +40,8 @@ class MovieLibrary extends Component {
     || element.subtitle.toLowerCase().includes(searchText)
     || element.storyline.toLowerCase().includes(searchText));
     }
-
-    if (selectedGenre !== '') {
-      return movies.filter((movie) => movie.genre === selectedGenre);
+    if (selectGenre !== '') {
+      return movies.filter((movie) => movie.genre === selectGenre);
     }
     if (bookmarkedOnly) {
       return movies.filter((movie) => movie.bookmarked === bookmarkedOnly);
@@ -48,7 +49,7 @@ class MovieLibrary extends Component {
     return movies;
   }
 
-  addNewMovie = (eleCurrState) => {
+  addNewMovie(eleCurrState) {
     const { movies } = this.props;
     this.setState({
       movies: [...movies, eleCurrState],
@@ -56,7 +57,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectGenre } = this.state;
 
     return (
       <div>
@@ -68,10 +69,9 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.onInputChange }
           selectGenre={ selectGenre }
           onSelectedGenreChange={ this.onInputChange }
-          movies={ movies }
         />
         <MovieList movies={ this.filtering() } />
-        <AddMovie onClick={ this.addNewMovie } />
+        <AddMovie addFunc={ this.addNewMovie } />
       </div>
     );
   }
