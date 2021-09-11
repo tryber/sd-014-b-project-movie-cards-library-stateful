@@ -40,9 +40,9 @@ class MovieLibrary extends React.Component {
     let filtedmovies = movies;
     if (searchText !== '') {
       filtedmovies = filtedmovies.filter((movie) => movie.title.toLowerCase()
-        .includes(searchText)
-      || movie.subtitle.toLowerCase().includes(searchText)
-      || movie.storyline.toLowerCase().includes(searchText));
+        .includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
     }
     if (bookmarkedOnly === true) {
       filtedmovies = filtedmovies.filter((movie) => movie.bookmarked === true);
@@ -56,7 +56,7 @@ class MovieLibrary extends React.Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
-      <div>
+      <div className="container">
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }
