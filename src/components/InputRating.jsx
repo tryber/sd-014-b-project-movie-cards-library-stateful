@@ -7,7 +7,7 @@ class InputRating extends Component {
     return (
       <label htmlFor="title" data-testid="rating-input-label">
         Avaliação
-        <textarea
+        <input
           name="rating"
           data-testid="rating-input"
           type="number"
