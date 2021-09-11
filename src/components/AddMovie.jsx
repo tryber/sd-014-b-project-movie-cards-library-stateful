@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextareaInput from './TextareaInput';
 import TextInput from './TextInput';
 
 class AddMovie extends Component {
@@ -35,6 +36,8 @@ class AddMovie extends Component {
     return <form data-testid="add-movie-form" onSubmit={this.handleSubmit}>
         <TextInput handleClick={ this.handleClick } value={ title } type="title" data="title-input" label="Título"/>
         <TextInput handleClick={ this.handleClick } value={ subtitle } type="subtitle" data="subtitle-input" label="Subtítulo"/>
+        <TextInput handleClick={ this.handleClick } value={ imagePath } type="image" data="image-input" label="Imagem"/>
+        <TextareaInput handleClick={ this.handleClick } value={ storyline } type="storyline" data="storyline-input" label="Sinopse"/>
     </form>;
   }
 }
