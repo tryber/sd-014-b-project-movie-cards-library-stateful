@@ -1,8 +1,8 @@
 // // implement MovieLibrary component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
@@ -16,6 +16,7 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   // ajustar função
@@ -46,10 +47,11 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     // filtra por titulo,subtitulo e sinopse
     const searchMovies = movies.filter((movie) => {
-      const checkMovie = (movie.title.toLowerCase().includes(searchText.toLowerCase())
-      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
-      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
-      return checkMovie;
+      const checkFilterMovie = (movie.title.toLowerCase()
+        .includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
+      return checkFilterMovie;
     });
 
     const favoriteMovie = bookmarkedOnly ? searchMovies
@@ -70,7 +72,6 @@ class MovieLibrary extends Component {
 
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }

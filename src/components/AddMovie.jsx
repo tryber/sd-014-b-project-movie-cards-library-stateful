@@ -7,7 +7,7 @@ import FormsStoryline from './Forms/FormsStoryline';
 import FormsImage from './Forms/FormsImage';
 import FormsRating from './Forms/FormsRating';
 import FormsGenre from './Forms/FormsGenre';
-import SubmitButton from './Forms/SubmitButton';
+// import SubmitButton from './Forms/SubmitButton';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -62,14 +62,14 @@ class AddMovie extends Component {
         <FormsStoryline storyline={ storyline } onChange={ this.handleChange } />
         <FormsRating rating={ rating } onChange={ this.handleChange } />
         <FormsGenre genre={ genre } onChange={ this.handleChange } />
-        <SubmitButton onClick={ this.handleClick } />
-        {/* <button
+        {/* <SubmitButton onClick={ this.handleClick } /> */}
+        <button
           type="submit"
           data-testid="send-button"
           onClick={ this.handleClick }
         >
           Adicionar filme
-        </button> */}
+        </button>
       </form>
     );
   }
