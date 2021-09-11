@@ -29,10 +29,11 @@ class AddMovie extends Component {
     });
   }
 
-  handleClick = () => {
-    // event.preventDefault();
+  handleClick = (event) => {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
+    console.log(this.rating);
 
     this.setState({
       title: '',
