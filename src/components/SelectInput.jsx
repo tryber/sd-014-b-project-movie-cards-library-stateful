@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 class SelectInput extends React.Component {
@@ -20,6 +21,11 @@ class SelectInput extends React.Component {
       </label>
     );
   }
+}
+
+SelectInput.propTypes = {
+  genre: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 export default SelectInput;
