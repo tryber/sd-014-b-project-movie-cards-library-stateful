@@ -1,19 +1,16 @@
 import React from 'react';
 import Header from './components/Header';
 import './App.css';
-import AddMovie from './components/AddMovie';
-import SearchBar from './components/SearchBar';
+import MovieLibrary from './components/MovieLibrary';
 
-class App extends React.Component{ 
-  onClick(state) {
-    console.log(state);
-  }
+import movies from './data';
 
+class App extends React.Component{
   render(){
     return (
       <main className="App">
         <Header />
-        <AddMovie onClick={ this.onClick }/>
+        <MovieLibrary movies={movies}/>
       </main>
     );
   }
