@@ -14,43 +14,42 @@ class SearchBar extends Component {
     } = this.props;
 
     return (
-      <div className="search-bar">
-        <form data-testid="search-bar-form">
-          <Input
-            description="Inclui o texto"
-            type="text"
-            value={ searchText }
-            id="searchText"
-            onChange={ onSearchTextChange }
-            dataTestIdLabel="text-input-label"
-            dataTestIdInput="text-input"
-          />
-          <Input
-            description="Mostrar somente favoritos"
-            type="checkbox"
-            value="show-favorite"
-            id="show-favorite"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-            dataTestIdInput="checkbox-input"
-            dataTestIdLabel="checkbox-input-label"
-          />
-          <label htmlFor="filter-genre" data-testid="select-input-label">
-            Filtrar por gênero
-            <select
-              id="filter-genre"
-              value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
-              data-testid="select-input"
-            >
-              <option value="" data-testid="select-option">Todos</option>
-              <option value="action" data-testid="select-option">Ação</option>
-              <option value="comedy" data-testid="select-option">Comédia</option>
-              <option value="thriller" data-testid="select-option">Suspense</option>
-            </select>
-          </label>
-        </form>
-      </div>
+      <form data-testid="search-bar-form">
+        <Input
+          description="Inclui o texto"
+          type="text"
+          value={ searchText }
+          name="searchText"
+          onChange={ onSearchTextChange }
+          dataTestIdLabel="text-input-label"
+          dataTestIdInput="text-input"
+        />
+        <Input
+          description="Mostrar somente favoritos"
+          type="checkbox"
+          name="bookmarkedOnly"
+          id="bookmarkedOnly"
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
+          dataTestIdInput="checkbox-input"
+          dataTestIdLabel="checkbox-input-label"
+        />
+        <label htmlFor="filter-genre" data-testid="select-input-label">
+          Filtrar por gênero
+          <select
+            id="filter-genre"
+            value={ selectedGenre }
+            name="selectedGenre"
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
+          >
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
+          </select>
+        </label>
+      </form>
     );
   }
 }
