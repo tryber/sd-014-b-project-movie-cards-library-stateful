@@ -19,23 +19,46 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.initialState = this.initialState.bind(this);
+    this.inputChange = this.inputChange.bind(this);
+  }
+
+  initialState() {
+    const { onClick } = this.props;
+
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  inputChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { addNewMovie } = this.props;
+
     return (
       <form data-testid="add-movie-form">
-        <TitleInput title={ title } />
-        <SubtitleInput subtitle={ subtitle } />
-        <ImagepathInput imagePath={ imagePath } />
-        <StorylineInput storyline={ storyline } />
-        <RatingInput rating={ rating } />
-        <GenreInput genre={ genre } />
+        <TitleInput title={ title } inputChange={ this.inputChange } />
+        <SubtitleInput subtitle={ subtitle } inputChange={ this.inputChange } />
+        <ImagepathInput imagePath={ imagePath } inputChange={ this.inputChange } />
+        <StorylineInput storyline={ storyline } inputChange={ this.inputChange } />
+        <RatingInput rating={ rating } inputChange={ this.inputChange } />
+        <GenreInput genre={ genre } inputChange={ this.inputChange } />
         <button
           type="button"
           data-testid="send-button"
-          onClick={ addNewMovie }
+          onClick={ this.initialState }
         >
           Adicionar filme
         </button>

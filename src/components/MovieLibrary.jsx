@@ -28,7 +28,6 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     });
-    this.filtering();
   }
 
   filtering() {
@@ -71,7 +70,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onInputChange }
         />
         <MovieList movies={ this.filtering() } />
-        <AddMovie addFunc={ this.addNewMovie } />
+        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }
