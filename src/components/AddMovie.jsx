@@ -4,6 +4,7 @@ import GenreMovie from './GenreMovie';
 import ImageMovie from './ImageMovie';
 import RatingMovie from './RatingMovie';
 import SinopseMovie from './SinopseMovie';
+import TitleMovie from './TitleMovie';
 
 const initialState = {
   title: '',
@@ -41,35 +42,7 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <div className="mb-3">
-          <label
-            className="form-label"
-            data-testid="title-input-label"
-            htmlFor="title-input"
-          >
-            Título
-          </label>
-          <input
-            className="form-control"
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </div>
-        <div className="mb-3">
-          <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-            Subtítulo
-            <input
-              type="text"
-              name="subtitle"
-              value={ subtitle }
-              data-testid="subtitle-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-        </div>
+        <TitleMovie title={ title } handleChange={ this.handleChange } />
         <ImageMovie handleChange={ this.handleChange } value={ imagePath } />
         <SinopseMovie handleChange={ this.handleChange } value={ storyline } />
         <RatingMovie handleChange={ this.handleChange } value={ rating } />

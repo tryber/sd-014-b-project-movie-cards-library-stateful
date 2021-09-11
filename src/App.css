@@ -82,3 +82,7 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.subtitle {
+  margin-top: 20px;
+}
