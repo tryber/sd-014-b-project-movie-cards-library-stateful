@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const initialState = {
   subtitle: '',
@@ -15,6 +16,12 @@ class AddMovie extends React.Component {
     this.state = initialState;
   }
 
+  handleChange = (event) => {
+    this.setState({
+      title: event.target.value,
+    });
+  };
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
@@ -23,9 +30,20 @@ class AddMovie extends React.Component {
         <form data-testid="add-movie-form">
           <p>Olá!</p>
         </form>
+        <label
+          htmlFor="title"
+          data-testid="title-input-label"
+        >
+          Título
+          <input
+            data-testid="title-input"
+            type="text"
+            value={ title }
+            onChange={ this.handleChange }
+          />
+        </label>
         <div>
           { subtitle }
-          { title }
           { imagePath }
           { storyline }
           { rating }
@@ -36,5 +54,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
