@@ -5,13 +5,15 @@ import AddMovie from './components/AddMovie';
 import SearchBar from './components/SearchBar';
 
 class App extends React.Component{ 
-
+  onClick(state) {
+    console.log(state);
+  }
 
   render(){
     return (
       <main className="App">
         <Header />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick }/>
       </main>
     );
   }

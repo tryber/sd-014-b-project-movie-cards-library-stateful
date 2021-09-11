@@ -4,7 +4,7 @@ class TextareaInput extends Component {
     render() {
         return <label data-testid={ this.props.data + "-label"}>
         {this.props.label}
-        <textarea type="textarea" name={ this.props.type } onChange={ this.props.handleClick } data-testid={ this.props.data }></textarea>
+        <textarea type="textarea" id="stoyline" name={ this.props.type } onChange={ this.props.handleClick } data-testid={ this.props.data }></textarea>
     </label>
     }
 }
