@@ -13,7 +13,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
@@ -67,14 +67,14 @@ class AddMovie extends React.Component {
   }
 
   secondPartForm() {
-    const { storyLine, rating, genre } = this.state;
+    const { storyline, rating, genre } = this.state;
     return (
       <div>
-        <label htmlFor="storyLine" data-testid="storyline-input-label">
+        <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea
-            value={ storyLine }
-            id="storyLine"
+            value={ storyline }
+            id="storyline"
             data-testid="storyline-input"
             onChange={ this.handleChange }
           />
@@ -123,7 +123,7 @@ class AddMovie extends React.Component {
                 subtitle: '',
                 title: '',
                 imagePath: '',
-                storyLine: '',
+                storyline: '',
                 rating: 0,
                 genre: 'action',
               }));
