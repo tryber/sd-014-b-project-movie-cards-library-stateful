@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
+// import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor() {
@@ -12,14 +13,20 @@ class MovieLibrary extends React.Component {
       // bookmarkedOnly: false,
       // selectedGenre: '',
     };
+    this.onClick = this.onClick.bind(this);
   }
 
   onClick = (state) => {
     console.log(state);
+    // const { movies } = this.props;
+    // this.setState({
+    //   movies: [...movies, state],
+    // });
   }
 
   render() {
     const { movies } = this.props;
+    // const { movies } = this.state;
     return (
       <section>
         <SearchBar />
