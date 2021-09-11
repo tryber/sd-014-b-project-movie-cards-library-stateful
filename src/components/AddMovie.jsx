@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const initialState = {
   subtitle: '',
@@ -54,9 +53,5 @@ class AddMovie extends React.Component {
     );
   }
 }
-
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
 
 export default AddMovie;
