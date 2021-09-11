@@ -5,14 +5,14 @@ class ImagePath extends Component {
   render() {
     const { value, funcCallback } = this.props;
     return (
-      <label htmlFor="title" data-testid="image-input-label">
-        Título
+      <label htmlFor="image" data-testid="image-input-label">
+        Imagem
         <input
-          name="image"
+          name="imagePath"
           data-testid="image-input"
           type="text"
           value={ value }
-          id="subtitle"
+          id="image"
           onChange={ funcCallback }
         />
       </label>
