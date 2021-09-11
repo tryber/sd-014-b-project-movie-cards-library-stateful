@@ -22,6 +22,7 @@ class TitleInput extends React.Component {
 
 TitleInput.propTypes = {
   title: PropTypes.string.isRequired,
+  inputChange: PropTypes.func.isRequired,
 };
 
 export default TitleInput;

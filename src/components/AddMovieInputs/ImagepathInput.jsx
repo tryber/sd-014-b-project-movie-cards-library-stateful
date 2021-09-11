@@ -22,6 +22,7 @@ class ImagepathInput extends React.Component {
 
 ImagepathInput.propTypes = {
   imagePath: PropTypes.string.isRequired,
+  inputChange: PropTypes.func.isRequired,
 };
 
 export default ImagepathInput;

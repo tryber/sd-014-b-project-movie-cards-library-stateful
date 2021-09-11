@@ -23,6 +23,7 @@ class StorylineInput extends React.Component {
 
 StorylineInput.propTypes = {
   storyline: PropTypes.string.isRequired,
+  inputChange: PropTypes.func.isRequired,
 };
 
 export default StorylineInput;

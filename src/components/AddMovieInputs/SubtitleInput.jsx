@@ -22,6 +22,7 @@ class SubtitleInput extends React.Component {
 
 SubtitleInput.propTypes = {
   subtitle: PropTypes.string.isRequired,
+  inputChange: PropTypes.func.isRequired,
 };
 
 export default SubtitleInput;

@@ -24,6 +24,7 @@ class GenreInput extends React.Component {
 
 GenreInput.propTypes = {
   genre: PropTypes.string.isRequired,
+  inputChange: PropTypes.func.isRequired,
 };
 
 export default GenreInput;
