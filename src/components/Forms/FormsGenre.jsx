@@ -5,7 +5,7 @@ class FormsGenre extends Component {
   render() {
     const { genre, onChange } = this.props;
     return (
-      <label htmlFor="select-input" data-testid="genre-input-label">
+      <label htmlFor="genre-input" data-testid="genre-input-label">
         Gênero
         <select
           name="genre"
@@ -13,9 +13,9 @@ class FormsGenre extends Component {
           onChange={ onChange }
           data-testid="genre-input"
         >
-          <option value="action" data-testid="select-option">Ação</option>
-          <option value="comedy" data-testid="select-option">Comédia</option>
-          <option value="thriller" data-testid="select-option">Suspense</option>
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
       </label>
     );

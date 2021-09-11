@@ -56,6 +56,7 @@ class AddMovie extends Component {
 
     return (
       <form data-testid="add-movie-form">
+
         <FormsTitle title={ title } onChange={ this.handleChange } />
         <FormsSubtitle subtitle={ subtitle } onChange={ this.handleChange } />
         <FormsImage imagePath={ imagePath } onChange={ this.handleChange } />
@@ -65,8 +66,8 @@ class AddMovie extends Component {
         {/* <SubmitButton onClick={ this.handleClick } /> */}
         <button
           type="submit"
-          data-testid="send-button"
           onClick={ this.handleClick }
+          data-testid="send-button"
         >
           Adicionar filme
         </button>
