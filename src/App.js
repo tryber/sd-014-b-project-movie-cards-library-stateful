@@ -4,14 +4,17 @@ import './App.css';
 import AddMovie from './components/AddMovie';
 import SearchBar from './components/SearchBar';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar />
-      <AddMovie />
-    </div>
-  );
+class App extends React.Component{ 
+
+
+  render(){
+    return (
+      <main className="App">
+        <Header />
+        <AddMovie />
+      </main>
+    );
+  }
 }
 
 export default App;
