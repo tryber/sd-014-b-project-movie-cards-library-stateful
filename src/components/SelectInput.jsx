@@ -26,6 +26,6 @@ class SelectInput extends React.Component {
 SelectInput.propTypes = {
   genre: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export default SelectInput;
