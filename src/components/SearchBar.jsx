@@ -1,76 +1,47 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-// import MovieList from './MovieList';
+import Input from './Input';
+import Checkbox from './Checkbox';
 
 class SearchBar extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: '',
-      selectedGenre: '',
-    };
-  }
-
-  onSearchTextChange = (event) => {
-    this.setState({
-      searchText: event.target.value,
-    });
-  }
-
-  onBookmarkedChange = (event) => {
-    this.setState({
-      bookmarkedOnly: event.target.value,
-    });
-  }
-
-  onSelectedGenreChange = (event) => {
-    this.setState({
-      selectedGenre: event.target.value,
-    });
-  }
-
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
+    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
     return (
       <form className="formSearchBar" data-testid="search-bar-form">
-        <label htmlFor="inputSearch" data-testid="text-input-label">
-          Inclui o texto:
-          <br />
-          <input
-            id="inputSearch"
-            name="textSearch"
-            type="text"
-            value={ searchText }
-            onChange={ this.onSearchTextChange }
-          />
-        </label>
-        <br />
-        <label htmlFor="inputCheck" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            id="inputCheck"
-            data-testid="checkbox-input"
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ this.onBookmarkedChange }
-          />
-        </label>
-        <br />
+        <Input
+          textLabel="Inclui o texto:"
+          testIdLabel="text-input-label"
+          type="text"
+          id="inputSeach"
+          name="inputSearch"
+          value={ searchText }
+          onChange={ onSearchTextChange }
+          dataTestId="text-input"
+        />
+        <Checkbox
+          textLabel="Mostrar somente favoritos"
+          testLabel="checkbox-input-label"
+          type="checkbox"
+          id="inputCheck"
+          name="inputCheck"
+          onChange={ onBookmarkedChange }
+          checked={ bookmarkedOnly }
+          dataTestId="checkbox-input"
+        />
         <label htmlFor="inputSelect" data-testid="select-input-label">
           Filtrar por gênero
           <select
             id="inputSelect"
-            data-testid="select-input"
             value={ selectedGenre }
-            onChange={ this.onSelectedGenreChange }
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
           >
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
           </select>
         </label>
       </form>
@@ -78,13 +49,13 @@ class SearchBar extends Component {
   }
 }
 
-// SearchBar.propTypes = {
-//   searchText: PropTypes.string,
-//   onSearchTextChange: PropTypes.func,
-//   bookmarkedOnly: PropTypes.bool,
-//   onBookmarkedChange: PropTypes.func,
-//   selectedGenre: PropTypes.string,
-//   onSelectedGenreChange: PropTypes.func,
-// };
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
