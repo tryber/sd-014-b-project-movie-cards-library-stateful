@@ -1,4 +1,5 @@
 // implement AddMovie component here
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import BtnAddMovie from './BtnAddMovie';
 import Genre from './Genre';
@@ -20,12 +21,23 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange({ target }) {
+  handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
+  }
+
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -39,11 +51,15 @@ class AddMovie extends Component {
           <Storyline value={ storyline } onChange={ this.handleChange } />
           <Rate value={ rating } onChange={ this.handleChange } />
           <Genre value={ genre } onChange={ this.handleChange } />
-          <BtnAddMovie />
+          <BtnAddMovie onClick={ this.handleClick } />
         </form>
       </div>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
