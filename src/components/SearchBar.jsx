@@ -11,11 +11,11 @@ export default class SearchBar extends Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
-    
+
     return (
       <div>
-        
+        <form data-testid="search-bar-form"></form>
       </div>
-    )
+    );
   }
 }
