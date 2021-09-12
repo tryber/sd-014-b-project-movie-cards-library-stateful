@@ -34,9 +34,38 @@ class MovieLibrary extends Component {
     } else { this.setState({ [name]: value }); }
   }
 
-  render() {
+  searchTextChange = (movies, searchText) => {
+    return movies.filter(
+      (movie) => movie.title.toUpperCase().includes(searchText.toUpperCase())
+        || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+        || movie.storyline.toUpperCase().includes(searchText.toUpperCase()),
+    );
+  }
+
+  selectedGenreChange = (films, selectedGenre) => {
+    if (selectedGenre !== '') {
+      return films.filter((movie) => movie.genre === selectedGenre);
+    }
+    return films;
+  }
+
+  bookmarkedChange = (films, bookmarkedOnly) => {
+    if (bookmarkedOnly) {
+      return films.filter((movie) => movie.bookmarked);
+    }
+    return films;
+  }
+
+  filteredFilms() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    console.log(this.state);
+    let filterMovies = this.bookmarkedChange(movies, bookmarkedOnly);
+    filterMovies = this.selectedGenreChange(filterMovies, selectedGenre);
+    filterMovies = this.searchTextChange(filterMovies, searchText);
+    return filterMovies;
+  }
+
+  render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -49,7 +78,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.handleClick }
           onSelectedGenreChange={ this.handleClick }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filteredFilms() } />
         <AddMovie onClick={ this.onClick } />
       </div>
     );
