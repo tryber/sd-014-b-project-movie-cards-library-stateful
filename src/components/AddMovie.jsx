@@ -1,39 +1,51 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
-  /* constructor() {
+  constructor() {
     super();
     this.state = {
-      subtitle: '',
+      // subtitle: '',
       title: '',
-      imagePath: '',
+      /* imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
+      genre: 'action', */
     };
 
-    this.addMovies = this.addMovies.bind(this);
-  } */
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  /* addMovies({ target }) {
-  } */
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
 
   render() {
-    const { addMovies } = this.props;
+    const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <input
-          value={ addMovies }
-        />
+        <label htmlFor="titleText" data-testid="title-input-label">
+          Título
+          <input
+            name="title"
+            type="text"
+            id="titleText"
+            data-testid="title-input"
+            onChange={ this.handleChange }
+            value={ title }
+          />
+        </label>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = {
+/* AddMovie.propTypes = {
   addMovies: PropTypes.func.isRequired,
-};
+}; */
 
 export default AddMovie;
