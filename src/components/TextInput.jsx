@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class TextInput extends Component {
-    render() {
-      return <label data-testid={ this.props.data + "-label"}>
-          {this.props.label}
-        <input type="text" name={ this.props.type } onChange={ this.props.handleClick } data-testid={ this.props.data }/>
+  render() {
+    const { type, handleClick, data, label } = this.props;
+    return (
+      <label data-testid={ `${data}-label` } htmlFor={ type }>
+        { label }
+        <input
+          type="text"
+          name={ type }
+          onChange={ handleClick }
+          data-testid={ data }
+        />
       </label>
-    }
+    );
+  }
 }
+
+TextInput.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  data: PropTypes.string.isRequired,
+};
 
 export default TextInput;
