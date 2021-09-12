@@ -5,12 +5,12 @@ import MovieLibrary from './components/MovieLibrary';
 
 import movies from './data';
 
-class App extends React.Component{
-  render(){
+class App extends React.Component {
+  render() {
     return (
       <main className="App">
         <Header />
-        <MovieLibrary movies={movies}/>
+        <MovieLibrary movies={ movies } />
       </main>
     );
   }
