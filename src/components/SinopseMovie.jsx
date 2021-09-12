@@ -5,15 +5,23 @@ class SinopseMovie extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <label data-testid="storyline-input-label" htmlFor="image-input">
-        Sinopse
+      <div className="mb-3">
+        <label
+          className="form-label"
+          data-testid="storyline-input-label"
+          htmlFor="image-input"
+        >
+          Sinopse
+        </label>
         <textarea
+          className="form-control"
           name="storyline"
           value={ value }
           data-testid="storyline-input"
           onChange={ handleChange }
         />
-      </label>
+      </div>
+
     );
   }
 }
