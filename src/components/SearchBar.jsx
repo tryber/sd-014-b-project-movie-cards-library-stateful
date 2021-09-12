@@ -14,7 +14,9 @@ export default class SearchBar extends Component {
 
     return (
       <div>
-        <form data-testid="search-bar-form"></form>
+        <form data-testid="search-bar-form">
+          <label data-testid="text-input-label" >Inclui o texto:<input type="text" /></label>
+        </form>
       </div>
     );
   }
