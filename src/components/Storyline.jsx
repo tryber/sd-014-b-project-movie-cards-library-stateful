@@ -9,10 +9,8 @@ class Storyline extends Component {
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
-            name="storyline"
             value={ storyline }
-            cols="30"
-            rows="10"
+            name="storyline"
             data-testid="storyline-input"
             onCanPlay={ onChange }
           />
