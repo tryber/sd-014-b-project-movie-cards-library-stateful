@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
               data-testid="checkbox-input-label"
               type="checkbox"
               onChange={ onBookmarkedChange }
-              checked={ onBookmarkedChange }
+              checked={ bookmarkedOnly }
             />
           </label>
           <label htmlFor="select-input-label" data-testid="select-input-label">
