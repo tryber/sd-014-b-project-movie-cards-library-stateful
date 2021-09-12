@@ -18,6 +18,7 @@ class Sinopse extends React.Component {
     );
   }
 }
+
 Sinopse.propTypes = {
   storyline: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,

@@ -1,5 +1,8 @@
 import React from 'react';
 import Sinopse from './Sinopse';
+import Image from './Image';
+import Title from './Title';
+import Subtitle from './Subtitle';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -30,44 +33,10 @@ class AddMovie extends React.Component {
     return (
       <section>
         <form data-testid="add-movie-form">
-          <label
-            htmlFor="title"
-            data-testid="title-input-label"
-          >
-            Título
-            <input
-              data-testid="title-input"
-              type="text"
-              value={ title }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label
-            htmlFor="subtitle"
-            data-testid="subtitle-input-label"
-          >
-            Subtítulo
-            <input
-              data-testid="subtitle-input"
-              type="text"
-              value={ subtitle }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label
-            htmlFor="image"
-            data-testid="image-input-label"
-          >
-            Imagem
-            <input
-              type="text"
-              alt={ title }
-              data-testid="image-input"
-              value={ imagePath }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <Sinopse storyline={ storyline } handleChange={ this.handleChange } />
+          <Title title={ title } onChange={ this.handleChange } />
+          <Subtitle subtitle={ subtitle } onChange={ this.handleChange } />
+          <Image value={ imagePath } onChange={ this.handleChange } />
+          <Sinopse storyline={ storyline } onChange={ this.handleChange } />
         </form>
       </section>
     );
