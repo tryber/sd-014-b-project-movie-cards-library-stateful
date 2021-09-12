@@ -60,3 +60,6 @@ AddMovie.propTypes = {
 }.isRequired;
 
 export default AddMovie;
+
+// Referência para correções: pull request do aluno Francisco Lucas
+// Link: https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/pull/59/files
