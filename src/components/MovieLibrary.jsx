@@ -18,7 +18,6 @@ class MovieLibrary extends Component {
   }
 
   onClick = (movie) => {
-    console.log(movie);
     const { movies } = this.state;
     this.setState(
       { movies: [...movies, movie] },
