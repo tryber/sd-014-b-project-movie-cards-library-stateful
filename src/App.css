@@ -42,7 +42,6 @@ body {
   width: 300px;
 }
 
-
 .movie-card-image {
   width: 100%;
 }
@@ -98,7 +97,7 @@ body {
   width: 100%;
 }
 
-.formAddMovie {  
+.formAddMovie {
   display: flex;
   flex-direction: column;
   font-size: 20px;
