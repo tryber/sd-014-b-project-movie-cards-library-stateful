@@ -24,9 +24,12 @@ class MovieLibrary extends Component {
   onSearchTextChange({ target: { value } }) {
     const { originalMovieList } = this.state;
     this.setState({ searchText: value });
-    const lowerCase = value.toLowerCase();
+    const query = value.toLowerCase();
+    const condition = ({ title, subtitle, storyline }) => {
+      [title, subtitle, storyline].some((string) => string.toLowerCase().includes(query));
+    };
     const movieList = (value !== '')
-      ? originalMovieList.filter(({ title }) => title.toLowerCase().includes(lowerCase))
+      ? originalMovieList.filter(condition)
       : originalMovieList;
     this.setState({ movies: movieList });
   }
