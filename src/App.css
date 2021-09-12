@@ -98,19 +98,6 @@ body {
   width: 100%;
 }
 
-/* #inputSearch {
-  width: 100%;
-}
-
-#inputCheck {
-  margin-left: 10px;
-}
-
-#inputSelect {
-  margin-left: 10px;
-  width: 130px;
-} */
-
 .formAddMovie {  
   display: flex;
   flex-direction: column;
