@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
@@ -10,7 +10,7 @@ class SearchBar extends Component {
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange,
-    } = this.props;   
+    } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -48,11 +48,19 @@ class SearchBar extends Component {
               <option data-testid="select-option" value="thriller">Suspense</option>
             </select>
           </label>
-    
         </form>
       </div>
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
