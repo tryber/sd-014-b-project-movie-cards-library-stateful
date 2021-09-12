@@ -17,8 +17,11 @@ class MovieLibrary extends Component {
     };
   }
 
-  onClick(state) {
-    console.log(state);
+  onClick = (movie) => {
+    const { movies } = this.state;
+    this.setState(
+      { movies: [...movies, movie] },
+    );
   }
 
   handleCheckbox = (name, checked) => {
