@@ -34,14 +34,6 @@ class MovieLibrary extends Component {
     } else { this.setState({ [name]: value }); }
   }
 
-  searchTextChange = (movies, searchText) => {
-    return movies.filter(
-      (movie) => movie.title.toUpperCase().includes(searchText.toUpperCase())
-        || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
-        || movie.storyline.toUpperCase().includes(searchText.toUpperCase()),
-    );
-  }
-
   selectedGenreChange = (films, selectedGenre) => {
     if (selectedGenre !== '') {
       return films.filter((movie) => movie.genre === selectedGenre);
@@ -54,6 +46,14 @@ class MovieLibrary extends Component {
       return films.filter((movie) => movie.bookmarked);
     }
     return films;
+  }
+
+  searchTextChange(movies, searchText) {
+    return movies.filter(
+      (movie) => movie.title.toUpperCase().includes(searchText.toUpperCase())
+        || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+        || movie.storyline.toUpperCase().includes(searchText.toUpperCase()),
+    );
   }
 
   filteredFilms() {
