@@ -15,7 +15,7 @@ export default class AddMovie extends Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
@@ -53,7 +53,14 @@ export default class AddMovie extends Component {
         <InputImage value={ imagePath } onChange={ this.handleChange } />
         <InputStoryline value={ storyline } onChange={ this.handleChange } />
         <InputRating value={ rating } onChange={ this.handleChange } />
-        <ImputGenre value={ genre } onChanhe={ this.handleChange } />
+        <ImputGenre value={ genre } onChange={ this.handleChange } />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.handleClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

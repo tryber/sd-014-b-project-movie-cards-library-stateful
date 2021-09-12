@@ -6,13 +6,15 @@ export default class InputImage extends Component {
     const { value, onChange } = this.props;
     return (
       <div>
-        <label htmlFor="image-input" data-testid="image-input-label">
+        <label data-testid="image-input-label" htmlFor="image-input">
           Imagem
           <input
-            type="text"
             value={ value }
             onChange={ onChange }
             data-testid="image-input"
+            name="imagePath"
+            type="text"
+            id="imagePath"
           />
         </label>
       </div>

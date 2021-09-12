@@ -6,14 +6,13 @@ export default class InputSubtitle extends Component {
     const { value, onChange } = this.props;
     return (
       <div>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
           Subtítulo
           <input
-            type="text"
             value={ value }
             onChange={ onChange }
             data-testid="subtitle-input"
-            name="subtitle-input"
+            name="subtitle"
           />
         </label>
       </div>

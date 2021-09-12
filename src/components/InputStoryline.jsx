@@ -6,16 +6,13 @@ export default class InputStoryline extends Component {
     const { value, onChange } = this.props;
     return (
       <div>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
+        <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
           <textarea
-            name="storyline"
-            id=""
-            cols="30"
-            rows="10"
-            data-tesid="storyline-input"
             value={ value }
             onChange={ onChange }
+            name="storyline"
+            data-testid="storyline-input"
           />
         </label>
       </div>
@@ -24,5 +21,5 @@ export default class InputStoryline extends Component {
 }
 InputStoryline.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
