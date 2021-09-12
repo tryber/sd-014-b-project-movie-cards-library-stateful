@@ -42,18 +42,26 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <TitleMovie title={ title } handleChange={ this.handleChange } />
+        <TitleMovie
+          title={ title }
+          subtitle={ subtitle }
+          handleChange={ this.handleChange }
+        />
         <ImageMovie handleChange={ this.handleChange } value={ imagePath } />
         <SinopseMovie handleChange={ this.handleChange } value={ storyline } />
         <RatingMovie handleChange={ this.handleChange } value={ rating } />
         <GenreMovie handleChange={ this.handleChange } value={ genre } />
-        <button
-          type="button"
-          data-testid="send-button"
-          onClick={ (event) => this.handleClick(onClick, event) }
-        >
-          Adicionar filme
-        </button>
+        <div className="text-center">
+          <button
+            className="btn btn-primary"
+            type="button"
+            data-testid="send-button"
+            onClick={ (event) => this.handleClick(onClick, event) }
+          >
+            Adicionar filme
+          </button>
+        </div>
+
       </form>
     );
   }
