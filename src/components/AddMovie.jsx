@@ -69,7 +69,7 @@ class AddMovie extends Component {
         <TextInput
           handleClick={ this.handleClick }
           value={ imagePath }
-          type="image"
+          type="imagePath"
           data="image-input"
           label="Imagem"
         />
