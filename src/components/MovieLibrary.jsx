@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -39,19 +40,37 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar 
+        <SearchBar
           searchText={ searchText }
           callBack={ this.handleClick }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
           onSearchTextChange={ this.handleClick }
           onBookmarkedChange={ this.handleClick }
-          onSelectedGenreChange={ this.handleClick }/>
+          onSelectedGenreChange={ this.handleClick }
+        />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.onClick }/>
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape(
+      {
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+        storyline: PropTypes.isRequired,
+        rating: PropTypes.number.isRequired,
+        imagePath: PropTypes.string.isRequired,
+        bookmarked: PropTypes.bool.isRequired,
+        genre: PropTypes.string.isRequired,
+
+      },
+    ),
+  ).isRequired,
+};
 
 export default MovieLibrary;
