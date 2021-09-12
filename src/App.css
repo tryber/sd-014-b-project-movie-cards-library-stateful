@@ -110,3 +110,10 @@ body {
   margin-left: 10px;
   width: 130px;
 } */
+
+.formAddMovie {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+}
