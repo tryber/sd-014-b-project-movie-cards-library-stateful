@@ -12,7 +12,7 @@ class Storyline extends Component {
             value={ storyline }
             name="storyline"
             data-testid="storyline-input"
-            onCanPlay={ onChange }
+            onChange={ onChange }
           />
         </label>
       </div>
