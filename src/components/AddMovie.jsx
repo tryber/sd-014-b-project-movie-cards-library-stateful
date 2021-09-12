@@ -1,15 +1,16 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import BtnAddMovie from './BtnAddMovie';
+import Genre from './Genre';
 import Img from './Img';
 import Rate from './Rate';
-import Subtitle from './Subtitle';
 import Storyline from './Storyline';
+import Subtitle from './Subtitle';
 import Title from './Title';
-import Genre from './Genre';
 
 class AddMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       subtitle: '',
@@ -19,9 +20,11 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = ({ target }) => {
+  handleChange({ target }) {
     this.setState({ [target.name]: target.value });
   }
 
@@ -36,6 +39,7 @@ class AddMovie extends Component {
           <Storyline value={ storyline } onChange={ this.handleChange } />
           <Rate value={ rating } onChange={ this.handleChange } />
           <Genre value={ genre } onChange={ this.handleChange } />
+          <BtnAddMovie />
         </form>
       </div>
     );

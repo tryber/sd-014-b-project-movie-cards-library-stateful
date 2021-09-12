@@ -9,7 +9,6 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
   }
-  callBack = () => {};
 
   render() {
     return (
@@ -17,7 +16,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={this.props.movies} />
-        <AddMovie onClick={this.callBack}/>
+        <AddMovie />
       </div>
     );
   }
