@@ -1,7 +1,6 @@
 // implement AddMovie component here
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import BtnAddMovie from './BtnAddMovie';
 import Genre from './Genre';
 import Img from './Img';
 import Rate from './Rate';
@@ -49,9 +48,15 @@ class AddMovie extends Component {
           <Subtitle value={ subtitle } onChange={ this.handleChange } />
           <Img value={ imagePath } onChange={ this.handleChange } />
           <Storyline value={ storyline } onChange={ this.handleChange } />
-          <Rate value={ rating } onChange={ this.handleChange } />
+          <Rate rating={ rating } onChange={ this.handleChange } />
           <Genre value={ genre } onChange={ this.handleChange } />
-          <BtnAddMovie onClick={ this.handleClick } />
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={ this.handleClick }
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
