@@ -1,4 +1,5 @@
 import React from 'react';
+import Sinopse from './Sinopse';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -7,7 +8,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -20,11 +21,12 @@ class AddMovie extends React.Component {
       title: event.target.value,
       subtitle: event.target.value,
       imagePath: event.target.value,
+      storyline: event.target.value,
     });
   }
 
   render() {
-    const { subtitle, title, imagePath } = this.state;
+    const { subtitle, title, imagePath, storyline } = this.state;
     return (
       <section>
         <form data-testid="add-movie-form">
@@ -65,6 +67,7 @@ class AddMovie extends React.Component {
               onChange={ this.handleChange }
             />
           </label>
+          <Sinopse storyline={ storyline } handleChange={ this.handleChange } />
         </form>
       </section>
     );
