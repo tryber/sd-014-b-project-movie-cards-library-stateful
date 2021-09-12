@@ -6,7 +6,7 @@ class RatingInput extends Component {
     const { type, value, handleClick, data, label } = this.props;
     return (
       <label data-testid={ `${data}-label` } htmlFor={ type }>
-        {label}
+        { label }
         <input
           type="number"
           name={ type }
