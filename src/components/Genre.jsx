@@ -8,7 +8,7 @@ class Genre extends Component {
       <label htmlFor="genreId" data-testid="genre-input-label">
         Gênero
         <select
-          name="rating"
+          name="genre"
           id="genreId"
           data-testid="genre-input"
           onChange={ handleChange }
