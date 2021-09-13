@@ -5,12 +5,12 @@ class MovieTitle extends React.Component {
   render() {
     const { title, onChange } = this.props;
     return (
-      <label htmlFor="titleInput" data-testid="titleInputLabel">
+      <label htmlFor="title-input" data-testid="title-input-label">
         Título
         <input
           type="text"
           name="title"
-          data-testid="titleInput"
+          data-testid="title-input"
           value={ title }
           onChange={ onChange }
         />
