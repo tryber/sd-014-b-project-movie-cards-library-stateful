@@ -1,4 +1,5 @@
 import React from 'react';
+import StoryLine from './StoryLine';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -23,7 +24,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <section>
         <form data-testid="add-movie-form">
@@ -60,6 +61,7 @@ class AddMovie extends React.Component {
               data-testid="image-input"
             />
           </label>
+          <StoryLine value={ storyline } onChange={ this.functionCharge } />
         </form>
       </section>
     );
