@@ -19,7 +19,6 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle } = this.state;
-    const { onSearchTextChange } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -37,7 +36,7 @@ class AddMovie extends React.Component {
             name="subtitle"
             value={ subtitle }
             data-testid="subtitle-input"
-            onChange={ onSearchTextChange }
+            onChange={ this.onSearchTextChange }
           />
         </label>
       </form>
