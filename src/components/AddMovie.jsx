@@ -1,5 +1,6 @@
 import React from 'react';
 import AvaRating from './AvaRating';
+import SelectMovie from './SelectMovie';
 import StoryLine from './StoryLine';
 
 class AddMovie extends React.Component {
@@ -12,7 +13,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -25,7 +26,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <section>
         <form data-testid="add-movie-form">
@@ -64,6 +65,7 @@ class AddMovie extends React.Component {
           </label>
           <StoryLine value={ storyline } onChange={ this.functionCharge } />
           <AvaRating value={ rating } onChange={ this.functionCharge } />
+          <SelectMovie value={ genre } onChange={ this.functionCharge } />
         </form>
       </section>
     );
