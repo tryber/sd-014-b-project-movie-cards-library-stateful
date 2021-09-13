@@ -5,12 +5,12 @@ class TextArea extends React.Component {
   render() {
     const { storyline, onChange } = this.props;
     return (
-      <label htmlFor="storylineInput" data-testid="storylineInputLabel">
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
         <textarea
           type="text"
           name="storyline"
-          data-testid="storylineInput"
+          data-testid="storyline-input"
           value={ storyline }
           onChange={ onChange }
         />
