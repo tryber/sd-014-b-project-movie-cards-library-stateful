@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SearchBar from './SearchBar';
+
 class MovieLibrary extends React.Component {
   /**
    * Consultei o repositorio do colega Michael
@@ -14,6 +16,8 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleChange = this.handleChange.bind(this);
+
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -23,17 +27,34 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  handleChange({ target }) {
+    const { name } = target;
+
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     const {
-        searchText,
-        bookmarkedOnly,
-        selectedGenre,
-        movies
-      } = this.state;
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      movies,
+    } = this.state;
 
     return (
       <div>
-        component
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleChange }
+          movies={ movies }
+        />
       </div>
     );
   }

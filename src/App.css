@@ -4,6 +4,14 @@ body {
   font-size: 16px;
 }
 
+label {
+  display: block;
+}
+
+input {
+  display: block;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
