@@ -5,14 +5,16 @@ class AddMovieGenre extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
-      <label htmlFor="Genre" data-testid="genre-input-label">
+      <label
+        htmlFor="genre-input"
+        id="genre-input"
+        name="genre"
+        data-testid="genre-input-label"
+        value={ value }
+        onChange={ handleChange }
+      >
         Gênero
-        <select
-          name="genre"
-          data-testid="genre-input"
-          value={ value }
-          onChange={ handleChange }
-        >
+        <select id="genre-input" name="genre" data-testid="genre-input">
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>

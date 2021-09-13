@@ -1,28 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Template from './InputTemplate';
 
-class AddMovieRating extends React.Component {
+class AddMovieImage extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
-      <label htmlFor="image" data-testid="image-input-label">
-        Imagem
-        <input
-          name="imagePath"
-          type="text"
-          id="image"
-          data-testid="image-input"
-          value={ value }
-          onChange={ handleChange }
-        />
-      </label>
+      <Template
+        input={ {
+          ID: 'image-input',
+          name: 'imagePath',
+          testID: 'image-input',
+          value,
+          onChange: handleChange } }
+        label={ { description: 'Imagem', testIDLabel: 'image-input-label' } }
+      />
     );
   }
 }
 
-AddMovieRating.propTypes = {
+AddMovieImage.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
-export default AddMovieRating;
+export default AddMovieImage;

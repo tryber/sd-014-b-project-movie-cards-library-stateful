@@ -1,28 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class AddRating extends React.Component {
+class Rating extends React.Component {
   render() {
-    const { handleChange, value } = this.props; // props também podem receber funçoes
+    const { rating } = this.props;
     return (
-      <label htmlFor="rating-input" data-testid="rating-input-label">
-        Avaliação
-        <input
-          name="storyline"
-          type="number"
-          id="storyline-input"
-          data-testid="rating-input-label"
-          value={ value }
-          onChange={ handleChange }
-        />
-      </label>
+      <div className="movie-card-rating" data-testid="rating">
+        <span className="rating">{rating}</span>
+      </div>
     );
   }
 }
 
-AddRating.propTypes = {
-  handleChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
+Rating.propTypes = { rating: PropTypes.number };
+
+Rating.defaultProps = {
+  rating: 'undefined',
 };
 
-export default AddRating;
+export default Rating;
