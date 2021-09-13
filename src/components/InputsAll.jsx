@@ -44,7 +44,6 @@ InputsAll.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     imagePath: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
 };

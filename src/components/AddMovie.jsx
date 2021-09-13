@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputsAll from './InputsAll';
+import SelectInput from './SelectInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -22,8 +24,22 @@ class AddMovie extends React.Component {
     });
   };
 
+  handleClick = (callback) => {
+    callback(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  };
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
+
     return (
       <form data-testid="add-movie-form">
         <InputsAll
@@ -44,30 +60,29 @@ class AddMovie extends React.Component {
           Avaliação
           <input
             type="number"
-            name="rating"
-            id="number"
             data-testid="rating-input"
+            name="rating"
             value={ rating }
             onChange={ this.handleChange }
+            id="number"
+            step="0.1"
           />
         </label>
-        <label data-testid="genre-input-label" htmlFor="genre">
-          Gênero
-          <select
-            data-testid="genre-input"
-            id="genre"
-            name="genre"
-            value={ genre }
-            onChange={ this.handleChange }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <SelectInput handleChange={ this.handleChange } genre={ genre } />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ () => this.handleClick(onClick) }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

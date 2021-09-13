@@ -11,6 +11,10 @@ class MovieLibrary extends Component {
     super(props);
   }
 
+  resetState = (state) => {
+    console.log(state);
+  }
+
   render() {
     const { movies } = this.props;
     const propsSearch = {
@@ -27,7 +31,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar { ...propsSearch } />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.resetState } />
       </div>
     );
   }
