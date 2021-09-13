@@ -11,8 +11,6 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.onClick = this.onClick.bind(this);
-
     this.state = {
       subtitle: '',
       title: '',
@@ -31,9 +29,9 @@ class AddMovie extends React.Component {
     });
   }
 
-  onClick(event) {
-    console.log(event.target.value);
-  }
+  // addFilme() {
+  //   console.log('add filme');
+  // }
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
