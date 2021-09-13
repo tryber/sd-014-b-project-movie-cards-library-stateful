@@ -1,4 +1,5 @@
 import React from 'react';
+import RatingForm from './Storyline';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -21,7 +22,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline } = this.state;
+    const { subtitle, title, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -66,6 +67,7 @@ class AddMovie extends React.Component {
             data-testid="storyline-input"
           />
         </label>
+        <RatingForm rating={ rating } />
       </form>
     );
   }
