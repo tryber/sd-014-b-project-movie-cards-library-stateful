@@ -4,6 +4,7 @@ import Image from './Image';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import Rating from './Rating';
+import Select from './Select';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -40,6 +41,7 @@ class AddMovie extends React.Component {
           <Image value={ imagePath } onChange={ this.handleChange } />
           <Sinopse value={ storyline } onChange={ this.handleChange } />
           <Rating value={ rating } onChange={ this.handleChange } />
+          <Select />
         </form>
       </section>
     );

@@ -26,7 +26,7 @@ class Rating extends React.Component {
 }
 
 Rating.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
