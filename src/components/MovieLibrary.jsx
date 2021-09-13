@@ -60,7 +60,7 @@ class MovieLibrary extends React.Component {
           searchText={ searchText }
         />
         <AddMovie
-          onClick="uma callback"
+          onClick="submit"
         />
       </div>
     );

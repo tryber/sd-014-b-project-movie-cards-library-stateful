@@ -30,7 +30,7 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="textarea" data-testid="rating-input-label">
           Avaliação
-          <input data-testid="rating-input" />
+          <input data-testid="rating-input" initialState="0" />
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
