@@ -43,7 +43,7 @@ class AddMovie extends Component {
         </form>
       );
     }
-}
+} // test
 
 export default AddMovie;
 
