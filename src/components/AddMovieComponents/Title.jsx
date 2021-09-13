@@ -1,21 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Template from './InputTemplate';
 
 class AddMovieTitle extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
-      <label htmlFor="add-title" data-testid="title-input-label">
-        Título
-        <input
-          name="add-title"
-          type="text"
-          id="text"
-          data-testid="title-input"
-          value={ value }
-          onChange={ handleChange } // The onchange event occurs when the value of an element has been changed.
-        />
-      </label>
+      <Template
+        input={ {
+          ID: 'title-input',
+          name: 'title',
+          testID: 'title-input',
+          value,
+          onChange: handleChange } }
+        label={ { description: 'Título', testIDLabel: 'title-input-label' } }
+      />
     );
   }
 }

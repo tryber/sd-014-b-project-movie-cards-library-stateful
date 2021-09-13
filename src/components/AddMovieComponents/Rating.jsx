@@ -1,21 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Template from './InputTemplate';
 
-class Rating extends React.Component {
+class AddMovieRating extends React.Component {
   render() {
-    const { rating } = this.props;
+    const { handleChange, value } = this.props;
     return (
-      <div className="movie-card-rating" data-testid="rating">
-        <span className="rating">{rating}</span>
-      </div>
+      <Template
+        input={ {
+          ID: 'rating-input',
+          name: 'rating',
+          testID: 'rating-input',
+          type: 'number',
+          value,
+          onChange: handleChange,
+        } }
+        label={ { description: 'Avaliação', testIDLabel: 'rating-input-label' } }
+      />
     );
   }
 }
 
-Rating.propTypes = { rating: PropTypes.number };
-
-Rating.defaultProps = {
-  rating: 'undefined',
+AddMovieRating.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
-export default Rating;
+export default AddMovieRating;

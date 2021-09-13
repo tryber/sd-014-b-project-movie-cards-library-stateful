@@ -8,8 +8,8 @@ class AddMovieStoryline extends React.Component {
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          name="storyline"
           id="storyline-input"
+          name="storyline"
           data-testid="storyline-input"
           value={ value }
           onChange={ handleChange }
