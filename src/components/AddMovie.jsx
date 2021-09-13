@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
             name="title"
             data-testid="title-input"
             value={ title }
-            onChange={ onSearchTextChange }
+            onChange={ this.onSearchTextChange }
           />
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
