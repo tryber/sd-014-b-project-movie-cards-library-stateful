@@ -17,7 +17,9 @@ class AddMovie extends React.Component {
   render() {
     return (
       <section>
-        oi
+        <form data-testid="add-movie-form">
+          oi
+        </form>
       </section>
     );
   }
