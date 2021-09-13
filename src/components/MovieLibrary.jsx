@@ -10,15 +10,12 @@ class MovieLibrary extends Component {
     super(props);
     const { movies } = this.props;
     this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
       movies,
     };
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
