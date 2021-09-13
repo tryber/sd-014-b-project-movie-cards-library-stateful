@@ -81,3 +81,26 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+/****/
+main .search {
+  padding: 10px 30px;
+}
+
+form label {
+  width: 100%;
+  margin: 10px 0;
+}
+
+form input[type="text"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+form input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+form select {
+  margin: 0 10px;
+}
