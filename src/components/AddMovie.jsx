@@ -23,6 +23,14 @@ class AddMovie extends React.Component {
     };
   }
 
+  handleChange = ({ target }) => {
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      rating: value,
+    });
+  }
+
   onClick(event) {
     console.log(event.target.value);
   }
@@ -35,7 +43,7 @@ class AddMovie extends React.Component {
         <SubtituloNovo value={ title } />
         <ImagemNovo value={ imagePath } />
         <SinopseNovo value={ storyline } />
-        <AvaliaNovo value={ rating } />
+        <AvaliaNovo value={ rating } onChange={ this.handleChange } />
         <GeneroNovo value={ genre } />
         <button
           type="button"
