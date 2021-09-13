@@ -8,7 +8,7 @@ class StoryLine extends Component {
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
-        <textarea
+        <input
           data-testid="storyline-input"
           name="storyline"
           id="storyline"
