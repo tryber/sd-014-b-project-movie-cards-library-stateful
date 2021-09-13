@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class MovieLibrary extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.newMovie = this.newMovie.bind(this);
   }
 
   handleChange({ target }) {
@@ -43,6 +45,12 @@ class MovieLibrary extends Component {
     this.setState({ movies: newList });
   }
 
+  newMovie(newMovieStates) {
+    const { movies } = this.props;
+    const moviesUpdate = [...movies, newMovieStates];
+    this.setState({ movies: moviesUpdate });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -58,6 +66,9 @@ class MovieLibrary extends Component {
           />
         </section>
         <MovieList movies={ movies } />
+        <section className="addmovie">
+          <AddMovie onClick={ this.newMovie } />
+        </section>
       </main>
     );
   }
