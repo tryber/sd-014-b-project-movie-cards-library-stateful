@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Template from './InputTemplate';
 
 class AddMovieImage extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
-      <Template
-        input={ {
+      <div>
+        input=
+        { {
           ID: 'image-input',
           name: 'imagePath',
           testID: 'image-input',
           value,
           onChange: handleChange } }
-        label={ { description: 'Imagem', testIDLabel: 'image-input-label' } }
-      />
+        label=
+        { { description: 'Imagem', testIDLabel: 'image-input-label' } }
+      </div>
     );
   }
 }

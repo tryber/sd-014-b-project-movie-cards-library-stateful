@@ -9,10 +9,10 @@ import AddMovieSubtitle from './AddMovieComponents/Subtitle';
 import AddMovieTitle from './AddMovieComponents/Title';
 
 class AddMovie extends React.Component {
-  constructor() {
+  constructor() { // constructor serve para inicializar estados
     super();
 
-    this.state = {
+    this.state = { // define o estado inicial das propriedades
       subtitle: '',
       title: '',
       imagePath: '',
@@ -22,11 +22,11 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange = (event) => {
+  handleChange = (event) => { // seleciona os eventos de input
     const { name, value } = event.target;
     if (name === 'rating') {
-      this.setState({
-        rating: Number(value),
+      this.setState({ // update the state key corresponding to the given input name:
+        rating: Number(value), // // setState() automatically merges a partial state into the current state
       });
     } else {
       this.setState({
@@ -34,11 +34,12 @@ class AddMovie extends React.Component {
       });
     }
   }
+  // handleChange vai definir o evento alvo e o que fazer com aquele resultado recebido
 
   render() {
     const { onClick } = this.props;
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    return (
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state; // renderiza os estados inicias
+    return ( // todos componentes tem a prop handleChange que receberá a func handleAllChange
       <form data-testid="add-movie-form">
         <AddMovieTitle handleChange={ this.handleChange } value={ title } />
         <AddMovieSubtitle handleChange={ this.handleChange } value={ subtitle } />

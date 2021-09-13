@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Template from './InputTemplate';
 
 class AddMovieRating extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
-      <Template
-        input={ {
+      <div>
+        input=
+        { {
           ID: 'rating-input',
           name: 'rating',
           testID: 'rating-input',
@@ -15,8 +15,9 @@ class AddMovieRating extends React.Component {
           value,
           onChange: handleChange,
         } }
-        label={ { description: 'Avaliação', testIDLabel: 'rating-input-label' } }
-      />
+        label=
+        { { description: 'Avaliação', testIDLabel: 'rating-input-label' } }
+      </div>
     );
   }
 }
