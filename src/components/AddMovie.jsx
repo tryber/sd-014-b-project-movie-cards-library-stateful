@@ -33,21 +33,16 @@ class AddMovie extends React.Component {
       <section>
         <form htmlFor="search" data-testid="add-movie-form">
           <SubtitleAdd addMovie={ this.addMovie } value={ state.subtitle } />
-          <TitleAdd value={ state.title } addMovie={ this.addMovie } />
-          <ImagePathAdd value={ state.imagePath } addMovie={ this.addMovie } />
-          <StorylineAdd value={ state.storyline } addMovie={ this.addMovie } />
-          <RatingAdd value={ state.rating } addMovie={ this.addMovie } />
-          <GenreAdd value={ state.genre } addMovie={ this.addMovie } />
+          <TitleAdd addMovie={ this.addMovie } value={ state.title } />
+          <ImagePathAdd addMovie={ this.addMovie } value={ state.imagePath } />
+          <StorylineAdd addMovie={ this.addMovie } value={ state.storyline } />
+          <RatingAdd addMovie={ this.addMovie } value={ state.rating } />
+          <GenreAdd addMovie={ this.addMovie } value={ state.genre } />
           <button type="submit" data-testid="send-button">Adicionar Filme</button>
         </form>
       </section>
     );
   }
 }
-
-RatingAdd.propTypes = {
-  value: PropTypes.string.isRequired,
-  addMovie: PropTypes.func.isRequired,
-};
 
 export default AddMovie;
