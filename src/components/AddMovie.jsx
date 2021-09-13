@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 
 class AddMovie extends React.Component {
@@ -11,6 +12,8 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.AddMovie = this.AddMovie.bind(this);
   }
 
   handleChange({ target }) {
@@ -21,7 +24,9 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <span />
+      <section>
+        a
+      </section>
     );
   }
 }
