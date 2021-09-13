@@ -8,8 +8,8 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
-      genre: 'action',
+      // rating: 0,
+      // genre: 'action',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -21,7 +21,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { subtitle, title, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="subtitle">
@@ -57,19 +57,19 @@ class AddMovie extends React.Component {
             onChange={ this.handleInputChange }
           />
         </label>
-        <label htmlFor="subtitle">
-          <input
-            type="text"
-            name="subtitle"
-            value={ rating }
-            onChange={ this.handleInputChange } />
-        </label>
-        <label htmlFor="subtitle">
-          <input type="text" name="subtitle" value={ genre } onChange={ this.handleInputChange } />
-        </label>
       </form>
     );
   }
 }
+// <label htmlFor="subtitle">
+//   <input
+//     type="text"
+//     name="subtitle"
+//     value={ rating }
+//     onChange={ this.handleInputChange } />
+// </label>
+// <label htmlFor="subtitle">
+//   <input type="text" name="subtitle" value={ genre } onChange={ this.handleInputChange } />
+// </label>
 
 export default AddMovie;
