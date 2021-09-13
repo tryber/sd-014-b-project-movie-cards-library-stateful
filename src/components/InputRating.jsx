@@ -5,7 +5,7 @@ class InputRating extends Component {
   render() {
     const { value, funcCallback } = this.props;
     return (
-      <label htmlFor="title" data-testid="rating-input-label">
+      <label htmlFor="rating" data-testid="rating-input-label">
         Avaliação
         <input
           name="rating"
