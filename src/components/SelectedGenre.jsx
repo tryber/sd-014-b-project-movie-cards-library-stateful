@@ -13,6 +13,7 @@ class SelectedGenre extends React.Component {
         <select
           id="select-input-label"
           data-testid="select-input"
+          name="selectedGenre"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
         >
