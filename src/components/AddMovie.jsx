@@ -8,12 +8,12 @@ class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
-      storyline: '',
+      /*       storyline: '',
       rating: 0,
-      genre: 'action',
+      genre: 'action', */
     };
   }
 
@@ -26,7 +26,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.props;
+    const { title, subtitle, imagePath /* , storyline, rating, genre */ } = this.state;
     return (
       <form>
         <TextInputDefault
