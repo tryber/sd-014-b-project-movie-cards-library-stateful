@@ -1,4 +1,5 @@
 import React from 'react';
+import Storyline from './Storyline';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -21,55 +22,53 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="subtitle">
+        <label htmlFor="title" data-testid="title-input-label">
+          Título
+          <input
+            type="text"
+            name="title"
+            value={ title }
+            onChange={ this.handleInputChange }
+            data-testid="title-input"
+          />
+        </label>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
           <input
             type="text"
             name="subtitle"
             value={ subtitle }
             onChange={ this.handleInputChange }
+            data-testid="subtitle-input"
           />
         </label>
-        <label htmlFor="Título" data-testid="title-input-label">
-          <input
-            type="text"
-            name="Título"
-            value={ title }
-            onChange={ this.handleInputChange }
-          />
-        </label>
-        <label htmlFor="imagePath">
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
           <input
             type="image"
             alt=""
             name="imagePath"
             value={ imagePath }
             onChange={ this.handleInputChange }
+            data-testid="image-input"
           />
         </label>
         <label htmlFor="subtitle">
           <input
             type="text"
             name="subtitle"
-            value={ storyline }
-            onChange={ this.handleInputChange }
-          />
+            value={ rating }
+            onChange={ this.handleInputChange } />
+        </label>
+        <label htmlFor="subtitle">
+          <input type="text" name="subtitle" value={ genre } onChange={ this.handleInputChange } />
         </label>
       </form>
     );
   }
 }
-// <label htmlFor="subtitle">
-//   <input
-//     type="text"
-//     name="subtitle"
-//     value={ rating }
-//     onChange={ this.handleInputChange } />
-// </label>
-// <label htmlFor="subtitle">
-//   <input type="text" name="subtitle" value={ genre } onChange={ this.handleInputChange } />
-// </label>
 
 export default AddMovie;
