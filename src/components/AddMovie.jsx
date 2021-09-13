@@ -10,8 +10,8 @@ class AddMovie extends Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
-      genre: 'action',
+      /* rating: 0,
+      genre: 'action', */
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -25,7 +25,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline/* , rating, genre */ } = this.state;
     return (
       <form data-testid="add-movie-form">
         <TextInputDefault
