@@ -5,7 +5,7 @@ class InputSubTitle extends Component {
   render() {
     const { value, funcCallback } = this.props;
     return (
-      <label htmlFor="title" data-testid="subtitle-input-label">
+      <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtítulo
         <input
           name="subtitle"
