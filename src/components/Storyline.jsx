@@ -3,7 +3,7 @@ import React from 'react';
 class Storyline extends React.Component {
   render() {
     return (
-      <label htmlFor="subtitle">
+      <label htmlFor="subtitle" data-testid="storyline-input-label">
         <input
           type="text"
           name="subtitle"

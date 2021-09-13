@@ -1,5 +1,4 @@
 import React from 'react';
-import Storyline from './Storyline';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -22,7 +21,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { subtitle, title, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -45,6 +44,7 @@ class AddMovie extends React.Component {
             data-testid="subtitle-input"
           />
         </label>
+
         <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
@@ -56,15 +56,15 @@ class AddMovie extends React.Component {
             data-testid="image-input"
           />
         </label>
-        <label htmlFor="subtitle">
-          <input
-            type="text"
-            name="subtitle"
-            value={ rating }
-            onChange={ this.handleInputChange } />
-        </label>
-        <label htmlFor="subtitle">
-          <input type="text" name="subtitle" value={ genre } onChange={ this.handleInputChange } />
+
+        <label htmlFor="storyline " data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyline"
+            value={ storyline }
+            onChange={ this.handleInputChange }
+            data-testid="storyline-input"
+          />
         </label>
       </form>
     );
