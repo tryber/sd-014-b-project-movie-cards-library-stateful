@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import InputPadrao from './InputPadrao';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -10,6 +10,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
+      genre: 'action',
     };
   }
 
@@ -20,27 +21,25 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            name="title"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.onSearchTextChange }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.onSearchTextChange }
-          />
-        </label>
+        <InputPadrao
+          dataid="title-input-label"
+          name="title"
+          description="Título"
+          id="title-input"
+          value={ title }
+          handleChange={ this.onSearchTextChange }
+        />
+        <InputPadrao
+          dataid="subtitle-input-label"
+          name="subtitle"
+          description="Subtítulo"
+          id="subtitle-input"
+          value={ subtitle }
+          handleChange={ this.onSearchTextChange }
+        />
         <label data-testid="image-input-label" htmlFor="image-input">
           Imagem
           <input
@@ -60,16 +59,17 @@ class AddMovie extends React.Component {
             onChange={ this.onSearchTextChange }
           />
         </label>
+        <label data-testid="genre-input-label" htmlFor="genre-input">
+          Gênero
+          <select onChange={ this.onSearchTextChange } data-testid="genre-input" name="genre" value={ genre } htmlFor="genre-option">
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+          </select>
+        </label>
       </form>
     );
   }
 }
-AddMovie.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  onClick: PropTypes.func,
-  storyline: PropTypes.string,
-  imagePath: PropTypes.string,
-}.isRequired;
 
 export default AddMovie;
