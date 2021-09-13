@@ -30,7 +30,12 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="textarea" data-testid="rating-input-label">
           Avaliação
-          <input data-testid="rating-input" initialState="0" />
+          <input
+            defaultValue="0"
+            type="number"
+            data-testid="rating-input"
+            // onChange={ this.handleChange }
+          />
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
@@ -40,7 +45,13 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="submit" data-testid="send-button">Adicionar filme </button>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.handleChange }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

@@ -71,4 +71,8 @@ MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf({}).isRequired,
 };
 
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
 export default MovieLibrary;
