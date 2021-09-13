@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class SearchBar extends Component {
+class SearchBar extends Component {
   render() {
     const { searchText,
       onSearchTextChange,
@@ -17,7 +17,8 @@ export class SearchBar extends Component {
           <input
             type="text"
             data-testid="text-input"
-            name="text-input"
+            name="textInput"
+            id="text-input"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
@@ -27,7 +28,7 @@ export class SearchBar extends Component {
           <input
             data-testid="checkbox-input"
             type="checkbox"
-            name="checkbox-input"
+            name="checkboxInput"
             id="checkbox-input"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
@@ -36,7 +37,8 @@ export class SearchBar extends Component {
         <label data-testid="select-input-label" htmlFor="select-option">
           Filtrar por gênero
           <select
-            name="select-option"
+            name="selectOption"
+            id="select-option"
             data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }

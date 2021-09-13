@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class StoryLine extends Component {
+class StoryLine extends Component {
   render() {
     const { value, onChange } = this.props;
     return (

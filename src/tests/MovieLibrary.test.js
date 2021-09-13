@@ -105,7 +105,6 @@ describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
     expect(selectInput).toHaveValue('thriller');
   });
 });
-
 describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
   it('Renderize o componente `<MovieList />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
@@ -234,3 +233,4 @@ describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
     expect(newMovieTitle[movieCards.length - 1]).toHaveTextContent(newMovie.title);
   });
 });
+ 
