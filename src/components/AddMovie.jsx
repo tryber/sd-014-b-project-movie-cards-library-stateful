@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FormItem from './FormItem';
+import SelectItem from './SelectItem';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -33,19 +34,24 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { rating, genre } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <FormItem name="title" onChange={ this.handleChange }>
+        <FormItem name="title" onChange={ this.handleChange } value={ title }>
           Título
         </FormItem>
-        <FormItem Tag="textarea" name="subtitle" onChange={ this.handleChange }>
+        <FormItem
+          Tag="textarea"
+          name="subtitle"
+          onChange={ this.handleChange }
+          value={ subtitle }
+        >
           Subtítulo
         </FormItem>
-        <FormItem name="imagePath" onChange={ this.handleChange }>
+        <FormItem name="imagePath" onChange={ this.handleChange } value={ imagePath }>
           Imagem
         </FormItem>
-        <FormItem name="storyline" onChange={ this.handleChange }>
+        <FormItem name="storyline" onChange={ this.handleChange } value={ storyline }>
           Sinopse
         </FormItem>
         <FormItem
@@ -56,19 +62,14 @@ class AddMovie extends React.Component {
         >
           Avaliação
         </FormItem>
-        <label htmlFor="genre-input" data-testid="genre-input-label">
+        <SelectItem
+          name="genre"
+          onChange={ this.handleChange }
+          value={ genre }
+          options={ { action: 'Ação', comedy: 'Comédia', thriller: 'Suspense' } }
+        >
           Gênero
-          <select
-            name="genre"
-            data-testid="genre-input"
-            value={ genre }
-            onChange={ this.handleChange }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        </SelectItem>
         <button
           type="submit"
           data-testid="send-button"
