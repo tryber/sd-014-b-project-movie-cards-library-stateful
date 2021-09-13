@@ -5,16 +5,15 @@ import TextInputDefault from './TextInputDefault';
 class AddMovie extends Component {
   constructor() {
     super();
-    this.handleChange = this.handleChange.bind(this);
-
     this.state = {
       title: '',
       subtitle: '',
       imagePath: '',
-      /*       storyline: '',
+      storyline: '',
       rating: 0,
-      genre: 'action', */
+      genre: 'action',
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) { // fonte: Course (12.2)
@@ -26,7 +25,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath /* , storyline, rating, genre */ } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <TextInputDefault
@@ -56,7 +55,15 @@ class AddMovie extends Component {
           description="Imagem"
           type="text"
         />
-        <TextInputDefault />
+        <TextInputDefault
+          name="storyline"
+          inputId="storyline-input"
+          labelId="storyline-input-label"
+          value={ storyline }
+          handleChange={ this.handleChange }
+          description="Sinopse"
+          type="textarea"
+        />
         <TextInputDefault />
       </form>
     );
