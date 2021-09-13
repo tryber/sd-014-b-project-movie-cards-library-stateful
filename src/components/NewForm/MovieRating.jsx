@@ -5,7 +5,7 @@ class MovieRating extends React.Component {
   render() {
     const { rating, onChange } = this.props;
     return (
-      <label htmlFor="ratingInput" data-testid="ratingInputLabel">
+      <label htmlFor="rating-input" data-testid="rating-input-label">
         Sinopse
         <textarea
           type="number"
