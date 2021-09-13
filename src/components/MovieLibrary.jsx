@@ -13,7 +13,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      allMoviesFiltered: movies,
+      moviesFiltered: movies,
     };
     // This binding is necessary to make `this` work in the callback
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
@@ -23,44 +23,44 @@ class MovieLibrary extends Component {
   }
 
   handleSearchTextChange(event) { // está função irá tratar com o evento ao receber um titulo no input
-    const { allMoviesFiltered } = this.state;
+    const { moviesFiltered } = this.state;
     const { movieSearched } = event.target; // armazena o valor do titulo buscado
-    const filtMo = allMoviesFiltered.filter((movie) => movie.title.includes(movieSearched)
+    const filtMo = moviesFiltered.filter((movie) => movie.title.includes(movieSearched)
     // o titulo digitado será o filtro
         || movie.subtitle.includes(movieSearched) // essa função irá buscar o nome do filme no subtitulo
         || movie.storyline.includes(movieSearched)); // essa funçao irá buscar o nome do filme na sinopse
 
     this.setState({
       searchText: movieSearched,
-      allMoviesFiltered: filtMo,
+      moviesFiltered: filtMo,
     });
   }
 
   handleBookmarkedChange(event) { // função que irá trabalhar com apenas os favoritos
     const { movies } = this.props;
-    const { allMoviesFiltered } = this.state;
+    const { moviesFiltered } = this.state;
     const { checked } = event.target;
-    const filtMo = allMoviesFiltered.filter((movie) => movie.bookmarked === checked);
+    const filtMo = moviesFiltered.filter((movie) => movie.bookmarked === checked);
     // a prop. 'bookmarked' está em data.js
     if (checked === true) { // a array que irá ser gerada é dos filmes com bookemared: true
       this.setState({
         bookmarkedOnly: checked,
-        allMoviesFiltered: filtMo,
+        moviesFiltered: filtMo,
       });
     } if (checked === false) {
       this.setState({
-        allMoviesFiltered: movies,
+        moviesFiltered: movies,
       });
     }
   }
 
   handleSelectedGenreChange(event) {
     const { value } = event.target;
-    const { allMoviesFiltered } = this.state;
-    const filtMo = allMoviesFiltered.filter((movie) => movie.genre.includes(value));
+    const { moviesFiltered } = this.state;
+    const filtMo = moviesFiltered.filter((movie) => movie.genre.includes(value));
     this.setState({
       selectedGenre: value,
-      allMoviesFiltered: filtMo,
+      moviesFiltered: filtMo,
     });
   }
 
@@ -79,7 +79,7 @@ class MovieLibrary extends Component {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      allMoviesFiltered,
+      moviesFiltered,
     } = this.state;
 
     return (
@@ -96,7 +96,7 @@ class MovieLibrary extends Component {
           />
         </section>
         <main>
-          <MovieList movies={ allMoviesFiltered } />
+          <MovieList movies={ moviesFiltered } />
         </main>
         <div>
           <AddMovie onClick={ this.handleAddMovie } />

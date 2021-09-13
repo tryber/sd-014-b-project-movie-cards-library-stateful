@@ -29,6 +29,7 @@ class AddMovie extends Component {
     } // handleChange vai definir o evento alvo e o que fazer com aquele resultado recebido
 
     render() {
+      const { onClick } = this.props;
       const { title, subtitle, imagePath, storyline, rating, genre } = this.state; // renderiza os estados inicias
       return ( // todos componentes tem a prop handleChange que receberá a func handleAllChanges
         <form data-testid="add-movie-form">
@@ -44,6 +45,10 @@ class AddMovie extends Component {
       );
     }
 } // test
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
 
