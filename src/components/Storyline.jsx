@@ -1,26 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class RatingForm extends React.Component {
+class Storyline extends React.Component {
   render() {
-    const { rating } = this.props;
+    const { storyline, onChange } = this.props;
     return (
-      <label data-testid="rating-input-label" htmlFor="rating">
-        <input
-          name="rating"
-          value={ rating }
-          data-testid="rating-input"
-          onChange={ this.handleInputChange }
+      <label htmlFor="storyline " data-testid="storyline-input-label">
+        Sinopse
+        <textarea
+          type="text"
+          name="storyline"
+          value={ storyline }
+          onChange={ onChange }
+          data-testid="storyline-input"
         />
       </label>
     );
   }
 }
 
-RatingForm.propTypes = { rating: PropTypes.number };
+Storyline.propTypes = {
+  storyline: PropTypes.string,
+  onChange: PropTypes.func,
+}.isRequired;
 
-RatingForm.defaultProps = {
-  rating: 'undefined',
-};
-
-export default RatingForm;
+export default Storyline;
