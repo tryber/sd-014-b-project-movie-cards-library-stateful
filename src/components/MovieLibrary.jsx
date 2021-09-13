@@ -1,14 +1,16 @@
+// este componente será responśavel por atualizar os filmes exibidos de acordo com o eventos
 import React, { Component } from 'react';
-// esse componente será responśavel por atualizar os filmes exibidos de acordo com o eventos
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends Component {
+class MovieLibrary extends Component { // define propriedade movies
   constructor(props) {
     super(props);
-    const { movies } = this.props; // define propriedade movies
+
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -23,32 +25,32 @@ class MovieLibrary extends Component {
   }
 
   handleSearchTextChange(event) { // está função irá tratar com o evento ao receber um titulo no input
-    const { moviesFiltered } = this.state;
-    const { movieSearched } = event.target; // armazena o valor do titulo buscado
-    const filtMo = moviesFiltered.filter((movie) => movie.title.includes(movieSearched)
-    // o titulo digitado será o filtro
-        || movie.subtitle.includes(movieSearched) // essa função irá buscar o nome do filme no subtitulo
-        || movie.storyline.includes(movieSearched)); // essa funçao irá buscar o nome do filme na sinopse
-
+    const { filtMovie } = event.target;
+    const { moviesFiltered } = this.state; // // armazena o valor do titulo buscado
+    const filteredList = moviesFiltered.filter((movie) => movie.title.includes(filtMovie)
+    // (o que for digitado entrará como filtro pra gerar uma nova array de resultados)
+        || movie.subtitle.includes(filtMovie) // essa função irá buscar o nome do filme no subtitulo
+        || movie.storyline.includes(filtMovie)); // // essa funçao irá buscar o nome do filme na sinopse
     this.setState({
-      searchText: movieSearched,
-      moviesFiltered: filtMo,
+      searchText: filtMovie,
+      moviesFiltered: filteredList,
     });
   }
 
   handleBookmarkedChange(event) { // função que irá trabalhar com apenas os favoritos
+    const { checked } = event.target;
     const { movies } = this.props;
     const { moviesFiltered } = this.state;
-    const { checked } = event.target;
-    const filtMo = moviesFiltered.filter((movie) => movie.bookmarked === checked);
+    const filteredList = moviesFiltered.filter((movie) => movie.bookmarked === checked);
     // a prop. 'bookmarked' está em data.js
-    if (checked === true) { // a array que irá ser gerada é dos filmes com bookemared: true
+    if (checked === true) {
       this.setState({
         bookmarkedOnly: checked,
-        moviesFiltered: filtMo,
+        moviesFiltered: filteredList,
       });
     } if (checked === false) {
       this.setState({
+        bookmarkedOnly: checked,
         moviesFiltered: movies,
       });
     }
@@ -57,20 +59,20 @@ class MovieLibrary extends Component {
   handleSelectedGenreChange(event) {
     const { value } = event.target;
     const { moviesFiltered } = this.state;
-    const filtMo = moviesFiltered.filter((movie) => movie.genre.includes(value));
+    const filteredList = moviesFiltered.filter((movie) => movie.genre.includes(value));
     this.setState({
       selectedGenre: value,
-      moviesFiltered: filtMo,
+      moviesFiltered: filteredList,
     });
   }
 
   handleAddMovie(event, state) {
-    const { movieState } = this.state;
-    const aux = movieState;
-    event.preventDefault(); //  prevent a browser reload/refresh.
-    aux.push(state);
+    const { moviesFiltered } = this.state;
+    const auxiliar = moviesFiltered;
+    event.preventDefault(); // prevent a browser reload/refresh.
+    auxiliar.push(state);
     this.setState({
-      movieState: aux,
+      moviesFiltered: auxiliar,
     });
   }
 
@@ -81,26 +83,20 @@ class MovieLibrary extends Component {
       selectedGenre,
       moviesFiltered,
     } = this.state;
-
     return (
       <div>
-        <section>
-          <SearchBar // passa os valores das propriedades dentro do component search bar
-            // chama as callbacks para atualizar os estados
-            searchText={ searchText } // searchText oriundo do estado de <MovieLibrary /> deve ser passado para a prop searchText de <SearchBar />
-            onSearchTextChange={ this.handleSearchTextChange } // propriedade oriunda de searchBar recebe a funç
-            bookmarkedOnly={ bookmarkedOnly } // apenas favoritos
-            onBookmarkedChange={ this.handleBookmarkedChange }
-            selectedGenre={ selectedGenre }
-            onSelectedGenreChange={ this.handleSelectedGenreChange }
-          />
-        </section>
-        <main>
-          <MovieList movies={ moviesFiltered } />
-        </main>
-        <div>
-          <AddMovie onClick={ this.handleAddMovie } />
-        </div>
+        <h2> My awesome movie library </h2>
+        <SearchBar // // passa os valores das propriedades dentro do component search bar
+          // chama as callbacks para atualizar os estados
+          searchText={ searchText } // searchText oriundo do estado de <MovieLibrary /> deve ser passado para a prop searchText de <SearchBar />
+          onSearchTextChange={ this.handleSearchTextChange } // propriedade oriunda de searchBar recebe a funç
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleSelectedGenreChange }
+        />
+        <MovieList movies={ moviesFiltered } />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );
   }

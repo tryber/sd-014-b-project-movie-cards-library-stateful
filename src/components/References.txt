@@ -1,3 +1,0 @@
-https://stackoverflow.com/questions/54446655/eslint-rule-for-label
-https://reactjs.org/docs/forms.html
-https://github.com/tryber/sd-013-b-project-movie-cards-library-stateful/tree/yasmin-araujo-movie-cards-library-stateful

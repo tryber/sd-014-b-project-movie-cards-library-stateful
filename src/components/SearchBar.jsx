@@ -1,47 +1,47 @@
-// implement SearchBar component here
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class SearchBar extends Component { // req1. passar as propriedades para o componente
+class SearchBar extends React.Component {
   render() {
     const {
       searchText,
-      onSearchTextChange, // essa propriedade é respósavel pela mudança de estado pós busca
-      bookmarkedOnly, // filmes favoritos
+      onSearchTextChange,
+      bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
-
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="temp-id" data-testid="text-input-label">
+        <label htmlFor="text-input" data-testid="text-input-label">
           Inclui o texto:
           <input
-            name="search-text"
+            id="text-input"
             data-testid="text-input"
-            type="text"
-            value={ searchText } // A propriedade value do input deve receber o valor da prop searchText
-            onChange={ onSearchTextChange } // A propriedade onChange do input deve receber o valor da prop onSearchTextChange
+            name="searchText"
+            value={ searchText }
+            onChange={ onSearchTextChange }
           />
         </label>
-        <label htmlFor="only-favorites" data-testid="checkbox-input-label">
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
-            name="only-favorites"
+            id="checkbox-input"
             data-testid="checkbox-input"
             type="checkbox"
-            checked={ bookmarkedOnly } // A propriedade checked do input deve receber o valor da prop bookmarkedOnly
-            onChange={ onBookmarkedChange } // A propriedade onChange do input deve receber o valor da prop onBookmarkedChange
+            name="bookmarkedOnly"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
           />
         </label>
-        <label htmlFor="genre-select" data-testid="select-input-label">
+        <label htmlFor="select-input" data-testid="select-input-label">
           Filtrar por gênero
           <select
-            name="genre-select"
+            id="select-input"
             data-testid="select-input"
-            value={ selectedGenre } // A propriedade value do select deve receber o valor da prop selectedGenre;
-            onChange={ onSelectedGenreChange } // A propriedade onChange do select deve receber o valor da prop onSelectedGenreChange
+            name="selectedGenre"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
@@ -49,13 +49,10 @@ class SearchBar extends Component { // req1. passar as propriedades para o compo
             <option data-testid="select-option" value="thriller">Suspense</option>
           </select>
         </label>
-
       </form>
     );
   }
 }
-
-export default SearchBar;
 
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
@@ -65,3 +62,5 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
+
+export default SearchBar;

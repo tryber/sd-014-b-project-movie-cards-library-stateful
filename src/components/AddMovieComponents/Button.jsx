@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class SaveMovieButton extends React.Component {
+class AddMovieButton extends React.Component {
   render() {
     const { onClick } = this.props; // A propriedade onClick do botão invoca uma função definida por você, em <AddMovie />
     return (
@@ -16,8 +16,8 @@ class SaveMovieButton extends React.Component {
   }
 }
 
-SaveMovieButton.propTypes = {
+AddMovieButton.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default SaveMovieButton;
+export default AddMovieButton;

@@ -1,50 +1,56 @@
-// implement AddMovie component here
-import React, { Component } from 'react';
-import AddTitle from './AddMovieComponents/AddTitle';
-import AddSubTitle from './AddMovieComponents/AddSubtitle';
-import AddImage from './AddMovieComponents/AddImage';
-import AddStoryLine from './AddMovieComponents/AddStoryLine';
-import AddRating from './AddMovieComponents/AddRating';
-import AddGenre from './AddMovieComponents/AddGenre';
-import SaveMovieButton from './AddMovieComponents/SaveMovieButton';
+import React from 'react';
+import PropTypes from 'prop-types';
+import AddMovieButton from './AddMovieComponents/Button';
+import AddMovieGenre from './AddMovieComponents/Genre';
+import AddMovieImage from './AddMovieComponents/Image';
+import AddMovieRating from './AddMovieComponents/Rating';
+import AddMovieStoryline from './AddMovieComponents/Storyline';
+import AddMovieSubtitle from './AddMovieComponents/Subtitle';
+import AddMovieTitle from './AddMovieComponents/Title';
 
-class AddMovie extends Component {
-  constructor() { // constructor serve para inicializar estados
+class AddMovie extends React.Component { // constructor serve para inicializar estados
+  constructor() {
     super();
+
     this.state = { // define o estado inicial das propriedades
-      title: '',
       subtitle: '',
+      title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
   }
 
-    handleAllChanges = (event) => { // seleciona os eventos de input
-      const { name, value } = event.target;
-      this.setState({ // update the state key corresponding to the given input name:
-        [name]: value, // setState() automatically merges a partial state into the current state
+  handleChange = (event) => { // seleciona os eventos de input
+    const { name, value } = event.target;
+    if (name === 'rating') {
+      this.setState({ // // update the state key corresponding to the given input name:
+        rating: Number(value), // setState() automatically merges a partial state into the current state
       });
-    } // handleChange vai definir o evento alvo e o que fazer com aquele resultado recebido
-
-    render() {
-      const { onClick } = this.props;
-      const { title, subtitle, imagePath, storyline, rating, genre } = this.state; // renderiza os estados inicias
-      return ( // todos componentes tem a prop handleChange que receberá a func handleAllChanges
-        <form data-testid="add-movie-form">
-          <AddTitle handleChange={ this.handleAllChanges } value={ title } />
-          <AddSubTitle handleChange={ this.handleAllChanges } value={ subtitle } />
-          <AddImage handleChange={ this.handleAllChanges } value={ imagePath } />
-          <AddStoryLine handleChange={ this.handleAllChanges } value={ storyline } />
-          <AddRating handleChange={ this.handleAllChanges } value={ rating } />
-          <AddGenre handleChange={ this.handleAllChanges } value={ genre } />
-          <SaveMovieButton onClick={ onClick } />
-
-        </form>
-      );
+    } else {
+      this.setState({
+        [name]: value,
+      });
     }
-} // test
+  } // handleChange vai definir o evento alvo e o que fazer com aquele resultado recebido
+
+  render() {
+    const { onClick } = this.props;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state; // renderiza os estados inicias
+    return ( // todos componentes tem a prop handleChange que receberá a func handleAllChanges
+      <form data-testid="add-movie-form">
+        <AddMovieTitle handleChange={ this.handleChange } value={ title } />
+        <AddMovieSubtitle handleChange={ this.handleChange } value={ subtitle } />
+        <AddMovieImage handleChange={ this.handleChange } value={ imagePath } />
+        <AddMovieStoryline handleChange={ this.handleChange } value={ storyline } />
+        <AddMovieRating handleChange={ this.handleChange } value={ rating } />
+        <AddMovieGenre handleChange={ this.handleChange } value={ genre } />
+        <AddMovieButton onClick={ (event) => onClick(event, this.state) } />
+      </form>
+    );
+  }
+}
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,

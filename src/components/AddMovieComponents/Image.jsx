@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class AddImage extends React.Component {
+class AddMovieRating extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
@@ -20,9 +20,9 @@ class AddImage extends React.Component {
   }
 }
 
-AddImage.propTypes = {
+AddMovieRating.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
-export default AddImage;
+export default AddMovieRating;
