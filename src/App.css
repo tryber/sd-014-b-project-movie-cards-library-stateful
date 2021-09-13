@@ -81,3 +81,16 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+main section {
+  padding: 10px 30px;
+}
+
+form label {
+  margin: 10px 0;
+  width: 100%;
+}
+
+form select {
+  margin: 0 10px;
+}
