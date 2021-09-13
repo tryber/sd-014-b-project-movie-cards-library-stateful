@@ -26,8 +26,10 @@ class MovieLibrary extends Component {
     this.setState({ searchText: value });
     const query = value.toLowerCase();
     const condition = ({ title, subtitle, storyline }) => {
-      [title, subtitle, storyline].some((string) => string.toLowerCase().includes(query));
+      const info = [title, subtitle, storyline];
+      return info.some((string) => string.toLowerCase().includes(query));
     };
+
     const movieList = (value !== '')
       ? originalMovieList.filter(condition)
       : originalMovieList;
