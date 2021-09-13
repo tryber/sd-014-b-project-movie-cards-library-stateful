@@ -43,10 +43,10 @@ class MovieLibrary extends Component {
     // os novos filmes dentro do array de objetos de filmes.
   }
 
-  moviesFilters(movieList) {
+  moviesFilters = (movies) => {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     // filtra por titulo,subtitulo e sinopse
-    const searchMovies = movieList.filter((movie) => {
+    const searchMovies = movies.filter((movie) => {
       const checkFilterMovie = (movie.title.toLowerCase()
         .includes(searchText.toLowerCase())
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())

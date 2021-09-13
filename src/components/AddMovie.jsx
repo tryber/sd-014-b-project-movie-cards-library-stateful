@@ -33,6 +33,7 @@ class AddMovie extends Component {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
+    // Reseta as informações pro estado inicial
     console.log(this.rating);
 
     this.setState({
