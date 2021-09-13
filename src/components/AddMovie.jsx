@@ -31,6 +31,10 @@ class AddMovie extends React.Component {
     });
   }
 
+  onClick(event) {
+    console.log(event.target.value);
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -52,7 +56,6 @@ class AddMovie extends React.Component {
     );
   }
 }
-
 // AddMovie.propTypes = {
 //   onClick: PropTypes.func.isRequired,
 // };
