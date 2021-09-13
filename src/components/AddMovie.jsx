@@ -45,16 +45,16 @@ class AddMovie extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div>
-        <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form">
+        <div className="title-and-sub">
           <TextInput value={ title } handleChange={ this.handleChange } />
           <SubTitle value={ subtitle } handleChange={ this.handleChange } />
-          <RatingInput value={ rating } handleChange={ this.handleChange } />
-          <ImagePath value={ imagePath } handleChange={ this.handleChange } />
-          <StoryLine value={ storyline } handleChange={ this.handleChange } />
+        </div>
+        <div className="col genre-and-storyline">
           <label htmlFor="input-genre" data-testid="genre-input-label">
             Gênero
             <select
+              className="form-select"
               data-testid="genre-input"
               id="input-genre"
               name="genre"
@@ -66,9 +66,18 @@ class AddMovie extends React.Component {
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
+        </div>
+        <div className="image-and-rating">
+          <RatingInput value={ rating } handleChange={ this.handleChange } />
+          <ImagePath value={ imagePath } handleChange={ this.handleChange } />
+        </div>
+        <div className="btn-storyline">
+          <StoryLine value={ storyline } handleChange={ this.handleChange } />
+        </div>
+        <div>
           <AddButton handleClick={ this.handleClick } />
-        </form>
-      </div>
+        </div>
+      </form>
     );
   }
 }

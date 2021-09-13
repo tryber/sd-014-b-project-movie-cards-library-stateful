@@ -5,10 +5,11 @@ class RatingInput extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <section>
-        <label htmlFor="input-rating" data-testid="rating-input-label">
+      <section className="col">
+        <label className="mb-3" htmlFor="input-rating" data-testid="rating-input-label">
           Avaliação
           <input
+            className="form-control"
             data-testid="rating-input"
             type="number"
             id="input-rating"

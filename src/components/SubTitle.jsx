@@ -5,10 +5,15 @@ class SubTitle extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
-      <section>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+      <section className="col">
+        <label
+          className="mb-3"
+          htmlFor="subtitle-input"
+          data-testid="subtitle-input-label"
+        >
           Subtítulo
           <input
+            className="form-control"
             data-testid="subtitle-input"
             type="text"
             id="subtitle-input"

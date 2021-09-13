@@ -5,10 +5,11 @@ class StoryLine extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
-      <section>
+      <section className="col">
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
+            className="form-control"
             data-testid="storyline-input"
             id="storyline-input"
             name="storyline"

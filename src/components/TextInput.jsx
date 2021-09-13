@@ -5,10 +5,11 @@ class TextInput extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
-      <section>
+      <section className="col">
         <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
+            className="form-control"
             data-testid="title-input"
             type="text"
             id="title-input"
