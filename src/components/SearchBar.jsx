@@ -22,6 +22,7 @@ class SearchBar extends React.Component {
               value={ searchText }
               onChange={ onSearchTextChange }
               data-testid="text-input"
+              id="text-input"
             />
           </label>
           <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
