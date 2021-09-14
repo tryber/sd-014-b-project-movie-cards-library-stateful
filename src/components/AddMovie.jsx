@@ -1,5 +1,6 @@
 import React from 'react';
 import Inputs from './Inputs';
+import TextAreaPadrao from './TextAreaPadrao';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -21,6 +22,10 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleClick = (event) => {
+    console.log(event);
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, genre, rating } = this.state;
     return (
@@ -29,15 +34,10 @@ class AddMovie extends React.Component {
           state={ { title, subtitle, imagePath } }
           handleChange={ this.onSearchTextChange }
         />
-        <label data-testid="storyline-input-label" htmlFor="storyline-input">
-          Sinopse
-          <textarea
-            name="storyline"
-            data-testid="storyline-input"
-            value={ storyline }
-            onChange={ this.onSearchTextChange }
-          />
-        </label>
+        <TextAreaPadrao
+          value={ storyline }
+          onChange={ this.onSearchTextChange }
+        />
         <label data-testid="rating-input-label" htmlFor="rating-input">
           Avaliação
           <input
@@ -62,6 +62,13 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+        <button
+          type="button"
+          onClick={ () => {} }
+          data-testid="send-button"
+        >
+          Adcionar filme
+        </button>
       </form>
     );
   }
