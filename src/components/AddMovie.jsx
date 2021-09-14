@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
@@ -19,8 +19,11 @@ import InputGenre from './InputGenre';
 class AddMovie extends React.Component {
   constructor() {
     super();
+
+    // "Ligar" (bind) função de event ao this
+    this.handleInputChange = this.handleInputChange.bind(this);
+
     // Estado inicial conforme requisito:
-    /*
     this.state = {
       subtitle: '',
       title: '',
@@ -28,20 +31,16 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }; */
-
-    this.props = {
-      title: PropTypes.string,
-      subtitle: PropTypes.string,
-      imagePath: PropTypes.string,
-      storyline: PropTypes.string,
-      rating: PropTypes.number,
-      genre: PropTypes.string,
     };
   }
 
+  handleInputChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
   render() {
-    // const { title, subtitle, imagePath, storyline, rating, genre } = this.props;
+    // Estado do componente
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     // inputs value=props
     return (
@@ -49,12 +48,12 @@ class AddMovie extends React.Component {
         <p>teste</p>
         <form data-testid="add-movie-form">
 
-          <InputTitle value={ title } />
-          <InputSubtitle value={ subtitle } />
-          <InputImage value={ imagePath } />
-          <InputStoryline value={ storyline } />
-          <InputRating value={ rating } />
-          <InputGenre value={ genre } />
+          <InputTitle title={ title } />
+          <InputSubtitle subtitle={ subtitle } />
+          <InputImage imagePath={ imagePath } />
+          <InputStoryline storyline={ storyline } />
+          <InputRating rating={ rating } />
+          <InputGenre genre={ genre } />
 
         </form>
       </div>
