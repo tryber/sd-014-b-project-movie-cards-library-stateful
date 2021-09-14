@@ -43,7 +43,6 @@ export default class AddMovie extends Component {
           type="button"
           data-testid="send-button"
           onClick={ onClick }
-          
         >
           Adicionar filme
         </button>
@@ -51,3 +50,7 @@ export default class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
