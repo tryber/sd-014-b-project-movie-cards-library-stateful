@@ -20,38 +20,24 @@ export default class AddMovie extends Component {
     };
   }
 
-  handleChange = ({ target }) => {
+  onChange = ({ target }) => {
     const { name, value } = target;
     this.setState({
       [name]: value,
     });
   }
 
-  /* handleClick = (event) => {
-  const { onClick } = this.props;
-  event.preventDefault();
-  onClick(this.state);
-  this.setState({
-  title: '',
-  subtitle: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-  });
-  } */
-
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form" action="">
-        <Title value={ title } onChange={ this.handleChange } />
-        <Subtitle value={ subtitle } onChange={ this.handleChange } />
-        <Image value={ imagePath } onChange={ this.handleChange } />
-        <Storyline value={ storyline } onChange={ this.handleChange } />
-        <Rating value={ rating } onChange={ this.handleChange } />
-        <Genre value={ genre } onChange={ this.handleChange } />
+        <Title title={ title } onChange={ this.onChange } />
+        <Subtitle subtitle={ subtitle } onChange={ this.onChange } />
+        <Image imagePath={ imagePath } onChange={ this.onChange } />
+        <Storyline storyline={ storyline } onChange={ this.onChange } />
+        <Rating rating={ rating } onChange={ this.onChange } />
+        <Genre genre={ genre } onChange={ this.onChange } />
         <button
           type="button"
           data-testid="send-button"
@@ -63,3 +49,4 @@ export default class AddMovie extends Component {
     );
   }
 }
+

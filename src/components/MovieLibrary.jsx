@@ -45,6 +45,7 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
           onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
