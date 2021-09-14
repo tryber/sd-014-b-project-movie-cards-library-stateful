@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TextInputDefault from './TextInputDefault';
+/* import TextInputDefault from './TextInputDefault'; */
 import TextareaInputDefault from './TextareaInputDefault';
 import NumberInputDefault from './NumberInputDefault';
 import SelectGenre from './SelectGenre';
+import TextFormComponent from './TextFormComponent';
 
 class AddMovie extends Component {
   constructor() {
@@ -27,33 +28,40 @@ class AddMovie extends Component {
     });
   }
 
+  /*         <TextInputDefault
+            name="title"
+            inputId="title-input"
+            labelId="title-input-label"
+            value={ title }
+            handleChange={ this.handleChange }
+            description="Título"
+          />
+          <TextInputDefault
+            name="subtitle"
+            inputId="subtitle-input"
+            labelId="subtitle-input-label"
+            value={ subtitle }
+            handleChange={ this.handleChange }
+            description="Subtítulo"
+          />
+          <TextInputDefault
+            name="imagePath"
+            inputId="image-input"
+            labelId="image-input-label"
+            value={ imagePath }
+            handleChange={ this.handleChange }
+            description="Imagem"
+          /> */
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <TextInputDefault
-          name="title"
-          inputId="title-input"
-          labelId="title-input-label"
-          value={ title }
+        <TextFormComponent
+          valueTitle={ title }
+          valueSubtitle={ subtitle }
+          valueImg={ imagePath }
           handleChange={ this.handleChange }
-          description="Título"
-        />
-        <TextInputDefault
-          name="subtitle"
-          inputId="subtitle-input"
-          labelId="subtitle-input-label"
-          value={ subtitle }
-          handleChange={ this.handleChange }
-          description="Subtítulo"
-        />
-        <TextInputDefault
-          name="imagePath"
-          inputId="image-input"
-          labelId="image-input-label"
-          value={ imagePath }
-          handleChange={ this.handleChange }
-          description="Imagem"
         />
         <TextareaInputDefault
           name="storyline"
