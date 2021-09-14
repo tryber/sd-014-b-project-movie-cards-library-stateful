@@ -19,7 +19,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-    
+
     this.handleChange = this.handleChange.bind(this);
     this.handleFormbutton = this.handleFormbutton.bind(this);
   }
@@ -32,7 +32,7 @@ class AddMovie extends Component {
   }
 
   handleFormbutton() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     onClick(this.state);
     this.setState({
       subtitle: '',
@@ -59,14 +59,16 @@ class AddMovie extends Component {
           type="button"
           data-testid="send-button"
           onClick={ this.handleFormbutton }
-        >Adicionar filme</button>
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = {
+/*AddMovie.propTypes = {
   onclick: PropTypes.func.isRequired,
-};
+};*/
 
 export default AddMovie;
