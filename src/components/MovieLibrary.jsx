@@ -28,4 +28,6 @@ MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
+// PropTypes de movie feito consultando o repositório do Leomar https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/tree/leomar-linhares-movie-cards-library-stateful
+
 export default MovieLibrary;
