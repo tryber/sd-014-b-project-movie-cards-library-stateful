@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TextInputDefault from './TextInputDefault';
 import TextareaInputDefault from './TextareaInputDefault';
 import NumberInputDefault from './NumberInputDefault';
+import SelectGenre from './SelectGenre';
 
 class AddMovie extends Component {
   constructor() {
@@ -13,7 +14,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      /* genre: 'action', */
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -27,7 +28,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating/* , genre */ } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <TextInputDefault
@@ -69,6 +70,14 @@ class AddMovie extends Component {
           value={ rating }
           handleChange={ this.handleChange }
           description="Avaliação"
+        />
+        <SelectGenre
+          name="genre"
+          inputId="genre-input"
+          labelId="genre-input-label"
+          value={ genre }
+          handleChange={ this.handleChange }
+          description="Gênero"
         />
       </form>
     );
