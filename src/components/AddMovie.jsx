@@ -3,7 +3,6 @@ import Title from './ComponenetesAddMovie/Title';
 import SubTitle from './ComponenetesAddMovie/Subtitulo';
 import Image from './ComponenetesAddMovie/Image';
 import Sinopse from './ComponenetesAddMovie/Sinopse';
-import Rating from './ComponenetesAddMovie/Rating';
 import Genre from './ComponenetesAddMovie/Genre';
 
 class AddMovie extends React.Component {
@@ -38,7 +37,16 @@ class AddMovie extends React.Component {
         <SubTitle value={ subtitle } onChange={ this.add } />
         <Image value={ imagePath } onChange={ this.add } />
         <Sinopse value={ storyLine } onChange={ this.add } />
-        <Rating value={ rating } onChange={ this.add } />
+        <label data-testid="rating-input-label" htmlFor="rating-input">
+          Avaliação
+          <input
+            data-testid="rating-input"
+            name="rating"
+            type="number"
+            value={ rating }
+            onChange={ this.add }
+          />
+        </label>
         <Genre value={ genre } onChange={ this.add } />
       </form>
     );
