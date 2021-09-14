@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-
-// import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 import AddMovie from './AddMovie';
+
+// import PropTypes from 'prop-types';
 // import { movies } from '../data';
 
 class MovieLibrary extends Component {
@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        {/* <MovieList movies={this.props.movies} /> */}
+        <MovieList />
         <AddMovie />
       </div>
     );

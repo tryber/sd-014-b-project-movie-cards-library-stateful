@@ -1,8 +1,15 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+import InputTitle from './InputTitle';
+import InputSubtitle from './InputSubtitle';
+import InputImage from './InputImage';
+import InputStoryline from './InputStoryline';
+import InputRating from './InputRating';
+import InputGenre from './InputGenre';
 
 /*
- 8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme
+ Requisito 8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme
     Renderize um input de texto para quem usa escrever o titulo do filme
     Renderize a label "Título" para o input de titulo
     Defina o estado inicial do titulo como "", ou seja, uma string vazia
@@ -10,42 +17,44 @@ import React from 'react';
 */
 
 class AddMovie extends React.Component {
-  /* constructor() {
+  constructor() {
     super();
+    // Estado inicial conforme requisito:
+    /*
     this.state = {
-      /* subtitle: '',
+      subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action', */
+      genre: 'action',
+    }; */
+
+    this.props = {
+      title: PropTypes.string,
+      subtitle: PropTypes.string,
+      imagePath: PropTypes.string,
+      storyline: PropTypes.string,
+      rating: PropTypes.number,
+      genre: PropTypes.string,
+    };
+  }
 
   render() {
+    // const { title, subtitle, imagePath, storyline, rating, genre } = this.props;
+
+    // inputs value=props
     return (
       <div>
         <p>teste</p>
         <form data-testid="add-movie-form">
-          <p>teste</p>
 
-          <label htmlFor="title-input" data-testid="title-input-label">
-            Título
-            <input type="text" data-testid="title-input" />
-          </label>
-
-          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-            Subtítulo
-            <input type="text" data-testid="subtitle-input" />
-          </label>
-
-          <label htmlFor="imagePath" data-testid="image-input">
-            Imagem
-            <input type="text" data-testid="image-input" />
-          </label>
-
-          <label htmlFor="storyline" data-testid="storyline-input-label">
-            Sinopse
-            <textarea data-testid="storyline-input" />
-          </label>
+          <InputTitle value={ title } />
+          <InputSubtitle value={ subtitle } />
+          <InputImage value={ imagePath } />
+          <InputStoryline value={ storyline } />
+          <InputRating value={ rating } />
+          <InputGenre value={ genre } />
 
         </form>
       </div>
@@ -53,23 +62,4 @@ class AddMovie extends React.Component {
   }
 }
 
-/*
-subtitle: guarda o subtítulo preenchido no formulário por quem usa a aplicação;
-title: guarda o título preenchido no formulário por quem usa a aplicação;
-imagePath: guarda o caminho da imagem preenchido no formulário por quem usa a aplicação;
-storyline: guarda a sinopse do filme escrita no formulário por quem usa a aplicação;
-rating: guarda a nota de avaliação dada no formulário por quem usa a aplicação;
-genre: guarda o gênero do filme selecionado no formulário por quem usa a aplicação.
-
-*/
-/*
-AddMovie.PropTypes = {
-  subtitles: PropTypes.string,
-  title: PropTypes.string,
-  imagePath: PropTypes.string,
-  storyline: PropTypes.string,
-  rating: PropTypes.number,
-  genre: PropTypes.string,
-};
-*/
 export default AddMovie;

@@ -1,5 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+/*
+O select deve ter uma label associada com o texto: "Filtrar por gênero";
+Essa label deve apresentar o atributo data-testid="select-input-label"
+A propriedade value do select deve receber o valor da prop selectedGenre;
+A propriedade onChange do select deve receber o valor da prop onSelectedGenreChange;
+O select deve renderizar quatro tags option, com as opções de filtragem por gênero, na seguinte ordem:
+
+Todos, com o valor "";
+Ação, com o valor action;
+Comédia, com o valor comedy;
+Suspense, com o valor thriller.
+O select deve apresentar o atributo data-testid="select-input"
+
+Cada option deve apresentar o atributo data-testid="select-option"
+*/
 
 class SelectedGenre extends React.Component {
   render() {

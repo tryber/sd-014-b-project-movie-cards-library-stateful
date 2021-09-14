@@ -23,11 +23,11 @@ selectedGenre não cabe:
 => import SelectedGenre from './SelectedGenre';
 */
 
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SelectedGenre from './SelectedGenre';
 
-class SearchBar extends React.Component { // Requisito 1 - Crie um componente chamado <SearchBar
+class SearchBar extends Component { // Requisito 1 - Crie um componente chamado <SearchBar
   render() {
     const {
       searchText,
