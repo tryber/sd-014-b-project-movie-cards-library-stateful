@@ -7,14 +7,15 @@ class InputRating extends Component {
 
     return (
       <label htmlFor="movie-rating" data-testid="rating-input-label">
-        Avaliação
+        <p>Avaliação</p>
         <input
-          name="imagePath"
+          name="rating"
+          id="rating"
           type="number"
+          data-testid="rating-input"
           value={ value5 }
           onChange={ onChange }
-          data-testid="rating-input"
-          id="movie-rating"
+          required
         />
       </label>
     );

@@ -7,6 +7,7 @@ import SelectGenre from './SelectGenre';
 import Sinopse from './Sinopse';
 import Subtitle from './Subtitle';
 import Title from './Title';
+import ButtonMovie from './ButtonMovie';
 
 class AddMovie extends Component {
   constructor() {
@@ -45,19 +46,22 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
     return (
-      <section>
-        <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form">
+        <section>
           <Subtitle value={ subtitle } onChange={ this.handleChange } />
           <Title value={ title } onChange={ this.handleChange } />
           <ImageP value={ imagePath } onChange={ this.handleChange } />
           <Sinopse value={ storyline } onChange={ this.handleChange } />
-          <InputRating value={ Number(rating) } onChange={ this.handleChange } />
+          <InputRating value={ rating } onChange={ this.handleChange } />
           <SelectGenre value={ genre } onChange={ this.handleChange } />
-        </form>
-      </section>
+        </section>
+        <section>
+          <ButtonMovie onChange={ () => this.handleClick(onClick) } />
+        </section>
+      </form>
     );
   }
 }
@@ -66,3 +70,6 @@ AddMovie.propTypes = {
 };
 
 export default AddMovie;
+
+// Consultei o repositório de Beatriz Ribeiro para criar o botão.
+// https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/pull/86/files

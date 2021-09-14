@@ -7,7 +7,7 @@ class Title extends Component {
 
     return (
       <label htmlFor="movie-title" data-testid="title-input-label">
-        Título
+        <p>Título</p>
         <input
           name="title"
           type="text"
@@ -27,3 +27,6 @@ Title.propTypes = {
 };
 
 export default Title;
+
+// Consultei o repositório de Beatriz Rodrigues para fazer este Requisito.
+// https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/pull/86

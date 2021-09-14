@@ -7,7 +7,7 @@ class Subtitle extends Component {
 
     return (
       <label htmlFor="movie-subtitle" data-testid="subtitle-input-label">
-        Subtítulo
+        <p>Subtítulo</p>
         <input
           name="subtitle"
           type="text"

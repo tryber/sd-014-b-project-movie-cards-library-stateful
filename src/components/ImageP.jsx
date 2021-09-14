@@ -7,7 +7,7 @@ class ImageP extends Component {
 
     return (
       <label htmlFor="movie-image" data-testid="image-input-label">
-        Imagem
+        <p>Imagem</p>
         <input
           name="imagePath"
           type="text"

@@ -6,18 +6,17 @@ class Sinopse extends Component {
     const { value4, onChange } = this.props;
 
     return (
-      <textarea>
-        <label htmlFor="movie-storyline" data-testid="storyline-input-label">
-          Sinopse
-          <input
-            name="storyline"
-            value={ value4 }
-            onChange={ onChange }
-            data-testid="storyline-input"
-            id="movie-storyline"
-          />
-        </label>
-      </textarea>
+      <label htmlFor="movie-storyline" data-testid="storyline-input-label">
+        <p>Sinopse</p>
+        <textarea
+          name="storyline"
+          type="text"
+          value={ value4 }
+          onChange={ onChange }
+          data-testid="storyline-input"
+          id="storyline"
+        />
+      </label>
     );
   }
 }
