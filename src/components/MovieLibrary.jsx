@@ -8,22 +8,43 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor() {
-    super(props);
+    super();
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    };
   }
 
   resetState = (state) => {
     console.log(state);
   }
 
+  onSearchTextChange = ({ target }) => {
+    const { name } = target;
+    this.setState({
+      [name]: target.value,
+    });
+  }
+
+  onBookmarkedChange = ({ target }) => {
+    const { name } = target;
+    this.setState({
+      [name]: target.checked,
+    });
+  }
+
   render() {
     const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const propsSearch = {
-      searchText: '',
-      onSearchTextChange: () => {},
-      bookmarkedOnly: false,
-      onBookmarkedChange: () => {},
-      selectedGenre: '',
-      onSelectedGenreChange: () => {},
+      searchText,
+      onSearchTextChange: this.onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange: this.onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange: this.onSearchTextChange,
     };
 
     return (
