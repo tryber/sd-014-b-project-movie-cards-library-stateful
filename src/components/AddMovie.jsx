@@ -27,19 +27,19 @@ export default class AddMovie extends Component {
     });
   }
 
-  handleClick = (event) => {
-    const { onClick } = this.props;
-    event.preventDefault();
-    onClick(this.state);
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-  }
+  /* handleClick = (event) => {
+  const { onClick } = this.props;
+  event.preventDefault();
+  onClick(this.state);
+  this.setState({
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+  });
+  } */
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
@@ -57,7 +57,8 @@ export default class AddMovie extends Component {
           data-testid="send-button"
           onClick={ this.handleClick }
         >
-        Adicionar filme</button>
+          Adicionar filme
+        </button>
       </form>
     );
   }
