@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class InputGenre extends React.Component {
-
   render() {
     const { genre, handleChange } = this.props;
     return (

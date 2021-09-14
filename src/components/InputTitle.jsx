@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class InputTitle extends React.Component {
-
   render() {
     const { title, handleChange } = this.props;
     return (

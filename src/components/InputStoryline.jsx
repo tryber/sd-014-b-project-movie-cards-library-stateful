@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class InputStoryline extends React.Component {
-
   render() {
     const { storyline, handleChange } = this.props;
     return (

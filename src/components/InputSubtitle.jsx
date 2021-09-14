@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class InputSubtitle extends React.Component {
-
   render() {
     const { subtitle, handleChange } = this.props;
     return (

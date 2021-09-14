@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class InputImagePath extends React.Component {
-
   render() {
     const { imagePath, handleChange } = this.props;
     return (
