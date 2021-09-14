@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
 import InputImage from './InputImage';
@@ -26,8 +27,23 @@ class AddMovie extends React.Component {
         [name]: value,
       });
     }
+    // Consultei o repositório do Fabrício Cardoso para resolver o requisito 14
+    // Link: https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/pull/116
+
+    resetState = (callback) => {
+      callback(this.state);
+      this.setState({
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      });
+    }
 
     render() {
+      const { onClick } = this.props;
       const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
       return (
         <form data-testid="add-movie-form">
@@ -60,10 +76,20 @@ class AddMovie extends React.Component {
             value={ genre }
             handleChange={ this.handleChange }
           />
-
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={ () => this.resetState(onClick) }
+          >
+            Adicionar filme
+          </button>
         </form>
       );
     }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}.isRequired;
 
 export default AddMovie;

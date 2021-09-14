@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputSubtitle extends React.Component {
 
@@ -12,11 +13,17 @@ class InputSubtitle extends React.Component {
           value={ subtitle }
           handleChange={ handleChange }
           data-testid="subtitle-input"
+          type="text"
         />
       </label>
 
     );
   }
 }
+
+InputSubtitle.propTypes = {
+  rating: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
 
 export default InputSubtitle;

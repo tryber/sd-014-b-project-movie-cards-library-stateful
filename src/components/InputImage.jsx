@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputImagePath extends React.Component {
 
@@ -12,11 +13,17 @@ class InputImagePath extends React.Component {
           value={ imagePath }
           handleChange={ handleChange }
           data-testid="imagePath-input"
+          type="text"
         />
       </label>
 
     );
   }
 }
+
+InputImagePath.propTypes = {
+  imagePath: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
 
 export default InputImagePath;
