@@ -30,6 +30,14 @@ class AddMovie extends React.Component {
   handleClick(event, callback) {
     event.preventDefault();
     callback(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -48,7 +56,7 @@ class AddMovie extends React.Component {
         >
           Subtítulo
         </FormItem>
-        <FormItem name="imagePath" onChange={ this.handleChange } value={ imagePath }>
+        <FormItem name="image" onChange={ this.handleChange } value={ imagePath }>
           Imagem
         </FormItem>
         <FormItem name="storyline" onChange={ this.handleChange } value={ storyline }>

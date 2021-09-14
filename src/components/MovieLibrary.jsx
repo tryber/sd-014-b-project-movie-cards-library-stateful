@@ -19,10 +19,11 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   onSearchTextChange({ target: { value } }) {
-    const { originalMovieList } = this.state;
+    const { originalMovieList, movies } = this.state;
     this.setState({ searchText: value });
     const query = value.toLowerCase();
     const condition = ({ title, subtitle, storyline }) => {
@@ -30,17 +31,17 @@ class MovieLibrary extends Component {
       return info.some((string) => string.toLowerCase().includes(query));
     };
 
-    const movieList = (value !== '')
+    const movieList = (value !== '' && movies)
       ? originalMovieList.filter(condition)
       : originalMovieList;
     this.setState({ movies: movieList });
   }
 
   onBookmarkedChange() {
-    const { originalMovieList, bookmarkedOnly } = this.state;
+    const { originalMovieList, bookmarkedOnly, movies } = this.state;
     const isSelected = !bookmarkedOnly;
     this.setState({ bookmarkedOnly: isSelected });
-    const movieList = (isSelected)
+    const movieList = (isSelected && movies)
       ? originalMovieList.filter(({ bookmarked }) => bookmarked)
       : originalMovieList;
     this.setState({ movies: movieList });
@@ -48,8 +49,8 @@ class MovieLibrary extends Component {
 
   onSelectedGenreChange({ target: { value } }) {
     this.setState({ selectedGenre: value });
-    const { originalMovieList } = this.state;
-    const movieList = (value !== '')
+    const { originalMovieList, movies } = this.state;
+    const movieList = (value !== '' && movies)
       ? originalMovieList.filter(({ genre }) => genre === value)
       : originalMovieList;
     this.setState({ movies: movieList });

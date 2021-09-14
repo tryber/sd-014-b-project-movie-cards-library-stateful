@@ -24,13 +24,12 @@ FormItem.propTypes = {
   children: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   Tag: PropTypes.string,
 };
 
 FormItem.defaultProps = {
   type: 'text',
-  value: '',
   Tag: 'input',
 };
 
