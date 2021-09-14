@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
@@ -6,7 +7,7 @@ class SearchBar extends React.Component {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
-      onBookmarkedOnly,
+      onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange
     } = this.props;
@@ -32,7 +33,6 @@ class SearchBar extends React.Component {
             id="checkbox-input"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
-
           />
         </label>
         <label data-testid="select-input-label" htmlFor="select-option">
