@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
@@ -32,7 +32,7 @@ class AddMovie extends Component {
   }
 
   handleFormbutton() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     onClick(this.state);
     this.setState({
       subtitle: '',
@@ -67,8 +67,8 @@ class AddMovie extends Component {
   }
 }
 
-/* AddMovie.propTypes = {
-  onclick: PropTypes.func.isRequired,
-}; */
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
