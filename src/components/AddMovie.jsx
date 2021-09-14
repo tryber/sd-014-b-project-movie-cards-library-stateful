@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Inputs from './Inputs';
 import TextAreaPadrao from './TextAreaPadrao';
 
@@ -22,12 +23,22 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleClick = (event) => {
-    console.log(event);
+  handleClick = (callback) => {
+    callback();
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      genre: 'action',
+      rating: 0,
+    });
   }
 
   render() {
     const { title, subtitle, imagePath, storyline, genre, rating } = this.state;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Inputs
@@ -64,14 +75,18 @@ class AddMovie extends React.Component {
         </label>
         <button
           type="button"
-          onClick={ () => {} }
+          onClick={ () => { this.handleClick(onClick); } }
           data-testid="send-button"
         >
-          Adcionar filme
+          Adicionar filme
         </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}.isRequired;
 
 export default AddMovie;
