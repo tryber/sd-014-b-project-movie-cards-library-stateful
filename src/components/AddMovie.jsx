@@ -6,6 +6,7 @@ import InputSubtitle from './InputSubtitle';
 import InputImage from './InputImage';
 import InputStoryline from './InputStoryline';
 import InputRating from './InputRating';
+import InputGenre from './InputGenre';
 
 class AddMovie extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class AddMovie extends Component {
       // imagePath: '',
       // storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -28,7 +29,7 @@ class AddMovie extends Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputTitle value={ title } handleChange={ this.handleChange } />
@@ -36,7 +37,7 @@ class AddMovie extends Component {
         <InputImage value={ imagePath } handleChange={ this.handleChange } />
         <InputStoryline value={ storyline } handleChange={ this.handleChange } />
         <InputRating value={ rating } handleChange={ this.handleChange } />
-
+        <InputGenre value={ genre } handleChange={ this.handleChange } />
       </form>
     );
   }
