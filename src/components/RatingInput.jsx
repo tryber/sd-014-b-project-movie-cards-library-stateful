@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ImagePath extends Component {
+class RatingInput extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label data-testid="image-input-label" htmlFor="imagePath">
-        Imagem
+      <label data-testid="rating-input-label" htmlFor="rating">
+        Avaliação
         <input
-          type="text"
-          name="imagePath"
-          data-testid="image-input"
+          type="number"
+          data-testid="rating-input"
+          name="rating"
           value={ value }
           onChange={ onChange }
         />
@@ -19,9 +19,9 @@ class ImagePath extends Component {
   }
 }
 
-ImagePath.propTypes = {
+RatingInput.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default ImagePath;
+export default RatingInput;

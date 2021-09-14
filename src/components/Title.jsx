@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class Title extends Component {
+class Title extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
