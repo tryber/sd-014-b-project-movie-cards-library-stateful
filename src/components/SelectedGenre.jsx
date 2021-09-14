@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 /*
 O select deve ter uma label associada com o texto: "Filtrar por gênero";
@@ -16,7 +16,7 @@ O select deve apresentar o atributo data-testid="select-input"
 Cada option deve apresentar o atributo data-testid="select-option"
 */
 
-class SelectedGenre extends React.Component {
+class SelectedGenre extends Component {
   render() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
@@ -24,8 +24,6 @@ class SelectedGenre extends React.Component {
         <label htmlFor="selectedGenre" data-testid="select-input-label">
           Filtrar por gênero
           <select
-            name="selectedGenre"
-            id="selectedGenre"
             data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }

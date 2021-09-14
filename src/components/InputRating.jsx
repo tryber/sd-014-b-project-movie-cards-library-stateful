@@ -2,7 +2,6 @@
 12 - Renderize um input do tipo number dentro do formulário em <AddMovie /> para obter a avaliação do novo filme
 
 O input deve ter uma label associada com o texto: "Avaliação";
-
 Essa label deve apresentar o atributo data-testid="rating-input-label"
 O input deve ter seu valor inicial provido pelo estado inicial do componente, via rating;
 Essa input deve apresentar o atributo data-testid="rating-input"
