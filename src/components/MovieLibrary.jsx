@@ -36,6 +36,9 @@ class MovieLibrary extends Component {
     });
   }
 
+  onClick = () => {
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (

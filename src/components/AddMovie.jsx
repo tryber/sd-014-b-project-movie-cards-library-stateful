@@ -28,6 +28,7 @@ export default class AddMovie extends Component {
   }
 
   render() {
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
@@ -41,7 +42,8 @@ export default class AddMovie extends Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.handleClick }
+          onClick={ onClick }
+          
         >
           Adicionar filme
         </button>
