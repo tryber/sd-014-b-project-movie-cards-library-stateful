@@ -21,7 +21,9 @@ class AddMovie extends React.Component {
   }
 
   handleChange(event) {
-    const { name, value } = event.target;
+    let { name } = event.target;
+    const { value } = event.target;
+    if (name === 'image') name = 'imagePath';
     this.setState({
       [name]: value,
     });
