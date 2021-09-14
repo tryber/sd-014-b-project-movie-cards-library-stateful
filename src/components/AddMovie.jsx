@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TextInputDefault from './TextInputDefault';
+import TextareaInputDefault from './TextareaInputDefault';
 
 class AddMovie extends Component {
   constructor() {
@@ -25,7 +26,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline/* , rating, genre */ } = this.state;
+    const { title, subtitle, imagePath, storyline /* , rating, genre */ } = this.state;
     return (
       <form data-testid="add-movie-form">
         <TextInputDefault
@@ -35,7 +36,6 @@ class AddMovie extends Component {
           value={ title }
           handleChange={ this.handleChange }
           description="Título"
-          type="text"
         />
         <TextInputDefault
           name="subtitle"
@@ -44,7 +44,6 @@ class AddMovie extends Component {
           value={ subtitle }
           handleChange={ this.handleChange }
           description="Subtítulo"
-          type="text"
         />
         <TextInputDefault
           name="imagePath"
@@ -53,18 +52,15 @@ class AddMovie extends Component {
           value={ imagePath }
           handleChange={ this.handleChange }
           description="Imagem"
-          type="text"
         />
-        <TextInputDefault
+        <TextareaInputDefault
           name="storyline"
           inputId="storyline-input"
           labelId="storyline-input-label"
           value={ storyline }
           handleChange={ this.handleChange }
           description="Sinopse"
-          type="textarea"
         />
-        <TextInputDefault />
       </form>
     );
   }
