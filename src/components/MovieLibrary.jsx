@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -13,6 +14,7 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) {
@@ -23,18 +25,48 @@ class MovieLibrary extends Component {
     });
   }
 
+  filterMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    if (searchText !== '') {
+      let movieTitle;
+      let movieSubTitle;
+      let movieStoryLine;
+
+      movies.filter((movie) => {
+        movieTitle = movie.title.toLowerCase();
+        movieSubTitle = movie.subtitle.toLowerCase();
+        movieStoryLine = movie.storyLine.toLowerCase();
+
+        return movieTitle.includes(searchText.toLowerCase())
+          || movieSubTitle.includes(searchText.toLowerCase())
+          || movieStoryLine.includes(searchText.toLowerCase());
+      });
+    }
+
+    if (selectedGenre !== '') {
+      movies.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    if (bookmarkedOnly) {
+      movies.filter((movie) => movie.bookMarked === bookmarkedOnly);
+    }
+    return movies;
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          movies={ movies }
+          onSelectedGenreChange={ this.handleChange }
         />
         <AddMovie />
+        <MovieList movies={ this.filterMovies() } />
       </div>
     );
   }
