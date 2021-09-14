@@ -7,6 +7,7 @@ import InputImage from './InputImage';
 import InputStoryline from './InputStoryline';
 import InputRating from './InputRating';
 import InputGenre from './InputGenre';
+import SendButton from './SendButton';
 
 /*
  Requisito 8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme
@@ -54,6 +55,7 @@ class AddMovie extends React.Component {
           <InputStoryline storyline={ storyline } />
           <InputRating rating={ rating } />
           <InputGenre genre={ genre } />
+          <SendButton />
 
         </form>
       </div>
