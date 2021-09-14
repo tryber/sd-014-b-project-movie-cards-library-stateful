@@ -1,28 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class InputSubtitle extends React.Component {
+class Subtitle extends React.Component {
   render() {
-    const { value, onChange } = this.props;
+    const { value, callback } = this.props;
     return (
       <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
         Subtítulo
         <input
-          id="subtitle-input"
           name="subtitle"
           type="text"
-          value={ value }
-          onChange={ onChange }
           data-testid="subtitle-input"
+          value={ value }
+          onChange={ callback }
         />
       </label>
     );
   }
 }
 
-InputSubtitle.propTypes = {
+Subtitle.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  callback: PropTypes.func.isRequired,
 };
 
-export default InputSubtitle;
+export default Subtitle;
