@@ -33,21 +33,21 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <Title value={ title } onChange={ this.add } />
-        <SubTitle value={ subtitle } onChange={ this.add } />
-        <Image value={ imagePath } onChange={ this.add } />
-        <Sinopse value={ storyLine } onChange={ this.add } />
+        <Title value={ title } func={ this.add } />
+        <SubTitle value={ subtitle } func={ this.add } />
+        <Image value={ imagePath } func={ this.add } />
+        <Sinopse value={ storyLine } func={ this.add } />
         <label data-testid="rating-input-label" htmlFor="rating-input">
           Avaliação
           <input
             data-testid="rating-input"
-            name="rating"
             type="number"
+            name="rating"
             value={ rating }
             onChange={ this.add }
           />
         </label>
-        <Genre value={ genre } onChange={ this.add } />
+        <Genre value={ genre } func={ this.add } />
       </form>
     );
   }

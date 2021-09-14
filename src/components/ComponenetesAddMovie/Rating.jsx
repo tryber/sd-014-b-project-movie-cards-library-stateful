@@ -10,8 +10,8 @@ class Rating extends React.Component {
         Avaliação
         <input
           data-testid="rating-input"
-          name="rating"
           type="number"
+          name="rating"
           value={ rating }
           onChange={ func }
         />
@@ -21,7 +21,7 @@ class Rating extends React.Component {
 }
 
 Rating.propTypes = {
-  rating: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
   func: PropTypes.func.isRequired,
 };
 
