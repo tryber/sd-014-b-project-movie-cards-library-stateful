@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Title from '../inputMovie/Title';
 import Subtitle from '../inputMovie/Subtitle';
 import Storyline from '../inputMovie/Storyline';
