@@ -6,7 +6,7 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   render() {
-    const movies = this.props;
+    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -19,7 +19,9 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object),
-}.isRequired;
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;
