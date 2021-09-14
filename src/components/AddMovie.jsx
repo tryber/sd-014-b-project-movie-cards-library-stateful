@@ -1,5 +1,5 @@
 import React from 'react';
-import InputPadrao from './InputPadrao';
+import Inputs from './Inputs';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -11,6 +11,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       genre: 'action',
+      rating: 0,
     };
   }
 
@@ -21,35 +22,13 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, genre, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputPadrao
-          dataid="title-input-label"
-          name="title"
-          description="Título"
-          id="title-input"
-          value={ title }
+        <Inputs
+          state={ { title, subtitle, imagePath } }
           handleChange={ this.onSearchTextChange }
         />
-        <InputPadrao
-          dataid="subtitle-input-label"
-          name="subtitle"
-          description="Subtítulo"
-          id="subtitle-input"
-          value={ subtitle }
-          handleChange={ this.onSearchTextChange }
-        />
-        <label data-testid="image-input-label" htmlFor="image-input">
-          Imagem
-          <input
-            data-testid="image-input"
-            type="text"
-            onChange={ this.onSearchTextChange }
-            value={ imagePath }
-            name="imagePath"
-          />
-        </label>
         <label data-testid="storyline-input-label" htmlFor="storyline-input">
           Sinopse
           <textarea
@@ -59,9 +38,25 @@ class AddMovie extends React.Component {
             onChange={ this.onSearchTextChange }
           />
         </label>
+        <label data-testid="rating-input-label" htmlFor="rating-input">
+          Avaliação
+          <input
+            name="rating"
+            data-testid="rating-input"
+            type="number"
+            onChange={ this.onSearchTextChange }
+            value={ rating }
+          />
+        </label>
         <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero
-          <select onChange={ this.onSearchTextChange } data-testid="genre-input" name="genre" value={ genre } htmlFor="genre-option">
+          <select
+            onChange={ this.onSearchTextChange }
+            data-testid="genre-input"
+            name="genre"
+            value={ genre }
+            htmlFor="genre-option"
+          >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>

@@ -25,6 +25,7 @@ InputPadrao.propTypes = {
   id: PropTypes.string,
   handleChange: PropTypes.func,
   value: PropTypes.string,
+  dataid: PropTypes.string,
 }.isRequired;
 
 export default InputPadrao;
