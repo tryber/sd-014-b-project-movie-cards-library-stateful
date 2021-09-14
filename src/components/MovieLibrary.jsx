@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import PropTypes from 'prop-types';
 
 class MovieLibrary extends Component {
   constructor() {
     super();
-
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -15,12 +15,25 @@ class MovieLibrary extends Component {
     };
   }
 
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
-    // const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar 
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+          movies={ movies }
+        />
         <AddMovie />
       </div>
     );
