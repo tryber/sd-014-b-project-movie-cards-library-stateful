@@ -7,7 +7,6 @@ import AddMovie from './AddMovie';
 import data from '../data';
 
 class MovieLibrary extends Component {
-
   render() {
     return (
       <div>
