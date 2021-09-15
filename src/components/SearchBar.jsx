@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 /* import Select from './Select'; */
 
-class SearchBar extends React.Component {
+class SearchBar extends Component {
   render() {
     const {
       searchText,
@@ -40,6 +39,7 @@ class SearchBar extends React.Component {
             data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
+            htmlFor="select-option"
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>

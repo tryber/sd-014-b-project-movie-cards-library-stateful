@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GenreAdd from './GenreAdd';
 
-class AddMovie extends React.Component {
+class AddMovie extends Component {
   constructor() {
     super();
 

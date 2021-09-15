@@ -1,18 +1,17 @@
-/* eslint-disable react/no-unused-state */
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends React.Component {
+class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      // searchText: '',
-      // bookmarkedOnly: false,
-      // selectedGenre: '',
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
       movies: props.movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -67,10 +66,13 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { movies } = this.state;
+    const { bookmarkedOnly, movies, searchText } = this.state;
     return (
       <div>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+        />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
       </div>
@@ -79,9 +81,7 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
