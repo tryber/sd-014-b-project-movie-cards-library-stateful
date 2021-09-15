@@ -21,7 +21,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    // this.addMovieAndReset = this.addMovieAndReset.bind(this);
+    this.addMovieAndReset = this.addMovieAndReset.bind(this);
   }
 
   handleChange = ({ target }) => {
@@ -54,7 +54,7 @@ class AddMovie extends React.Component {
           <Subtitle name="subtitle" value={ subtitle } onChange={ this.handleChange } />
           <Image name="imagePath" value={ imagePath } onChange={ this.handleChange } />
           <Sinopse name="storyline" value={ storyline } onChange={ this.handleChange } />
-          <InputRating name="rating" value={ rating } onChange={ this.handleChange } />
+          <InputRating value={ rating } onChange={ this.handleChange } />
           <Select name="genre" value={ genre } onChange={ this.handleChange } />
         </form>
         <Button onChange={ () => this.addMovieAndReset(onClick) } />
