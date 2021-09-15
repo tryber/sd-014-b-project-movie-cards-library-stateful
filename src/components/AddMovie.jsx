@@ -51,7 +51,7 @@ class AddMovie extends React.Component {
         <MovieSubtitle value={ subtitle } onChange={ this.updateInput } />
         <MovieImg value={ imagePath } onChange={ this.updateInput } />
         <TextArea value={ storyline } onChange={ this.updateInput } />
-        <MovieRating value={ rating } onChange={ this.updateInput } />
+        <MovieRating rating={ rating } onChange={ this.updateInput } />
         <SelectGenre value={ genre } onChange={ this.updateInput } />
         <button
           type="button"

@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 class MovieRating extends React.Component {
   render() {
     const { rating, onChange } = this.props;
+
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
-        Sinopse
-        <textarea
+        Avaliação
+        <input
           type="number"
           name="rating"
+          id="rating"
           data-testid="rating-input"
-          value={ rating }
+          value={ Number(rating) }
           onChange={ onChange }
         />
       </label>
