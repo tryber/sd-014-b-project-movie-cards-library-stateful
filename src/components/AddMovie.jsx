@@ -1,17 +1,17 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      // subtitle: ' ',
-      // title: ' ',
-      // imagePath: ' ',
-      // storyLine: ' ',
-      // rating: 0,
-      // genre: 'action',
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     // subtitle: ' ',
+  //     // title: ' ',
+  //     // imagePath: ' ',
+  //     // storyLine: ' ',
+  //     // rating: 0,
+  //     // genre: 'action',
+  //   };
+  // }
 
   render() {
     return (
@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
           Capa:
           <input type="text" name="imagePath" id="imagePath" value="" />
         </label>
-          <label htmlFor="rating">
+        <label htmlFor="rating">
           Nota:
           <input type="number" name="rating" id="rating" value="" />
         </label>
@@ -37,7 +37,7 @@ class AddMovie extends React.Component {
           <textarea name="storyline" id="storyline" value="" />
         </label>
         <label htmlFor="genre">
-          ênero:
+          Gênero:
           <select
             value=""
             name="genre"
@@ -47,8 +47,8 @@ class AddMovie extends React.Component {
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
-            </select>
-          </label>
+          </select>
+        </label>
       </form>
     );
   }
