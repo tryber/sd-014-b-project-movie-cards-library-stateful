@@ -7,6 +7,7 @@
 5 - Renderize um select dentro do formulário em <SearchBar />
 */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class SearchBar extends React.Component {
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange 
+      onSelectedGenreChange,
     } = this.props;
 
     return (
@@ -61,4 +62,18 @@ class SearchBar extends React.Component {
   }
 }
 
+// Re-Verificar e re-estudar no quesito 20
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
+
+SearchBar.defaultProps = {
+  searchText: '',
+  selectedGenre: '',
+};
 export default SearchBar;
