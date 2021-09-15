@@ -38,9 +38,9 @@ class MovieLibrary extends Component {
         subtitle,
         storyline,
       }) => (
-        title.toLowerCase().includes(searchText)
-        || subtitle.toLowerCase().includes(searchText)
-        || storyline.toLowerCase().includes(searchText)
+        title.toLowerCase().includes(searchText.toLowerCase())
+        || subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || storyline.toLowerCase().includes(searchText.toLowerCase())
       ));
     }
 
