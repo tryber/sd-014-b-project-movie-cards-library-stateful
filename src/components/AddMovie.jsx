@@ -28,30 +28,16 @@ class AddMovie extends Component {
     });
   }
 
-  /*         <TextInputDefault
-            name="title"
-            inputId="title-input"
-            labelId="title-input-label"
-            value={ title }
-            handleChange={ this.handleChange }
-            description="Título"
-          />
-          <TextInputDefault
-            name="subtitle"
-            inputId="subtitle-input"
-            labelId="subtitle-input-label"
-            value={ subtitle }
-            handleChange={ this.handleChange }
-            description="Subtítulo"
-          />
-          <TextInputDefault
-            name="imagePath"
-            inputId="image-input"
-            labelId="image-input-label"
-            value={ imagePath }
-            handleChange={ this.handleChange }
-            description="Imagem"
-          /> */
+  handleSubmit = () => { // ArFunc dispensa bind
+    this.setState = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
@@ -87,6 +73,13 @@ class AddMovie extends Component {
           handleChange={ this.handleChange }
           description="Gênero"
         />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.handleSubmit }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
