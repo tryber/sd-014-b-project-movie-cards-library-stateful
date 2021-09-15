@@ -10,6 +10,7 @@ class AddRating extends React.Component {
         <input
           name="rating"
           type="number"
+          data-testid="rating-input"
           value={ value }
           onChange={ onChange }
         />
