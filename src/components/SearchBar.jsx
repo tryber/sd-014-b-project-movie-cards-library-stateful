@@ -6,3 +6,12 @@
 4 - Renderize um input do tipo checkbox dentro do formulário em <SearchBar />
 5 - Renderize um select dentro do formulário em <SearchBar />
 */
+import React from 'react';
+
+class SearchBar extends React.Component {
+  render() {
+    return <h1>SearchBar</h1>;
+  }
+}
+
+export default SearchBar;
