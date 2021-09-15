@@ -21,11 +21,12 @@ class AddMovie extends React.Component {
   }
 
   changeState = (event) => {
-    const { key, value } = event.target;
-    this.setState({ [key]: value });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
+    const { onClick } = this.props;
     const {
       subtitle,
       title,

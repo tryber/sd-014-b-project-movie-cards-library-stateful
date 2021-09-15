@@ -8,6 +8,7 @@ class Rating extends React.Component {
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
         <input
+          name="rating"
           value={ value }
           type="number"
           data-testid="rating-input"

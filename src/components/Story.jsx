@@ -8,11 +8,10 @@ class Story extends React.Component {
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
         <textarea
+          name="storyline"
           value={ value }
           data-testid="storyline-input"
           onChange={ onChange }
-          cols="40"
-          rows="20"
         />
       </label>
     );
