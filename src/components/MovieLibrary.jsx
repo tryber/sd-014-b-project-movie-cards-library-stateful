@@ -25,3 +25,6 @@ MovieLibrary.propTypes = {
 };
 
 export default MovieLibrary;
+
+// Consultei o repositório de Ariane Ueti para verificar a parte de props.
+// https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/pull/63/files
