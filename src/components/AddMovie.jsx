@@ -5,6 +5,7 @@ import TextareaInputDefault from './TextareaInputDefault';
 import NumberInputDefault from './NumberInputDefault';
 import SelectGenre from './SelectGenre';
 import TextFormComponent from './TextFormComponent';
+import ButtonDefault from './ButtonDefault';
 
 class AddMovie extends Component {
   constructor() {
@@ -18,6 +19,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange({ target }) { // fonte: Course (12.2)
@@ -28,15 +30,19 @@ class AddMovie extends Component {
     });
   }
 
-  handleSubmit = () => { // ArFunc dispensa bind
-    this.setState = {
+  handleSubmit() { // ArrowFunc dispensa bind
+    console.log(this.state);
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
       title: '',
       subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    };
+    });
+    console.log(this.state);
   }
 
   render() {
@@ -73,13 +79,12 @@ class AddMovie extends Component {
           handleChange={ this.handleChange }
           description="Gênero"
         />
-        <button
-          type="submit"
-          data-testid="send-button"
+        <ButtonDefault
+          inputId="send-button"
           onClick={ this.handleSubmit }
-        >
-          Adicionar filme
-        </button>
+          description="Adicionar filme"
+        />
+
       </form>
     );
   }
@@ -92,6 +97,7 @@ AddMovie.propTypes = {
   storyline: PropTypes.string,
   rating: PropTypes.number,
   genre: PropTypes.string,
+  onClick: PropTypes.func,
 }.isRequired;
 
 export default AddMovie;
