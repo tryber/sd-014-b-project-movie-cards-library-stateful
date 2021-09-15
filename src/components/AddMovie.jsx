@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ImageP from './ImageP';
-import InputRating from './InputRating';
 import SelectGenre from './SelectGenre';
+import InputRating from './InputRating';
 import Sinopse from './Sinopse';
 import Subtitle from './Subtitle';
 import Title from './Title';
@@ -53,9 +53,9 @@ class AddMovie extends Component {
         <section>
           <Subtitle value={ subtitle } onChange={ this.handleChange } />
           <Title value={ title } onChange={ this.handleChange } />
-          <ImageP value={ imagePath } onChange={ this.handleChange } />
+          <ImageP value={ String(imagePath) } onChange={ this.handleChange } />
           <Sinopse value={ storyline } onChange={ this.handleChange } />
-          <InputRating value={ rating } onChange={ this.handleChange } />
+          <InputRating value={ Number(rating) } onChange={ this.handleChange } />
           <SelectGenre value={ genre } onChange={ this.handleChange } />
         </section>
         <section>
