@@ -2,19 +2,35 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import data from '../data';
 
 class MovieLibrary extends Component {
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
+    this.state = {
+      movies,
+    };
+  }
+
   render() {
+    const { movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
+
         <SearchBar />
-        <MovieList movies={ data } />
+
+        <MovieList movies={ movies } />
+
         <AddMovie />
+
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
