@@ -15,7 +15,7 @@ class SearchBar extends Component {
     return (
 
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="">
+        <label data-testid="text-input-label" htmlFor="1">
           Inclui o texto:
           <input
             type="text"
