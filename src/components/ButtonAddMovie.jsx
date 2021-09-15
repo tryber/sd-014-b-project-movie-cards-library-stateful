@@ -17,7 +17,7 @@ Será validado se o estado dos inputs volta ao inicial depois que o botão de ad
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class SendButton extends Component {
+class ButtonAddMovie extends Component {
   render() {
     const { onClick } = this.props;
     return (
@@ -34,8 +34,8 @@ class SendButton extends Component {
   }
 }
 
-SendButton.propTypes = {
+ButtonAddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default SendButton;
+export default ButtonAddMovie;

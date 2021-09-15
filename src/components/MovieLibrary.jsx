@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-
 import data from '../data';
 
 class MovieLibrary extends Component {

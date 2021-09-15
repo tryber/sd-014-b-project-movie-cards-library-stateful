@@ -16,16 +16,28 @@ Será validado se o valor do input de avaliação muda quando algo é digitado p
 */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class InputRating extends Component {
   render() {
+    const { value, onChange } = this.props;
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
-        <input type="number" data-testid="rating-input" />
+        <input
+          type="number"
+          data-testid="rating-input"
+          value={ value }
+          onChange={ onChange }
+        />
       </label>
     );
   }
 }
+
+InputRating.propTypes = {
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default InputRating;
