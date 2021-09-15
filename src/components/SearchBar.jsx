@@ -10,7 +10,10 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
-    return <h1>SearchBar</h1>;
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <div />
+    );
   }
 }
 
