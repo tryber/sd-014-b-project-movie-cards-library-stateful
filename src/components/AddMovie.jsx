@@ -5,17 +5,22 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
+      subtitle: '',
       title: '',
+      imagePath: '',
     };
   }
 
   changeState = (event) => {
-    this.setState({ title: event.target.value });
+    const { key, value } = event.target;
+    this.setState({ [key]: value });
   }
 
   render() {
     const {
+      subtitle,
       title,
+      imagePath,
     } = this.state;
 
     return (
@@ -25,8 +30,25 @@ class AddMovie extends React.Component {
           <input
             value={ title }
             type="text"
-            id="title-input"
             data-testid="title-input"
+            onChange={ this.changeState }
+          />
+        </label>
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            value={ subtitle }
+            type="text"
+            data-testid="subtitle-input"
+            onChange={ this.changeState }
+          />
+        </label>
+        <label htmlFor="subtitle-input" data-testid="image-input-label">
+          Imagem
+          <input
+            value={ imagePath }
+            type="text"
+            data-testid="image-input"
             onChange={ this.changeState }
           />
         </label>
@@ -38,25 +60,5 @@ class AddMovie extends React.Component {
 AddMovie.propTypes = {
   onClick: PropTypes.func,
 }.isRequired;
-
-//    const { onClick } = this.props;
-
-/*   const {
-  subtitle,
-  title,
-  imagePath,
-  storyline,
-  rating,
-  genre,
-} = this.state; */
-
-/* this.state = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-}; */
 
 export default AddMovie;
