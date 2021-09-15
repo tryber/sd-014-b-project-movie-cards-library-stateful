@@ -22,7 +22,7 @@ class InputRating extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="rating-input" data-testid="rating-input-label">
+      <label htmlFor="rating" data-testid="rating-input-label">
         Avaliação
         <input
           type="number"

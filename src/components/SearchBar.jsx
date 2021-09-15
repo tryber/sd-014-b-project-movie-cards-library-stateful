@@ -42,7 +42,6 @@ class SearchBar extends Component { // Requisito 1 - Crie um componente chamado 
         {/* 2 - Renderize um formulário dentro de <SearchBar /> */}
         <form className="form" data-testid="search-bar-form">
           <fieldset>
-            <p>teste</p>
             <label htmlFor="searchText" data-testid="text-input-label">
               Inclui o texto
               <input
@@ -81,12 +80,12 @@ class SearchBar extends Component { // Requisito 1 - Crie um componente chamado 
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
-};
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+}.isRequired;
 
 export default SearchBar;

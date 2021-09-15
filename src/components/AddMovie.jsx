@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
@@ -8,19 +8,9 @@ import InputRating from './InputRating';
 import InputGenre from './InputGenre';
 import ButtonAddMovie from './ButtonAddMovie';
 
-/*
- Requisito 8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme
-    Renderize um input de texto para quem usa escrever o titulo do filme
-    Renderize a label "Título" para o input de titulo
-    Defina o estado inicial do titulo como "", ou seja, uma string vazia
-    Altere o valor do input de título quando algo for digitado nele
-*/
-
-class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // Estado inicial conforme requisito:
+class AddMovie extends Component {
+  constructor() {
+    super();
     this.state = {
       subtitle: '',
       title: '',
@@ -30,7 +20,6 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    // "Ligar" (bind) função de event ao this
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -42,6 +31,7 @@ class AddMovie extends React.Component {
 
   handleClick = (onClick) => {
     onClick(this.state);
+    console.log('clicou');
     this.setState({
       subtitle: '',
       title: '',
@@ -59,13 +49,17 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <InputTitle title={ title } onChange={ this.handleChange } />
-        <InputSubtitle subtitle={ subtitle } onChange={ this.handleChange } />
-        <InputImage imagePath={ imagePath } onChange={ this.handleChange } />
-        <InputStoryline storyline={ storyline } onChange={ this.handleChange } />
-        <InputRating rating={ rating } onChange={ this.handleChange } />
-        <InputGenre genre={ genre } onChange={ this.handleChange } />
-        <ButtonAddMovie onClick={ () => this.handleClick(onClick) } />
+        <div>
+          <InputTitle title={ title } onChange={ this.handleChange } />
+          <InputSubtitle subtitle={ subtitle } onChange={ this.handleChange } />
+          <InputImage imagePath={ imagePath } onChange={ this.handleChange } />
+          <InputStoryline storyline={ storyline } onChange={ this.handleChange } />
+          <InputRating rating={ rating } onChange={ this.handleChange } />
+          <InputGenre genre={ genre } onChange={ this.handleChange } />
+        </div>
+        <div>
+          <ButtonAddMovie onChange={ () => this.handleClick(onClick) } />
+        </div>
       </form>
     );
   }
