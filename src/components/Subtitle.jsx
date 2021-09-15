@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Subtitle extends React.Component {
   render() {
-    const { subtitle, handleChange } = this.props;
+    const { value, onChange } = this.props;
 
     return (
       <div className="subtitle">
@@ -13,10 +13,11 @@ class Subtitle extends React.Component {
         >
           Subtítulo
           <input
+            name="subtitle"
             data-testid="subtitle-input"
             type="text"
-            value={ subtitle }
-            onChange={ handleChange }
+            value={ value }
+            onChange={ onChange }
           />
         </label>
       </div>
@@ -25,7 +26,7 @@ class Subtitle extends React.Component {
 }
 
 Subtitle.propTypes = {
-  subtitle: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 export default Subtitle;

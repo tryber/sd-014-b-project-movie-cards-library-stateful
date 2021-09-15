@@ -1,21 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Title extends React.Component {
+class Storyline extends React.Component {
   render() {
     const { value, onChange } = this.props;
-
     return (
-      <div className="title">
-        <label
-          htmlFor="title"
-          data-testid="title-input-label"
-        >
-          Título
-          <input
-            name="title"
-            data-testid="title-input"
-            type="text"
+      <div className="storyline">
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyline"
+            data-testid="storyline-input"
             value={ value }
             onChange={ onChange }
           />
@@ -25,9 +20,9 @@ class Title extends React.Component {
   }
 }
 
-Title.propTypes = {
+Storyline.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default Title;
+export default Storyline;

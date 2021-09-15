@@ -5,9 +5,9 @@ class InputRating extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <div className="rating">
+      <div className="input-rating">
         <label
-          htmlFor="rating"
+          htmlFor="input-rating"
           data-testid="rating-input-label"
         >
           Avaliação

@@ -6,6 +6,7 @@ class Button extends React.Component {
     const { onChange } = this.props;
     return (
       <button
+        name="button"
         type="button"
         data-testid="send-button"
         onClick={ onChange }

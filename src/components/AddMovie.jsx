@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Sinopse from './Sinopse';
+import Storyline from './Storyline';
 import Image from './Image';
 import Title from './Title';
 import Subtitle from './Subtitle';
@@ -21,18 +21,18 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.addMovieAndReset = this.addMovieAndReset.bind(this);
   }
 
-  handleChange = ({ target }) => {
+  handleChange({ target }) {
     const { name, value } = target;
+
     this.setState({
       [name]: value,
     });
   }
 
   addMovieAndReset = (onClick) => {
-    onClick(this.state);
+    (onClick)(this.state);
 
     this.setState({
       subtitle: '',
@@ -50,12 +50,12 @@ class AddMovie extends React.Component {
     return (
       <section>
         <form data-testid="add-movie-form">
-          <Title name="title" value={ title } onChange={ this.handleChange } />
-          <Subtitle name="subtitle" value={ subtitle } onChange={ this.handleChange } />
-          <Image name="imagePath" value={ imagePath } onChange={ this.handleChange } />
-          <Sinopse name="storyline" value={ storyline } onChange={ this.handleChange } />
-          <InputRating value={ rating } onChange={ this.handleChange } />
-          <Select name="genre" value={ genre } onChange={ this.handleChange } />
+          <Title value={ title } onChange={ this.handleChange } />
+          <Subtitle value={ subtitle } onChange={ this.handleChange } />
+          <Image value={ String(imagePath) } onChange={ this.handleChange } />
+          <Storyline value={ storyline } onChange={ this.handleChange } />
+          <InputRating value={ Number(rating) } onChange={ this.handleChange } />
+          <Select value={ genre } onChange={ this.handleChange } />
         </form>
         <Button onChange={ () => this.addMovieAndReset(onClick) } />
       </section>
@@ -68,3 +68,5 @@ AddMovie.propTypes = {
 };
 
 export default AddMovie;
+
+// Só consegui organizar o projeto com ajuda da Mayara Andronico

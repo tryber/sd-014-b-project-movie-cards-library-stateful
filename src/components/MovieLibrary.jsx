@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
-class MovieLibrary extends Component {
+class MovieLibrary extends React.Component {
   render() {
+    const { movies } = this.props;
+
     return (
       <div>
         <SearchBar />
@@ -14,5 +17,11 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;
