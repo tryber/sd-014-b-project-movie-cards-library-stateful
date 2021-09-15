@@ -5,15 +5,15 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor(props) {
+/*   constructor(props) {
     super(props);
     this.state = {
-      /* searchText: '',
+      searchText: '',
       bookmarkedOnly: 'false',
       selectedGenre: '',
-      movies: movies, */
+      movies: "(Resultado da searchBar: um array de filmes)",
     };
-  }
+  } */
 
   render() {
     const { movies } = this.props;
