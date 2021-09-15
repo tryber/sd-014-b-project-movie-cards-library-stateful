@@ -65,7 +65,6 @@ class addMovie extends React.Component {
           <input
             type="number"
             name="rating"
-            id="rating"
             value={ rating }
             data-testid="rating-input"
             onChange={ handleChange }
