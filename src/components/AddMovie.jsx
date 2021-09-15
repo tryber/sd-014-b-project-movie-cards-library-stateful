@@ -9,8 +9,8 @@ import Select from './Select';
 import Button from './Button';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       subtitle: '',
@@ -35,9 +35,6 @@ class AddMovie extends React.Component {
     });
   }
 
-  // addMovieAndReset() {
-  //   const { onClick } = this.props;
-  //   onClick();
   addMovieAndReset = (onClick) => {
     onClick();
     this.setState({
@@ -64,13 +61,6 @@ class AddMovie extends React.Component {
           <Select value={ genre } onChange={ this.handleChange } />
           <Button onClick={ () => this.addMovieAndReset(onClick) } />
         </form>
-        {/* <button
-          type="button"
-          data-testid="send-button"
-          onClick={ this.addMovieAndReset }
-        >
-          Adicionar filme
-        </button> */}
       </section>
     );
   }

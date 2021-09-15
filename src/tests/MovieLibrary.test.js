@@ -42,7 +42,7 @@ const movieCardTestId = 'movie-card';
 const movieCardTitleId = 'movie-card-title';
 
 describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
-  it('Renderize o componente', () => {
+  it.only('Renderize o componente', () => {
     render(<MovieLibrary movies={ movies } />);
   });
 });
