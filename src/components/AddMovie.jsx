@@ -26,7 +26,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  buttonAdd = (event) => {
+  buttonAdd = () => {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -40,7 +40,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-
     const {
       subtitle,
       title,
