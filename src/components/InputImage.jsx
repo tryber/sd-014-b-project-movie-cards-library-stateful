@@ -11,7 +11,7 @@ class InputImagePath extends React.Component {
           name="imagePath"
           value={ imagePath }
           handleChange={ handleChange }
-          data-testid="imagePath-input"
+          data-testid="image-input"
           type="text"
         />
       </label>

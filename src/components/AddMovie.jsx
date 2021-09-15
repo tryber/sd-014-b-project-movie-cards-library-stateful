@@ -46,7 +46,7 @@ class AddMovie extends React.Component {
       const { onClick } = this.props;
       const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
       return (
-        <form data-testid="add-movie-form">
+        <form action="" data-testid="add-movie-form">
           <InputTitle
             value={ title }
             handleChange={ this.handleChange }
@@ -89,7 +89,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func,
-}.isRequired;
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
