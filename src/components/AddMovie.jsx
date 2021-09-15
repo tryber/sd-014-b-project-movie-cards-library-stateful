@@ -10,3 +10,32 @@
 13 - Renderize um select do formulário em <AddMovie /> para selecionar o gênero do novo filme
 14 - Renderize um botão do formulário em <AddMovie /> para fazer uso dos dados do novo filme, contidos no estado de <AddMovie />
  */
+import React from 'react';
+import PropTypes from 'prop-types';
+
+class addMovie extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
+  render() {
+    const { onClick } = this.props;
+    return (
+      <form action="" />
+    );
+  }
+}
+
+addMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+export default addMovie;
