@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InputsAll from './InputsAll';
 import SelectInput from './SelectInput';
+import InputRating from './InputRating';
+import InputStoryLine from './InputStoryLine';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -46,28 +48,8 @@ class AddMovie extends React.Component {
           state={ { title, subtitle, imagePath } }
           handleChange={ this.handleChange }
         />
-        <label data-testid="storyline-input-label" htmlFor="storyline">
-          Sinopse
-          <textarea
-            name="storyline"
-            value={ storyline }
-            data-testid="storyline-input"
-            id="storyline"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="rating-input-label" htmlFor="number">
-          Avaliação
-          <input
-            type="number"
-            data-testid="rating-input"
-            name="rating"
-            value={ rating }
-            onChange={ this.handleChange }
-            id="number"
-            step="0.1"
-          />
-        </label>
+        <InputStoryLine storyline={ storyline } handleChange={ this.handleChange } />
+        <InputRating rating={ rating } handleChange={ this.handleChange } />
         <SelectInput handleChange={ this.handleChange } genre={ genre } />
         <button
           type="button"
