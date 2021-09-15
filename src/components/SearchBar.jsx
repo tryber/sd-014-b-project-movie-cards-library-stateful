@@ -38,7 +38,7 @@ class SearchBar extends React.Component {
               <option data-testid="select-option" value="thriller">Suspense</option>
             </select>    
           </label>
-          </section>  
+        </section>  
       </form>
     );
   }
