@@ -31,3 +31,5 @@ Title.propTypes = {
 };
 
 export default Title;
+
+// A Bel me ajudou nessa parte porque havia esquecido dos names dos inputs.

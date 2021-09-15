@@ -32,7 +32,7 @@ class AddMovie extends React.Component {
   }
 
   addMovieAndReset = (onClick) => {
-    (onClick)(this.state);
+    onClick(this.state);
 
     this.setState({
       subtitle: '',
