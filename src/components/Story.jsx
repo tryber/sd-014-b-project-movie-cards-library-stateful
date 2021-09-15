@@ -1,26 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Rating extends React.Component {
+class Story extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="rating-input" data-testid="rating-input-label">
-        Avaliação
-        <input
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
+        Sinopse
+        <textarea
           value={ value }
-          type="number"
-          data-testid="rating-input"
+          data-testid="storyline-input"
           onChange={ onChange }
+          cols="40"
+          rows="20"
         />
       </label>
     );
   }
 }
 
-Rating.propTypes = {
+Story.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
 }.isRequired;
 
-export default Rating;
+export default Story;

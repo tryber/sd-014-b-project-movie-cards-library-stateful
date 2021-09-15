@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Rating extends React.Component {
+class Image extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="rating-input" data-testid="rating-input-label">
-        Avaliação
+      <label htmlFor="image-input" data-testid="image-input-label">
+        Imagem
         <input
           value={ value }
-          type="number"
-          data-testid="rating-input"
+          type="text"
+          data-testid="image-input"
           onChange={ onChange }
         />
       </label>
@@ -18,9 +18,9 @@ class Rating extends React.Component {
   }
 }
 
-Rating.propTypes = {
+Image.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
 }.isRequired;
 
-export default Rating;
+export default Image;
