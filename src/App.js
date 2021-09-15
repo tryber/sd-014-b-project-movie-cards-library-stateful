@@ -1,9 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
-import './App.css';
+
 import MovieLibrary from './components/MovieLibrary';
 import AddMovie from './components/AddMovie';
-import movies from './data';
 
 class App extends React.Component {
   // constructor() {

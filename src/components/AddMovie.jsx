@@ -6,10 +6,11 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import InputRating from './InputRating';
 import Select from './Select';
+import Button from './Button';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       subtitle: '',
@@ -34,10 +35,11 @@ class AddMovie extends React.Component {
     });
   }
 
-  addMovieAndReset() {
-    const { onClick } = this.props;
-    onClick(this.state);
-
+  // addMovieAndReset() {
+  //   const { onClick } = this.props;
+  //   onClick();
+  addMovieAndReset = (onClick) => {
+    onClick();
     this.setState({
       subtitle: '',
       title: '',
@@ -49,6 +51,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <section>
@@ -59,14 +62,15 @@ class AddMovie extends React.Component {
           <Sinopse value={ storyline } onChange={ this.handleChange } />
           <InputRating value={ rating } onChange={ this.handleChange } />
           <Select value={ genre } onChange={ this.handleChange } />
-          <button
-            type="button"
-            data-testid="send-button"
-            onClick={ this.addMovieAndReset }
-          >
-            Adicionar filme
-          </button>
+          <Button onClick={ () => this.addMovieAndReset(onClick) } />
         </form>
+        {/* <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.addMovieAndReset }
+        >
+          Adicionar filme
+        </button> */}
       </section>
     );
   }
