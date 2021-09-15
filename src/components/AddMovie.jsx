@@ -32,7 +32,7 @@ class AddMovie extends React.Component {
             id="imagePath"
             type="text"
             value={ value }
-            onChange={ onChange } required
+            onChange={ onChange }
           />
         </label>
         <label htmlFor="rating">
