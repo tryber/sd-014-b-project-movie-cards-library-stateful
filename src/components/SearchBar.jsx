@@ -2,6 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/*
+  Tive problemas no requisito 17 e descobri que o erro estava nos ids dos elementos
+  USei como base o PR Matheus Kafta para comparar meu código com o dele.
+  Ref: https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/pull/22/files
+*/
 class SearchBar extends React.Component {
   render() {
     const {
@@ -15,30 +20,30 @@ class SearchBar extends React.Component {
     return (
       <section>
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label" htmlFor="text-input">
+          <label data-testid="text-input-label" htmlFor="searchText">
             Inclui o texto:
             <input
               type="text"
               value={ searchText }
               onChange={ onSearchTextChange }
               data-testid="text-input"
-              id="text-input"
+              id="searchText"
             />
           </label>
-          <label htmlFor="checkbox-search-input" data-testid="checkbox-input-label">
+          <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
             Mostrar somente favoritos
             <input
               type="checkbox"
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
               data-testid="checkbox-input"
-              id="checkbox-search-input"
+              id="bookmarkedOnly"
             />
           </label>
-          <label htmlFor="select-search-input" data-testid="select-input-label">
+          <label htmlFor="selectedGenre" data-testid="select-input-label">
             Filtrar por gênero
             <select
-              id="select-search-input"
+              id="selectedGenre"
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
               data-testid="select-input"

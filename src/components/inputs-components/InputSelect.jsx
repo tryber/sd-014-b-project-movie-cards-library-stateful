@@ -5,11 +5,11 @@ class InputSelect extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="select-input" data-testid="genre-input-label">
+      <label htmlFor="genre" data-testid="genre-input-label">
         <p>Gênero</p>
         <select
           name="genre"
-          id="select-input"
+          id="genre"
           value={ value }
           data-testid="genre-input"
           onChange={ onChange }

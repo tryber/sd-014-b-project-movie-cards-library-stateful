@@ -5,10 +5,10 @@ class InputImage extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="image-input" data-testid="image-input-label">
+      <label htmlFor="imagePath" data-testid="image-input-label">
         <p>Imagem</p>
         <input
-          id="image-input"
+          id="imagePath"
           name="imagePath"
           value={ value }
           onChange={ onChange }
