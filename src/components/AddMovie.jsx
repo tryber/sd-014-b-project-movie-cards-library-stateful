@@ -12,6 +12,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextInput from './TextInput';
 
 class addMovie extends React.Component {
   constructor() {
@@ -35,39 +36,35 @@ class addMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
+    const { handleChange } = this;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            id="title-input"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            id="subtitle-input"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            id="image-input"
-            value={ imagePath }
-            data-testid="image-input"
+        <TextInput
+          handleChange={ handleChange }
+          value={ title }
+          type="title"
+          labelText="Título"
+        />
+        <TextInput
+          handleChange={ handleChange }
+          value={ subtitle }
+          type="subtitle"
+          labelText="Subtítulo"
+        />
+        <TextInput
+          handleChange={ handleChange }
+          value={ imagePath }
+          type="image"
+          labelText="Imagem"
+        />
+        <label htmlFor="subtitle-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyline"
+            id="storyline-input"
+            value={ storyline }
+            data-testid="storyline-input"
             onChange={ this.handleChange }
           />
         </label>
