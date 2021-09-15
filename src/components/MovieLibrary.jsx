@@ -1,6 +1,10 @@
 // implement MovieLibrary component here
+// 15 - Crie um componente chamado <MovieLibrary />
+// 16 - Configure o estado inicial do componente <MovieLibrary />
+// 17 - Renderize <SearchBar /> dentro de <MovieLibrary />
+// 18 - Renderize <MovieList /> dentro de <MovieLibrary />
+// 19 - Renderize <AddMovie /> dentro de <MovieLibrary />
 import React, { Component } from 'react';
-
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
