@@ -17,8 +17,8 @@ import ButtonAddMovie from './ButtonAddMovie';
 */
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     // Estado inicial conforme requisito:
     this.state = {
