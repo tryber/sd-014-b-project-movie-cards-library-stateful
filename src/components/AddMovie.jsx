@@ -9,8 +9,8 @@ import Select from './Select';
 import Button from './Button';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       subtitle: '',
@@ -21,22 +21,19 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.addMovieAndReset = this.addMovieAndReset.bind(this);
+    // this.addMovieAndReset = this.addMovieAndReset.bind(this);
   }
 
-  handleChange = (event) => {
+  handleChange = ({ target }) => {
+    const { name, value } = target;
     this.setState({
-      subtitle: event.target.value,
-      title: event.target.value,
-      imagePath: event.target.value,
-      storyline: event.target.value,
-      rating: event.target.value,
-      genre: event.target.value,
+      [name]: value,
     });
   }
 
   addMovieAndReset = (onClick) => {
-    onClick();
+    onClick(this.state);
+
     this.setState({
       subtitle: '',
       title: '',
@@ -53,14 +50,14 @@ class AddMovie extends React.Component {
     return (
       <section>
         <form data-testid="add-movie-form">
-          <Title value={ title } onChange={ this.handleChange } />
-          <Subtitle value={ subtitle } onChange={ this.handleChange } />
-          <Image value={ imagePath } onChange={ this.handleChange } />
-          <Sinopse value={ storyline } onChange={ this.handleChange } />
-          <InputRating value={ rating } onChange={ this.handleChange } />
-          <Select value={ genre } onChange={ this.handleChange } />
-          <Button onClick={ () => this.addMovieAndReset(onClick) } />
+          <Title name="title" value={ title } onChange={ this.handleChange } />
+          <Subtitle name="subtitle" value={ subtitle } onChange={ this.handleChange } />
+          <Image name="imagePath" value={ imagePath } onChange={ this.handleChange } />
+          <Sinopse name="storyline" value={ storyline } onChange={ this.handleChange } />
+          <InputRating name="rating" value={ rating } onChange={ this.handleChange } />
+          <Select name="genre" value={ genre } onChange={ this.handleChange } />
         </form>
+        <Button onChange={ () => this.addMovieAndReset(onClick) } />
       </section>
     );
   }
