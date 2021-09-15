@@ -1,25 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class GenreAdd extends React.Component {
+class Input extends React.Component {
   render() {
-    const { value, addMovie } = this.props;
+    const { name, dataTestId, value, type, handleChange, label } = this.props;
     return (
-      <input
-        id="image-input"
-        type="text"
-        data-testid="image-input"
-        name="imagePath"
-        onChange={ addMovie }
-        value={ value }
-      />
+      <section>
+        <label
+          data-testid={ `${dataTestId}-label` }
+          htmlFor={ name }
+        >
+          { label }
+        </label>
+        <input
+          id={ name }
+          name={ name }
+          type={ type }
+          data-testid={ dataTestId }
+          value={ value }
+          onChange={ handleChange }
+        />
+      </section>
     );
   }
 }
 
-GenreAdd.propTypes = {
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  dataTestId: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  addMovie: PropTypes.func.isRequired,
-};
+  type: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+}.isRequired;
 
-export default GenreAdd;
+export default Input;

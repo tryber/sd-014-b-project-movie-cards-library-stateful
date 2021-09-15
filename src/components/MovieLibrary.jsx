@@ -1,23 +1,30 @@
 /* eslint-disable react/no-unused-state */
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends Component {
+class MovieLibrary extends React.Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
-      searchText: '',
-      boobkmarkedOnly: false,
-      selectedGenre: '',
+      // searchText: '',
+      // bookmarkedOnly: false,
+      // selectedGenre: '',
       movies: props.movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkChange = this.onBookmarkChange.bind(this);
     this.onSelectedGenreChange = this.onBookmarkChange.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(newMovie) {
+    this.setState((prevState) => ({
+      ...prevState, movies: [...prevState.movies, newMovie],
+    }));
   }
 
   onSearchTextChange({ target }) {
@@ -60,15 +67,12 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, boobkmarkedOnly, movies } = this.state;
+    const { movies } = this.state;
     return (
       <div>
-        <SearchBar
-          searchText={ searchText }
-          boobkmarkedOnly={ boobkmarkedOnly }
-        />
+        <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
@@ -76,7 +80,7 @@ class MovieLibrary extends Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
-    PropTypes.array,
+    PropTypes.object,
   ).isRequired,
 };
 
