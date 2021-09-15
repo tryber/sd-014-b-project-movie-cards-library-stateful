@@ -13,6 +13,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextInput from './TextInput';
+import StorylineInput from './StorylineInput';
 
 class addMovie extends React.Component {
   constructor() {
@@ -58,16 +59,7 @@ class addMovie extends React.Component {
           type="image"
           labelText="Imagem"
         />
-        <label htmlFor="subtitle-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            id="storyline-input"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <StorylineInput value={ storyline } handleChange={ handleChange } />
       </form>
     );
   }
