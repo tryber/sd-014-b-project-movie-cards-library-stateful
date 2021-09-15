@@ -20,24 +20,24 @@ class AddMovie extends React.Component {
           Título:
           <input type="text" name="title" id="title" value="" />
         </label>
-          <label htmlFor="subtitle">
-           Subtítulo:
+        <label htmlFor="subtitle">
+          Subtítulo:
           <input type="text" name="subtitle" id="subtitle" value="" />
         </label>
-          <label htmlFor="imagePath">
-           Capa:
+        <label htmlFor="imagePath">
+          Capa:
           <input type="text" name="imagePath" id="imagePath" value="" />
         </label>
           <label htmlFor="rating">
-           Nota:
+          Nota:
           <input type="number" name="rating" id="rating" value="" />
         </label>
-          <label htmlFor="storyline">
-           Sinopse:
+        <label htmlFor="storyline">
+          Sinopse:
           <textarea name="storyline" id="storyline" value="" />
         </label>
-          <label htmlFor="genre">
-           Gênero:
+        <label htmlFor="genre">
+          ênero:
           <select
             value=""
             name="genre"
@@ -47,8 +47,8 @@ class AddMovie extends React.Component {
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
-          </select>
-        </label>
+            </select>
+          </label>
       </form>
     );
   }
