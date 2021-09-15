@@ -1,20 +1,28 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-const inicialState = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-};
+import Title from './Title';
 
 class AddMovie extends Component {
   constructor() {
     super();
+    const inicialState = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
     this.state = inicialState;
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -22,11 +30,10 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
+        <Title value={ title } onChange={ this.handleChange } />
         <div>
           subtitle=
           { subtitle }
-          title=
-          { title }
           imagePath=
           { imagePath }
           storyline=
@@ -35,7 +42,7 @@ class AddMovie extends Component {
           { rating }
           genre=
           { genre }
-          onClick=
+          onClick =
           { onClick }
         </div>
       </form>
