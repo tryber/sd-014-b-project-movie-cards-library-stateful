@@ -18,6 +18,7 @@ class AddMovie extends React.Component {
       title: event.target.value,
       subtitle: event.target.value,
       imagePath: event.target.value,
+      storyline: event.target.value,
     });
   }
 
@@ -54,10 +55,17 @@ class AddMovie extends React.Component {
               value={ imagePath }
             />
           </label>
+          <label htmlFor="Sinopse" data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              data-testid="storyline-input"
+              type="text"
+              value={ storyline }
+              onChange={ this.handleChange }
+            />
+          </label>
         </form>
         <div>
-          { imagePath }
-          { storyline }
           { rating }
           { genre }
         </div>
