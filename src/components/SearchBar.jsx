@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
-    const { searchText, selectedGenre, bookmarkedOnly, onChange } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
 
     return (
       <form data-testid="search-bar-form">
@@ -13,7 +14,7 @@ class SearchBar extends Component {
             type="text"
             data-testid="text-input"
             value={ searchText }
-            onChange={ onChange }
+            onChange={ onSearchTextChange }
           />
         </label>
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
@@ -21,7 +22,7 @@ class SearchBar extends Component {
           <input
             type="checkbox"
             checked={ bookmarkedOnly }
-            onChange={ onChange }
+            onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
         </label>
@@ -31,7 +32,7 @@ class SearchBar extends Component {
             type="select"
             data-testid="select-input"
             value={ selectedGenre }
-            onChange={ onChange }
+            onChange={ onSelectedGenreChange }
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
