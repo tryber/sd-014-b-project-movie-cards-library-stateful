@@ -31,7 +31,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movie } />
-        <AddMovie onclick={ this.submit } />
+        <AddMovie onClick={ this.submit } />
       </div>
     );
   }

@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 class Ranking extends React.Component {
   render() {
-    const { value, onChange } = this.props;
+    const { value, callback } = this.props;
     return (
       <div>
-        <label data-testid="rating-input-label" htmlFor="rating">
+        <label data-testid="rating-input-label" htmlFor="rating-input">
           Avaliação
           <input
             type="number"
             value={ value }
-            onChange={ onChange }
+            onChange={ callback }
             name="rating"
             data-testid="rating-input"
           />
@@ -22,8 +22,8 @@ class Ranking extends React.Component {
 }
 
 Ranking.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
+  callback: PropTypes.func.isRequired,
 };
 
 export default Ranking;
