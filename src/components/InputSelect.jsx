@@ -2,22 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class InputSelect extends React.Component {
-  constructor() {
-    super();
-    this.state = { genre: 'action' };
-  }
-
   render() {
-    const { change } = this.props;
-    const { genre } = this.state;
+    const { genre, onChange } = this.props;
     return (
       <label htmlFor="genre-input" data-testid="genre-input-label">
         Gênero
         <select
           type="select"
+          name="genre"
           data-testid="genre-input"
           value={ genre }
-          onChange={ change }
+          onChange={ onChange }
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -29,7 +24,8 @@ class InputSelect extends React.Component {
 }
 
 InputSelect.propTypes = {
-  change: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  genre: PropTypes.string.isRequired,
 };
 
 export default InputSelect;

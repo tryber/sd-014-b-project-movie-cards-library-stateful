@@ -2,45 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class InputTexts extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-    };
-  }
-
   render() {
-    const { change } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, onChange } = this.props;
     return (
       <div>
         <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
             type="text"
+            name="title"
             data-testid="title-input"
-            onChange={ change }
             value={ title }
+            onChange={ onChange }
           />
         </label>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
             type="text"
+            name="subtitle"
             data-testid="subtitle-input"
-            onChange={ change }
             value={ subtitle }
+            onChange={ onChange }
           />
         </label>
         <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
           <input
             type="text"
+            name="imagePath"
             data-testid="image-input"
-            onChange={ change }
             value={ imagePath }
+            onChange={ onChange }
           />
         </label>
       </div>
@@ -49,7 +42,10 @@ class InputTexts extends React.Component {
 }
 
 InputTexts.propTypes = {
-  change: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
 };
 
 export default InputTexts;

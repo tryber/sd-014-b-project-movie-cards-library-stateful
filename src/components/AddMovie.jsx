@@ -16,31 +16,63 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleSubmit() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputTexts
-          title={ title }
-          subtitle={ subtitle }
-          imagePath={ imagePath }
-          onChange={ onClick }
-        />
-        <TextArea
-          storyline={ storyline }
-          onChange={ onClick }
-        />
-        <InputRating
-          rating={ rating }
-          onChange={ onClick }
-        />
-        <InputSelect
-          genre={ genre }
-          onChange={ onClick }
-        />
+        <fieldset className="add-movie-form-fieldset">
+          <InputTexts
+            title={ title }
+            subtitle={ subtitle }
+            imagePath={ imagePath }
+            onChange={ this.handleChange }
+          />
+          <TextArea
+            storyline={ storyline }
+            onChange={ this.handleChange }
+          />
+          <InputRating
+            rating={ rating }
+            onChange={ this.handleChange }
+          />
+          <InputSelect
+            genre={ genre }
+            onChange={ this.handleChange }
+          />
+          <button
+            className="btn"
+            type="submit"
+            data-testid="send-button"
+            onClick={ this.handleSubmit }
+          >
+            Adicionar filme
+          </button>
+        </fieldset>
       </form>
     );
   }
