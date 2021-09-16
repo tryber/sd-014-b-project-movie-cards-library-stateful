@@ -1,4 +1,6 @@
 import React from 'react';
+import InputImage from './InputImage';
+import InputRating from './InputRating';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -19,16 +21,19 @@ class AddMovie extends React.Component {
       subtitle: event.target.value,
       imagePath: event.target.value,
       storyline: event.target.value,
+      rating: event.target.value,
     });
   }
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-
     return (
       <section>
         <form data-testid="add-movie-form">
-          <label htmlFor="Título" data-testid="title-input-label">
+          <label
+            htmlFor="Título"
+            data-testid="title-input-label"
+          >
             Título
             <input
               data-testid="title-input"
@@ -37,7 +42,10 @@ class AddMovie extends React.Component {
               value={ title }
             />
           </label>
-          <label htmlFor="Subtítulo" data-testid="subtitle-input-label">
+          <label
+            htmlFor="Subtítulo"
+            data-testid="subtitle-input-label"
+          >
             Subtítulo
             <input
               data-testid="subtitle-input"
@@ -46,15 +54,10 @@ class AddMovie extends React.Component {
               value={ subtitle }
             />
           </label>
-          <label htmlFor="Imagem" data-testid="image-input-label">
-            Imagem
-            <input
-              data-testid="image-input"
-              type="text"
-              onChange={ this.handleChange }
-              value={ imagePath }
-            />
-          </label>
+          <InputImage
+            onChange={ this.handleChange }
+            value={ imagePath }
+          />
           <label htmlFor="Sinopse" data-testid="storyline-input-label">
             Sinopse
             <textarea
@@ -64,11 +67,9 @@ class AddMovie extends React.Component {
               onChange={ this.handleChange }
             />
           </label>
+          <InputRating rating={ rating } onChange={ this.handleChange } />
         </form>
-        <div>
-          { rating }
-          { genre }
-        </div>
+        { genre }
       </section>
     );
   }
