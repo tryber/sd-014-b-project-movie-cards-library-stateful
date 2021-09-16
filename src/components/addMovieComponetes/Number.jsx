@@ -8,7 +8,7 @@ class Number extends React.Component {
       <label data-testid="rating-input-label" htmlFor="number-input">
         Avaliação
         <input
-          type="text"
+          type="number"
           data-testid="rating-input"
           id="number-input"
           name="rating"
