@@ -37,7 +37,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { imagePath, title, subtitle, storyline, rating, genre } = this.state;
     return (
       <section>
         <article>
