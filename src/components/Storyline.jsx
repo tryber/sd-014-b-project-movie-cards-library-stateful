@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Image extends React.Component {
+class Storyline extends React.Component {
   render() {
     const { value, onChange } = this.props;
 
@@ -21,9 +21,9 @@ class Image extends React.Component {
   }
 }
 
-Image.propTypes = {
+Storyline.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default Image;
+export default Storyline;
