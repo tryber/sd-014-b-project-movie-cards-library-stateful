@@ -53,19 +53,19 @@ beforeEach(() => {
   sendButton = queryByTestId('send-button');
 });
 
-describe('6 - Crie um componente chamado `<AddMovie />`', () => {
+describe.only('6 - Crie um componente chamado `<AddMovie />`', () => {
   it('Renderize o componente', () => {
     render(<AddMovie onClick={ () => jest.fn() } />);
   });
 });
 
-describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
+describe.only('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
   it('Renderize 1, e apenas 1, form', () => {
     expect(form).toHaveLength(1);
   });
 });
 
-describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme', () => {
+describe.only('8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme', () => {
   it('Renderize um input de texto para quem usa escrever o titulo do filme', () => {
     expect(titleInput).toBeInTheDocument();
   });
@@ -86,7 +86,7 @@ describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMov
   });
 });
 
-describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o subtítulo do novo filme', () => {
+describe.only('9 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o subtítulo do novo filme', () => {
   it('Renderize um input de texto para quem usa escrever o subtítulo do filme', () => {
     expect(subtitleInput).toBeInTheDocument();
   });
