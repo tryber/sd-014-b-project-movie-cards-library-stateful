@@ -28,7 +28,6 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(newMovie) {
-    console.log(newMovie);
     const { movieList } = this.state;
     const moviesList = [...movieList, newMovie];
 
@@ -43,8 +42,8 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar
-          searchText={ searchText }
-          bookmarkedOnly={ bookmarkedOnly }
+          value={ searchText }
+          checked={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
           onSearchTextChange={ this.handleChange }
           onBookmarkedChange={ this.handleChange }
