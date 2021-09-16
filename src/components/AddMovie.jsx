@@ -1,11 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import InputImage from './InputImage';
-// import InputTitle from './InputTitle';
-// import InputSubtitle from './InputSubtitle';
-// import InputStoryLine from './InputStoryLine';
-// import InputGenre from './InputGenre';
-// import InputRating from './InputRating';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -48,12 +42,6 @@ class AddMovie extends React.Component {
       <section>
         <article>
           <form data-testid="add-movie-form">
-            <InputImage imagePath={ imagePath } handleChange={ this.handleChange } />
-            <InputTitle title={ title } handleChange={ this.handleChange } />
-            <InputSubtitle subtitle={ subtitle } handleChange={ this.handleChange } />
-            <InputStoryLine storyline={ storyline } handleChange={ this.handleChange } />
-            <InputRating rating={ rating } handleChange={ this.handleChange } />
-            <InputGenre genre={ genre } handleChange={ this.handleChange } />
             <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
               Adicionar filme
             </button>
