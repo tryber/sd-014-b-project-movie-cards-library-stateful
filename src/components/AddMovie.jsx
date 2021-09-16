@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GenreAdd from './GenreAdd';
+import InputAdd from './InputAdd';
 
 class AddMovie extends Component {
   constructor() {
@@ -45,7 +45,7 @@ class AddMovie extends Component {
   inputTitle() {
     const { title } = this.state;
     return (
-      <GenreAdd
+      <InputAdd
         label="Título"
         name="title"
         type="text"
@@ -60,7 +60,7 @@ class AddMovie extends Component {
   inputSubtitle() {
     const { subtitle } = this.state;
     return (
-      <GenreAdd
+      <InputAdd
         label="Subtítulo"
         name="subtitle"
         type="text"
@@ -75,7 +75,7 @@ class AddMovie extends Component {
   inputImagePath() {
     const { imagePath } = this.state;
     return (
-      <GenreAdd
+      <InputAdd
         label="Imagem"
         name="imagePath"
         type="text"
@@ -90,7 +90,7 @@ class AddMovie extends Component {
   inputRating() {
     const { rating } = this.state;
     return (
-      <GenreAdd
+      <InputAdd
         label="Avaliação"
         name="rating"
         type="number"

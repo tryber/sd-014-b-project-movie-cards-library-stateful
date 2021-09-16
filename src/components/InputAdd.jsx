@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Input extends Component {
+class InputAdd extends Component {
   render() {
     const { name, dataTestId, value, type, handleChange, label } = this.props;
     return (
@@ -25,7 +25,7 @@ class Input extends Component {
   }
 }
 
-Input.propTypes = {
+InputAdd.propTypes = {
   name: PropTypes.string.isRequired,
   dataTestId: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
@@ -34,4 +34,4 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
 }.isRequired;
 
-export default Input;
+export default InputAdd;
