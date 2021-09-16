@@ -1,6 +1,7 @@
 import React from 'react';
 import InputImage from './InputImage';
 import InputRating from './InputRating';
+import InputSelect from './InputSelect';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -68,6 +69,7 @@ class AddMovie extends React.Component {
             />
           </label>
           <InputRating rating={ rating } onChange={ this.handleChange } />
+          <InputSelect />
         </form>
         { genre }
       </section>
