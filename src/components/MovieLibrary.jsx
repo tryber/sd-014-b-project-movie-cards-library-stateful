@@ -20,12 +20,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const {
-      searchText,
-      bookmarkedOnly,
-      selectedGenre,
-      movies,
-    } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
     return (
       <div>
@@ -51,7 +46,7 @@ class MovieLibrary extends Component {
             this.setState({
               selectedGenre: event.target.value,
             });
-          }  }
+          } }
         />
         <MovieList
           movies={ movies }
