@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Number extends React.Component {
   render() {
@@ -18,5 +19,10 @@ class Number extends React.Component {
     );
   }
 }
+
+Number.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+}.isRequired;
 
 export default Number;
