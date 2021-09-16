@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
   handleChange =(event) => {
     this.setState({
       title: event.target.value,
+      subtitle: event.target.value,
     });
   }
 
@@ -32,6 +33,15 @@ class AddMovie extends React.Component {
               type="text"
               onChange={ this.handleChange }
               value={ title }
+            />
+          </label>
+          <label htmlFor="Subtítulo" data-testid="subtitle-input-label">
+            Subtítulo
+            <input
+              data-testid="subtitle-input"
+              type="text"
+              onChange={ this.handleChange }
+              value={ subtitle }
             />
           </label>
         </form>
