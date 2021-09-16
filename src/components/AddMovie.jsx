@@ -68,7 +68,7 @@ class AddMovie extends React.Component {
           />
 
           <InputRating
-            value={ rating }
+            value={ Number(rating) }
             handleChange={ this.handleChange }
           />
 
@@ -77,7 +77,7 @@ class AddMovie extends React.Component {
             handleChange={ this.handleChange }
           />
           <button
-            type="button"
+            type="submit"
             data-testid="send-button"
             onClick={ () => this.resetState(onClick) }
           >

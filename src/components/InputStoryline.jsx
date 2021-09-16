@@ -10,7 +10,7 @@ class InputStoryline extends React.Component {
         <input
           name="storyline"
           value={ storyline }
-          handleChange={ handleChange }
+          onChange={ handleChange }
           data-testid="storyline-input"
           type="text"
         />

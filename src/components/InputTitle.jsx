@@ -10,7 +10,7 @@ class InputTitle extends React.Component {
         <input
           name="title"
           value={ title }
-          handleChange={ handleChange }
+          onChange={ handleChange }
           data-testid="title-input"
           type="text"
         />
