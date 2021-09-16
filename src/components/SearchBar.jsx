@@ -12,9 +12,9 @@ class SearchBar extends React.Component {
           Inclui o texto:
           <input
             data-testid="text-input"
+            name="searchText"
             type="text"
             id="text"
-            name="searchText"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
@@ -52,13 +52,13 @@ class SearchBar extends React.Component {
   }
 }
 
-SearchBar.protoTypes = {
+SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
   bookmarkedOnly: PropTypes.bool,
   onBookmarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
-};
+}.isRequired;
 
 export default SearchBar;
