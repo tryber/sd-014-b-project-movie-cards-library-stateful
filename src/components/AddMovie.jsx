@@ -6,6 +6,7 @@ import Subtitle from './Subtitle';
 import Image from './Image';
 import Storyline from './Storyline';
 import Ratinginput from './Ratinginput';
+import Select from './Select';
 
 class AddMovie extends Component {
   constructor() {
@@ -39,11 +40,8 @@ class AddMovie extends Component {
         <Image value={ imagePath } onChange={ this.handleChange } />
         <Storyline value={ storyline } onChange={ this.handleChange } />
         <Ratinginput value={ rating } onChange={ this.handleChange } />
+        <Select value={ genre } onChange={ this.handleChange } />
         <div>
-          rating=
-          { rating }
-          genre=
-          { genre }
           onClick =
           { onClick }
         </div>
