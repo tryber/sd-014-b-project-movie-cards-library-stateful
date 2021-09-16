@@ -27,8 +27,8 @@ class MovieLibrary extends Component {
     });
   }
 
-  addMovie = () => {
-
+  addMovie = (event) => {
+    event.preventDefault();
   }
 
   render() {

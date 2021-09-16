@@ -28,13 +28,28 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleButton = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  };
+  // Peguei referências para fazer esse requisito nesses sites
+  // https://pt-br.reactjs.org/docs/hooks-state.html
+  // https://imasters.com.br/front-end/entendendo-estado-de-componentes-com-react-na-pratica
+
   handleSumit = (event) => {
     event.preventDefault();
   }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
 
     return (
       <div>
@@ -48,7 +63,7 @@ class AddMovie extends React.Component {
           <button
             type="submit"
             data-testid="send-button"
-            onClick={ onClick }
+            onClick={ this.handleButton }
           >
             Adicionar filme
           </button>
