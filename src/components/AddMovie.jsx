@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputTexts from './InputTexts';
 import InputRating from './InputRating';
 import InputSelect from './InputSelect';
 import TextArea from './TextArea';
-import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
