@@ -1,57 +1,71 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import InputImage from './InputImage';
+import InputTitle from './InputTitle';
+import InputSubtitle from './InputSubtitle';
+import InputStoryLine from './InputStoryLine';
+import InputGenre from './InputGenre';
+import InputRating from './InputRating';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
-      subtitle: ' ',
-      title: ' ',
-      imagePath: ' ',
-      storyLine: ' ',
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
   }
 
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
+    const { imagePath, title, subtitle, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
-        <label htmlFor="title">
-          Título:
-          <input type="text" name="title" id="title" value="" />
-        </label>
-        <label htmlFor="subtitle">
-           Subtítulo:
-          <input type="text" name="subtitle" id="subtitle" value="" />
-        </label>
-        <label htmlFor="imagePath">
-           Capa:
-          <input type="text" name="imagePath" id="imagePath" value="" />
-        </label>
-        <label htmlFor="rating">
-           Nota:
-          <input type="number" name="rating" id="rating" value="" />
-        </label>
-        <label htmlFor="storyline">
-           Sinopse:
-          <textarea name="storyline" id="storyline" value="" />
-        </label>
-        <label htmlFor="genre">
-           Gênero:
-          <select
-            value=""
-            name="genre"
-            id="genre"
-          >
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-            </select>
-        </label>
-      </form>
+      <section>
+        <article>
+          <form data-testid="add-movie-form">
+            <InputImage imagePath={ imagePath } handleChange={ this.handleChange } />
+            <InputTitle title={ title } handleChange={ this.handleChange } />
+            <InputSubtitle subtitle={ subtitle } handleChange={ this.handleChange } />
+            <InputStoryLine storyline={ storyline } handleChange={ this.handleChange } />
+            <InputRating rating={ rating } handleChange={ this.handleChange } />
+            <InputGenre genre={ genre } handleChange={ this.handleChange } />
+            <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
+              Adicionar filme
+            </button>
+          </form>
+        </article>
+      </section>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 class SearchBar extends React.Component {
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
@@ -52,4 +53,3 @@ SearchBar.propTypes = {
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
 export default SearchBar;
- 
