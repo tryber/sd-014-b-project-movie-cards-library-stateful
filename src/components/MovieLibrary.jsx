@@ -43,17 +43,23 @@ class MovieLibrary extends Component {
     });
   }
 
-  /*   filterMovies = (movie) => {
+  filterMovies = (movie) => {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let checkMovie = true;
     const { title,
       subtitle,
       storyline,
-      rating,
-      imagePath,
       bookmarked,
       genre,
     } = movie;
+    if (bookmarkedOnly) checkMovie = bookmarked;
+    if (!genre.includes(selectedGenre)) return false;
+    if (title.includes(searchText)) return checkMovie;
+    if (storyline.includes(searchText)) return checkMovie;
+    if (subtitle.includes(searchText)) return checkMovie;
+    return false;
   }
- */
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -68,7 +74,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList
-          movies={ bookmarkedOnly ? movies.filter() : movies }
+          movies={ movies.filter(this.filterMovies) }
         />
         <AddMovie />
       </div>
