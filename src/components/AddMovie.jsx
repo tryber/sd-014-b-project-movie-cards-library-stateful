@@ -17,6 +17,7 @@ class AddMovie extends React.Component {
     this.setState({
       title: event.target.value,
       subtitle: event.target.value,
+      imagePath: event.target.value,
     });
   }
 
@@ -44,10 +45,17 @@ class AddMovie extends React.Component {
               value={ subtitle }
             />
           </label>
+          <label htmlFor="Imagem" data-testid="image-input-label">
+            Imagem
+            <input
+              data-testid="image-input"
+              type="text"
+              onChange={ this.handleChange }
+              value={ imagePath }
+            />
+          </label>
         </form>
         <div>
-          { subtitle }
-          { title }
           { imagePath }
           { storyline }
           { rating }
