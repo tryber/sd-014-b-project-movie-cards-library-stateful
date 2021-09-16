@@ -21,12 +21,41 @@ class MovieLibrary extends Component {
     };
   }
 
+  onSearchTextChange = (event) => {
+    const { value } = event.target;
+    this.setState({
+      searchText: value,
+    });
+  }
+
+  onBookmarkedChange = (event) => {
+    const { value } = event.target;
+    this.setState({
+      bookmarkedOnly: value,
+    });
+  }
+
+  onSelectedGenreChange = (event) => {
+    const { value } = event.target;
+    this.setState({
+      selectedGenre: value,
+    });
+  }
+
   render() {
     const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+        />
         <MovieList movies={ movies } />
         <AddMovie />
       </div>
