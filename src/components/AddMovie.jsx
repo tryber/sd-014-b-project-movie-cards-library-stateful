@@ -42,7 +42,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
-    console.log(this.state);
+    console.log(this.state); // bug aqui
   }
 
   render() {
