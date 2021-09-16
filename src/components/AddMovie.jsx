@@ -1,17 +1,17 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     // subtitle: ' ',
-  //     // title: ' ',
-  //     // imagePath: ' ',
-  //     // storyLine: ' ',
-  //     // rating: 0,
-  //     // genre: 'action',
-  //   };
-  // }
+  constructor() {
+    super();
+    this.state = {
+      subtitle: ' ',
+      title: ' ',
+      imagePath: ' ',
+      storyLine: ' ',
+      rating: 0,
+      genre: 'action',
+    };
+  }
 
   render() {
     return (
@@ -21,30 +21,23 @@ class AddMovie extends React.Component {
           <input type="text" name="title" id="title" value="" />
         </label>
         <label htmlFor="subtitle">
-          Subtítulo:
+           Subtítulo:
           <input type="text" name="subtitle" id="subtitle" value="" />
         </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            data-testid="image-input"
-            name="imagePath"
-            id="imagePath"
-            type="text"
-            value={ value }
-            onChange={ onChange }
-          />
+        <label htmlFor="imagePath">
+           Capa:
+          <input type="text" name="imagePath" id="imagePath" value="" />
         </label>
         <label htmlFor="rating">
-          Nota:
+           Nota:
           <input type="number" name="rating" id="rating" value="" />
         </label>
         <label htmlFor="storyline">
-          Sinopse:
+           Sinopse:
           <textarea name="storyline" id="storyline" value="" />
         </label>
         <label htmlFor="genre">
-          Gênero:
+           Gênero:
           <select
             value=""
             name="genre"
@@ -54,7 +47,7 @@ class AddMovie extends React.Component {
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
-          </select>
+            </select>
         </label>
       </form>
     );
