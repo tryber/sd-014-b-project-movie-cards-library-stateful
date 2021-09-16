@@ -8,8 +8,8 @@ import InputRating from './InputRating';
 import InputGenre from './InputGenre';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
