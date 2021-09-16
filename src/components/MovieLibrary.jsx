@@ -13,11 +13,12 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies,
     };
   }
 
@@ -42,9 +43,19 @@ class MovieLibrary extends Component {
     });
   }
 
+  /*   filterMovies = (movie) => {
+    const { title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked,
+      genre,
+    } = movie;
+  }
+ */
   render() {
-    const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -56,7 +67,9 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ bookmarkedOnly ? movies.filter() : movies }
+        />
         <AddMovie />
       </div>
     );
