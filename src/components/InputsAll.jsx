@@ -11,7 +11,7 @@ class InputsAll extends React.Component {
           text="Título"
           testIdLabel="title-input-label"
           testIdInput="title-input"
-          id="search"
+          id="title"
           name="title"
           value={ title }
           handleChange={ handleChange }

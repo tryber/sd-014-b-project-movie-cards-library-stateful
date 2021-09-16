@@ -8,19 +8,19 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
-    super(props);
-    const { movies } = this.props;
+    super();
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movie: movies,
+      movie: props.movies,
     };
   }
 
   resetState = (state) => {
-    const { movie } = this.state;
-    const newlistMovies = [...movie, state];
+    const { movies } = this.props;
+    const newlistMovies = [...movies, state];
     this.setState({
       movie: newlistMovies,
     });
