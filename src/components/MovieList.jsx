@@ -16,8 +16,8 @@ class MovieList extends React.Component {
       <div data-testid="movie-list" className="movie-list">
         {
           movies.filter((movie) => !bookmarkedOnly || bookmarkedOnly === movie.bookmarked)
-            .filter((movie) => selectedGenre === '' || selectedGenre === movie.genre)
-            .filter((movie) => searchText === '' || (
+            .filter((movie) => !selectedGenre || selectedGenre === movie.genre)
+            .filter((movie) => !searchText || (
               movie.title.toLowerCase().includes(searchText.toLowerCase())
               || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
               || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
