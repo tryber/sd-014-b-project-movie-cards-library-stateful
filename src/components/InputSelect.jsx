@@ -12,6 +12,7 @@ class InputSelect extends React.Component {
         >
           Gênero
           <select
+            name="genre"
             data-testid="genre-input"
             value={ genre }
             onChange={ onChange }
@@ -28,7 +29,7 @@ class InputSelect extends React.Component {
 
 InputSelect.propTypes = {
   onChange: PropTypes.func.isRequired,
-  genre: PropTypes.func.isRequired,
+  genre: PropTypes.string.isRequired,
 };
 
 export default InputSelect;

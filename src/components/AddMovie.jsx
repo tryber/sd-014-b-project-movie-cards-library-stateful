@@ -1,4 +1,5 @@
 import React from 'react';
+import ButtonAdd from './ButtonAdd';
 import InputImage from './InputImage';
 import InputRating from './InputRating';
 import InputSelect from './InputSelect';
@@ -23,6 +24,7 @@ class AddMovie extends React.Component {
       imagePath: event.target.value,
       storyline: event.target.value,
       rating: event.target.value,
+      genre: event.target.value,
     });
   }
 
@@ -69,9 +71,9 @@ class AddMovie extends React.Component {
             />
           </label>
           <InputRating rating={ rating } onChange={ this.handleChange } />
-          <InputSelect />
+          <InputSelect genre={ genre } onChange={ this.handleChange } />
+          <ButtonAdd onClick={ () => {} } />
         </form>
-        { genre }
       </section>
     );
   }
