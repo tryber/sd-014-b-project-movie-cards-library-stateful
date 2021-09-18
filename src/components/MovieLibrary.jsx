@@ -17,16 +17,41 @@ class MovieLibrary extends Component {
 
     this.onClick = this.onClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.filterChange = this.filterChange.bind(this);
   }
 
+  // handleChange({ target }) {
+  //   const { name } = target;
+  //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  //   this.filterChange();
+  // }
+
+  // Feito em conjunto com o @Matheus Kaffka.
   handleChange({ target }) {
     const { name } = target;
+    const { movies } = this.state;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
-    this.filterChange();
+
+    if (value) {
+      const filter = movies.filter((movie) => movie.title.includes(value)
+      || movie.subtitle.includes(value)
+      || movie.storyline.includes(value)
+      || movie.genre === value
+      || movie.bookmarked === value);
+
+      this.setState({
+        movies: filter,
+      });
+    } else {
+      this.setState({
+        movies,
+      });
+    }
   }
 
   onClick(state) {
@@ -37,19 +62,19 @@ class MovieLibrary extends Component {
     // console.log([...movies, state]);
   }
 
-  filterChange() {
-    // const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
+  // filterChange() {
+  //   const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+  //   const { movies } = this.props;
 
-    const array = movies.filter((element) => (
-      element.title.includes(searchText)
-      || element.subtitle.includes(searchText)
-      || element.storyline.includes(searchText)
-    ));
-    this.setState({
-      movies: array,
-    });
-  }
+  //   const array = movies.filter((element) => (
+  //     element.title.includes(searchText)
+  //     || element.subtitle.includes(searchText)
+  //     || element.storyline.includes(searchText)
+  //   ));
+  //   this.setState({
+  //     movies: array,
+  //   });
+  // }
 
   render() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
