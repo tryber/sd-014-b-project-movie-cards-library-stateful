@@ -9,17 +9,18 @@ class MovieLibrary extends Component {
     super(props);
     const { movies } = this.props;
     this.state = {
+      bookmarkedOnly: false,
       movies,
     };
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, bookmarkedOnly } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
 
-        <SearchBar />
+        <SearchBar bookmarkedOnly={ bookmarkedOnly } />
 
         <MovieList movies={ movies } />
 

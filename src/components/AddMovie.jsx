@@ -9,8 +9,9 @@ import InputGenre from './InputGenre';
 import ButtonAddMovie from './ButtonAddMovie';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -20,8 +21,8 @@ class AddMovie extends Component {
       genre: 'action',
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange = ({ target }) => {
@@ -29,9 +30,13 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  handleClick = (onClick) => {
+  handleClick = () => {
+    const { onClick } = this.props;
+
     onClick(this.state);
+
     console.log('clicou');
+
     this.setState({
       subtitle: '',
       title: '',
@@ -45,7 +50,6 @@ class AddMovie extends Component {
   render() {
     // Estado do componente
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
 
     return (
       <form data-testid="add-movie-form">
@@ -58,7 +62,7 @@ class AddMovie extends Component {
           <InputGenre genre={ genre } onChange={ this.handleChange } />
         </div>
         <div>
-          <ButtonAddMovie onChange={ () => this.handleClick(onClick) } />
+          <ButtonAddMovie onClick={ this.handleClick } />
         </div>
       </form>
     );

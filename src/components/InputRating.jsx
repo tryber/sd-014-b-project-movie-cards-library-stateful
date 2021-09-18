@@ -26,9 +26,13 @@ class InputRating extends Component {
         Avaliação
         <input
           type="number"
+          id="rating"
+          name="rating"
           data-testid="rating-input"
           value={ value }
           onChange={ onChange }
+          max={ 5 }
+          required
         />
       </label>
     );
