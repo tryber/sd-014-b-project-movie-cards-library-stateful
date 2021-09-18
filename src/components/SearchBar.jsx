@@ -3,42 +3,48 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props;
-
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="input-text">
+        <label htmlFor="search-input" data-testid="text-input-label">
           Inclui o texto:
           <input
+            name="searchText"
             type="text"
-            value={ searchText }
+            id="search-input"
             onChange={ onSearchTextChange }
+            value={ searchText }
             data-testid="text-input"
           />
         </label>
-        <label data-testid="checkbox-input-label" htmlFor="favorites">
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
             type="checkbox"
+            data-testid="checkbox-input"
+            id="checkbox-input"
+            name="bookmarkedOnly"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
           />
         </label>
-        <label data-testid="select-input-label" htmlFor="genre">
-          Filtrar por gênero:
+        <label htmlFor="select-option" data-testid="select-input-label">
+          Filtrar por gênero
           <select
-            data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
+            id="select-option"
+            data-testid="select-input"
+            name="selectGenre"
           >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
         </label>
+
       </form>
     );
   }
@@ -52,4 +58,5 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
+
 export default SearchBar;
