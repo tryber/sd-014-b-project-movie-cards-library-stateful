@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import Data from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class MovieLibrary extends Component {
       });
     } else {
       this.setState({
-        movies,
+        movies: Data,
       });
     }
   }
