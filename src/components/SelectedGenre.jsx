@@ -27,6 +27,8 @@ class SelectedGenre extends Component {
             data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
+            name="selectedGenre"
+            id="genre"
           >
             <option value="" data-testid="select-option">Todos</option>
             <option value="action" data-testid="select-option">Ação</option>

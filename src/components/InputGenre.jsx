@@ -27,13 +27,15 @@ import PropTypes from 'prop-types';
 
 class InputGenre extends Component {
   render() {
-    const { value, onChange } = this.props;
+    const { genre, onChange } = this.props;
     return (
       <label htmlFor="genre" data-testid="genre-input-label">
         Gênero
         <select
           data-testid="genre-input"
-          value={ value }
+          id="genre-input"
+          name="genre"
+          value={ genre }
           onChange={ onChange }
         >
           <option value="action" data-testid="genre-option">Ação</option>
@@ -46,7 +48,7 @@ class InputGenre extends Component {
 }
 
 InputGenre.propTypes = {
-  value: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

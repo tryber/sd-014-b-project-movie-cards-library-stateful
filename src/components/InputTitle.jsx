@@ -12,6 +12,8 @@ class InputTitle extends Component {
           data-testid="title-input"
           value={ value }
           onChange={ onChange }
+          name="title"
+          id="title-input"
         />
       </label>
     );

@@ -1,5 +1,3 @@
-// implement SearchBar component here
-
 /* Requisito 1 - Crie um componente chamado <SearchBar />
 
 Esse componente renderizará uma barra com filtros acima da listagem de cartões.
@@ -64,7 +62,7 @@ class SearchBar extends Component { // Requisito 1 - Crie um componente chamado 
                 name="bookmarkedOnly"
                 value={ bookmarkedOnly }
                 type="checkbox"
-                checked="bookmarkedOnly" // Requisito 4: A propriedade checked do input deve receber o valor da prop bookmarkedOnly;
+                checked={ bookmarkedOnly }
                 onChange={ onBookmarkedChange } // Requisito 4: A propriedade onChange do input deve receber o valor da prop onBookmarkedChange.
               />
             </label>

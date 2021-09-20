@@ -11,6 +11,10 @@ class InputStoryline extends Component {
           data-testid="storyline-input"
           value={ value }
           onChange={ onChange }
+          name="storyline"
+          id="storyline"
+          type="text"
+          required
         />
       </label>
     );
