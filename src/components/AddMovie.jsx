@@ -10,7 +10,7 @@ import InputGenre from './InputGenre';
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.setState = {
+    this.State = {
       subtitle: '',
       title: '',
       imagePath: '',
