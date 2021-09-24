@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class InputTitle extends React.Component {
   render() {
-    const { value, handleChange } = this.props;
+    const { title, handleChange } = this.props;
     return (
       <label htmlFor="text" data-testid="title-input-label">
         Título
@@ -11,7 +11,7 @@ class InputTitle extends React.Component {
           type="text"
           data-testid="title-input"
           onChange={ handleChange }
-          value={ value }
+          value={ title }
           nome="Title"
           id="Title"
         />

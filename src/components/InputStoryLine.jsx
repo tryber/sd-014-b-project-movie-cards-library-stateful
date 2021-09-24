@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 
 class InputStoryLine extends React.Component {
   render() {
-    const { value, handleChange } = this.props;
+    const { storyLyne, handleChange } = this.props;
     return (
       <label htmlFor="text" data-testid="storyLine-input-label">
         Sinopse
-        <input
-          type="textarea"
+        <textarea
           data-testid="storyLine-input"
           onChange={ handleChange }
-          value={ value }
+          value={ storyLyne }
           nome="storyLine"
           id="StoryLine"
         />
