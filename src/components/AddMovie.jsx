@@ -8,9 +8,9 @@ import InputRating from './InputRating';
 import InputGenre from './InputGenre';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
-    this.State = {
+  constructor() {
+    super();
+    this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -31,12 +31,12 @@ class AddMovie extends React.Component {
     const { state } = this;
     return (
       <form data-testid="add-movie-form">
-        <InputTitle value={ state.this } handleChange={ this.handleChange } />
-        <InputSubtitle value={ state.this } handleChange={ this.handleChange } />
-        <InputImage value={ state.this } handleChange={ this.handleChange } />
-        <InputStoryLine value={ state.this } handleChange={ this.handleChange } />
-        <InputRating value={ state.this } handleChange={ this.handleChange } />
-        <InputGenre value={ state.this } handleChange={ this.handleChange } />
+        <InputTitle value={ state.title } handleChange={ this.handleChange } />
+        <InputSubtitle value={ state.subtitle } handleChange={ this.handleChange } />
+        <InputImage value={ state.imagePath } handleChange={ this.handleChange } />
+        <InputStoryLine value={ state.storyLine } handleChange={ this.handleChange } />
+        <InputRating value={ state.rating } handleChange={ this.handleChange } />
+        <InputGenre value={ state.genre } handleChange={ this.handleChange } />
       </form>
     );
   }
