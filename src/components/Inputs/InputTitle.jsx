@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class InputTitle extends React.Component {
   render() {
-    const { value, onChange } = this.props;
+    const { onChange } = this.props;
 
     return (
       <label htmlFor="titleMovie" data-testid="title-input-label">
@@ -13,7 +13,6 @@ class InputTitle extends React.Component {
           name="title"
           id="titleMovie"
           type="text"
-          value={ value }
           onChange={ onChange }
           required
         />
@@ -23,7 +22,6 @@ class InputTitle extends React.Component {
 }
 
 InputTitle.propTypes = {
-  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

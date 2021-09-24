@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class InputRating extends React.Component {
   render() {
-    const { value, onChange } = this.props;
+    const { onChange } = this.props;
 
     return (
       <label htmlFor="rating" data-testid="rating-input-label">
@@ -13,9 +13,7 @@ class InputRating extends React.Component {
           name="rating"
           id="rating"
           type="number"
-          value={ value }
           onChange={ onChange }
-          max={ 5 }
           required
         />
       </label>
@@ -24,7 +22,6 @@ class InputRating extends React.Component {
 }
 
 InputRating.propTypes = {
-  value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

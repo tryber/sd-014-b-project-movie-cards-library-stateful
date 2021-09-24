@@ -56,9 +56,10 @@ class MovieLibrary extends React.Component {
 
   createNewMovie = (newMovie) => {
     const { movies } = this.props;
-    this.setState({
-      movies: [...movies, newMovie],
-    });
+    console.log(movies);
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
   }
 
   handleChange = ({ target }) => {
