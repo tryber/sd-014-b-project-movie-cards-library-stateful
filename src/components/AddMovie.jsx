@@ -18,13 +18,9 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.handle = this.handle.bind(this);
-    this.handleButon = this.handleButon.bind(this);
   }
 
-  handleButon(event, func) {
-    event.preventDefault();
-    func(this.state);
+  Submit = () => {
     this.setState({
       subtitle: '',
       title: '',
@@ -35,28 +31,27 @@ class AddMovie extends React.Component {
     });
   }
 
-  handle(event) {
+  handle = (event) => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { Submit, handle } = this;
     const { onClick } = this.props;
     return (
-      <form data-testid="add-movie-form">
-        <Title value={ title } fun={ this.handle } />
-        <Subtitle value={ subtitle } fun={ this.handle } />
-        <Image value={ imagePath } fun={ this.handle } />
-        <Synopsis value={ storyline } fun={ this.handle } />
-        <Ranking value={ rating } callback={ this.handle } />
-        <Genrer value={ genre } fun={ this.handle } />
+      <form onSubmit={ Submit } data-testid="add-movie-form">
+        <Title value={ title } onChange={ handle } />
+        <Subtitle value={ subtitle } onChange={ handle } />
+        <Image value={ imagePath } onChange={ handle } />
+        <Synopsis value={ storyline } onChange={ handle } />
+        <Ranking value={ rating } callback={ handle } />
+        <Genrer value={ genre } onChange={ handle } />
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ (event) => this.handleButon(event, onClick) }
+          onClick={ onClick }
         >
           Adicionar filme
         </button>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -16,10 +15,6 @@ class MovieLibrary extends Component {
     this.submit = this.submit.bind(this);
   }
 
-  submit(event) {
-    console.log(event.target);
-  }
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies: movie } = this.state;
     return (
@@ -31,7 +26,6 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movie } />
-        <AddMovie onClick={ this.submit } />
       </div>
     );
   }
