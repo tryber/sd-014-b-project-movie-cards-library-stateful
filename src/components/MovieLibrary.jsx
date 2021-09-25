@@ -6,12 +6,13 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
-    super();
+    super(props);
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies,
     };
   }
 
@@ -32,9 +33,22 @@ class MovieLibrary extends Component {
       selectedGenre: target.value,
     });
   }
+  // implementaçao de codigo baseado no PR de Vinicius Santana
+
+  filte = (movie) => {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let checkMovie = true;
+    const { title, subtitle, storyline, bookmarked, genre } = movie;
+    if (bookmarkedOnly) checkMovie = bookmarked;
+    if (!genre.includes(selectedGenre)) return false;
+    if (title.includes(searchText)) return checkMovie;
+    if (storyline.includes(searchText)) return checkMovie;
+    if (subtitle.includes(searchText)) return checkMovie;
+    return false;
+  }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies: movie } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -46,7 +60,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movie } />
+        <MovieList movies={ movies.filter(this.filte) } />
         <AddMovie />
       </div>
     );
