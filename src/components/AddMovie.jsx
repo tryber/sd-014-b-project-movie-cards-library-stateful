@@ -18,9 +18,15 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.Submit = this.Submit.bind(this);
   }
 
-  Submit = () => {
+  handle = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  Submit() {
     this.setState({
       subtitle: '',
       title: '',
@@ -29,11 +35,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-  }
-
-  handle = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
   }
 
   render() {
@@ -46,7 +47,7 @@ class AddMovie extends React.Component {
         <Subtitle value={ subtitle } onChange={ handle } />
         <Image value={ imagePath } onChange={ handle } />
         <Synopsis value={ storyline } onChange={ handle } />
-        <Ranking value={ rating } callback={ handle } />
+        <Ranking value={ Number(rating) } callback={ handle } />
         <Genrer value={ genre } onChange={ handle } />
         <button
           type="submit"
