@@ -6,6 +6,7 @@ import ImageAddMovie from './ImageAddMovie';
 import StorylineAddMovie from './StorylineAddMovie';
 import RatingAddMovie from './RatingAddMovie';
 import GenreAddMovie from './GenreAddMovie';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor() {
@@ -19,7 +20,6 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleClcik = this.handleClcik.bind(this);
   }
 
   handleChange({ target }) {
@@ -29,8 +29,17 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  handleClcik({ target }) {
-    console.log(target);
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -43,6 +52,7 @@ class AddMovie extends Component {
         <StorylineAddMovie value={ state.storyline } handleChange={ this.handleChange } />
         <RatingAddMovie value={ state.rating } handleChange={ this.handleChange } />
         <GenreAddMovie value={ state.genre } handleChange={ this.handleChange } />
+        <Button handleClick={ this.handleClick } />
       </form>
     );
   }
@@ -55,6 +65,7 @@ AddMovie.propTypes = {
   storyline: PropTypes.string,
   rating: PropTypes.number,
   genre: PropTypes.string,
+  button: PropTypes.func,
 }.isRequired;
 
 export default AddMovie;
