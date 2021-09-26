@@ -31,3 +31,4 @@ MovieCard.propTypes = {
 };
 
 export default MovieCard;
+// requisitos 14 a 19 com ajuda incrivel do Michel Caxias - 14 B
