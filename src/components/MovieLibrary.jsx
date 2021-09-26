@@ -6,14 +6,14 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
-    super(props);
-    const { movies } = this.props;
+    super();
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
+    this.add = this.add.bind(this);
   }
 
   onSearchTextChange = ({ target }) => {
@@ -47,6 +47,14 @@ class MovieLibrary extends Component {
     return false;
   }
 
+  add(state) {
+    const { movies } = this.state;
+    const moviesUpdates = [...movies, state];
+    this.setState({
+      movies: moviesUpdates,
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -61,7 +69,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies.filter(this.filte) } />
-        <AddMovie />
+        <AddMovie onClick={ this.add } />
       </div>
     );
   }
