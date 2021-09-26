@@ -19,6 +19,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClcik = this.handleClcik.bind(this);
   }
 
   handleChange({ target }) {
@@ -26,6 +27,10 @@ class AddMovie extends Component {
     const value = target.type === 'checkbox'
       ? target.checked : target.value;
     this.setState({ [name]: value });
+  }
+
+  handleClcik({ target }) {
+    console.log(target);
   }
 
   render() {

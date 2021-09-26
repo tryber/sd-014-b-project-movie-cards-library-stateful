@@ -3,6 +3,7 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import './App.css';
 import AddMovie from './components/AddMovie';
+import movies from './data';
 import MovieLibrary from './components/MovieLibrary';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <Header />
       <SearchBar />
       <AddMovie />
-      <MovieLibrary />
+      <MovieLibrary movies={ movies } />
     </div>
   );
 }

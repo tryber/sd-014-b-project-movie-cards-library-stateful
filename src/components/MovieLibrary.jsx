@@ -6,18 +6,6 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
-    this.handleGeneric = this.handleGeneric.bind(this);
-  }
-
-  handleGeneric({ target }) {
-    const { value } = target;
-    this.setState({
-      [Name]: value,
-    });
-  }
-
   render() {
     const { movies } = this.props;
     return (
@@ -34,4 +22,5 @@ class MovieLibrary extends Component {
 MovieLibrary.propTypes = {
   movies: PropTypes.string,
 }.isRequired;
+
 export default MovieLibrary;
