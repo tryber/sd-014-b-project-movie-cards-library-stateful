@@ -4,6 +4,7 @@ import ButtonAdd from './ButtonAdd';
 import InputImage from './InputImage';
 import InputRating from './InputRating';
 import InputSelect from './InputSelect';
+import InputText from './InputText';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -16,21 +17,19 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange =(event) => {
+  handleChange({ target }) {
+    const { name, value } = target;
+    // console.log(name, value);
     this.setState({
-      title: event.target.value,
-      subtitle: event.target.value,
-      imagePath: event.target.value,
-      storyline: event.target.value,
-      rating: event.target.value,
-      genre: event.target.value,
+      [name]: value,
     });
   }
 
   addMovieAndReset = (onClick) => {
-    onClick();
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -47,24 +46,17 @@ class AddMovie extends React.Component {
     return (
       <section>
         <form data-testid="add-movie-form">
-          <label
-            htmlFor="Título"
-            data-testid="title-input-label"
-          >
-            Título
-            <input
-              data-testid="title-input"
-              type="text"
-              onChange={ this.handleChange }
-              value={ title }
-            />
-          </label>
+          <InputText
+            onChange={ this.handleChange }
+            value={ title }
+          />
           <label
             htmlFor="Subtítulo"
             data-testid="subtitle-input-label"
           >
             Subtítulo
             <input
+              name="subtitle"
               data-testid="subtitle-input"
               type="text"
               onChange={ this.handleChange }
@@ -78,6 +70,7 @@ class AddMovie extends React.Component {
           <label htmlFor="Sinopse" data-testid="storyline-input-label">
             Sinopse
             <textarea
+              name="storyline"
               data-testid="storyline-input"
               type="text"
               value={ storyline }
@@ -86,7 +79,7 @@ class AddMovie extends React.Component {
           </label>
           <InputRating rating={ rating } onChange={ this.handleChange } />
           <InputSelect genre={ genre } onChange={ this.handleChange } />
-          <ButtonAdd onClick={ () => { onClick(); } } />
+          <ButtonAdd onChange={ () => this.addMovieAndReset(onClick) } />
         </form>
       </section>
     );
