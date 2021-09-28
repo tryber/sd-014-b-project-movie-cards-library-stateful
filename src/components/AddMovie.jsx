@@ -45,10 +45,7 @@ class AddMovie extends React.Component {
     return (
       <section>
         <form data-testid="add-movie-form">
-          <InputText
-            onChange={ this.handleChange }
-            value={ title }
-          />
+          <InputText onChange={ this.handleChange } value={ title } />
           <label
             htmlFor="Subtítulo"
             data-testid="subtitle-input-label"
@@ -62,10 +59,7 @@ class AddMovie extends React.Component {
               value={ subtitle }
             />
           </label>
-          <InputImage
-            onChange={ this.handleChange }
-            value={ imagePath }
-          />
+          <InputImage onChange={ this.handleChange } value={ imagePath } />
           <label htmlFor="Sinopse" data-testid="storyline-input-label">
             Sinopse
             <textarea
