@@ -1,57 +1,83 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
-class SearchBar extends React.Component {
+class MovieLibrary extends React.Component {
+  constructor(props) {
+    super();
+    const { movies } = props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+  }
+
+  addMovie = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
+  }
+
+  handleCheckbox = (name, checked) => {
+    if (checked) {
+      this.setState({ [name]: true });
+    } else { this.setState({ [name]: false }); }
+  }
+
+  handleClick = (event) => {
+    const { value, name, type, checked } = event.target;
+    if (type === 'checkbox') {
+      this.handleCheckbox(name, checked);
+    } else { this.setState({ [name]: value }); }
+  }
+
+  filtermoviesByText = (films, searchText) => films.filter(
+    (movie) => movie.title.toUpperCase().includes(searchText.toUpperCase())
+        || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+        || movie.storyline.toUpperCase().includes(searchText.toUpperCase()),
+  );
+
+  filterMoviesByGenre = (films, selectedGenre) => {
+    if (selectedGenre !== '') {
+      return films.filter((movie) => movie.genre === selectedGenre);
+    }
+    return films;
+  }
+
+  filterMoviesByBookMarked = (films, bookmarkedOnly) => {
+    if (bookmarkedOnly) { return films.filter((movie) => movie.bookmarked); }
+    return films;
+  }
+
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let filteredMovies = this.filterMoviesByBookMarked(movies, bookmarkedOnly);
+    filteredMovies = this.filtermoviesByText(filteredMovies, searchText);
+    filteredMovies = this.filterMoviesByGenre(filteredMovies, selectedGenre);
+
     return (
-      <form data-testid="search-bar-form">
-        <label htmlFor="text-input" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            name="searchText"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
-          />
-        </label>
-        <label htmlFor="checkBox" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            name="bookmarkedOnly"
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
-          />
-        </label>
-        <label data-testid="select-input-label" htmlFor="filtro">
-          Filtrar por gênero
-          <select
-            name="selectedGenre"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
-        </label>
-      </form>
+      <main>
+        <SearchBar
+          searchText={ searchText }
+          callBack={ this.handleClick }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+          onSearchTextChange={ this.handleClick }
+          onBookmarkedChange={ this.handleClick }
+          onSelectedGenreChange={ this.handleClick }
+        />
+        <MovieList movies={ filteredMovies } />
+        <AddMovie onClick={ this.addMovie } />
+      </main>
     );
   }
 }
 
-SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default SearchBar;
+export default MovieLibrary;
