@@ -3,25 +3,22 @@ import PropTypes from 'prop-types';
 
 class InputStoryLine extends React.Component {
   render() {
-    const { storyLyne, handleChange } = this.props;
+    const { value, onChange } = this.props;
     return (
-      <label htmlFor="text" data-testid="storyLine-input-label">
+      <label data-testid="storyline-input-label" htmlFor="storyline">
         Sinopse
         <textarea
-          data-testid="storyLine-input"
-          onChange={ handleChange }
-          value={ storyLyne }
-          nome="storyLine"
-          id="StoryLine"
+          name="storyline"
+          data-testid="storyline-input"
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
-
-InputStoryLine.propTypes = PropTypes.shape({
-  value: PropTypes.string,
-  handleChance: PropTypes.func,
-}).isRequired;
-
+InputStoryLine.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 export default InputStoryLine;

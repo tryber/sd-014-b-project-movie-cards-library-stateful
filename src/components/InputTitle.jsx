@@ -3,26 +3,23 @@ import PropTypes from 'prop-types';
 
 class InputTitle extends React.Component {
   render() {
-    const { title, handleChange } = this.props;
+    const { value, onChange } = this.props;
     return (
-      <label htmlFor="text" data-testid="title-input-label">
+      <label htmlFor="title" data-testid="title-input-label">
         Título
         <input
           type="text"
+          name="title"
+          value={ value }
           data-testid="title-input"
-          onChange={ handleChange }
-          value={ title }
-          nome="Title"
-          id="Title"
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
-
-InputTitle.propTypes = PropTypes.shape({
-  value: PropTypes.string,
-  handleChance: PropTypes.func,
-}).isRequired;
-
+InputTitle.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 export default InputTitle;

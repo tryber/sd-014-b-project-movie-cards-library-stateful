@@ -1,28 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class InputImage extends React.Component {
+class InputImagem extends React.Component {
   render() {
-    const { imagePath, handleChange } = this.props;
+    const { value, onChange } = this.props;
     return (
-      <label htmlFor="image" data-testid="image-input-label">
+      <label data-testid="image-input-label" htmlFor="imagePath">
         Imagem
         <input
-          type="text"
+          name="imagePath"
           data-testid="image-input"
-          onChange={ handleChange }
-          value={ imagePath }
-          nome="image"
-          id="image"
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
-
-InputImage.propTypes = PropTypes.shape({
-  value: PropTypes.string,
-  handleChance: PropTypes.func,
-}).isRequired;
-
-export default InputImage;
+InputImagem.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+export default InputImagem;
