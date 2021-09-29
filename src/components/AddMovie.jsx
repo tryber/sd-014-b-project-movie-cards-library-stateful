@@ -135,7 +135,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          //lógica do onClick usada a partir do comentário de thiago frozzi no slack
+          // lógica do onClick usada a partir do comentário de thiago frozzi no slack
           onClick={ () => {
             onClick(this.state);
             this.setState({
