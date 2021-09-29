@@ -3,26 +3,23 @@ import PropTypes from 'prop-types';
 
 class InputRating extends React.Component {
   render() {
-    const { rating, handleChange } = this.props;
+    const { value, onChange } = this.props;
     return (
-      <label htmlFor="text" data-testid="rating-input-label">
+      <label data-testid="rating-input-label" htmlFor="rating">
         Avaliação
         <input
           type="number"
+          name="rating"
           data-testid="rating-input"
-          onChange={ handleChange }
-          value={ rating }
-          nome="rating"
-          id="rating"
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
-
-InputRating.propTypes = PropTypes.shape({
-  value: PropTypes.string,
-  handleChance: PropTypes.func,
-}).isRequired;
-
+InputRating.propTypes = {
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 export default InputRating;
