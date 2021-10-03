@@ -10,8 +10,6 @@ class MovieLibrary extends Component {
     };
   }
 
-
-
   render() {
     const { searchText } = this.state;
     return (
