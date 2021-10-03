@@ -9,9 +9,17 @@ class SearchBar extends Component {
     return (
       <main>
         <form data-testid="search-bar-form" action="">
-          <input type="text" />
+          <label data-testid="text-input-label" htmlFor="searchText">
+            Inclui o texto:
+            <input
+              data-testid="text-input"
+              type="text"
+              name="searchText"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+            />
+          </label>
         </form>
-        <h4>{ searchText }</h4>
       </main>
     );
   }
