@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// ***Obs.: Consultei o pull request do Luiz Gustavo para tirar algumas dúvidas.
 
 class SearchBar extends Component {
   render() {
