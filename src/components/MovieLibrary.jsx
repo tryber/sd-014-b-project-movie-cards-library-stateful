@@ -7,10 +7,21 @@ import MovieList from './MovieList';
 class MovieLibrary extends Component {
   constructor() {
     super();
-
+    // const { movies } = this.props;
     this.state = {
       searchText: '',
+      // movies,
     };
+
+    this.addNewMovie = this.addNewMovie.bind(this);
+  }
+
+  addNewMovie() {
+    // const { movies } = this.props;
+    console.log('Foi chamado!');
+    // this.setState(
+    //   [movies]: [...movies, newMovie],
+    // );
   }
 
   render() {
@@ -19,7 +30,7 @@ class MovieLibrary extends Component {
     return (
       <div>
         <SearchBar searchText={ searchText } />
-        <AddMovie />
+        <AddMovie onClick={ this.addNewMovie } />
         <MovieList movies={ movies } />
       </div>
     );

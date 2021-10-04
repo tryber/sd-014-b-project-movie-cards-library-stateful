@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 // ***Obs.: Consultei o pull request do Luiz Gustavo para tirar algumas dúvidas.
 
 class SearchBar extends Component {
+  // handleChange({ target }) {
+  //   const { name, value } = target;
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // }
+
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
       selectedGenre, onSelectedGenreChange } = this.props;
