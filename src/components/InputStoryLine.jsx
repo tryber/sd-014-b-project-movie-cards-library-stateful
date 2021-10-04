@@ -11,8 +11,6 @@ class InputStoryLine extends Component {
           data-testid="storyline-input"
           name="storyLine"
           id="inputStoryLine"
-          cols="30"
-          rows="10"
           value={ storyLine }
           onChange={ onChange }
         />

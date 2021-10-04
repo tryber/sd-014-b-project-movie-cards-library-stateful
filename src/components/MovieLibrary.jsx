@@ -5,14 +5,13 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  constructor() {
+  constructor(props) {
     super();
-    // const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies,
+      movies: props.movies,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,17 +25,15 @@ class MovieLibrary extends Component {
     });
   }
 
-  addNewMovie() {
-    // const { movies } = this.props;
-    console.log('Foi chamado!');
-    // this.setState(
-    //   [movies]: [...movies, newMovie],
-    // );
+  addNewMovie(newMovie) {
+    const { movies } = this.props;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
