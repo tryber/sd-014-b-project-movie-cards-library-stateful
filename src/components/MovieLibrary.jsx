@@ -1,4 +1,3 @@
-import React from 'react';
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 
@@ -10,8 +9,6 @@ class MovieLibrary extends Component {
       searchText: '',
     };
   }
-
-
 
   render() {
     const { searchText } = this.state;
