@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class TitleInput extends Component {
+class InputTitle extends Component {
   render() {
     const { title, onChange } = this.props;
     return (
@@ -20,9 +20,9 @@ class TitleInput extends Component {
   }
 }
 
-TitleInput.propTypes = {
+InputTitle.propTypes = {
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default TitleInput;
+export default InputTitle;
