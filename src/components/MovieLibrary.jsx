@@ -57,8 +57,6 @@ class MovieLibrary extends Component {
     });
   }
 
-  // Consultei o repositório do Bruno Trindade para entender a lógica da função onClick
-  // Link -> https://github.com/tryber/sd-014-b-project-movie-cards-library-stateful/pull/13/files
   onClick(props) {
     const { movies } = this.state;
     const addMovie = [...movies, props];
