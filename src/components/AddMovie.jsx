@@ -6,32 +6,32 @@ class AddMovie extends Component {
     super();
 
     this.state = {
-      subtitle: '',
       title: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
+      // subtitle: '',
+      // imagePath: '',
+      // storyLine: '',
+      // rating: 0,
+      // genre: 'action',
     };
 
     this.initialState = this.initialState.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  initialState() {
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
-    });
-  }
-
   handleChange({ target }) {
     this.setState({
       title: target.value,
+    });
+  }
+
+  initialState() {
+    this.setState({
+      title: '',
+      // subtitle: '',
+      // imagePath: '',
+      // storyLine: '',
+      // rating: 0,
+      // genre: 'action',
     });
   }
 
@@ -41,6 +41,7 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form" action="">
         <TitleInput title={ title } handleChange={ this.handleChange } />
+        {/* <SubtitleInput /> */}
       </form>
     );
   }
