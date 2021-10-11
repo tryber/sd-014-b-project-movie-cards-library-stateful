@@ -30,6 +30,53 @@ addMovie = (movie) => {
   });
 }
 
+onBookmarkedOnly = ({ target: { checked } }) => {
+  const { movies } = this.state;
+  if (checked) {
+    this.setState({
+      bookmarkedOnly: true,
+      movies: movies.filter((movie) => movie.bookmarked === true),
+    });
+  } else {
+    this.setState({
+      bookmarkedOnly: false,
+      movies,
+    });
+  }
+}
+
+onSearchTextChange = ({ target: { value } }) => {
+  const { movies } = this.state;
+  if (value === '') {
+    this.setState({
+      searchText: '',
+      movies,
+    });
+  } else {
+    this.setState({
+      searchText: value,
+      movies: movies.filter((movie) => movie.title.toLowerCase().includes(value)
+        || movie.subtitle.toLowerCase().includes(value)
+        || movie.storyline.toLowerCase().includes(value)),
+    });
+  }
+}
+
+onSelectedGenreChange = ({ target: { value } }) => {
+  const { movies } = this.state;
+  if (value === '') {
+    this.setState({
+      selectedGenre: '',
+      movies,
+    });
+  } else {
+    this.setState({
+      selectedGenre: value,
+      movies: movies.filter((movie) => movie.genre === value),
+    });
+  }
+}
+
 render() {
   const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
   return (
@@ -37,17 +84,14 @@ render() {
       <h2> My awesome movie library </h2>
       <SearchBar
         searchText={ searchText }
+        bookmarkedOnly={ bookmarkedOnly }
+        selectedGenre={ selectedGenre }
+        onBookmarkedOnly={ this.onBookmarkedOnly }
         onChange={ this.handleChange }
-        bookmarkedOnly={ bookmarkedOnly }
-        selectedGenre={ selectedGenre }
+        onSearchTextChange={ this.onSearchTextChange }
+        onSelectedGenreChange={ this.onSelectedGenreChange }
       />
-      <MovieList
-        movies={ movies }
-        searchText={ searchText }
-        handleChange={ this.handleChange }
-        bookmarkedOnly={ bookmarkedOnly }
-        selectedGenre={ selectedGenre }
-      />
+      <MovieList movies={ movies } />
       <AddMovie onClick={ this.addMovie } />
     </div>
   );
