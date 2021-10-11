@@ -8,10 +8,19 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    // const { movies } = this.props;
     this.state = {
-      // bookmarkedOnly: false,
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      // movies: movies,
     };
   }
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
 
 troquei = () => {
   // Adicionar state da AddMovie dentro do array de filmes....
@@ -19,11 +28,23 @@ troquei = () => {
 
 render() {
   const { movies } = this.props;
+  const { searchText, bookmarkedOnly, selectedGenre } = this.state;
   return (
     <div>
       <h2> My awesome movie library </h2>
-      <SearchBar />
-      <MovieList movies={ movies } />
+      <SearchBar
+        searchText={ searchText }
+        onChange={ this.handleChange }
+        bookmarkedOnly={ bookmarkedOnly }
+        selectedGenre={ selectedGenre }
+      />
+      <MovieList
+        movies={ movies }
+        searchText={ searchText }
+        handleChange={ this.handleChange }
+        bookmarkedOnly={ bookmarkedOnly }
+        selectedGenre={ selectedGenre }
+      />
       <AddMovie onClick={ this.troquei } />
     </div>
   );
