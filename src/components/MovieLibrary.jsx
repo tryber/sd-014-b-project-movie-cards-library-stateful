@@ -8,12 +8,12 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    // const { movies } = this.props;
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: movies,
+      movies,
     };
   }
 
@@ -22,13 +22,16 @@ class MovieLibrary extends Component {
     this.setState({ [name]: value });
   };
 
-troquei = () => {
+addMovie = (movie) => {
   // Adicionar state da AddMovie dentro do array de filmes....
+  const { movies } = this.state;
+  this.setState({
+    movies: [...movies, movie],
+  });
 }
 
 render() {
-  const { movies } = this.props;
-  const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+  const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
   return (
     <div>
       <h2> My awesome movie library </h2>
@@ -45,7 +48,7 @@ render() {
         bookmarkedOnly={ bookmarkedOnly }
         selectedGenre={ selectedGenre }
       />
-      <AddMovie onClick={ this.troquei } />
+      <AddMovie onClick={ this.addMovie } />
     </div>
   );
 }
