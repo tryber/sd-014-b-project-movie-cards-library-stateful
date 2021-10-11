@@ -30,7 +30,7 @@ addMovie = (movie) => {
   });
 }
 
-onBookmarkedOnly = ({ target: { checked } }) => {
+onBookmarkedChange = ({ target: { checked } }) => {
   const { movies } = this.state;
   if (checked) {
     this.setState({
@@ -86,7 +86,7 @@ render() {
         searchText={ searchText }
         bookmarkedOnly={ bookmarkedOnly }
         selectedGenre={ selectedGenre }
-        onBookmarkedOnly={ this.onBookmarkedOnly }
+        onBookmarkedChange={ this.onBookmarkedChange }
         onChange={ this.handleChange }
         onSearchTextChange={ this.onSearchTextChange }
         onSelectedGenreChange={ this.onSelectedGenreChange }
