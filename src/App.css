@@ -7,9 +7,11 @@ body {
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
+  border-bottom: 1px solid rgb(22, 9, 9);
   display: flex;
-  height: 100px;
+  height: 90px;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .page-title {
@@ -19,26 +21,72 @@ body {
   text-align: center;
 }
 
+.search-bar-form {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 25px;
+}
+
+.text-form {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.search-input {
+  border-radius: 10px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+  display: flex;
+  margin: 0 auto;
+  outline: none;
+  padding: 3px 3px 3px 15px;
+  width: 100%;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 5px #5a1212;
+	border: 1px solid #5a1212;
+  padding: 3px 3px 3px 15px;
+}
+
+.select-input:focus {
+  box-shadow: 0 0 5px #5a1212;
+	border: 1px solid #5a1212;
+  padding: 6px 6px 6px 15px; 
+}
+
+.select-input {
+  border-radius: 5px;
+  display: flex;
+  margin: 0 auto;
+  outline: none;
+  padding: 6px 6px 6px 15px;
+  width: 100%;
+}
+
 .movie-list {
   display: flex;
   flex-flow: row wrap;
-  padding: 48px 30px;
+  justify-content: space-around;
+  padding: 20px 30px;
 }
 
 .movie-card {
-  background-color: white;
+  background-color: #5a1212;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 3px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   height: 450px;
-  margin: 5px;
+  margin: 5px 5px 40px 5px;
   overflow: hidden;
   width: 300px;
 }
 
-
 .movie-card-image {
+  max-height: 167.844px;
   width: 100%;
 }
 
@@ -48,27 +96,29 @@ body {
 }
 
 .movie-card-title {
+  color: #bec4c7;
   font-size: 24px;
   font-weight: 500;
   margin: 0 0 12px;
 }
 
 .movie-card-subtitle {
-  color: #6c757d;
+  color: #d8dde0;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 8px;
 }
 
 .movie-card-storyline {
+  color: #bec4c7;
   font-size: 14px;
   text-align: justify;
 }
 
 .rating {
-  background-color: #007bff;
+  background-color: white;
   border-radius: 25px;
-  color: white;
+  color: #5a1212;
   font-size: 16px;
   font-weight: 700;
   padding: 3px 9px;
@@ -80,4 +130,15 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.send-button {
+  background-color: #5a1212;
+  border: 2px solid #410c0c;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px black ,3px 3px 3px #5a1212;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 10px;
 }
