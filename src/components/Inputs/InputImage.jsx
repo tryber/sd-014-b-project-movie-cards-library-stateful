@@ -5,7 +5,11 @@ class InputImage extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="imagePath" data-testid="image-input-label">
+      <label
+        htmlFor="imagePath"
+        data-testid="image-input-label"
+        className="text-form"
+      >
         Imagem
         <input
           type="text"
@@ -13,6 +17,7 @@ class InputImage extends React.Component {
           onChange={ onChange }
           value={ value }
           data-testid="image-input"
+          className="search-input"
         />
       </label>
     );

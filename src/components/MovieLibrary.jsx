@@ -7,7 +7,6 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    this.information = this.information.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
     this.state = {
       searchText: '',
@@ -17,7 +16,7 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  information({ target }) {
+  changeInput({ target }) {
     const { movies } = this.props;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -48,7 +47,6 @@ class MovieLibrary extends React.Component {
     const { bookmarkedOnly, searchText, selectedGenre, movies } = this.state;
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           onSearchTextChange={ this.information }
           searchText={ searchText }
@@ -64,7 +62,6 @@ class MovieLibrary extends React.Component {
   }
 }
 
-// An array of a object
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

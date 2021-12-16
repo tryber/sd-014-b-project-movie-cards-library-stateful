@@ -6,11 +6,11 @@ import InputImage from './Inputs/InputImage';
 import InputRating from './Inputs/InputRating';
 import TextAreaStoryline from './Inputs/TextAreaStoryline';
 import SelectGenre from './Inputs/SelectGenre';
-import ButtonMovie from './Inputs/ButtonMovie';
+// import ButtonMovie from './Inputs/ButtonMovie';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -19,51 +19,55 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.information = this.information.bind(this);
+    this.changeInput = this.changeInput.bind(this);
+    this.initialState = this.initialState.bind(this);
   }
 
-  information = ({ target }) => {
-    const { name, value } = target;
-    if (name !== 'ButtonMovie') {
-      this.setState({
-        [name]: value,
-      });
-    } else {
-      this.setState({
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      });
-    }
+  initialState() {
+    const { onClick } = this.props;
+
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  changeInput({ target }) {
+    const { value, name } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
-        <InputSubtitle value={ subtitle } onChange={ this.information } />
-        <InputTitle value={ title } onChange={ this.information } />
-        <InputImage value={ imagePath } onChange={ this.information } />
-        <TextAreaStoryline value={ storyline } onChange={ this.information } />
-        <InputRating value={ rating } onChange={ this.information } />
-        <SelectGenre value={ genre } onChange={ this.information } />
-        <ButtonMovie
-          onClick={ () => {
-            onClick(this.state);
-            this.setState({
-              subtitle: '',
-              title: '',
-              imagePath: '',
-              storyline: '',
-              rating: 0,
-              genre: 'action',
-            });
-          } }
-        />
+      <form className="search-bar-form" data-testid="search-bar-form">
+        <InputTitle value={ title } onChange={ this.changeInput } />
+        <br />
+        <InputSubtitle value={ subtitle } onChange={ this.changeInput } />
+        <br />
+        <InputImage value={ imagePath } onChange={ this.changeInput } />
+        <br />
+        <TextAreaStoryline value={ storyline } onChange={ this.changeInput } />
+        <br />
+        <InputRating value={ rating } onChange={ this.changeInput } />
+        <br />
+        <SelectGenre value={ genre } onChange={ this.changeInput } />
+        <br />
+        <button
+          data-testid="send-button"
+          type="button"
+          onClick={ (this.initialState) }
+          className="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
