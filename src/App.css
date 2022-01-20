@@ -19,10 +19,68 @@ body {
   text-align: center;
 }
 
+.gallery-title {
+  font-size: 2em;
+  font-weight: 500;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .movie-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
+  padding: 30px;
+}
+
+.form-body {
+  align-content: space-between;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   padding: 48px 30px;
+}
+
+form > label {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+label > input {
+  align-items: baseline;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+label > select {
+  align-items: baseline;
+  border-radius: 15px;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+input [ type = 'checkbox' ] {
+  align-items: baseline;
+  border-radius: 15px;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+button {
+  background-color: rgb(0, 123, 255);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 15px;
+}
+
+button:hover {
+  background-color: rgb(0, 81, 168);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 15px;
 }
 
 .movie-card {
