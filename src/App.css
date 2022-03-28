@@ -81,3 +81,35 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 2%;
+  padding: 8px;
+}
+
+
+input, .favorites {
+  display: flex;
+  flex-direction: row;
+}
+
+h2 {
+  padding: 10px;
+  text-align: center;
+}
+
+.addMovie {
+  margin: 0 1%;
+}
+
+.button {
+  margin: 2% 4%;
+}
+
+button {
+  border: 1px solid grey;
+  padding: 10px 16px;
+}
