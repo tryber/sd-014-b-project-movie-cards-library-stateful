@@ -5,7 +5,7 @@ class ButtonAddMovie extends Component {
   render() {
     const { onChange } = this.props;
     return (
-      <section>
+      <section className="button">
         <button
           data-testid="send-button"
           type="button"

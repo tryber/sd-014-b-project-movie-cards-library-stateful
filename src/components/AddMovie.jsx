@@ -49,7 +49,7 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <section>
+        <section className="addMovie">
           <InputTitle value={ title } onChange={ this.handleChange } />
           <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
           <InputImage value={ imagePath } onChange={ this.handleChange } />
